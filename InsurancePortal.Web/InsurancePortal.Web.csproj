@@ -1,0 +1,772 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F58C1116-0829-4E05-8DF5-BE9CB4721F58}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InsurancePortal.Web</RootNamespace>
+    <AssemblyName>InsurancePortal.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BrokerController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InsurerController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\analytics\doubleclick_microsites.js" />
+    <Content Include="assets\analytics\snowplow_helper.js" />
+    <Content Include="assets\app-1bf9710e98e8db69f25ae65e22f0a1cec3560d2d0d40a4d9528b872be60e937f.css" />
+    <Content Include="assets\app-eda58eafa7598e80d09818bcdb51d1bc8b5fd8ad045ebf777e843726ae3171b3.js" />
+    <Content Include="assets\app_head-fee1c8d1c4f037c1f4c940a637d8cd0a8879ab2faf9639ef06824e78ff0e1276.js" />
+    <Content Include="assets\bijou\apple-icon-120x120-64e89542bd90198b0978b07a45f61531d2231f632aa5bf1c716859c78f95b631.png" />
+    <Content Include="assets\bijou\apple-icon-152x152-1823375fa998e626ae10f3219d0c71ee4ff7e77f7fc3f47323801925859c6e14.png" />
+    <Content Include="assets\bijou\apple-icon-167x167-dc27d424ae184f34cbe4afa158929f59375cfc98477e201f3eb1fced390f0b23.png" />
+    <Content Include="assets\bijou\apple-icon-180x180-cfb96d969435ef742153d9b92b7327b0720fa95f3ac905c2cd47cd1731b91e2c.png" />
+    <Content Include="assets\bijou\apple-icon-57x57-883fb33d5cf499cd7963527151cacbc2424428a35de4f745eeaa04810c5c95e8.png" />
+    <Content Include="assets\bijou\apple-icon-76x76-d405761bd30bd7a9039e9fb213c6f3c44f67e9d6c777e8b9cf30e1ecb57a9364.png" />
+    <Content Include="assets\bijou\favicon-e0e837edfd0650eeac6fdfd867d83745e6162b86a6edc3cb4f7eeae2b2d73aef.ico" />
+    <Content Include="assets\bijou\favicon.ico" />
+    <Content Include="assets\bijou\icon-192x192-bd2f830632266cad764c388c8d11d7e9aea41bf8e8485bebf1209ac501f9e756.png" />
+    <Content Include="assets\bijou\logos\insurers\sprite-97adaf1e21fd1b39c007fb876d854d145da87f94deb2c3136aa78727a24a8d75.png" />
+    <Content Include="assets\bijou\logos\insurers\sprite_2x-1fd2cd960d358393ea37845dbb510d30d303d5bfbb9b67032128fd907e347e75.png" />
+    <Content Include="assets\bijou\rating\feefo-e1b87fbeac06ead4e81857c84c3d5ef45d7ab4c5a847ef5613736d25b62d9974.png" />
+    <Content Include="assets\bijou\rating\feefo_2x-f73205a7dc50820d7884eeae73de3dc12ef073d3a58aabc38ec9d8c7bfb5b36f.png" />
+    <Content Include="assets\bijou\rating\star-4df265950c7f6380a7d1322db165bfeb7f8e5b74a2fc72a2e3bf7b299cfe0b40.png" />
+    <Content Include="assets\bijou\rating\star_2x-39406a6e7651f5e7b6ec533ce9a345be0bb5ff0218e42a4b56375609dbb9621a.png" />
+    <Content Include="assets\claims\rating\feefo-1a1f7eb0600591bda36f28bea70da14652799ecc716f011a0c8f7c7008f4569c.png" />
+    <Content Include="assets\claims\rating\feefo_2x-f9cb9b908ea985651b6694d40b7f3ee60cde5299b49bacffb0896b3e395f517f.png" />
+    <Content Include="assets\claims\rating\feefo_mobile-bc212eb81241e82963cf101285b8a8eefb5dcdba22afed269a23af73f561ce97.png" />
+    <Content Include="assets\claims\rating\feefo_mobile_2x-8a108e61002c42c7bc7be9c91035da0f08c5181520821bdb64c20e9c9e2dd820.png" />
+    <Content Include="assets\claims\rating\star-b6d170bdf2c31f644c2ae8384fefcb9fc7bde507dc415134114e397f76a2dbb3.png" />
+    <Content Include="assets\claims\rating\star_2x-dcc835e90becbbfdc864ea6d5739b97580630c24587f1d3853d8119fc7216541.png" />
+    <Content Include="assets\features\accidental_damage-c9d9cba3fa4745b2aa2a558ad9210cfb82fa4b69c0d34c306f17cfca5c1b6128.jpg" />
+    <Content Include="assets\features\additional_cover-5b142dbef13ec575747b782078963b2f756dee4a669fffe413aae02e77f882c4.jpg" />
+    <Content Include="assets\features\aldermore-15186c07cb4aa7893fe22b303873b53ad1076fdd4913549249222ae92d08dd8a.jpg" />
+    <Content Include="assets\features\alternative_accommodation-22455ebc2491fafa489d5cab91a68d2c4418278650eef7ce941d04ace722eeb1.jpg" />
+    <Content Include="assets\features\andy_feat_01-84fe50dae5cb734699f39e3bd4e53d3a258e990f2324fb12192c55ae73d1d682.jpg" />
+    <Content Include="assets\features\andy_feat_02-a3c4247e97d4aa553970f7006bcb94ff9f671bf775e2edc24e35a0a43451f285.jpg" />
+    <Content Include="assets\features\andy_generic_feat-f17d2bddd9de2256f7862ea637c2552dfb54ed31dd528603c8c67313252da5ce.jpg" />
+    <Content Include="assets\features\architects_surveyors-0fd9cc2dc9c92fcb046d39101a9024e8027a6388c61653021eff6d48a317050d.jpg" />
+    <Content Include="assets\features\arts_entertainment-d002bfd3532b4d4d6b2ed4e48f7c2fcbc715e3a57ff4f57f5e61cedbe640614f.jpg" />
+    <Content Include="assets\features\award_winning-d275d9d36e34a79f4d32039fcd5c7f71c2d3a75406221ed23fdbc607cc150942.jpg" />
+    <Content Include="assets\features\beauty-b16fe937d155c6947a50ea2174a8c36ff9ffa48cfae362f87a277d9d73e7d1eb.jpg" />
+    <Content Include="assets\features\builder_your_cover-f320aa9515785d0124a333d8df96ad6addea3916cefc24945ea6da10788d9b37.jpg" />
+    <Content Include="assets\features\business_finances-377df83d0d870e9ba30a897a534e4d8cf0f0e4df9aa85944aefb5be12bd09d18.jpg" />
+    <Content Include="assets\features\bus_interruption-b8bf9d0f69f3c7d70734ec69d786b47bb609dcaac87e60d7b200a8beeaa29e31.jpg" />
+    <Content Include="assets\features\b_corp_about_us-9ad0e2ea44557350583ac2510b26a2f01a4aec5d2e24620a51ecc8604fb58dd2.jpg" />
+    <Content Include="assets\features\b_corp_diversity-a9ad2ee8558777b0ce4aba8e147226a131a26ee10e01df5286ec829bc8b1bcde.jpg" />
+    <Content Include="assets\features\b_corp_environment-57c8e2dc122dbfb02dd4a0d252ab6eb637b77b922c84a65877875c2baaf70bd8.jpg" />
+    <Content Include="assets\features\b_corp_ethical_procurement-f8b259ad3b8a5f460aadf006a25bd1605190e3f80d5fd601366c5c9870fc73a8.jpg" />
+    <Content Include="assets\features\b_corp_impact-339b71bc456961220ffa66c6468488de37099dc1f83098d57acd48499aed3f80.jpg" />
+    <Content Include="assets\features\b_corp_travelers-9aebc4551629973e4d9d842f674f952d407b40b00276a381f21d04f85385eacb.jpg" />
+    <Content Include="assets\features\careers_benefits-f34cd568de526a21ccbd34a12cf5004ec5dbc923b06338a1d4964d5c847801cb.jpg" />
+    <Content Include="assets\features\careers_how_we_work-9aab38368ee9454a8f30f0b5f5351ab50f169c7a21a09a5281c657ee9f28503d.jpg" />
+    <Content Include="assets\features\careers_manifesto-c33fdd2ddb6a24e3f3f53b3b94661ad9953c8c203fa981ffba608ee8b76a1e4f.jpg" />
+    <Content Include="assets\features\careers_work_with_us-5370259ff3fd169baa77a2a89b0288c976140b020481606888008d0b5b269728.jpg" />
+    <Content Include="assets\features\claim_example_plumber-a03857e3469c2906d33417305a0e4fbad996619744513b8fcf61c508acca36ba.jpg" />
+    <Content Include="assets\features\cleaning-fa0f9cb3099702d8370e6b4da92feba9693bb53ea3fa6ea70c084c148764618c.jpg" />
+    <Content Include="assets\features\computers_IT-7805b59b90b9f83e0597c1209425bcb461aa0012596e585390ce0e8e628a6103.jpg" />
+    <Content Include="assets\features\consultants-54152533ad718b2b7d78f2cc9d01b13e0610762088ee260f3393f0fe35b9d02c.jpg" />
+    <Content Include="assets\features\contents_cover-5f5377ddc39a5f38b3a28befc93860b1ee8560858a4c19dd47856a5b799d7c4a.jpg" />
+    <Content Include="assets\features\contractors-bcd15c7eb94ca55c79529b8e97d5d639db793f690fc4bf7cc3d5a9ea1e1a9946.jpg" />
+    <Content Include="assets\features\contracts_cover-fa64eeb0968bfc9b8adc737c95395cbf089c1b6901d67575b718dff5cbad0184.jpg" />
+    <Content Include="assets\features\craft_feat1-d3102373e19f30296bec86e8b6c03cf374ecc55383cb38d9a9f2c30500d621b4.jpg" />
+    <Content Include="assets\features\craft_feat2-dcf3d48ffca159a2114182f3e61b959d3f192a56b5989cfeea58dd431738f9c0.jpg" />
+    <Content Include="assets\features\derek_karl_feat_01-aa69677139f33407a9f157f0718d4d8e35ca067892348ce754a685b6c967cb9b.jpg" />
+    <Content Include="assets\features\derek_karl_feat_02-ea4d3c242d2f3c26d370d99a5ebb0b8c38293937aac9d1226501a57c9927247e.jpg" />
+    <Content Include="assets\features\derek_karl_generic_feat-437ced3f2e1f8f1e821962e1e7f50a52c08e1d2b978dcabcf30bb971490ae34d.jpg" />
+    <Content Include="assets\features\driving-instructor-1-f0161b26a6b8fd612afa54db647877e1649a5facb024dfc3a7dd36fbb90731ec.jpg" />
+    <Content Include="assets\features\driving-instructor-2-f309e4a06823ad05083ce20198b953cc4a072109ce8dbf07308bf8e4bd08d28c.jpg" />
+    <Content Include="assets\features\education-b256b4a54bbd61c9ffe34d918fcc5891643764bd74dd330aa2c33fe8713d9d59.jpg" />
+    <Content Include="assets\features\elf_feat-6ec951dad60a1effb3a31b66f192d2ecdf3085fdf2c5bbc9895b7b11c3004ab3.jpg" />
+    <Content Include="assets\features\EL_claim-d596347aff33a61b4c3525dfef30411a000b578a9dcc49508f3161ac9e457235.jpg" />
+    <Content Include="assets\features\EL_do_i_need_it-585013a7b668ddd1510a142e2507dcd1a29bcd22c7488c422534217e59d0c776.jpg" />
+    <Content Include="assets\features\energy-assessor-feat-623dcc5e51e717451fbcd8a661fae84449b16295f8387d9dad24c9b70099e27a.jpg" />
+    <Content Include="assets\features\engineering-52c7909aaead9a2c20ce2f23fc1b5f2ec6237ae6404b0d659aa4b4d70f95281b.jpg" />
+    <Content Include="assets\features\equal_pay-b751eca8a1622c3027b145f140eaf81e7a0ce688844fc4d15c3b5a5caee89d09.jpg" />
+    <Content Include="assets\features\feat_100_businesses-ee08b0ffc696d72228da09fa9e76801ffbf258ecb8b0a851c39ed23619299a98.png" />
+    <Content Include="assets\features\feat_100_businesses_UK-e4a747349daa58535963578b90baebe082ceb978cdb1ab3724871fb030b51ea7.png" />
+    <Content Include="assets\features\feat_guide_beyondthebay-959926e8a089f1f2479e8b95c744fdc9a46650666169f9e395922e881720bd90.png" />
+    <Content Include="assets\features\feat_guide_business_blogging-e40c2377699c67406257218abb3c33779fa464004b77298b29b3eb7d2c72ea93.png" />
+    <Content Include="assets\features\feat_guide_conversion_rate-e3c6f2a3e6b42cbaf4da31aab410d5b2c787a3d0ac85424f7f1d913d8fe10788.png" />
+    <Content Include="assets\features\feat_guide_email_marketing_guide-3c026565a3f4f80ca0f945feb8260b0361cb8322f453ae448b805973a47f4853.png" />
+    <Content Include="assets\features\feat_guide_facebook_small_businesses-a86285990c1f1d7be1ba4408546be9585f3ba6e66da57835c814870e66ae811c.png" />
+    <Content Include="assets\features\feat_guide_googleplus_small_businesses-8dd937f7a320e709af79e6ddceb3be1edbb33082527d4cf9ba8b534905f3e693.png" />
+    <Content Include="assets\features\feat_guide_google_adwords-116845dca3826ee93c0dfd15a6fc16d23ff607772b97541395356dda66b54ad6.png" />
+    <Content Include="assets\features\feat_guide_google_analytics-fce4a5808bdad01c9f32a48cb1923b708c852fa4681498eb84c8f6b067d8432e.png" />
+    <Content Include="assets\features\feat_guide_google_business-c2728dc980ef8fb3f51a2119c0c47e4037c9a462638655944b1cc85786d8b2ce.png" />
+    <Content Include="assets\features\feat_guide_hiring_first_employee-6c9277a99c058d4c6266d077a60eb6327d3a1ded70679ef6407be0e3a7c0f96a.png" />
+    <Content Include="assets\features\feat_guide_hungry_tech_giants-7e49614c3907e8125564ea4a02ebecc02be4a98428ec27f79f4751280e803b2b.png" />
+    <Content Include="assets\features\feat_guide_linkedin-c8f2d3992c1822445c2a5662ccd518a053210b564c9aa81bf6d286a7dc139d30.png" />
+    <Content Include="assets\features\feat_guide_productivity_collaboration-b276c908a173f89a9ecf2ec48aca5d790979a56f99c2a408a134d256043ebd22.png" />
+    <Content Include="assets\features\feat_guide_productivity_email-437899ab91e37157eb4e00e8a6bf7a966237172d6dcb2df9aa77d49bee1c0cbd.png" />
+    <Content Include="assets\features\feat_guide_productivity_meetings-fe2ff951c4c58d507d1afee490da80ff1584ef649fd41a562f8df2e0040f3bbd.png" />
+    <Content Include="assets\features\feat_guide_productivity_travel-fa06b36705549bd6c2665a9e7affb9c19ea0b04c38c97117e87921890f35a635.png" />
+    <Content Include="assets\features\feat_guide_productivity_workload-eccd95e91776bdad20124760c070596ab63b1ccdba8131ae77953f39104d9276.png" />
+    <Content Include="assets\features\feat_guide_social_media-6840ec9d747c2a24bedbf0d2f1ef6ecd19ac2a152258ef160d5d448cd3767ec8.png" />
+    <Content Include="assets\features\feat_guide_twitter_small_business-6afaede83f78b0e4bd4bdd0cf17a2afa4fde6da258938cb89f7ed36be0fe43af.png" />
+    <Content Include="assets\features\feat_guide_wordpress_small_business-e4147f747e7408c59dc0ac781d5c624ba4dfa6b2cd7eab429ae2d6c4079c212b.png" />
+    <Content Include="assets\features\feat_guide_work_life_balance-871292ac6fcc2684b747a03dcd92c0d9e79f792ca1898f422e4b465f9725851c.png" />
+    <Content Include="assets\features\feat_guide_youtube_small_business-16456aabf882f95afbd50105485515446bd77d0769d6eb855a249dc378fa0d1a.png" />
+    <Content Include="assets\features\feat_landlord_town-3e5891f995a0af1c19f42579b2320da51aa389962b53049ab03d84ce15c5c035.png" />
+    <Content Include="assets\features\feat_sb_business_success-5d28e0156ec097d61864ef16c8c4982a4337fb8bd59f85d745ddd90e10d0ea36.png" />
+    <Content Include="assets\features\feat_sb_manifesto-5e8ac6e2e4b2e85c9bc5e98edb676c4832230c9d533f0bfc9f9d6d8796a88cbd.png" />
+    <Content Include="assets\features\feat_sb_manifesto_video-a666bbe309b10d1be4752442ea692bb75a36a5c8a4e1ee975452caab58b61029.png" />
+    <Content Include="assets\features\finance_legal-84f27f81b240656b182f66a852023752b518028ceb293c7ceef2945e44ba1368.jpg" />
+    <Content Include="assets\features\fixtures_fittings-ea385852f19730e7b6d04a664140d9a23f40a02e6d9c2bb259d2b1444e8768db.jpg" />
+    <Content Include="assets\features\food_drink-340198bc8773660614d3413c8b090f7f2e2f7f0ec71b7bcc6593e9065c79e798.jpg" />
+    <Content Include="assets\features\form-9deb8f4fe14dc056da52e94981d228c8ede5ea54c3de008e7e76e339ed3863fb.jpg" />
+    <Content Include="assets\features\freelance-aef47d0c0a83f3a172a8bff9243c08d3f8d6b14363cf282dcd4f0db0f5375430.jpg" />
+    <Content Include="assets\features\free_agent-381c6abc4516e96ab22a5a7df13e81b0cc857866d665c695df1928d6beafd5be.jpg" />
+    <Content Include="assets\features\gerry_feat_01-1bb44859d42dc8a07503b7d776369ca365ca08b2428559c5c12c0db8f310f8fc.jpg" />
+    <Content Include="assets\features\gerry_feat_02-6d821173d54ca507e0cfc35e3b82f0a096334c13654cc43e4ffc60e176d1c784.jpg" />
+    <Content Include="assets\features\gerry_generic_feat-56f3a1539d50dfb494d8501b88bbd6c517824a9b695a454510a5bc500a093b66.jpg" />
+    <Content Include="assets\features\health_fitness_wellbeing-887af8b4cb1ca2e76b56772a80b5f11a5e4fa6cddb664a0a7412c6de4389fa34.jpg" />
+    <Content Include="assets\features\high_risk_cover-f24d0a39392b082e99101fcd6566650c181e335a8ed8489747f5dff06b5b0e04.jpg" />
+    <Content Include="assets\features\home_based_worker-7e22b44f51d5bd0c340f33aee0cd60bebea3f8d13ea6c212dd9246a51aecf6b5.jpg" />
+    <Content Include="assets\features\home_business-91c9bc037b734e7069a482fcd84208dfef777ba4fde1312d438e33cb774a825d.jpg" />
+    <Content Include="assets\features\home_emergency-ac6f6d584c55ad20587027f08ffb2b45086e8189ad53ff584efceeafda58cad5.jpg" />
+    <Content Include="assets\features\hospitality_tourism-500fe6135bcbc041a9f2da20d48efd16678bc45f7624d2204984fc0fae9e9815.jpg" />
+    <Content Include="assets\features\hotel_key-7b8148843b2322c10aa19e62c31b82caa56626dc25750d01c069f04f7afdd97d.jpg" />
+    <Content Include="assets\features\investigators-4fe41c2ccaf88d3396e07932651c8e94a0ff65ff69bd7e3ac5aa63bb9eec08db.jpg" />
+    <Content Include="assets\features\invoice_discounting-95ef97395998f7fb932c6dfc5562cb1cb96c7148589e68b2c2bfb073dc87c59e.jpg" />
+    <Content Include="assets\features\invoice_factoring-0b6168e89204799faf0f43103cef533c3f5adacd8ad4a652231111af4a3a6d00.jpg" />
+    <Content Include="assets\features\jo_feat_01-a510760959dd3b4baab3db64d1c8eb577be8d889df12a37aa919f6c6e5c55fb6.jpg" />
+    <Content Include="assets\features\jo_feat_02-1ade6ed8778f22012daac0329141da2f951d35ea286ea4033b5d4ac94d3ec20d.jpg" />
+    <Content Include="assets\features\jo_generic_feat-fdbb6d65cc58805e5e4b684336080650dc6d2bb1d1d4fc71d9fedcf91e2a3334.jpg" />
+    <Content Include="assets\features\just_for_landlords-14b36147155250e2fc92e524bc09dccdffb0c221d0a4bc56a80ce996a9a04bc8.jpg" />
+    <Content Include="assets\features\landlord_tax-aa5b0cd93552a44745ddc6ad0c20f7fafcbc6c16d6e3c91a40a7a6a8528dc517.jpg" />
+    <Content Include="assets\features\language_professionals-fde18f8357d3762b1df3b1ac4585c294ef9602022207fa28af02c1bd3a1d4d82.jpg" />
+    <Content Include="assets\features\life_inside_sb-7ba0f2f833abd695341003356eb9117283c4c6cdd5a2e051b498a12c9649aa91.jpg" />
+    <Content Include="assets\features\limited-company-37e465416f84215d330b646934c8a8b0ca0bb2618eb486cb1d653cd15b5d0203.jpg" />
+    <Content Include="assets\features\lindsey_feat_01-40c783d683a22f7d492cbb00571dcaaae0817a10474981a01ce45a4aa733fb54.jpg" />
+    <Content Include="assets\features\lindsey_feat_02-42c30308fb4d69b18d3b8faaed89a5a84567a06deaaf07fd1a0c1e944481c10d.jpg" />
+    <Content Include="assets\features\lindsey_generic_feat-6cc50b93b44698c27aa05f1b67389e0a3c7d80b145897b377543b0ee3b0cf699.jpg" />
+    <Content Include="assets\features\LL_contents-fd5a4f210c1a5c2f554f8b451de79366d372170a5e79462f9cc9f90b0ba925ee.jpg" />
+    <Content Include="assets\features\loss_licence-6c529ac889335592669d851174090a9d5346c77cfc88835792dbc78a59e622a3.jpg" />
+    <Content Include="assets\features\loss_of_money-756d0df26b204a4ec74ba02f491d4577f35db47d5a659fb5d072427107670d95.jpg" />
+    <Content Include="assets\features\management-7c8cbec7783a5f9fe4d9144e1ff698c57fb946b824e7481b6214b62b28ee0251.jpg" />
+    <Content Include="assets\features\market_trader_PL-e9a0df2b3c13f3bcac691b441fd03577837052b4b90e9e9484c3120af0940dab.jpg" />
+    <Content Include="assets\features\market_trader_product-f3c9ce8eaed5cc01a47b33c3bdc38fb92b8d5bb58285a810e9db7891d42a07b2.jpg" />
+    <Content Include="assets\features\media_marketing_design-9259b49a31229e2bff392d08d1bd88ab43826e8e2d962b82d17614ccce8dcbb3.jpg" />
+    <Content Include="assets\features\meet_the_team\alan_thomas-118cfda239ac77af183b2c8efa252a8bed4da0afad916379a89b3401db5cb75b.jpg" />
+    <Content Include="assets\features\meet_the_team\beatriz_montoya-e2b834db626110e42c52daa48819a7600b471a1285e25d246529076b9d4ee5fb.jpg" />
+    <Content Include="assets\features\meet_the_team\chris_slater-ad2fcb74c9cbf81fe4eca7943667ae594a88f2e0bd51a3828c5ad146dea98848.jpg" />
+    <Content Include="assets\features\meet_the_team\david_summers-65c1a58b9f7f547d80dae51213b352af8778a0635af9b7365815778eb61e9832.jpg" />
+    <Content Include="assets\features\meet_the_team\deb_holland-9b7f287a792c17d68cfa144a9d1efc307b74f46849f240816d35c50ef11a01d5.jpg" />
+    <Content Include="assets\features\meet_the_team\fiona_mcswein-122b9cb43eab600796e79c9cfdf37c32c989b11cccc4b33345197469c9d555d2.jpg" />
+    <Content Include="assets\features\meet_the_team\jason_stockwood-9328f4829febfa9945a459a3d4c61c69987d25ed93022c5bc7543929c817484b.jpg" />
+    <Content Include="assets\features\meet_the_team\kelly_harris-b2341e0a4ebe4699177e0072bdf702e18e0501e856e4774f7c51098bfc53a7e4.jpg" />
+    <Content Include="assets\features\meet_the_team\laura_winter-4cdf5481fbdc7d871dcdf17a5bc8c91b50f5e810b8de2c5cc48edd42f48e8821.jpg" />
+    <Content Include="assets\features\meet_the_team\lukas_oberhuber-50432b844cdaeb11f40a361f73c0a315914a9d315426f9d03a48d6066e6babde.jpg" />
+    <Content Include="assets\features\meet_the_team\neil_edwards-a16be10aed09e8d1164ad53ea4be39c497e2b052f1ee133933c6dfb15f598cdc.jpg" />
+    <Content Include="assets\features\meet_the_team\phil_williams-285f540d85211e02e598de2c5893841f3a3a9dd4d8309e4c4e7a1fe5ed96b673.jpg" />
+    <Content Include="assets\features\meet_the_team\stewart_duncan-ddee7a659010e8b89152665a4d4cb10f38f59b8730ef739615f274c5e733e0b5.jpg" />
+    <Content Include="assets\features\modern_slavery_feat-89215e2210ab85c53d49683ce463f78aea86c7f3def3418bb4a9cafd8d4f5582.jpg" />
+    <Content Include="assets\features\moo_cards-455c2cbac18a826d598a5503876ffa09cc0524eab108278cfa3fb6aafed067cf.jpg" />
+    <Content Include="assets\features\nail_technician_feat-36950540278ac238ecfd8baa6bad13c3bed42a47ead1e07bfddc8c64a2f4c89f.jpg" />
+    <Content Include="assets\features\online_retailer-8e948331ca1797bbbf0e942e44c2c532799614fbc13b0aa0770ed99bd3b362ac.jpg" />
+    <Content Include="assets\features\our_insurance-2397afc0571d4d402bf21a04f89d3b3b7a8bdbb3ccb342ad97a150092404e11d.jpg" />
+    <Content Include="assets\features\personal_injury_feat-a41119095b9e3837617c109cf7995f4dfee9c1548670d7cacaeeec9c363b016b.jpg" />
+    <Content Include="assets\features\pet_care-5cb669293f100da0b39a425c9aba1a4481c6e73ca9abe0ed00c211bdd68b9b8f.jpg" />
+    <Content Include="assets\features\photographer_feat_01-edca9ad7658fba435fc1eccdf2e925e88543313aa77e670e16de6f0a12cf3d2c.jpg" />
+    <Content Include="assets\features\photographer_feat_02-9cc2da9b00fc9f0de1fb5e07460cabfe73fb11d47071f1174f50e6a479a7ec2e.jpg" />
+    <Content Include="assets\features\PI_claim-56404a6e370b2c7d427683cbc0c0e4cc5187643feb39a22c52445272c2d74ad8.jpg" />
+    <Content Include="assets\features\PL_why_do_i_need_it-0c7289dc0b80ce8a8c42fce2268ec0cd395c9189e36803eaecc0e072bbcfdec5.jpg" />
+    <Content Include="assets\features\press_releases-4f8ef9a9fd7d37719d70a7c96ca34b68b14549d2354022f44c27d8fb73c20323.jpg" />
+    <Content Include="assets\features\product_feature-9e96d470707b3e1e1a2df21e346c6fa8c7068b11d604cb4a640154d0db20a46f.jpg" />
+    <Content Include="assets\features\professionals-cf25eb80f401a9f0348a9ae0b15638947314e7c6a797f54591931e1fe5fbd854.jpg" />
+    <Content Include="assets\features\professional_indemnity__cover-5b94ecdd0524c1a5a87dbd39effa8577f76178dbbca1c609b268fb2a1ec9f96a.jpg" />
+    <Content Include="assets\features\proof_policy-e0fd3481cf741330b7ce33a310d35d6751f891d58f3f8e640982cefa41d59ff6.jpg" />
+    <Content Include="assets\features\proof_policy_web-9c3064ac214cfae13291945985f32d564ede7ed6c0de0c0e926ced1eb6ba3510.jpg" />
+    <Content Include="assets\features\property-375687799af89146d1d584d8d830eeb970801a5062bdef17fe39f1dcafde35fa.jpg" />
+    <Content Include="assets\features\quote_in_minutes-cfd46c08d367c6b882f0ee50d72c2db319c791c2ebaeb24da25037eae9bb758b.jpg" />
+    <Content Include="assets\features\recruitment-4ad0794cad8ed97bb4b76c7f4b7247a93a4ba3ce531044f8e8c11d0c3d077124.jpg" />
+    <Content Include="assets\features\refer_friend-8570d61f9118c9e6abc144ad44e8306c249b0cd0e519a62b01863d4ea52dfff3.jpg" />
+    <Content Include="assets\features\restaurant_your_cover-06f5d1fac4137ebbf2c59b5d0cae2095af21e5c7bad39f49be0e236870a58c80.jpg" />
+    <Content Include="assets\features\retail-d90b44a96f9b4f0a1a0db727d3fcb1abd99e8abdec384458adf74952b6fa925f.jpg" />
+    <Content Include="assets\features\santa_feat-1b32b04f62cf32ac73f3661c855306660fd70eeff2808cf1ade51623be196d04.jpg" />
+    <Content Include="assets\features\SB_social-80723f862cb0498a3a1669ca9fcb81effefe06d25a7b61953c7dc3a8398ccde9.jpg" />
+    <Content Include="assets\features\security-2d7137517a3e1240f4ef5262b8a4815cbd9248efd59aeb99f75b0e8ae1350a1e.jpg" />
+    <Content Include="assets\features\self_employed-4db438f88578c0058385755ecbc8c07a6c9f8c092b6df09c43ba06191cbb3fb9.jpg" />
+    <Content Include="assets\features\shoes_cover-f34c5256d564ae6b917919e129d9769b6c44383b4f1d8bb941833a9188017174.jpg" />
+    <Content Include="assets\features\shop_feature-29936f614537b041ff06e99bf574ebb83118b057185fda5668506923a8b5c09b.jpg" />
+    <Content Include="assets\features\social_customerfeedback-67b9823a074953bfcb5ef85e25cd058fc923891110038a5ea57e8f9d5c656dde.jpg" />
+    <Content Include="assets\features\social_facebook-2b1be8df988ddaa18fffe549dd0078824356408abacd09854db4ffe4e56c7eb7.jpg" />
+    <Content Include="assets\features\social_google-0ad526d6bbd77d2d249ebcd5b90e9d7bf688cbff722ca2c8040ff5233adec41b.jpg" />
+    <Content Include="assets\features\social_linkedin-3d4e428f992c36b3a3e737b3e2fd6da5f7d7436dbb1cac46e505b6eede2e71ab.jpg" />
+    <Content Include="assets\features\social_pinterest-49b8d332e03f08542735b8fe7af9085d25c511c381d79b618affb5298dd2303d.jpg" />
+    <Content Include="assets\features\social_twitter-52c4556a6131727e015bec95644dac70dba3b762f375570ba9e46b5682397da8.jpg" />
+    <Content Include="assets\features\social_youtube-2cf5a6cb563b4e1b0b9fb342b4d725dd5176fb4ef94f7b8f21af46877e6be38d.jpg" />
+    <Content Include="assets\features\sole_trader_1-a6f4d534f52bcf578a9ccde0bf398f8ebd2717b00db17d5c262cba94aaec2bf8.jpg" />
+    <Content Include="assets\features\speak_to_lender-1304b1048ad5b8a01e318e0606df5cbc99b174befd67aaed7793a108135b6840.jpg" />
+    <Content Include="assets\features\specialist_pub-ed2d18d9343b25838c88d6903a5266ce39e6a99be479d87da478969a5b6b5839.jpg" />
+    <Content Include="assets\features\startups_feat-26ca3570ea68979a8dbf66965e25bac26d3aa7d6a5c8511f8604ae9862245639.jpg" />
+    <Content Include="assets\features\stephen_feat_01-f28282c758b722f822be7d99cbfa4b9977361ba8e3ff0e123cdf9407ce6b1270.jpg" />
+    <Content Include="assets\features\stephen_feat_02-e9e1cc647501bccd398a26b4eeecfb4714ede58a16f0047d9158a3b695b65773.jpg" />
+    <Content Include="assets\features\stephen_generic_feat-caee55b1577fec47888c06e0bbafe64fbc2eac5e94eff82c974a3f5843433229.jpg" />
+    <Content Include="assets\features\stock_feature-339775847efd659f3b58e0411eb9737c5f36c408b08584d1f2cb60e042fb268e.jpg" />
+    <Content Include="assets\features\subcontractor_feat-ff37de7643425fd8b0abd97cb28715347dcb5eb9fc8ece6725dfa0e3ba594ea9.jpg" />
+    <Content Include="assets\features\tech_manifesto-7f944db36d557ed399e27525920c27545d695d2b1eba9776bd63aa732e4e3911.jpg" />
+    <Content Include="assets\features\tenant_default-535ba8ec4429290c00c059563d7c5ab3304f70954656de4b2c50de5162891cc4.jpg" />
+    <Content Include="assets\features\tool_cover-63bfdfc0ff786a14c138ec29ab45c0f0a09b617a0c95520be1c09249fefa4901.jpg" />
+    <Content Include="assets\features\tool_cover_alt-1db16ed4c157dff9c8e6c05d4ab47abcefefa3b756d0c881596d8ca40265d6b9.jpg" />
+    <Content Include="assets\features\tradesmen_construction-80567a3d5bd1fa26ef55028a6ffb848097631be32d16bd04bd112967d84ac15b.jpg" />
+    <Content Include="assets\features\transit_feature-b32ec29b72e78fb2310b79f94b0122a472098cc41a050014e72d6d2ab3f7fb07.jpg" />
+    <Content Include="assets\features\transport_logistics-55c378254090cf4d68966a8e65d66a0443e8d899dd78532700e76fa04f27d2fa.jpg" />
+    <Content Include="assets\features\unoccupied_property-a90dad75342507f1f6973f4183e051f13b71ed28217bef963e1a90801c1fc60a.jpg" />
+    <Content Include="assets\features\van_1-0ad148989d8593181070bb41aa28eba540eec0835405b107b937697bea640768.jpg" />
+    <Content Include="assets\features\van_2-ce6496c77cf085f10289b2187a58b785f44bf86954f20a1f59d378b08dc4cc59.jpg" />
+    <Content Include="assets\features\van_3-8834aa7b907c6d1664513590e6a277085e916fad66b8800458b4083611691c7c.jpg" />
+    <Content Include="assets\features\varnish-spill_feat-f743edf88df865998362dc1d9e3b8b375f2e9937825f596e80148f0726863d79.jpg" />
+    <Content Include="assets\features\videographer_feat_01-6b617ad375a3284d9eaf075f836a46c0a08f8798980b9b75e073fe62ad329343.jpg" />
+    <Content Include="assets\features\vistaprint-ce6b1401d67ccb80f8a6779d8fd62e386f219a1c011a3b0d38c8a689a0993f27.jpg" />
+    <Content Include="assets\features\watch_the_details-02203c1f8f0534d1ce446fa0627c101c4e3a84290e38d33137b495afb26f7e20.jpg" />
+    <Content Include="assets\features\webgains-09f8261bdce6713ab5a5f8ae3761d157df65cd8f9b11607c0f64b4065208924b.jpg" />
+    <Content Include="assets\features\whizz_kidz-c3e96683beb4c3d8bffa34294ecac5ff564a4d177f4a5a54a8bfc58d29f5a50b.jpg" />
+    <Content Include="assets\features\why_simply_business-c712c48c436eccb7e204760770fa2c4a27fd0f5e8c357cdc94c54870be9a062d.jpg" />
+    <Content Include="assets\features\wif_commitment-fe044868b8819eb59142ac7f5bec8d62c13d571078003da8ed252517c7490d1c.jpg" />
+    <Content Include="assets\features\WIF_feature-c478829550a0b96bc6614a72b73526e5e7a4da01c3f16d3c27405f3cd2090fa2.jpg" />
+    <Content Include="assets\features\WIF_maternity-e782e9175793d352f97929637d6481ff962312cbd76b7f8892633e4c1ef4a79c.jpg" />
+    <Content Include="assets\features\WIF_success-1fc681e19982dfe31d468863321e158be02fbbdd64b146fc46de5e86a09a4456.jpg" />
+    <Content Include="assets\features\WIF_talent-a3ce0a39f07b349a2694059b889d75b281d5814c487c2e9180a5f42cdc61442b.jpg" />
+    <Content Include="assets\features\worldpay-a88244f5e5c5298c5ec8a2a7ac09a291ac2d9960db57558a9ed8609b7ebbee79.jpg" />
+    <Content Include="assets\features\your_business-b160219c25e1d09a69f9ee16b8a9fd3613e51d93c5958cb003b06034002c44e6.jpg" />
+    <Content Include="assets\features\your_level_of_cover-1216bcc22f99e1da4ade4e7e7820098ddf397eaf50642257200fc7b098daf4f0.jpg" />
+    <Content Include="assets\full_width\app-e3dd079be43af3e34c8d663f9928e2442fcd1dfd2830bbf190c3527f0e542749.css" />
+    <Content Include="assets\hero\banner\best_companies_logo_2015-a89c615f75da471dc199784fe61e8cc9b3695c50434451483c9423a07167935f.png" />
+    <Content Include="assets\hero\banner\best_companies_logo_2016-7000d64a768cb5b51ade5a759841de351ca29416411f895ae1f9e80154634778.png" />
+    <Content Include="assets\hero\faq\Step1_retina-50d4a84dd5952d01144a52e6afb1d0c3c775c1f7b1a540497ce7bd0e7da627a1.jpg" />
+    <Content Include="assets\hero\faq\Step2_retina-f2a14bcad5dabce41d93146cfb76cf7435f8e5ea1bd0655791df4bb4e3d62382.jpg" />
+    <Content Include="assets\hero\finance\aldermore-e9e944fe3a94a8a7ccc1c10a44bf283580cd44236c6b2d131f509ad9d2cd8dd9.jpg" />
+    <Content Include="assets\hero\general\about_us-b19d735b5e26a31a8d8a1971700fbaaa32d8238f852506049acf5c4aa3dd7181.png" />
+    <Content Include="assets\hero\general\andy_hero-a0c35ecd45e6166f19c19526c2255e936442e1c83ddbccca55304047264d09d6.jpg" />
+    <Content Include="assets\hero\general\awards-53d3f7d6d0177cdf07c8b35f2f48d5bc6555cd43c26ce6b184e797ca8839f2b7.png" />
+    <Content Include="assets\hero\general\boiler_hero-dc85f18a7d71fc3d4c70e1f9835f086c764a9e17df13d41d6959751ef114495d.jpg" />
+    <Content Include="assets\hero\general\careers-059a1058c06c9b6ad28891d4499066ecec065277c82d72be3588031d2577b7f0.png" />
+    <Content Include="assets\hero\general\customer_benefits-ebac623ebd550be606b636d018b0d48148394c7fd6e3b3ca67b1728f9eb96d4d.png" />
+    <Content Include="assets\hero\general\customer_reviews-5c78ea00461a45a7644120149a5c3112274141fcb4ffe18d6329b2bf62b23f60.png" />
+    <Content Include="assets\hero\general\derek_karl_hero-50ffb01c31b92181f016516440e4d1e897e7dd4b82bdef96a0c5128dbfc3db86.jpg" />
+    <Content Include="assets\hero\general\generic_hero-42a96232c7a3be4dde3dd5a5f48b0074abde305b3e73dad43537f67e4e37d540.jpg" />
+    <Content Include="assets\hero\general\gerry_hero-1b41dcf18b2ffbd6cfb172378b4928c82ebc5867cdb3f76f724f4a8d81d93886.jpg" />
+    <Content Include="assets\hero\general\industry-b19d735b5e26a31a8d8a1971700fbaaa32d8238f852506049acf5c4aa3dd7181.png" />
+    <Content Include="assets\hero\general\jo_hero-a7ae7bbf99d48f8bc011a4b9fec35597177a1d4aaf1b3b42eabfcb03f4d23487.jpg" />
+    <Content Include="assets\hero\general\lindsey_hero-09a3de49a6ee1197d6ff4e9afdf73ee4ca79ee9cda95c07eaa54738d3ab511cb.jpg" />
+    <Content Include="assets\hero\general\meet_team-53d3f7d6d0177cdf07c8b35f2f48d5bc6555cd43c26ce6b184e797ca8839f2b7.png" />
+    <Content Include="assets\hero\general\newsletter-059a1058c06c9b6ad28891d4499066ecec065277c82d72be3588031d2577b7f0.png" />
+    <Content Include="assets\hero\general\partners-ebac623ebd550be606b636d018b0d48148394c7fd6e3b3ca67b1728f9eb96d4d.png" />
+    <Content Include="assets\hero\general\proof_policy-5c78ea00461a45a7644120149a5c3112274141fcb4ffe18d6329b2bf62b23f60.png" />
+    <Content Include="assets\hero\general\stephen_hero-aaa3af99b5a20d3028ce69f14aff0b425bccd8acd93fef5a5e18f348e894d2f5.jpg" />
+    <Content Include="assets\hero\general\tech_careers-b19d735b5e26a31a8d8a1971700fbaaa32d8238f852506049acf5c4aa3dd7181.png" />
+    <Content Include="assets\hero\general\van_hero-b82d46a3c154c6eba2acdf612cc36dd147df9683420fa37d76eac1997908b0df.jpg" />
+    <Content Include="assets\hero\general\vehicle-044212e250c47b4d6f84f4403d1cb7ef8fc6b61796b35ec186b9618f63d12016.jpg" />
+    <Content Include="assets\hero\general\whizz_kids-f638f7736ab70ea97d0a8903d5ca47b31c52bb5d16668328678e509f61ba85d1.jpg" />
+    <Content Include="assets\hero\general\WIF_hero-1b3fd005a747db3c68fde13bfa2ec3bdb83fa5246c544dcc2bb87abdf158b4a7.jpg" />
+    <Content Include="assets\hero\ppc\acupuncturists-ce44012bf0dcee4db000ccc5fcb5f15269a1e57c08e01b2660a457736198245e.jpg" />
+    <Content Include="assets\hero\ppc\alarm-911853bcdaad62fcf8960d4579e4489005aa51357b022a629ca992c7b27db8c4.jpg" />
+    <Content Include="assets\hero\ppc\architect-b2235d76f149b0d9f3ba97a3768b5f699566914a3d41c0b8a2eb385be8fbc5c5.jpg" />
+    <Content Include="assets\hero\ppc\art-1dc4c30c1690d737f01491a1585d675e80d5bf076f5a79904011d5ed05bec13b.jpg" />
+    <Content Include="assets\hero\ppc\art_gallery-fb32ff0b4ebcf5887c9e4816c97e8a0e3dec8a9122f13a2ea3a6ba61270a14b1.jpg" />
+    <Content Include="assets\hero\ppc\baker-864a5f6ea2b229eabb4201d7e5c84a5b98459ecb5c74a847f47d629ad7ae11a2.jpg" />
+    <Content Include="assets\hero\ppc\barber-05160078a940f607287d429bdcee5bda9221b76aee9761e858000b8103a214f3.jpg" />
+    <Content Include="assets\hero\ppc\bathroom-fitters-7e31904a8671dd49de6f2d96b5c582349d13f27fe34933fd7595916ef63ac21c.jpg" />
+    <Content Include="assets\hero\ppc\beautician-d5898d37acb264141ca1fddcd8019c7c65c033e112039b76c6e7d36c4097bcfa.jpg" />
+    <Content Include="assets\hero\ppc\bedroom-fitters-1b36c61a3e4c65fd1e06d28851c57086ee46ba5a89a3a617d6a28a8fd449e3ea.jpg" />
+    <Content Include="assets\hero\ppc\bookshop-bada73210c61ec657e8888befd15c6cf1bcecc65e98e38e31ec40de607e780d3.jpg" />
+    <Content Include="assets\hero\ppc\bricklayer-4818354adee1837e85ae2bc30eb22af46c286ee074c5e869af3487e5b4fad03d.jpg" />
+    <Content Include="assets\hero\ppc\business-consultant-1787dd3cd13cf76f39e8f1662203ab9c0c6c24bfdb477d9e39128fdb1f7fa4f9.jpg" />
+    <Content Include="assets\hero\ppc\business_contents-337692ac134ded7b5884e898db3b88b6d03c497879009a3f8d503394e0a1bc59.jpg" />
+    <Content Include="assets\hero\ppc\butcher-3f4d8c1f447c35da2fbc2c08023ee709cab27e7d3705b53770b256f761973853.jpg" />
+    <Content Include="assets\hero\ppc\carers-75dc5689ab13556285094ce82ebcc7c4958e4cbceb1e4092b32a24cf320666a9.jpg" />
+    <Content Include="assets\hero\ppc\carpenter-d4eca67eedc9fd8711d70d569f2f1b34f42b62452ee78e8344bd8a5cbaaaaec8.jpg" />
+    <Content Include="assets\hero\ppc\chef-f637edb8accefba836ee2ca42cdc2978eae56274cd54712bdf6050e1a7fe7941.jpg" />
+    <Content Include="assets\hero\ppc\childcare-56ad7afb157ef5c80617e1a13eeddba8358629d6fb269a4b3cf06498a3b258f9.jpg" />
+    <Content Include="assets\hero\ppc\chiropodist-9a8acdd957b3ad504a3e913754d93328e172a5d8dbfc6e90bc1083fc9647fbb6.jpg" />
+    <Content Include="assets\hero\ppc\cleaner-c1a023b00cd684af83db0264dbacb2e5308121a754f6d2a149a2fe81bec532df.jpg" />
+    <Content Include="assets\hero\ppc\complementary-therapy-5422fa0fcefbb7b66fe6313c5dcef9b884e7596f924e2b5e4281a93411a76b5d.jpg" />
+    <Content Include="assets\hero\ppc\consultants-31dafbe7b56fe80164f8e2cb920bb6f869b6dde4a3b6c9dfde66e586afcba96e.jpg" />
+    <Content Include="assets\hero\ppc\counselling-50976ba74d4d9ba9e1db83b8bef26a17876df899b3521e9d8942c9a96398279c.jpg" />
+    <Content Include="assets\hero\ppc\covers-504cb47ec3222cc43de64a5fee46aa948b9e54e8cdaf91c2fa96c526dc0f74ef.jpg" />
+    <Content Include="assets\hero\ppc\crafting-b0e43822f9e378d5d38310532d5429d02086adfb60b46f254218971b002e3f8f.jpg" />
+    <Content Include="assets\hero\ppc\creatives-720f7037f454199f66732e760fc2179990339a28f9fa3ffd178b0602662ca086.jpg" />
+    <Content Include="assets\hero\ppc\dj-cd6e295180c386cd7f7e48e5b0b74d3a1832a91174c95c1d4e5fab6ec20e8b23.jpg" />
+    <Content Include="assets\hero\ppc\door_supervisor-7d61de8f93e91c7f530b1bb3dad9bf49de1e94c0fcd5bf95eea758479c3ac853.jpg" />
+    <Content Include="assets\hero\ppc\electrician-047539bc3f5e0dab1edc439206091bc837b7278c1abb9be692155dfb1018970a.jpg" />
+    <Content Include="assets\hero\ppc\engineers-4bb05a8d88b3d0168d7e6af6ea338b092c6a2ccbed99c7b44c1fef1e30ea4604.jpg" />
+    <Content Include="assets\hero\ppc\entertainment-161acf50bb40c27713a713724f7100ac32fdfd37e373d4fbed0b9f4ee92275de.jpg" />
+    <Content Include="assets\hero\ppc\face-painting-e65ab5d6553f0758741009a74083b9cb3b7822142fb7020098c22addb37030fc.jpg" />
+    <Content Include="assets\hero\ppc\fitters-98717c57e3c34f0b607b3f3186bb148566bc293bff9e227cbd9275e862c74d95.jpg" />
+    <Content Include="assets\hero\ppc\flooring-05187b7a34c6e3a2676e93df84cd2ee5a1587ff23926435733bfd3070010d668.jpg" />
+    <Content Include="assets\hero\ppc\florist-9f841d41b6132459d5e715ef8377f97fe99fa11b400d68e39b6b72b9f6c95d9b.jpg" />
+    <Content Include="assets\hero\ppc\franchise-shop-1a5e9d2821acd1436a7482241b75ba2797b9debba1b4a46f212df898eca3a522.jpg" />
+    <Content Include="assets\hero\ppc\freelancer-20739e28fc66fbdc88a4c8087e65497ef2830746925e26669f1d298c627fefb4.jpg" />
+    <Content Include="assets\hero\ppc\furniture-removals-20b96c734d8283a34feace9019203cf76bcd8d68f9040dc34c1220e8d57aef09.jpg" />
+    <Content Include="assets\hero\ppc\gardener-befc0ed6a13d3392dadbdd10028bf55f98af20d45f6c81a3d6f4d91f7a5b5556.jpg" />
+    <Content Include="assets\hero\ppc\gas-46c0c0cf7dd6c6685bf1764904b5875b1d11222f99f8919c6c61546476c917f6.jpg" />
+    <Content Include="assets\hero\ppc\glaziers-8b1f518f4d8766e6fc1f46f58053e79bbd940abfbc27003e68cd4e3f54a6a611.jpg" />
+    <Content Include="assets\hero\ppc\hairdresser-c0631975b018521892cafc44a1d81554b81260ed23d46488f288b8cdec1eda21.jpg" />
+    <Content Include="assets\hero\ppc\healers-15d47776e8856153e84c0d4cc420e7e0487c3346cf3ed152cfdc1bae1ead8992.jpg" />
+    <Content Include="assets\hero\ppc\heating-96ae6462aa376c2f3d4325f3c49cce28c5d2acb8078b26d287fd521b7a2bc5ce.jpg" />
+    <Content Include="assets\hero\ppc\home-baker-e24d582672fd476372d9f7da910c71800ba6c373df10a37fc260673b89f0d8ba.jpg" />
+    <Content Include="assets\hero\ppc\homeopathy-300c4ed7d4a3dc3b425171883548c876e466356b04792464b5b7d33354da07fa.jpg" />
+    <Content Include="assets\hero\ppc\icecreamvan-f4d93c38abb31a97a4830ca4d98b7e679c331fe8d02a93e80708396c0ee387cf.jpg" />
+    <Content Include="assets\hero\ppc\investigators-516ff598e5866095c912341e81092b5ceea845bb9a1de12db4854ee222c7312c.jpg" />
+    <Content Include="assets\hero\ppc\it-93628f71025338a73e159e926053b003dc1f9d1635706da2a8b4982296618fe9.jpg" />
+    <Content Include="assets\hero\ppc\landlord-344b57c8c1397af1b5dede0f0138384b7f14a18951e138d5f3d6b83d7779932f.jpg" />
+    <Content Include="assets\hero\ppc\landscape-architects-24e98aff4bcdbaae75f754e05c655b1db15d49e22a3accd04ff31741371e852c.jpg" />
+    <Content Include="assets\hero\ppc\lifestyle-consultant-436ef4b0256142f2f766dde50c93561c97fb604a85eb33cfde3821eb3f8385dd.jpg" />
+    <Content Include="assets\hero\ppc\massage-cabee59fc65da12ca0fdefef5799be6e29a09663294eb7364e34da78470e5db3.jpg" />
+    <Content Include="assets\hero\ppc\nail-salon-0a4e3b510a25304f8004407600a462e6668d8bf52396c7be834282bb9ae275c5.jpg" />
+    <Content Include="assets\hero\ppc\nutritionists-7b1e5f98a85594d13351ed2bd70a3ac77ee967811b6996349d2ed65b63e851f6.jpg" />
+    <Content Include="assets\hero\ppc\off-licence-88c3c7da9a0d56fab8e27d4352d3d72e47230d2d94f573f71f08eba7ec853d80.jpg" />
+    <Content Include="assets\hero\ppc\office-90b352874f40c2e0eb603aab86c832c3769d3be8809a189f65ec053d6dc83aca.jpg" />
+    <Content Include="assets\hero\ppc\osteopath-39e6ebb7d72065f8c28b15878096c98060b7b5765e25099530b751ee9105bb60.jpg" />
+    <Content Include="assets\hero\ppc\painters-1c08cbce29519948ec02f148a6e3ea5c5201021a52214e3fdc210d8fb5ed31d8.jpg" />
+    <Content Include="assets\hero\ppc\pedicurists-e91563c48eb7bc7b9013993a3a98bbb42c14a0a51e4808938652c5b8131f4396.jpg" />
+    <Content Include="assets\hero\ppc\pest_control-f47aabf276a729005199cc56c614ed7e213e5576b66e66f2a4ab879474c4e4cb.jpg" />
+    <Content Include="assets\hero\ppc\plant_hire-2f5785467777743c3abd7d3b0b1b5efcf8997703089a00f99c63647580407b32.jpg" />
+    <Content Include="assets\hero\ppc\plasterers-ca9dbe5b3605dfaed27dd58ac63bdda01716bcad2b47922e11fd2ecbb37eda62.jpg" />
+    <Content Include="assets\hero\ppc\plumber-d537cfcdfb0650fdef33dd6ca24b616b869d1e38af4ce39425cb80abf6ca975d.jpg" />
+    <Content Include="assets\hero\ppc\professional-liability-dcc9160d79e5dfbf88a1e25dbbd5f4a76d9e15660f32ac96f32ac2b85efbf856.jpg" />
+    <Content Include="assets\hero\ppc\professional_indemnity-f96864f76e89686ab7848784693a12682baf4d0a181c08864e03be0d11d43604.jpg" />
+    <Content Include="assets\hero\ppc\pub-b3e8da9957f2e44df093324d767cc69c9a09aeb3788bce153f44ce90c7756c0f.jpg" />
+    <Content Include="assets\hero\ppc\public_liability-192661d1a108482d394df302ee715542347018400c5ad8ce768c14e477c50fa1.jpg" />
+    <Content Include="assets\hero\ppc\publishers-7da814238d00c84cef32956fb93e31a2d8e8c26ed87e86f44caac7d538265924.jpg" />
+    <Content Include="assets\hero\ppc\reflexology-831ca772cd9f9d7adca97c86b84d032b546913fb68004c4dd196435e6d8e5156.jpg" />
+    <Content Include="assets\hero\ppc\reiki-f44d53e191f8c011469a5f08ac0a743bb9d029da63162920dbca1b0ee0d1d719.jpg" />
+    <Content Include="assets\hero\ppc\restaurant-2e201b9ad041a5973bb7cd5fb67f879575fb33c9b30624273e24c315b506163b.jpg" />
+    <Content Include="assets\hero\ppc\roofers-f0d067b482d2f4e6e9f7d83f3c7dc941ab53735653e0e3815f8c4e7f69c0b42c.jpg" />
+    <Content Include="assets\hero\ppc\scaffolder-7edf000d370542cedd27c37d75a3d31ac250115b75c650f6b2e12996ee4f84f7.jpg" />
+    <Content Include="assets\hero\ppc\shop-6016e528c6184c0283e46e6f9402e9700d036d3f59b621fe6165dbf6a13a96c5.jpg" />
+    <Content Include="assets\hero\ppc\shop_stock-1abde67181425b25d928271f05b5782856847b33ee95b2ee76fc8c27edaebb2b.jpg" />
+    <Content Include="assets\hero\ppc\takeaway-bb1901b2fb25751b58dab8d96b28a66cb568f4d718cf8ea2ca9bae3d67579df8.jpg" />
+    <Content Include="assets\hero\ppc\teachers-49143a5d17e5c1bd3bc0769196a1473beffdb654d16a84c689c3f712b0d2e809.jpg" />
+    <Content Include="assets\hero\ppc\tiler-143d98a66139f37b586f2de2b18b85c53894922f3ec354c799f1473b6d1e7955.jpg" />
+    <Content Include="assets\hero\ppc\tour-operator-f494aabfb72253ebd3ba83a14e6808ace2629ec64c4ee1adc580f25f56651912.jpg" />
+    <Content Include="assets\hero\ppc\welders-8a6edd18fda892b098246970bb64fe79dff7741fbdbd1026861fbbe3c3e49e62.jpg" />
+    <Content Include="assets\hero\ppc\wine_bar-4c2a60e712b93f11f71388e3e742cfeaa3c02ebb40e922616fa185acadb57353.jpg" />
+    <Content Include="assets\hero\seo\agricultural_contractor-be0edc7e11e27d2867d19c56ba3c41d96e79dd9aa588be311b4f113682435288.jpg" />
+    <Content Include="assets\hero\seo\animals-bf1dea1c5304e062bd83dc7acb0d7c2446e7319faba8da47c1a59b96334d936d.jpg" />
+    <Content Include="assets\hero\seo\architects-1ec673d77138d31c52de7650fdfd356cf3a687374cea63d1a07e9be46a51aceb.jpg" />
+    <Content Include="assets\hero\seo\art_dealer-ca05cf17c22cc7696aa39e0ae7eab1540f5a0c00b4305b7aa6abfe02798f3767.jpg" />
+    <Content Include="assets\hero\seo\beauty_industry-14e0bd7371dc032708db487db0ab4571493a9a8b16b091c66f372b8174e928e1.jpg" />
+    <Content Include="assets\hero\seo\bed-breakfast-aacab8b47cbf62e08491a3ff0bacbee01efb3b172e3df0f9fea0423a68d94d08.jpg" />
+    <Content Include="assets\hero\seo\bike-9de0da9caefcc3b53b12b0078f4be66e274aa6f2940fadd6e86889fe6957e9a9.jpg" />
+    <Content Include="assets\hero\seo\boat_repair-ece9cdf2c6d7c8a5f19b55b86b2d3022c1bf502f6fd903e23fe51020251998a1.jpg" />
+    <Content Include="assets\hero\seo\bookkeeping-96d383b9e7d393111004ac30a552428e766b0f7ced39bd698bf461631fd213ad.jpg" />
+    <Content Include="assets\hero\seo\builder-52ce2f8583f4427a054f19559c558446ef772a2d5e720f19fcb4acb0d3e627e7.jpg" />
+    <Content Include="assets\hero\seo\business_analyst-674768a964efd7077c33dc987faf296fc82da642c122cf9890ac017a9e9af279.jpg" />
+    <Content Include="assets\hero\seo\business_interruption-ee4f777ee16a5525e09bb8c11d62d50a09aca8b1937fc4a216a03f789f7af7a8.jpg" />
+    <Content Include="assets\hero\seo\buy_to_let-54c40b83b4a731dfc4e2780b55a839dce7ec0c9c0cdb27b09cb3f9ccd0c0e755.jpg" />
+    <Content Include="assets\hero\seo\cafe-d510f6b8206c945a5ea64dbfdcaf00ca4bc8955ff625786b14a8cfb5496aa564.jpg" />
+    <Content Include="assets\hero\seo\cake_decorator-a213a39a1656df3710497e91931fd7140fd23632f69a88e2f8d25e20d3cd8dfc.jpg" />
+    <Content Include="assets\hero\seo\caretaker-912105a1ca4026ef6ade4ca7a4237c99fa8d9c40f2c1f132da3a9ecf5412e60d.jpg" />
+    <Content Include="assets\hero\seo\carpet_cleaner-5ff21aa0e9431c4fd23914d1cd7f1611793478eab55906c3c6274e68d113a3d8.jpg" />
+    <Content Include="assets\hero\seo\carpet_fitters_hero-e5a992c4e421e5f4fadda6388aba6e3b17cf5ee7cc7c4ea510beff7716a0404b.jpg" />
+    <Content Include="assets\hero\seo\civil_engineer-f1c6ffce8716e8834b3d20e613e7b0fe423fb16e60ff4f9af69f5ceb9d82e5af.jpg" />
+    <Content Include="assets\hero\seo\cleaning-fc1d7ecc0ef95e98b94975d84538c5f1a27bb60865588b855df20fcddfbc20ba.jpg" />
+    <Content Include="assets\hero\seo\commercial_landlord-df838e97fbc3f7650ec1f31228992825dcbb29e2617f1ccf3ec00792cae79621.jpg" />
+    <Content Include="assets\hero\seo\complaint_handler-0a22dc6830272537a2a6d5cb382980005d509e7bfcd96109e00d6809063db767.jpg" />
+    <Content Include="assets\hero\seo\computer_repair-b65397c2434547f04642ed298c67876a4d5c3348c4b274683a968bc32f82d017.jpg" />
+    <Content Include="assets\hero\seo\courier-9f758c003ae870ae1ab17bd7e219b53b9408a869a340ddaff0225f866faf837d.jpg" />
+    <Content Include="assets\hero\seo\dance_teacher-366875a90924e4592f829285c54959919646b9cd0fb9dbfa250df8fbf1dc9592.jpg" />
+    <Content Include="assets\hero\seo\driving-instructor-242430edae06491068f4d5314f7c0a26a96da4e148196d3243604453b23a0519.jpg" />
+    <Content Include="assets\hero\seo\education-1e363ec4ab1cea775897395c64fe8a2ea025ce696915640d9ce8e535850489f2.jpg" />
+    <Content Include="assets\hero\seo\electrical_engineers-ba6a407b7a776f9b0cb556e0297fb8d2ca0d22e83529b019cbc78fc6e5c272b5.jpg" />
+    <Content Include="assets\hero\seo\energy-assessor-8fc4dbc24ee707b91f5fe058d5cf61097450c3c32414f3486b0d9ddc27eab1f9.jpg" />
+    <Content Include="assets\hero\seo\engineering-afecaed347417b9ab452bdcf3c153505a8a566593d6955bafd6afdfa1bbf9cfb.jpg" />
+    <Content Include="assets\hero\seo\entertainment-and-arts-5d50d931941f5680bd307f39c2909bd666fe2baa1066a1f373d8f69e17f73f09.jpg" />
+    <Content Include="assets\hero\seo\environmental-consultants-60a5a13b7e6971a4eee7df1c5b4bb73bcaa5715cbcaa1f5daf91fb79a06ce639.jpg" />
+    <Content Include="assets\hero\seo\estate_agent-146c37b071c39b87b4e53adf404fb1f28c1a4d589197d13c9008cebc0ff8fb5b.jpg" />
+    <Content Include="assets\hero\seo\fashion-8af95411a174b3a67fb340cca2dcc067dcbc6eb10daaa432dfddf3a2811b811a.jpg" />
+    <Content Include="assets\hero\seo\fast_food_hero-78ee8c5388195f5c5f9857f08cbe217602d1b5c1797e936018b0fff19c506f6f.jpg" />
+    <Content Include="assets\hero\seo\finance-legal-3d1b0760ba559d76164f3b76e276e6a7a8acb21fcea10267a0dcc3fcf871b2dc.jpg" />
+    <Content Include="assets\hero\seo\firstaid-6255a23d6adc0165aea40ba31cada7e97c82e813d414611f9ae2b7b24cf21ed6.jpg" />
+    <Content Include="assets\hero\seo\fitness-09667506ac901a85b1ef5d11373c38f3135016e758ac68035c7a0f7e843352db.jpg" />
+    <Content Include="assets\hero\seo\fitness_2-7e3de1da66465ec25697e29fc342a4bb64b4d893d7f4045ff65cb6444105dda9.jpg" />
+    <Content Include="assets\hero\seo\fixtures_and_fittings-46c5960e94d01191e822a761bc5ce8fa303faff364420dfd341a68b7c9d3ea4c.jpg" />
+    <Content Include="assets\hero\seo\food-and-drinks-c7de5ce9e8f1755c76cf09b7764f07688b2e5dc5f90d6e8db83d75355c6447bb.jpg" />
+    <Content Include="assets\hero\seo\freelance-6a924babee061d297b293198f1ccd2ff783de204589fabd70d4ad0e82fc8fe38.jpg" />
+    <Content Include="assets\hero\seo\funeral_directors-b52709e7674b1be7b423007717d76e18151a28459ef282937d784f95fb35c57c.jpg" />
+    <Content Include="assets\hero\seo\garden_designer-814b884a999f81a9037cc32023408773768b0d30944c52e0d95ba016f4a19622.jpg" />
+    <Content Include="assets\hero\seo\greengrocer-e35dbf350aedae07feadde7a47040ddd6a90d26851a2600d5cb7a77d38901992.jpg" />
+    <Content Include="assets\hero\seo\groundworkers-9f8e8a4dfc489286b5c9de5e93f20661bc1215b17602c5d0777ff4a8448c658d.jpg" />
+    <Content Include="assets\hero\seo\gym-86e5c912a0899bee4c9fd3418ecea28406c2b4eaca614ee26f4784ac695bd245.jpg" />
+    <Content Include="assets\hero\seo\hairdresser-2899c535f0805736cbf99abce38512f6751116d1ced9bd46da1abe3579726020.jpg" />
+    <Content Include="assets\hero\seo\health_safety_consultancy-d9ee48bf2657f6af87707ebbe0973a3869549ecc4ce2072d5197d6f2b9b4d373.jpg" />
+    <Content Include="assets\hero\seo\health_safety_consultant-f36ffe412de67480e6f3961030717a0fa6a43439c035baf91857d5bd1204876b.jpg" />
+    <Content Include="assets\hero\seo\heavy_construction-4a1d7ffb1ab61f1712d070cb6b569bd1b5d279300836dce8f7b55e2bcf613081.jpg" />
+    <Content Include="assets\hero\seo\high_risk-5eb9410cf4710979091795dfd086d4f1b58c660f004a982345a0939d3bc5f6bb.jpg" />
+    <Content Include="assets\hero\seo\home_based_worker-d3cbcaaae4d75886af08d57a3240255a93305cf5fdb667700905d7eeb62a340c.jpg" />
+    <Content Include="assets\hero\seo\home_business-4f30fbdde250ef44d3722d068837591fa8cbc8eac58e4cb9a36e13d2a12aa922.jpg" />
+    <Content Include="assets\hero\seo\home_emergency-9f6a07ecf20c22aca8dc875e40b2dfd2e3751faff7959ca7b958d9743ee20398.jpg" />
+    <Content Include="assets\hero\seo\hospitality-1e56f36548db7865f66a09f5ba0854ee9dcf689bcf10f28793e74703d69b6d1d.jpg" />
+    <Content Include="assets\hero\seo\hotel_hero-027da130d22ee8caa22ccd5e41bc49b8c10cedfe8091a13de8b5f5dbca15849a.jpg" />
+    <Content Include="assets\hero\seo\housesitting-62fb931d5002807dee9937ccaa0c95b308032ac76fb55f2690e45ef2e779297c.jpg" />
+    <Content Include="assets\hero\seo\hr_consultant-94850085b5b36e4902be21185e1ec0d96faa68c934107971f19bc11998763189.jpg" />
+    <Content Include="assets\hero\seo\interior_design_hero-be2fbc9e584c1b42656a1cc652ca79285eebea9af5c39e54e374ae0e49324780.jpg" />
+    <Content Include="assets\hero\seo\investigators-7e69fd3f358dd880447b8c506b1bb4d7106232059622ac9c78116e76d3fb37ff.jpg" />
+    <Content Include="assets\hero\seo\IT_industry-4f90855d0511f79021526d755d25e414c75ab7e9329642ece5f8e3a078f430d9.jpg" />
+    <Content Include="assets\hero\seo\joiner-9efc3a2ebb967e4d7963151b57c6219052ec35e2e09191d2c9fe27f496a78ad7.jpg" />
+    <Content Include="assets\hero\seo\labourers-cf42e2cd58fd06e4bb03273aeddefdff208bcdd9d40acc95be85c6013f6f446f.jpg" />
+    <Content Include="assets\hero\seo\language-professionals-09d29deb7beb1b111681e71032c91b5382f9bf4bc55dd82f4fa3e6f0b492a54c.jpg" />
+    <Content Include="assets\hero\seo\laptop_insurance-d6793a6324067c036f1645d6d258c6ebb2c869e166e00e2b28af3940b4493470.jpg" />
+    <Content Include="assets\hero\seo\launderette-4d7ac393c39694de83f3320fd9761e5601e3a5f286d29583871399a8e25c0f2e.jpg" />
+    <Content Include="assets\hero\seo\locksmith-2ece0c001b718013c994483de85d6eae8f218a633b69cdb15e829610e36c31ed.jpg" />
+    <Content Include="assets\hero\seo\management_1-44fe8f1340852bed6dbf23ad250920230867429516ac89154c481a006c6afc7e.jpg" />
+    <Content Include="assets\hero\seo\mechanical_engineer-35f9a84139154d5c8753e8f8dc1e6b45dbce762baa11401bbcfa6e9679c595c4.jpg" />
+    <Content Include="assets\hero\seo\media-marketing-design-6b6f1b1ebc364c058d969e03177c9345aa21ba1964c334944a2c0b39494cdea8.jpg" />
+    <Content Include="assets\hero\seo\mobile_food_van-7153cf38c6ac0080141efdee2798dafb5665990721642a8f533ff6339d173696.jpg" />
+    <Content Include="assets\hero\seo\multi-property_landlord-7a7e93706a3b3e9efb6a274b1ead759935d3a58eda80cdb3a1e97189be268dc0.jpg" />
+    <Content Include="assets\hero\seo\museum-4d4a70cdd70a32b6fda465cb236c3c833f91e879727b98ac8a035aaf358bdd7e.jpg" />
+    <Content Include="assets\hero\seo\musical_equipment-7dbd096e7ee6abde99a01f49d739866741fb1af6050909f36aef51f00e1cb416.jpg" />
+    <Content Include="assets\hero\seo\musical_instrument-d3962b9a0e6c65df4765b73caa0d8fb9691a3abdd07cc248dc18ba4bddb25dbe.jpg" />
+    <Content Include="assets\hero\seo\musician-8db898d744b5e99836ffefa89224afe3ab28035628fdba359cbba134af58c4d8.jpg" />
+    <Content Include="assets\hero\seo\music_shop-9aea6c920b5ac22f9cf27d12dd6095b3bb0e1f72832cbb253ce28ecf915d6721.jpg" />
+    <Content Include="assets\hero\seo\music_teacher-104e3656a9ab80b57e18054ef5495dfccd4cb1bd4db522caa1c3b25529360a9f.jpg" />
+    <Content Include="assets\hero\seo\nail_technician-ae62d3eabe8310df7907c4b3e7341d4a4f741e692a8c758a1895b5dd028bb16a.jpg" />
+    <Content Include="assets\hero\seo\nanny-3df94619fb4d902e835088dd911d5c1f0841e19d1899b9dfe80116665d7fb0da.jpg" />
+    <Content Include="assets\hero\seo\newsagent-dc7888a92375be99eb336c0493d64d117396c640191b29554c0e037ba8c119f6.jpg" />
+    <Content Include="assets\hero\seo\nursery_school-b6a43d963744b36729cebc8b69cc666c018ca3aa3435cb99c915c258fa0cfc5a.jpg" />
+    <Content Include="assets\hero\seo\online_retailer-a4c5575a8040daba1f19a2b6528ae2f72ffd01514b076914e4da4b661274c39f.jpg" />
+    <Content Include="assets\hero\seo\opticians-000b093a6792def04c6503c2f883101eaee69a83bde834f151559bcd4563d4ef.jpg" />
+    <Content Include="assets\hero\seo\personal_injury-3535827bcff2cd4779f82218caa6850a2cdae291cca1af8485615421477455d8.jpg" />
+    <Content Include="assets\hero\seo\personal_trainer-7548e4a00a946e38ca3b4a0455c31bc713800b2855b541319b46c721cd612db9.jpg" />
+    <Content Include="assets\hero\seo\pet_care-eaf6d77bf8c500b91d3dfde47951308648cadb31751e1d1f27f23c8dd4e1eb27.jpg" />
+    <Content Include="assets\hero\seo\pet_shop-5c4c1f7701ae4c4c859dca40f09d88a3d430022345f45ca48016e9274512d9b6.jpg" />
+    <Content Include="assets\hero\seo\photographer-f2534704b3b18ab6e108b4b2a5b08013f61482802a002f5862ee61ea498032c4.jpg" />
+    <Content Include="assets\hero\seo\photo_booth-fe5267c74202a0f8907aac7c03c521e7efe0c62c98f5d08564b4ff7473e94c39.jpg" />
+    <Content Include="assets\hero\seo\physiotherapy-b737d359a0a642ffbcdf02aa7b7ee37821e61559c56a1db86325ac017134790e.jpg" />
+    <Content Include="assets\hero\seo\private_tutor-1eb3ee2606fcedf41a4926234c4e10f3aa85e5fc7d4aa5d44d3b89c81126a17b.jpg" />
+    <Content Include="assets\hero\seo\professionals-ecafe86a0831e5861661d9c577f2804225a50a8df6c25d44059ad97fb3602ea7.jpg" />
+    <Content Include="assets\hero\seo\property_1-23e18f37e14cf31dd2aec18da4fd276fdb390030ea2dedf5e12f5562b7764854.jpg" />
+    <Content Include="assets\hero\seo\property_management-344b57c8c1397af1b5dede0f0138384b7f14a18951e138d5f3d6b83d7779932f.jpg" />
+    <Content Include="assets\hero\seo\public_liability-743c3523d494b6ecce490530e42fcf5a3179c64b063a05f63eee4da3cbb68a5c.jpg" />
+    <Content Include="assets\hero\seo\recruitment_1-e1ceab55c48651e3a8499fb754979867a721c8b9b5148e1970faee3769e9793c.jpg" />
+    <Content Include="assets\hero\seo\refrigeration-engineers-d252d5043ca07cb9a4f107700b2caaa2835c13e468c6b75e75b0e78314dbf366.jpg" />
+    <Content Include="assets\hero\seo\retail-624a4e43472bad85890e35c9e77b659b7786b0c76a77339bdf71dc7916d1079d.jpg" />
+    <Content Include="assets\hero\seo\sandwich-219fc08abd07db79fbbf414b80df223b35b03748a5589f781e47d14b7995d26b.jpg" />
+    <Content Include="assets\hero\seo\santa_hero-0083e2147df8f29a0232172158c2b0420f034df87e8549c5c3b28731aee128b3.jpg" />
+    <Content Include="assets\hero\seo\satellite-dish-installers-ac9ee1e46396fdb63d8f7f8b6d58222ca849643c0f79a3347b3035420f35d333.jpg" />
+    <Content Include="assets\hero\seo\security-811187de6e353c499f2f07fca84cfe905f0cf447a55d55b5599bce3f251106fd.jpg" />
+    <Content Include="assets\hero\seo\security_guard-4c0252efaf8b9bb0b07f5bca1c7cf59f217c50dc3f7738f8c984a490e9958d7d.jpg" />
+    <Content Include="assets\hero\seo\self_employed-9c0b0f570e464f96c27752939206bb2ee6becd9ddad61f1b7fe3ef24442691dc.jpg" />
+    <Content Include="assets\hero\seo\shoe_shop-fc23e94d4f469f035b90240a71aa6d05fc89f7d3565d5ea7e4580753675c1629.jpg" />
+    <Content Include="assets\hero\seo\sole_trader-aad0cf1d61dd45782c8c6cf0281b0230458f12821805ccf7a546aa5af4327e7a.jpg" />
+    <Content Include="assets\hero\seo\speech_therapist-d1e640fc8f847b8f58630101949bf1d4a8afc2f9c5e5267906998e30548852bc.jpg" />
+    <Content Include="assets\hero\seo\sports_coaching-eba56e0ef2c5281fb7f65135b31867acd004dfd03bd97617e5876185e1c3ec8b.jpg" />
+    <Content Include="assets\hero\seo\startups-53d78a82b0f61b95a3e35c84020bdf5e27eafce3bc607284658f682b4f66f829.jpg" />
+    <Content Include="assets\hero\seo\subcontractor-6dc34ea4cd864110b55e6e31b77a79b714a5baf33220af00cf53265a9a877626.jpg" />
+    <Content Include="assets\hero\seo\supermarket-adf2d1cc78ca212fa39d285ca66d79c677801d083f0f3c80f401fb3785c4140b.jpg" />
+    <Content Include="assets\hero\seo\surveyor-20a67edffe7cae8f4e35f748545607e75623780997bbc9699c37da99e8e30ed4.jpg" />
+    <Content Include="assets\hero\seo\tailors-3bcf35663b39db2eaa32653fbdd720a4bd9dbffda8681673243d7206a820759f.jpg" />
+    <Content Include="assets\hero\seo\takeaway-8e6f459648c01b783872f0c8ecbdc4810c39610354d4ffd531546f04a6c9648b.jpg" />
+    <Content Include="assets\hero\seo\tax-f8cb2a9fd3d5877b90be0eb390e0216a6a99ce516564432ccacc0821249f3a97.jpg" />
+    <Content Include="assets\hero\seo\taxi-12d2750b544a26ccfece5687ce6ad76d0935683fd91c05983a1295a5d48501c2.jpg" />
+    <Content Include="assets\hero\seo\tools-fda74cf98f13031c09f1c7002bf8f68141fcb51352cb59ab9c5507323d6163ee.jpg" />
+    <Content Include="assets\hero\seo\tour-operator-f494aabfb72253ebd3ba83a14e6808ace2629ec64c4ee1adc580f25f56651912.jpg" />
+    <Content Include="assets\hero\seo\tradesmen-and-construction-f4be88b024375c573ab01f50df8d5d3f92706b10927f1e9f47e142c373789fe2.jpg" />
+    <Content Include="assets\hero\seo\transport_logistics-59126bb64c55b13bf2eecc4b7caff90e9e19ad2c8a283a02a4e297990be90aa2.jpg" />
+    <Content Include="assets\hero\seo\travel_agents-9b9c2f1a7c8210f2d97f227edee530b52cf17de4fa651704c84a28734ccb3221.jpg" />
+    <Content Include="assets\hero\seo\uber-bbe4a41d75258f98ec7feac77819161ddc46152ab9dc80410638b9314d10239d.jpg" />
+    <Content Include="assets\hero\seo\videographer-554a792a1094eda62d25423f1d93e49bd838564e483b5a76443f066c1cb7d722.jpg" />
+    <Content Include="assets\hero\seo\web_designer-cf0851847e65fbc7889c513db70ea53808cf99092692f93ede58db9dab161b59.jpg" />
+    <Content Include="assets\hero\seo\web_developer-0ba1645d2871c7e6d0716e953ae26cf5de4e946b724cd914ceca491073438b70.jpg" />
+    <Content Include="assets\hero\seo\web_publishers-42241714d3ca44444613b46e3ebfd846a96c8e2b14cbec9ee84b3455e18310fd.jpg" />
+    <Content Include="assets\hero\seo\wedding_planner-7a3de6bca5ac31fa1c7374837d5cb21ab963dbcf78c6c834f211c58444ec2bf5.jpg" />
+    <Content Include="assets\hero\seo\will_writer-3df3be5181a887698531d2955b5c35ef46966bfc5175716a57b87855aed69660.jpg" />
+    <Content Include="assets\hero\seo\window_cleaner-9925c3e04e8d18b7e6be90ac9c6deb33b4f7d506c26cff662fcf61e48000c958.jpg" />
+    <Content Include="assets\hero\seo\yoga_teacher-d899479a49da3f1e811ab41ed00fca0ee67c80a467a0f711cc0420c0b802fc22.jpg" />
+    <Content Include="assets\hero\seo\zumba_instructor-3e37fed20b3baa9a7f16da2ea40ed66b65829f1ae0c5ef3234f4e286c52adbf8.jpg" />
+    <Content Include="assets\homepage\sb_campaign_image-597acb9c5d6188291351a356c93bef16b008a04328edd170da15375a7c2218a2.jpg" />
+    <Content Include="assets\leaderboards\powered-by-rise-oblong-black-c73aca4e13bfda183cf60a20eb18c67cc73a97f6ecf843de467a0b13949ec5ae.png" />
+    <Content Include="assets\refer\giftcard_icons\Amazon-d8e6a4bdc15dd3339b9475f7a410a0354dde8c413b16a445efa8d3d89ee7b2f1.png" />
+    <Content Include="assets\refer\giftcard_icons\Currys-83a6b0479153d7e910047affc6b957fd2b0c588309ad6e89951434fd4c3e6972.png" />
+    <Content Include="assets\refer\giftcard_icons\JL-531632f004c5ded24a3bf32489397ab93c86b45166aea482b7d9161d5f09b5d0.png" />
+    <Content Include="assets\refer\giftcard_icons\M&amp;S-a34c3610ca23f0c44a3b78d79067d915f683ea502b70232b18cd22138f121b8e.png" />
+    <Content Include="assets\refer\giftcard_icons\Tesco-62832f1f8ed35eb755d0191704d9ca3b7c9267b19e66da9238c8b23fc1b1b6e3.png" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\bijou\bijou-0e2e6c269e8964ec84de8cf9459ddd707356e44e486a8883a4964668a80048f0.svg" />
+    <Content Include="assets\bijou\bijou-3f90d7614db929748164570ae598317db77e4da1cbc7b98efa0a972c9827bed4.eot" />
+    <Content Include="assets\bijou\bijou-3f90d7614db929748164570ae598317db77e4da1cbc7b98efa0a972c9827bed4d41d.eot" />
+    <Content Include="assets\bijou\bijou-730e0799c669850bcdbcc1ee09f4ec6024d54c917c0e48f5f25aa0a1baa69e60.ttf" />
+    <Content Include="assets\bijou\bijou-9a705d40cfd434162684b95bc5786dc9c1e0d71149651a8515fa776b0b96c727.woff" />
+    <Content Include="assets\bijou\logos\v2\sb-logo-compact-ccfb27c65361a87357d9631b7f4693d0f511e31eba4fafa0ed9ba54cc6a0a944.svg" />
+    <Content Include="assets\bijou\museosansrounded_300-9cc942b98df99c1b8244f251e42b2e8142e77a0a2487cd01f9de818014fd0635.woff" />
+    <Content Include="assets\bijou\museosansrounded_300-e2d7255a55567caf86d9acfbca0e2c758a1123586b972257c084e63bb2ec9121.1f.delayed" />
+    <Content Include="assets\bijou\museosansrounded_500-74c899592257479e3493527f997b0e74e662c8b47cc7f38244589f32428e4f16.woff" />
+    <Content Include="assets\bijou\museosansrounded_500-d1a96cb01de35edb2d86f7cbb3dd760310896e4f0cc7f0006e014b19c841b2d5.woff2" />
+    <Content Include="assets\bijou\museosansrounded_700-205bdf3f5255bae942d055addbb1b09a6ba24b6a8440c688661fa524098745c1.woff2" />
+    <Content Include="assets\bijou\museosansrounded_700-2ac687a8c37adedf02f6b3bd3865528e42e5ff4fcb5b820c2fd8266e1a627e7a.woff" />
+    <Content Include="assets\bijou\museosans_300-269bc9f957cad6c4a075207ef0683d54a158423556a8c44216fe32e93c71a790.woff2" />
+    <Content Include="assets\bijou\museosans_300-5e7b89bdd73ce4205e6be475d1945351af81c5333c86db37255a8a4e7d101d08.woff" />
+    <Content Include="assets\bijou\museosans_500-54c34c15259d7845ea22b5094a3985839c0d526be1ee842068a066e847a36d28.woff" />
+    <Content Include="assets\bijou\museosans_500-5e970f19a7bd56681ccffee58a97772a148c314440e6549254733ef24a3c9f66.woff2" />
+    <Content Include="assets\bijou\museosans_700-b3455e5afa9446a79ada31b9a416de55705fe7e7579989d1e3d6669c224a0bbc.woff2" />
+    <Content Include="assets\bijou\museosans_700-cace7a1184f37f56cac23571d47709d31fdf218db19d5f509b950a67295ed150.woff" />
+    <Content Include="assets\hero\general\refer-fe74d5ba294f8afbd70c6232940b3354afd499b27d3f6f7a951dacded0fd13f8.svg" />
+    <Content Include="assets\icons\minus-white-cf677b578499ee4ee6c5e23da76114a845183098fb25076092162b3cde8b77b5.svg" />
+    <Content Include="assets\icons\plus-white-9d2aa383ccc30812dbcc031d543366ef07bf18c6fded4c0d33bd636bdab9938a.svg" />
+    <Content Include="assets\icons\star-white-3c0f2bfd18cebb30ee36603cf4ce91a34c14b10a8d789d04d75d58a86c601387.svg" />
+    <Content Include="assets\leaderboards\chevron_down-6f7d81c9095b167428bfea1109fece1e7233fc551450cb93adccca81378f547a.svg" />
+    <Content Include="assets\leaderboards\indicator_down-3f02efbf249e9619fba6116b4f9d0c5c543636e22026e985948b736058d334b9.svg" />
+    <Content Include="assets\leaderboards\indicator_equal-41601c0e10e955e8d6931f87f54a5a6f0f629b679436b8978a01fc02c44882a6.svg" />
+    <Content Include="assets\leaderboards\indicator_up-7b4d39093a45f37e47f655e8f22994ba81b576cac827ec6553ddda170c27c852.svg" />
+    <Content Include="assets\leaderboards\leader_pattern-f823c8e5f81c02c029e1461b11b072e0c7b8dd07263ce028dd27894c232a4da6.svg" />
+    <Content Include="assets\leaderboards\smallbusiness_pattern-52bc735f3d52516eefa6d7884ad9356e96c45cae48101bc7ef6fc913e40b93d2.svg" />
+    <Content Include="assets\refer\big_bubble-15e74f64d691d676fac6bea923fceca2e4d04e711d21c126f05ba9b7834fbb24.svg" />
+    <Content Include="assets\refer\dual_bubbles-36cc6a656129f5878b2af9b244855b5a7c0885bba1c34abf33175aaea4be302f.svg" />
+    <Content Include="assets\refer\refer-light-blue-58e6e256076d3650b18f3a934ef00cdfa147f6b44edd76142d37facf13c22b87.svg" />
+    <Content Include="assets\social-media\social-media-0762d8d19ae14acc2767417ce7a91d758280032fbc75f661603d6c1c34329967.eot" />
+    <Content Include="assets\social-media\social-media-0762d8d19ae14acc2767417ce7a91d758280032fbc75f661603d6c1c34329967d41d.eot" />
+    <Content Include="assets\social-media\social-media-173aca31fbb3cdd4a20916ffe629b5097ff6ff88865bb9c96fa277cf505e342a.svg" />
+    <Content Include="assets\social-media\social-media-c1a54ef6cd9ee7c5330c01f38c60164dc77e33548967313ca4a15ba263dc17dd.woff" />
+    <Content Include="assets\social-media\social-media-d09a69b21d40918d6ac241d6817abf84a17aa0bf8d9d2b200a41ea432c0a61fd.ttf" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutInsurer.cshtml" />
+    <Content Include="Views\Insurer\Index.cshtml" />
+    <Content Include="Views\Broker\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InsurancePortal.Business\InsurancePortal.Business.csproj">
+      <Project>{f1310018-b75d-4633-a751-ed842f165979}</Project>
+      <Name>InsurancePortal.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49780</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49780/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
