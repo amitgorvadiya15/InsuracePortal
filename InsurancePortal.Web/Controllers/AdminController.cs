@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InsurancePortal.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,11 @@ namespace InsurancePortal.Web.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Index(LoginModel model)
+        {
+            return RedirectToAction("Index","AdminHome");
         }
 
         // GET: Admin/Details/5

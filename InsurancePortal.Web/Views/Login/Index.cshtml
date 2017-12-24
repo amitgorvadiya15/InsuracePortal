@@ -1,0 +1,101 @@
+﻿@model InsurancePortal.Web.Models.LoginModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="site-section grid-wrapper">
+    <div class="form signin">
+        <div class="grid">
+            <div class="grid-cell">
+                <div class="inset">
+                    <h1 class="ribbon">@Model.UserType</h1>
+                    <p>If you need to access your policy documents and certificate of insurance, this is the place to do it. Using the links below you can grab your documents as well as make changes to your policy or make a claim.</p>
+                </div>
+            </div><div class="grid-cell">
+                <div class="inset with-aside">
+                    <div class="grid">
+                        <div class="form grid-cell desktop-onehalf tablet-onehalf">
+                            <div class="module">
+                                @if (Model.UserType == "Admin")
+                                {
+                                    <div class="btn-panel">
+                                        <a class="btn qa-request-your-documents" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_request_your_documents">Manager your customer policies</a>
+                                        <a class="btn qa-get-your-certificate-of-insurance" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_get_your_certificate_of_insurance">View the Insurer activity</a>
+                                        <a class="btn qa-update-your-policy" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_update_your_policy">View the Broker activity</a>
+                                        <a class="btn qa-cancel-your-policy" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_cancel_your_policy">View the customer activity</a>
+                                        <a class="btn qa-renew-your-policy" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_renew_your_policy">Manage the site settings</a>
+                                        <a class="btn qa-make-a-claim" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_make_a_claim">Manage the customer claims</a>
+                                    </div>
+                                }
+                                else if (Model.UserType == "Insurer")
+                                {
+                                    <div class="btn-panel">
+                                        <a class="btn qa-request-your-documents" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_request_your_documents">Manager your brokers</a>
+                                        <a class="btn qa-get-your-certificate-of-insurance" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_get_your_certificate_of_insurance">View new updates of Policies</a>
+                                        <a class="btn qa-update-your-policy" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_update_your_policy">View your brokers activities</a>
+                                        <a class="btn qa-renew-your-policy" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_renew_your_policy">Renew your criteria</a>
+                                    </div>
+                                }
+                                else if (Model.UserType == "Broker")
+                                {
+                                    <div class="btn-panel">
+                                        <a class="btn qa-request-your-documents" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_request_your_documents">Manager your customer</a>
+                                        <a class="btn qa-get-your-certificate-of-insurance" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_get_your_certificate_of_insurance">Manager your policies</a>
+                                        <a class="btn qa-update-your-policy" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_update_your_policy">Update your settings</a>
+                                        <a class="btn qa-renew-your-policy" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_renew_your_policy">Review your payment structure</a>
+                                        <a class="btn qa-contact-us" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_contact_us">Contact us</a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="btn-panel">
+                                        <a class="btn qa-request-your-documents" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_request_your_documents">Request your documents</a>
+                                        <a class="btn qa-get-your-certificate-of-insurance" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_get_your_certificate_of_insurance">Get your certificate of insurance</a>
+                                        <a class="btn qa-update-your-policy" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_update_your_policy">Update your policy</a>
+                                        <a class="btn qa-renew-your-policy" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_renew_your_policy">Renew your policy</a>
+                                        <a class="btn qa-cancel-your-policy" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_cancel_your_policy">Cancel your policy</a>
+                                        <a class="btn qa-make-a-claim" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_make_a_claim">Make a claim</a>
+                                        <a class="btn qa-contact-us" data-track="signin_page_user_action_cta_clicked" href="javascript:void(0);" id="cta_contact_us">Contact us</a>
+                                    </div>
+                                }
+                            </div>
+                        </div><div class="aside grid-cell desktop-onehalf tablet-onehalf">
+                            <div class="module">
+                                <div class="module-content">
+                                    <h3>Sign in as a @Model.UserType</h3>
+                                    @*<p>If you completed a business quote before <em>1 February 2014</em> or a landlord quote before <em>19 December 2013</em> you can sign in below.</p>
+                                        <p>Online accounts aren’t currently available for newer customers, so if you got your quotes after these dates, use the options on the left to manage your policy instead.</p>*@
+                                </div>
+                                @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @class = "signin-form visible" }))
+                                {
+                                    @Html.HiddenFor(model => model.UserType)
+                                    <fieldset>
+                                        <div class="control-block" style="margin-top:2px;">
+                                            <label class="control-label" for="signin-email">User Name</label>
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @autocomplete = "off" })
+                                            </div>
+                                        </div>
+                                        <div class="control-block" style="margin-top:10px;">
+                                            <label class="control-label" for="signin-password">Password</label>
+                                            <div class="form-group">
+                                                @Html.PasswordFor(model => model.Password, new { @class = "form-control", @autocomplete = "off" })
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <div class="form-actions">
+                                        <input class="btn-primary qa-marketplace-signin" type="submit" name="btnLogin" value="Sign In" />
+                                    </div>
+                                }
+                                @*<button class="btn-primary signin-show-action js-show-action qa-marketplace-signin-attempt" data-track="marketplace_sign_in_attempt_cta_clicked">Sign in</button>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

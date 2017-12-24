@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurancePortal.Web", "InsurancePortal.Web\InsurancePortal.Web.csproj", "{F58C1116-0829-4E05-8DF5-BE9CB4721F58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurancePortal.Data", "InsurancePortal.Data\InsurancePortal.Data.csproj", "{E9AC6CB9-09A0-40C3-AE7A-9200F96AB3CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurancePortal.Data", "InsurancePortal.Data\InsurancePortal.Data.csproj", "{E9AC6CB9-09A0-40C3-AE7A-9200F96AB3CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurancePortal.Business", "InsurancePortal.Business\InsurancePortal.Business.csproj", "{F1310018-B75D-4633-A751-ED842F165979}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurancePortal.Business", "InsurancePortal.Business\InsurancePortal.Business.csproj", "{F1310018-B75D-4633-A751-ED842F165979}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurancePortal.Transport", "InsurancePortal.Transport\InsurancePortal.Transport.csproj", "{E86D1634-211C-4CDD-BF3D-57D7FEEDDBFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsurancePortal.Transport", "InsurancePortal.Transport\InsurancePortal.Transport.csproj", "{E86D1634-211C-4CDD-BF3D-57D7FEEDDBFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
