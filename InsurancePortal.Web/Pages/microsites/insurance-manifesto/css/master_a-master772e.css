@@ -1,0 +1,109 @@
+#u8483
+{
+	position: fixed;
+}
+
+#u9482
+{
+	background: url("../images/u9482_states.png") no-repeat 0px 0px;
+	position: fixed;
+}
+
+#u9482:hover #u9482_states
+{
+	background: url("../images/u9482_states-r.png") no-repeat 0px 0px;
+}
+
+#u9482.MuseLinkActive #u9482_states
+{
+	background: url("../images/u9482_states-a.png") no-repeat 0px 0px;
+}
+
+#u9484
+{
+	background: url("../images/u9484_states.png") no-repeat 0px 0px;
+	position: fixed;
+}
+
+#u9484:hover #u9484_states
+{
+	background: url("../images/u9484_states-r.png") no-repeat 0px 0px;
+}
+
+#u9484.MuseLinkActive #u9484_states
+{
+	background: url("../images/u9484_states-a.png") no-repeat 0px 0px;
+}
+
+#u9486
+{
+	background: url("../images/u9486_states.png") no-repeat 0px 0px;
+	position: fixed;
+}
+
+#u9486:hover #u9486_states
+{
+	background: url("../images/u9486_states-r.png") no-repeat 0px 0px;
+}
+
+#u9486.MuseLinkActive #u9486_states
+{
+	background: url("../images/u9486_states-a.png") no-repeat 0px 0px;
+}
+
+#u9489
+{
+	background: url("../images/u9489_states.png") no-repeat 0px 0px;
+	position: fixed;
+}
+
+#u9482_states,#u9484_states,#u9486_states,#u9489_states
+{
+	vertical-align: top;
+}
+
+#u9489:hover #u9489_states
+{
+	background: url("../images/u9489_states-r.png") no-repeat 0px 0px;
+}
+
+#u9489.MuseLinkActive #u9489_states
+{
+	background: url("../images/u9489_states-a.png") no-repeat 0px 0px;
+}
+
+#u8508
+{
+	border-color: #000000;
+	background-color: #FFFFFF;
+	opacity: 0.5;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	border-radius: 10px;
+	position: fixed;
+}
+
+#u8504,#u8500,#u8506,#u8542
+{
+	border-style: none;
+	border-color: transparent;
+	background-color: transparent;
+	position: fixed;
+}
+
+#u8498-4
+{
+	background-color: transparent;
+	opacity: 0.6;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	text-align: left;
+	color: #FFFFFF;
+	font-size: 12px;
+	line-height: 14px;
+	position: fixed;
+}
+

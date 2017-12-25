@@ -1,0 +1,615 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+
+<!-- Mirrored from www.simplybusiness.co.uk/microsites/landlord-town/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Dec 2017 09:50:57 GMT -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<title>Landlord Town | Simply Business</title>
+    <meta property="og:title" content="Welcome to Landlord Town – an online guide to renting your property by Simply Business" />
+    <meta itemprop="name" content="Welcome to Landlord Town – an online guide to renting your property by Simply Business">
+    <meta property="og:site_name" content="Simply Business" />
+    <meta property="og:image" content="thumb.jpg" />
+    <meta property="og:url" content="index.html" />
+    <meta itemprop="image" content="thumb.jpg">
+    <meta name="description" content="Welcome to Landlord Town – an online guide to renting your property by Simply Business">
+    <meta property="og:description" content="Welcome to Landlord Town – an online guide to renting your property by Simply Business" />
+    <meta itemprop="description" content="Welcome to Landlord Town – an online guide to renting your property by Simply Business">
+    <link rel="canonical" href="index.html">
+
+    <link rel="stylesheet" href="style.css" type="text/css" />
+
+    <script type="text/javascript" src="scripts/js/jquery-1.7.1.min.js"></script>
+
+    <script type="text/javascript" src="scripts/js/jquery.backgroundpos.js"></script>
+    <script type="text/javascript" src="scripts/js/jquery.address-1.5.min.js"></script>
+    <script type="text/javascript" src="scripts/js/browserdetect.js"></script>
+    <script type="text/javascript" src="scripts/js/pages.js"></script>
+    <script type="text/javascript" src="scripts/js/links.js"></script>
+    <script type="text/javascript" src="scripts/js/anim_engine.js"></script>
+    <script type="text/javascript" src="scripts/js/scripts.js"></script>
+    <script type="text/javascript" src="scripts/js/animation.js"></script>
+    <script type="text/javascript" src="scripts/js/prev_btn_click.js"></script>
+    <script type="text/javascript" src="scripts/js/actions.js"></script>
+
+<script type="text/javascript">
+    (function(d){
+        var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
+        p.type = 'text/javascript';
+        p.async = true;
+        p.src = '../../../assets.pinterest.com/js/pinit.js';
+        f.parentNode.insertBefore(p, f);
+    }(document));
+</script>
+
+<script type="text/javascript">
+    (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = '../../../apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+</script>
+
+<script type="text/javascript" >
+
+// jquery adress necessary for manipulating url's
+
+    var found_previous_page = false; // if true, there is no necessity to look for a next page
+    var site_entered = false;
+    // var entered_page = '' ;
+
+    // Event handlers
+    $.address.init(function(event) {
+
+        $('#przycisk_nav a').click(function() {
+            $.address.value(getNextPagesLink(aktualnaStrona));
+        });
+
+        $('#przycisk_prev a').click(function() {
+            $.address.value(getPrevPagesLink(aktualnaStrona));
+        });
+
+        $('#begin').click(function() {
+            $.address.value('larry-wants-to-rent-his-house');
+        });
+
+        $('#number_buttons a, #box1 .kolor a').click(function() {
+            var url = $(this).attr('href');
+            url = url.substring(30, url.length -2);
+            $.address.value( url);
+        });
+
+        $('.center a').click(function() {
+            $.address.value('home');
+        });
+
+    }).change(function(event) {
+        }).internalChange(function(event) {
+            }).bind('externalChange', {}, function(event) {
+
+                var page = window.location.hash;
+
+                var entered_page = page.substring(2,page.length);
+
+                // aktualnaStrona is defined and site is directly entered
+                if (!(typeof aktualnaStrona === 'undefined'))
+                //not site_entered
+                {
+                    // checking, if page's request occured after prev/next
+                    // browser's or using direct link
+                    var current_number = getPageNumber(aktualnaStrona);
+
+                    // if there is the page (aktualnaStrona) on position +/-1,
+                    // then a user used prev/next button of a browser's
+
+                    // checking previous
+
+                    if (current_number > 1)// 1 is the first page's index
+                    {
+
+                        if (available_sites[current_number-1][0] == entered_page)
+                        {
+
+                            found_previous_page = true;
+                            // aktualnaStrona = entered_page;
+
+                            // one has to store next's pages url in order to get
+                            // back
+                            aktualnaStrona = available_sites[current_number][0];
+
+                            if (aktualnaStrona != 'larry-wants-to-rent-his-house')
+                            prevBtnCLick();
+                        }
+                    }
+
+                    if (!found_previous_page)
+                    {
+                        if (current_number < available_sites.length)
+                        {
+                            if (available_sites[current_number+1][0] == entered_page)
+                            {
+
+                                found_previous_page = true;
+
+                                aktualnaStrona = available_sites[current_number][0];
+
+                                if (aktualnaStrona == 'home')
+                                {
+                                    $('#center').css('visibility','visible');
+                                    landingPageBeginClick();
+                                }
+                                else
+                                    nextBtnCLick();
+                            }
+                        }
+                    }
+                }
+
+                if (!found_previous_page)
+                {
+                    if (entered_page == '')
+                        entered_page = 'home';
+
+                    if (typeof aktualnaStrona === 'undefined')
+
+                        displayPage(entered_page,false,false);
+                    else
+                    {
+                        // there is no comeback to welcome's site
+
+                        if (aktualnaStrona != 'larry-wants-to-rent-his-house' )
+                        {
+                            if (! (entered_page=='home' && aktualnaStrona!= 'home' ))
+                            displayPage(entered_page,false,false);
+                        }
+                    }
+                }
+
+                site_entered = true;
+
+            });
+
+            site_entered = true;
+</script>
+    <script type="text/javascript" src="../../assets/analytics/snowplow_helper.js"></script>
+        <script>
+        new SnowplowHelper({mainEventsCollector: "d1f6ajd7ltcrsx", bronzeEventsCollector: "d1y70ye8b3qgl6", cookieDomain: "simplybusiness.co.uk", avalancheCollector: "avalanche.simplybusiness.co.uk"}).trackAdImpression({targetUrl: "http://www.simplybusiness.co.uk", advertiserId: "simplybusiness", campaignId: "landlord_town"});
+    </script>
+    <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+                                 ga('create', 'UA-8804762-6', 'simplybusiness.co.uk');
+                                 ga('require', 'displayfeatures');
+                                 ga('send', 'pageview');
+    </script>
+
+</head>
+
+<body>
+    <script type="text/javascript" src="../../assets/analytics/doubleclick_microsites.js"></script>
+
+    <div id="gorna_belka" style="min-width:1000px">
+        <div class="center">
+            <img src="layout/parasol.png" alt=""/>
+            <h1>Landlord Town</h1>
+        </div>
+    </div>
+
+    <div id="loading" >
+        <img src="layout/loading.gif" alt=""/>
+    </div>
+
+    <div id="center" style="min-width:1000px">
+        <div id="animation" >
+
+            <div id="szareTlo2" style="position:absolute; left:0;top:0; width:1000px;height:500px; z-index:100; background-color:#fff;opacity:0.5">
+            </div>
+
+            <div id="background"><img src="layout/parallax/background.jpg" /></div>
+
+            <div id="cloud1"><img src="layout/parallax/cloud1.png" alt=""/></div>
+            <div id="cloud2"><img src="layout/parallax/cloud1.png" alt=""/></div>
+            <div id="cloud3"><img src="layout/parallax/cloud3.png" alt=""/></div>
+            <div id="cloud4"><img src="layout/parallax/cloud4.png" alt=""/></div>
+
+            <div id="house1"><img src="layout/parallax/house1.png" alt=""/></div>
+            <div id="house2"><img src="layout/parallax/house2.png" alt=""/></div>
+            <div id="house3"><img src="layout/parallax/house3.png" alt=""/></div>
+            <div id="house4"><img src="layout/parallax/house4.png" alt=""/></div>
+
+            <div id="mountain1"><img src="layout/parallax/mountain1.png" alt=""/></div>
+            <div id="mountain2"><img src="layout/parallax/mountain2.png" alt=""/></div>
+            <div id="mountain3"><img src="layout/parallax/mountain3.png" alt=""/></div>
+            <div id="mountain4"><img src="layout/parallax/mountain4.png" alt=""/></div>
+            <div id="mountain5"><img src="layout/parallax/mountain5.png" alt=""/></div>
+
+            <div id="tree1"><img src="layout/parallax/tree1.png" alt=""/></div>
+            <div id="tree2"><img src="layout/parallax/tree2.png" alt=""/></div>
+            <div id="tree3"><img src="layout/parallax/tree3.png" alt=""/></div>
+            <div id="tree4"><img src="layout/parallax/tree4.png" alt=""/></div>
+            <div id="tree5"><img src="layout/parallax/tree5.png" alt=""/></div>
+            <div id="tree6"><img src="layout/parallax/tree6.png" alt=""/></div>
+            <div id="tree7"><img src="layout/parallax/tree7.png" alt=""/></div>
+        </div> <!-- animation -->
+
+        <div id="social_buttons">
+
+            <div style="margin-left:7px; float: left; width: 80px; text-align: center;">
+                &nbsp;
+                <div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false"></div>
+            </div>
+
+            <div style="margin-left:0px; float: left;">
+
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.simplybusiness.co.uk/microsites/landlord-town/" data-text="Landlord Town – an online guide to renting your property" data-lang="en" data-text="http://twitter.com/simplybusiness" data-count="vertical">Tweet</a>
+                <script type="text/javascript" >!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="../../../platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+
+            <div style="margin-left:10px; float: left;">
+                <g:plusone size="tall" ></g:plusone>
+            </div>
+        </div><!--social_buttons-->
+
+        <div id="scenka_home" style="overflow:hidden;height: 500px;width:960px; display:none">
+            <div id="welcome_pageContainer" style="height:520px;">
+                <div id="welcome_page" style="z-index: 10;position:relative; display: block; padding-top: 0px;">
+                    <div class="gora">
+
+                        <p class="p1">WELCOME TO</p>
+                        <p class="p2">landlord</p>
+                        <p class="p22">town</p>
+                        <p class="p3">
+                            AN ONLINE GUIDE TO <br/>
+                            RENTING YOUR PROPERTY<br/>
+                            by <a href="/" target="_blank" class="kolor">Simply Business</a>
+                        </p>
+                    </div>
+
+                    <a href="javascript:landingPageBeginClick()" id="begin"></a>
+
+                    <div class="ikony_spolecznosciowe">
+
+                        <div><a target="blank" href="http://twitter.com/simplybusiness"><img src="layout/twitter.png" alt=""/></a> </div>
+                        <div><a target="blank" href="http://facebook.com/simply.business"><img src="layout/fb.png" alt=""/></a> </div>
+                        <div><a target="blank" href="http://plus.google.com/+simplybusiness"><img src="layout/gplus.png" alt=""/></a> </div>
+                        <div><a target="blank" href="http://linkedin.com/company/simply-business_39914"><img src="layout/linkedin.png" alt=""/></a> </div>
+                        <div style="margin-right: 0px;"><a href="http://youtube.com/simplybusiness"><img src="layout/youtube.png" alt=""/></a> </div>
+                    </div>
+                </div><!-- welcome_page -->
+            </div><!-- welcome_pageContainer -->
+        </div> <!--scena1 -->
+
+        <div id="szareTlo" style="width: 100%; height: 520px; opacity: 0.5; z-index: 5; display:none; margin-top:-520px; box-shadow: 0px 7px 3px #888888; "></div>
+
+        <div id="animacja_larrego3">
+            <img id="MainImage_3" name="MainImage_3" src="layout/animation/big_larry/big_larry32.png" border="0" width="450" alt=""/>
+
+            <div style="position:absolute;top :472px; left:110px; background-color: #fff; height:220px; width:220px;">
+            </div>
+
+            <a href="javascript:landingPageBeginClick()" style="display:block;position:absolute; left:420px; top:230px; width: 120px; height: 65px; background-image: url('about:blank'); "> </a>
+
+            <a href="http://twitter.com/simplybusiness" style="display:block;position:absolute; left:365px; top:315px; width: 25px; height: 25px; background-image: url('about:blank'); "> </a>
+            <a href="http://facebook.com/simply.business" style="display:block;position:absolute; left:420px; top:315px; width: 25px; height: 25px; background-image: url('about:blank'); "> </a>
+            <a href="http://plus.google.com/+simplybusiness" style="display:block;position:absolute; left:470px; top:315px; width: 25px; height: 25px; background-image: url('about:blank');"> </a>
+
+            <a href="../../landlord-insurance/index.html" style="display:block;position:absolute; left:420px; top:185px; width: 100px; height: 35px;background-image: url('about:blank'); "></a>
+
+        </div><!-- animacja_larrego3 -->
+
+        <div id="scenka" style="overflow:hidden;height: 500px;width:960px">
+
+            <div id="przycisk_prev">
+                <a href="javascript:prevBtnCLick()"></a>
+            </div>
+            <div id="przycisk_nav">
+                <a href="javascript:nextBtnCLick()"></a>
+            </div>
+
+            <div id="animacja_larrego">
+                <img name="MainImage" src="layout/animation/larry_talking/larry_talking0022.png" border="0" alt=""/>
+            </div>
+
+            <div id="animacja_larrego2">
+                <img name="MainImage_2" src="layout/animation/sp02_idle/sp02_idle0003.png" border="0" alt=""/>
+            </div>
+
+            <div id="tekst_dialogu" class="zaokragloneRogi7">
+                <p>This is Larry and he is about to become a landlord for the first time. He has lots of questions about property rental, from finding tenants to securing insurance. Walk with him through this interactive guide by clicking the arrows in the green circles, and you will meet some experts who will be able to help answer specific rental-related questions.</p>
+
+                <div style="position:absolute; left:-20px; top:150px;"></div>
+            </div>
+
+            <div id="larry_house">
+                <img src="layout/larry_house.png" alt=""/>
+            </div>
+
+            <div id="video" class="video">
+
+                <iframe width="485" height="250"
+                src="https://www.youtube.com/embed/rT5iaHTeWb4?rel=0&amp;html5=1">
+                </iframe>
+                <p>Letting agent Sam Setork from LondonWideLettings on working with a letting agency</p>
+            </div><!-- video -->
+
+            <div id="video2" class="video">
+
+                <iframe width="485" height="250"
+                src="https://www.youtube.com/embed/x03Y73te07c?rel=0&amp;html5=1">
+                </iframe>
+                <p>Solicitor Tessa Shepperson from Landlord Law on signing tenancy agreements</p>
+            </div><!-- video -->
+
+            <div id="checklist">
+
+                <p>Landlord Checklist</p>
+
+                <form id="checklist_form">
+
+                    <input id="property_scratch" class="css-checkbox" type="checkbox" />
+                    <label for="property_scratch" name="demo_lbl_2" class="css-label"><span>Ensure the property is up to scratch.</span></label>
+                    <br/>
+
+                    <input id="mortgage_company" class="css-checkbox" type="checkbox" />
+                    <label for="mortgage_company" name="demo_lbl_2" class="css-label"><span>Talk to your mortgage company.</span></label>
+                    <br/>
+
+                    <input id="landlord_registration" class="css-checkbox" type="checkbox" />
+                    <label for="landlord_registration" name="demo_lbl_2" class="css-label"><span>Consider landlord registration.</span></label>
+                    <br/>
+
+                    <input id="tenants_ability" class="css-checkbox" type="checkbox" />
+                    <label for="tenants_ability" name="demo_lbl_2" class="css-label"><span>Check the tenant's ability to pay.</span></label>
+                    <br/>
+
+                    <input id="referenece_guarantors" class="css-checkbox" type="checkbox" />
+                    <label for="referenece_guarantors" name="demo_lbl_2" class="css-label"><span>Confirm references and guarantors.</span></label>
+                    <br/>
+
+                    <input id="protect_deposit" class="css-checkbox" type="checkbox" />
+                    <label for="protect_deposit" name="demo_lbl_2" class="css-label"><span>Take and protect the deposit.</span></label>
+                    <br/>
+
+                    <input id="make_inventory" class="css-checkbox" type="checkbox" />
+                    <label for="make_inventory" name="demo_lbl_2" class="css-label"><span>Make an inventory.</span></label>
+                    <br/>
+
+                    <input id="information_pack" class="css-checkbox" type="checkbox" />
+                    <label for="information_pack" name="demo_lbl_2" class="css-label"><span>Leave an information pack.</span></label>
+                    <br/>
+
+                    <input id="redirect_mail" class="css-checkbox" type="checkbox" />
+                    <label for="redirect_mail" name="demo_lbl_2" class="css-label"><span>Redirect your mail.</span></label>
+                    <br/>
+
+                    <input id="inform_council" class="css-checkbox" type="checkbox" />
+                    <label for="inform_council" name="demo_lbl_2" class="css-label"><span>Inform the council.</span></label>
+
+                    <br/>
+                    <input id="stay_touch" class="css-checkbox" type="checkbox" />
+                    <label for="stay_touch" name="demo_lbl_2" class="css-label"><span>Stay in touch.</span></label>
+
+                </form><!--checklist_form-->
+            </div><!--checklist-->
+
+            <div id="checklist_tekst" class="zaokragloneRogi7">
+                <p>I need to find tenants for my house.</p>
+
+                <a href="javascript:zamknij_tekst_checklisty()" id="checklist_tekst_close" >close</a>
+
+            </div>
+
+            <div id="pytania">
+
+                <div id="pytanie_larrego" class="zaokragloneRogi7">
+                    <p>What does landlord insurance cover?</p>
+
+                    <div style="position:absolute; left:-50px; top:95px;"><img src="layout/bubble_larry.png" alt=""/>
+                    </div>
+
+                    <span style="position:absolute; left:280px; top:65px;">Question 1 of 4</span>
+                </div>
+
+                <div id="odpowiedz_lennego" class="zaokragloneRogi7">
+                    <p style="display:block;z-index:10;">As well as buildings and contents insurance, specific landlord policies can cover risks such as tenants defaulting on their rent, loss of rent due to property being damaged and becoming uninhabitable, and cover if someone makes a compensation claim for injury or damage.</p>
+
+                    <div style="position:absolute; left:398px; top:140px;"><img src="layout/bubble_keith.png" alt=""/></div>
+
+                    <span style="position:absolute; left:280px; top:220px;">Answer 1 of 4</span>
+
+                </div>
+            </div> <!-- pytania -->
+
+            <div id="video-finding-tradesman" class="video">
+
+                <iframe width="485" height="250" src="https://www.youtube.com/embed/-mAe0B-eggQ?rel=0&amp;html5=1" id="vid"></iframe>
+                <p>Director Marek Mossakowski from Rated People on finding reliable tradesmen</p>
+            </div><!-- video -->
+
+            <div id="video-gas-safety-checks" class="video">
+
+                <iframe width="485" height="250" src="https://www.youtube.com/embed/AbvDUjaSFkc?rel=0&amp;html5=1"></iframe>
+                <p>Gas Safe Engineer Andy Harris from Greenserve on property gas safety</p>
+            </div><!-- video -->
+
+            <div id="video-tax-on-rental-profits" class="video">
+
+                <iframe width="485" height="250" src="https://www.youtube.com/embed/w3tURfIQgR8?rel=0&amp;html5=1"></iframe>
+                <p>Accountant Ray Coman from Coman &amp; Co on paying taxes from rental property</p>
+            </div><!-- video -->
+
+            <div id="video-evicting-tenants" class="video">
+
+                <iframe width="485" height="250" src="https://www.youtube.com/embed/5kk24saziZY?rel=0&amp;html5=1"></iframe>
+                <p>Solicitor Tessa Shepperson from Landlord Law on evicting tenants</p>
+            </div><!-- video -->
+
+            <div id="finish_page" style="display:block"> <!-- none -->
+                <div class="gora">
+
+                    <p class="p1">THANK YOU FOR VISITING</p>
+                    <p class="p2">landlord</p>
+                    <p class="p22">town</p>
+                    <p class="p3">
+                        Follow <b>Simply Business</b>
+                    </p>
+                </div>
+
+                <br/>
+                <div class="ikony_spolecznosciowe" style="margin-top:-40px">
+                    <div><a target="blank" href="http://twitter.com/simplybusiness"><img src="layout/twitter.png" alt=""/></a> </div>
+                    <div><a target="blank" href="http://facebook.com/simply.business"><img src="layout/fb.png" alt=""/></a> </div>
+                    <div><a target="blank" href="http://plus.google.com/+simplybusiness"><img src="layout/gplus.png" alt=""/></a> </div>
+                    <div><a target="blank" href="http://linkedin.com/company/simply-business_39914"><img src="layout/linkedin.png" alt=""/></a> </div>
+                    <div style="margin-right: 0px;"><a target="blank" href="http://youtube.com/simplybusiness"><img src="layout/youtube.png" alt=""/></a> </div>
+
+                </div><!--ikony_spolecznosciowe-->
+            </div>
+        </div> <!-- scena -->
+
+        <div style="clear: both"></div>
+    </div><!-- center -->
+
+    <div style="min-width:1000px; margin-top: -100px">
+        <div id="number_buttons">
+
+            <a href="javascript:changeCurrentPage('larry-wants-to-rent-his-house')" id="number_button_1" title="Larry wants to rent his house"> </a>
+            <a href="javascript:changeCurrentPage('using-letting-agency')" id="number_button_2" title="Using letting agency"> </a>
+            <a href="javascript:changeCurrentPage('pre-rental-checklist')" id="number_button_3" title="Pre-rental checklist"> </a>
+            <a href="javascript:changeCurrentPage('signing-tenancy-agreement')" id="number_button_4" title="Signing tenancy agreement"> </a>
+            <a href="javascript:changeCurrentPage('getting-landlord-insurance')" id="number_button_5" title="Getting landlord insurance"> </a>
+            <a href="javascript:changeCurrentPage('finding-tradesman')" id="number_button_6" title="Finding tradesman"> </a>
+            <a href="javascript:changeCurrentPage('gas-safety-checks')" id="number_button_7" title="Gas safety checks"> </a>
+            <a href="javascript:changeCurrentPage('tax-on-rental-profits')" id="number_button_8" title="Tax on rental profits"> </a>
+            <a href="javascript:changeCurrentPage('evicting-tenants')" id="number_button_9" title="Evicting tenants"> </a>
+            <a href="javascript:changeCurrentPage('the-end')" id="number_button_10" title="The end"> </a>
+
+        </div><!--number_buttons-->
+
+        <div style="clear: both"></div>
+
+        <div id="linia1">
+            <hr />
+        </div>
+
+        <div id="boxy">
+            <div id="box1" style="padding-left: 0px; padding-right: 10px; width: 250px;">
+                <div class="zdjecie">
+                    <img src="layout/box1.jpg" alt=""/>
+                </div>
+
+                <h3>Landlord Town content</h3>
+
+                <ul class="kolor">
+                    <li><a href="javascript:changeCurrentPage('larry-wants-to-rent-his-house')" id="larry-wants-to-rent-his-house_ba">Meet Larry – first time landlord</a></li>
+                    <li><a href="javascript:changeCurrentPage('using-letting-agency')" id="using-letting-agency_ba">Using a letting agency</a></li>
+                    <li><a href="javascript:changeCurrentPage('pre-rental-checklist')" id="pre-rental-checklist_ba"> Pre-rental checklist</a></li>
+                    <li><a href="javascript:changeCurrentPage('signing-tenancy-agreement')" id="signing-tenancy-agreement_ba"> Signing a tenancy agreement</a></li>
+                    <li><a href="javascript:changeCurrentPage('getting-landlord-insurance')" id="getting-landlord-insurance_ba">Getting landlord insurance</a></li>
+                    <li><a href="javascript:changeCurrentPage('finding-tradesman')" id="finding-tradesman_ba">Finding a tradesman</a></li>
+                    <li><a href="javascript:changeCurrentPage('gas-safety-checks')" id="gas-safety-checks_ba">Arranging gas safety checks</a></li>
+                    <li><a href="javascript:changeCurrentPage('tax-on-rental-profits')" id="tax-on-rental-profits_ba">Paying tax on rental profits</a></li>
+                    <li><a href="javascript:changeCurrentPage('evicting-tenants')" id="evicting-tenants_ba">Evicting tenants</a></li>
+                    <li><a href="javascript:changeCurrentPage('the-end')" id="the-end_ba">Thank you for visiting</a></li>
+                </ul>
+            </div> <!--box1 -->
+
+            <div class="odstepnik">
+
+            </div>
+
+            <div id="box2">
+                <div class="zdjecie">
+                    <img src="layout/box2.jpg" alt=""/>
+                </div>
+                <h3>Need landlord insurance?</h3>
+
+                <p>Simply Business makes getting <a href="../../landlord-insurance/index.html" target="_blank" class="kolor">landlord insurance</a> quick and easy! We offer quality cover with a 95% customer satisfaction rating and you can compare quotes from up to seven insurers in minutes using our easy-to-follow <a href="https://quote.simplybusiness.co.uk/landlord/about-me" target="_blank" class="kolor">online form</a>. You can also give us a call on <span class="kolor">0333 014 6683</span></p>
+            </div><!--box2-->
+
+            <div class="odstepnik">
+
+            </div>
+
+            <div id="box3">
+                <div class="zdjecie">
+                    <img src="layout/box3.jpg" alt=""/>
+                </div>
+
+                <h3>News and articles</h3>
+
+                <p>Simply Business aims to support landlords and businesses with practical advice on managing and marketing their properties, services, or products. Check out our <a href="../../knowledge/index.html" target="_blank" class="kolor">knowledge pages</a> for specific news, guides, and tips for landlords. You can also find comments and updates on our <a href="../../knowledge/opinion/index.html" target="_blank" class="kolor">company blog</a>.</p>
+            </div><!--box3-->
+
+        </div><!--boxy-->
+
+        <div style="clear: both"></div>
+
+        <div id="stopka">
+            <div id="stopkaContent">
+                <div id="stopka_gora">
+
+                    <div id="prostokaty">
+                        <div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false" style="margin-right: 0px;"></div>
+
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.simplybusiness.co.uk/microsites/landlord-town/" data-text="Landlord Town – an online guide to renting your property" data-lang="en" data-text="http://twitter.com/simplybusiness" data-count="vertical">Tweet</a>
+                        <script type="text/javascript" >!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="../../../platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <g:plusone size="tall" ></g:plusone>
+
+                        <a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.simplybusiness.co.uk%2Fmicrosites%2Flandlord-town%2F&amp;media=http%3A%2F%2Fwww.simplybusiness.co.uk%2Fmicrosites%2Flandlord-town%2Fthumb.jpg&amp;description=Landlord%20Town" data-pin-do="buttonPin" data-pin-config="above"><img src="../../../assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
+
+                        <script src="../../../platform.linkedin.com/in.js" type="text/javascript">
+                            lang: en_US
+                        </script>
+
+                        <script type="IN/Share" data-url="http://www.simplybusiness.co.uk/microsites/landlord-town/" data-counter="top"></script>
+
+                    </div><!-- prostokaty-->
+
+
+                    <p class="p2">
+                        We produce lots of guides for small businesses.<br/ >
+                        Enter your email to find out when the next guide is published.
+                    </p>
+
+                    <form id="form122" target="_blank" name="form122" class="wufoo rightLabel page1" autocomplete="off" enctype="multipart/form-data" method="post" novalidate="" action="https://simplybusiness.wufoo.com/forms/z7p6k5/#public">
+                        <input onfocus="if(this.value == 'Enter email &amp; click enter') { this.value = ''; }" value="Enter email &amp; click enter" id="Field1" name="Field1" spellcheck="false" class="field text medium" maxlength="255" tabindex="1" onkeyup="handleInput(this);" onchange="handleInput(this);" type="email">
+
+                        <input type="submit" style="position: absolute; left: -9999px"/>
+
+                        <div style="display: none;">
+                            <label for="comment">Do Not Fill This Out</label>
+                            <textarea name="comment" id="comment" rows="1" cols="1"></textarea>
+                            <input type="hidden" id="idstamp" name="idstamp" value="BVjnBL7Y9kpU2vriroFjFaffO8UvYDrCUE3MoQqIpqA=" />
+                        </div>
+
+                    </form>
+
+                </div><!--stopka_gora-->
+
+                <div id="stopka_dol">
+                    <p>
+                        &copy; 2013 <a href="/">Simply Business</a>
+                    </p>
+                </div>
+
+            </div><!--stopkaContent-->
+        </div><!--stopka-->
+    </div> <!-- wrapper min-width -->
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "../../../connect.facebook.net/en_GB/all.js#xfbml=1&appId=159206767468812";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+</body>
+
+<!-- Mirrored from www.simplybusiness.co.uk/microsites/landlord-town/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Dec 2017 09:51:11 GMT -->
+</html>

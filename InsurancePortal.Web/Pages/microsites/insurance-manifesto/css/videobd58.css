@@ -1,0 +1,188 @@
+.html
+{
+	background-color: #373536;
+}
+
+#page
+{
+	z-index: 1;
+	width: 959px;
+	min-height: 728px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#u8483
+{
+	z-index: 8;
+	width: 50px;
+	top: 28px;
+	left: 100px;
+}
+
+#u8508
+{
+	z-index: 30;
+	width: 342px;
+	height: 45px;
+	bottom: 50px;
+	left: 100px;
+}
+
+#u8498-4
+{
+	z-index: 26;
+	width: 500px;
+	bottom: 22px;
+	left: 100px;
+}
+
+#u8498-4 a
+{
+	color: #fff;
+	text-decoration: underline;
+}
+
+#u8504
+{
+	z-index: 31;
+	width: 139px;
+	min-height: 27px;
+	bottom: 57px;
+	left: 110px;
+}
+
+#u8500
+{
+	z-index: 33;
+	width: 107px;
+	min-height: 23px;
+	bottom: 59px;
+	left: 192px;
+}
+
+#u9482
+{
+	z-index: 11;
+	top: 45px;
+	left: 204px;
+}
+
+#u6866
+{
+	z-index: 7;
+	width: 640px;
+	min-height: 363px;
+	border-style: none;
+	border-color: transparent;
+	background-color: transparent;
+	position: fixed;
+	top: 169px;
+	left: 50%;
+	margin-left: -320px;
+}
+
+#u7619
+{
+	z-index: 6;
+	width: 630px;
+	height: 349px;
+	-pie-box-shadow: 0px 0px 30px #3F3F3F;
+	-moz-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 0px 0px 30px -1px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.75);
+	border-color: #000000;
+	background-color: #FFFFFF;
+	position: fixed;
+	top: 177px;
+	left: 50%;
+	margin-left: -315px;
+}
+
+#u8506
+{
+	z-index: 32;
+	width: 40px;
+	min-height: 23px;
+	bottom: 59px;
+	left: 299px;
+}
+
+#u9484
+{
+	z-index: 15;
+	top: 45px;
+	left: 316px;
+}
+
+#pu6039-4
+{
+	width: 0.01px;
+	padding-bottom: 418px;
+	margin-bottom: -148px;
+	position: relative;
+	margin-right: -10000px;
+	margin-top: 458px;
+	left: 227px;
+}
+
+#u6039-4
+{
+	z-index: 2;
+	width: 506px;
+	min-height: 56px;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 20px;
+	line-height: 24px;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	position: fixed;
+	top: 558px;
+	left: 50%;
+	margin-left: -253px;
+}
+
+#u8542
+{
+	z-index: 34;
+	width: 290px;
+	min-height: 39px;
+	bottom: 43px;
+	left: 355px;
+}
+
+#u9486
+{
+	z-index: 19;
+	top: 45px;
+	left: 428px;
+}
+
+#u9482_states,#u9484_states,#u9486_states
+{
+	height: 20px;
+	width: 58px;
+}
+
+#u9489
+{
+	z-index: 23;
+	top: 45px;
+	left: 540px;
+}
+
+#u9489_states
+{
+	height: 20px;
+	width: 105px;
+}
+
+body
+{
+	padding-top: 100px;
+}
+
+#page .verticalspacer
+{
+	clear: both;
+}

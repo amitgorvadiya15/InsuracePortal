@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<!-- Mirrored from www.simplybusiness.co.uk/about-us/tech/2017/07/loading-constants-ruby-vs-rails-part-1/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Dec 2017 10:06:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"b747ade770","applicationID":"71452593","transactionName":"cVtfFhENWQlSQRxrXlxVRRACTWYAUldKAg1zRlIKChRQFg0JZ11UWht2JzdCVAdYRkcQCAhoHB5GUG4hU24aTUQdQFQBC00dPmkcDBtqGR0eSjg8GloUbhgRGBpvb01cQWhOHg==","queueTime":0,"applicationTime":97,"ttGuid":"","agentToken":null,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQUCVFNWGwQBUFRQAggE"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,n,e)])}catch(s){try{i("ierr",[s,c.now(),!0])}catch(u){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t){i("err",[t,c.now()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,n,e){u&&(d+=1)}),s.on("fn-err",function(t,n,e){u&&(this.thrown=!0,o(e))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("../../../../../index.html")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+<meta charset="utf-8">
+<title>Loading Constants - Ruby VS Rails - Part 1</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="index, follow" name="robots">
+<meta content="Two parts tutorial post on how constants are loaded in Ruby VS Ruby on Rails." name="description">
+<meta content="Loading Constants - Ruby VS Rails - Part 1" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://www.simplybusiness.co.uk/about-us/tech/2017/07/loading-constants-ruby-vs-rails-part-1/" property="og:url">
+<meta content="https://www.simplybusiness.co.uk/assets/social/simply_opengraph.png?v2" property="og:image">
+<meta content="Ruby is an Object Oriented Language with many unique characteristics that make it, not only a pleasure to work with, but really powerful too.
+If you ever came across constants in other languages you will be surprised how Ruby defines constants, and, actually, how Ruby loads them into
+memory. On top of that, Ruby on Rails takes it even further and uses a convention to allow constants to be loaded with minimum programmer’s hassle." property="og:description">
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@simplybusiness" name="twitter:site">
+<meta content="@simplybusiness" name="twitter:creator">
+<link href="index.html" rel="canonical">
+<meta content="authenticity_token" name="csrf-param">
+<meta content="uywYjpi5zmVJaEGkgj4drxoluLjiJjs0zTscAzgRPWA=" name="csrf-token">
+<link as="font" crossorigin="anonymous" href="../../../../../assets/bijou/museosans_500-5e970f19a7bd56681ccffee58a97772a148c314440e6549254733ef24a3c9f66.woff2" rel="preload" type="font/woff2">
+<link as="font" crossorigin="anonymous" href="../../../../../assets/bijou/museosans_700-b3455e5afa9446a79ada31b9a416de55705fe7e7579989d1e3d6669c224a0bbc.woff2" rel="preload" type="font/woff2">
+<link as="font" crossorigin="anonymous" href="../../../../../assets/bijou/museosansrounded_500-d1a96cb01de35edb2d86f7cbb3dd760310896e4f0cc7f0006e014b19c841b2d5.woff2" rel="preload" type="font/woff2">
+<link as="font" crossorigin="anonymous" href="../../../../../assets/bijou/museosansrounded_700-205bdf3f5255bae942d055addbb1b09a6ba24b6a8440c688661fa524098745c1.woff2" rel="preload" type="font/woff2">
+
+<link rel="stylesheet" href="../../../../../assets/app-1bf9710e98e8db69f25ae65e22f0a1cec3560d2d0d40a4d9528b872be60e937f.css">
+<script src="../../../../../assets/app_head-fee1c8d1c4f037c1f4c940a637d8cd0a8879ab2faf9639ef06824e78ff0e1276.js"></script>
+<script id="snippet-snowplow">
+window.snowplowHelper = new SnowplowHelper({mainEventsCollector: "d1f6ajd7ltcrsx", bronzeEventsCollector: "d1y70ye8b3qgl6", avalancheCollector: "avalanche.simplybusiness.co.uk", cookieDomain: "simplybusiness.co.uk", appId: "uk-seedy"}).trackPageView();
+</script>
+<script id="snippet-bing">
+(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5561972"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","../../../../../../bat.bing.com/bat.js","uetq");
+</script>
+<noscript>
+<img height="0" src="http://bat.bing.com/action/0?ti=5561972&amp;Ver=2" style="display:none; visibility: hidden;" width="0">
+</noscript>
+<script id="snippet-ga">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','../../../../../../www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-8804762-6', 'auto');
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+</script>
+<script id="snippet-facebook">
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','../../../../../../connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1451594908471230');
+fbq('track', 'PageView');
+fbq('trackCustom', 'UV');
+</script>
+<noscript>
+<img height="1" src="https://www.facebook.com/tr?id=1451594908471230&amp;ev=PageView&amp;noscript=1" style="display:none" width="1">
+</noscript>
+
+
+
+
+<link href="../../../../../assets/bijou/favicon-e0e837edfd0650eeac6fdfd867d83745e6162b86a6edc3cb4f7eeae2b2d73aef.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+<link href="../../../../../assets/bijou/apple-icon-57x57-883fb33d5cf499cd7963527151cacbc2424428a35de4f745eeaa04810c5c95e8.png" rel="apple-touch-icon" sizes="57x57">
+<link href="../../../../../assets/bijou/apple-icon-76x76-d405761bd30bd7a9039e9fb213c6f3c44f67e9d6c777e8b9cf30e1ecb57a9364.png" rel="apple-touch-icon" sizes="76x76">
+<link href="../../../../../assets/bijou/apple-icon-120x120-64e89542bd90198b0978b07a45f61531d2231f632aa5bf1c716859c78f95b631.png" rel="apple-touch-icon" sizes="120x120">
+<link href="../../../../../assets/bijou/apple-icon-152x152-1823375fa998e626ae10f3219d0c71ee4ff7e77f7fc3f47323801925859c6e14.png" rel="apple-touch-icon" sizes="152x152">
+<link href="../../../../../assets/bijou/apple-icon-167x167-dc27d424ae184f34cbe4afa158929f59375cfc98477e201f3eb1fced390f0b23.png" rel="apple-touch-icon" sizes="167x167">
+<link href="../../../../../assets/bijou/apple-icon-180x180-cfb96d969435ef742153d9b92b7327b0720fa95f3ac905c2cd47cd1731b91e2c.png" rel="apple-touch-icon" sizes="180x180">
+<link href="../../../../../assets/bijou/icon-192x192-bd2f830632266cad764c388c8d11d7e9aea41bf8e8485bebf1209ac501f9e756.png" rel="icon" sizes="192x192">
+<meta content="Simply Business" name="apple-mobile-web-app-title">
+</head>
+<body class="template-article" itemscope itemtype="https://schema.org/InsuranceAgency">
+
+
+
+
+<header class="site-header" data-module="masthead">
+<div class="site-header__top clearfix">
+<div class="grid-wrapper">
+<div class="site-header-logo">
+<div class="site-header-logo__gradient js-has-css-animation"></div>
+<a class="site-header-logo__link logo" href="../../../../../index.html" itemprop="url">
+Simply Business - Insurance for your business
+</a>
+</div>
+<div class="has-nav site-header__customer-service">
+<div class="mobile-hide">
+<strong class="site-header__phone-number qa-customer-service-number tel" id="customer-service-number" itemprop="telephone">0333 014 6683</strong>
+<a class="qa-opening-hours" href="../../../../../support/index.html" itemprop="openingHours">See our opening hours</a>
+</div>
+<div class="mobile-show">
+<a class="has-nav icon-phone js-notice-toggle qa-mobile-customer-service-number site-header__call-button" data-track="mobile_call_button" href="tel:0333 014 6683" id="qa-mobile-customer-service-button"></a>
+</div>
+</div>
+</div>
+<i class="site-header__menu-icon icon-menu desktop-hide js-menu-toggle"></i>
+</div>
+<nav class="primary-nav">
+<div class="grid-wrapper">
+<ul class="menu--top">
+<li class="menu__item menu__item--menu js-submenu portable-hide">
+<a class="menu__item-link" href="../../../../../insurance/index.html">Business insurance</a>
+<div class="menu__panel-container">
+<div class="menu__panel js-menu-panel">
+<div class="grid-wrapper">
+<div class="grid"><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../insurance/index.html">Business insurance</a>
+</h3>
+</div><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../insurance/covers/index.html">Business insurance covers</a>
+</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../insurance/public-liability/index.html">Public liability insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/professional-indemnity/index.html">Professional indemnity insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/employers-liability/index.html">Employers' liability insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/tool-cover/index.html">Tool insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/business-contents/index.html">Business contents insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/business-buildings/index.html">Business building insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/personal-accident-insurance/index.html">Personal accident insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/stock-cover/index.html">Stock insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/covers/index.html">More business covers</a>
+</li>
+</ul>
+</div><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../insurance/business-types/index.html">Insurance by business type</a>
+</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../insurance/self-employed/index.html">Self-employed insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/contractors/index.html">Contractor insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/limited-company-insurance/index.html">Limited company insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/home-business/index.html">Home business insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/online-retailers/index.html">Online retailer insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/consultants/index.html">Consultant insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/freelancers/index.html">Freelancer insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/sole-trader/index.html">Sole trader insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/business-types/index.html">More business types</a>
+</li>
+</ul>
+</div><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../insurance/by-industry/index.html">Insurance by trade</a>
+</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../insurance/cleaners/index.html">Cleaners' insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/hairdressers/index.html">Hairdressing insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/catering/index.html">Catering insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/photographers/index.html">Photographers' insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/shop/index.html">Shop insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/dog-walkers/index.html">Dog walking insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/tradesman/index.html">Tradesman insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/massage/index.html">Massage therapists' insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/by-industry/index.html">More trades</a>
+</li>
+</ul>
+</div></div>
+</div>
+</div>
+</div>
+</li>
+<li class="menu__item menu__item--menu js-submenu portable-show">
+<a class="menu__item-link" href="../../../../../insurance/index.html">Business insurance</a>
+<div class="menu__panel-container">
+<div class="menu__panel js-menu-panel">
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../insurance/index.html">Business insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/public-liability/index.html">Public liability insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/professional-indemnity/index.html">Professional indemnity insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/employers-liability/index.html">Employers' liability insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/tool-cover/index.html">Tool insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/covers/index.html">More business covers</a>
+</li>
+<li>
+<a href="../../../../../insurance/by-industry/index.html">Insurance by industry</a>
+</li>
+<li>
+<a href="../../../../../insurance/business-types/index.html">Insurance by business type</a>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class="menu__item menu__item--menu js-submenu portable-hide">
+<a class="menu__item-link" href="../../../../../landlord-insurance/index.html">Landlord insurance</a>
+<div class="menu__panel-container">
+<div class="menu__panel js-menu-panel">
+<div class="grid-wrapper">
+<div class="grid"><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../landlord-insurance/index.html">Landlord insurance</a>
+</h3>
+</div><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../landlord-insurance/landlord-covers/index.html">Landlord insurance covers</a>
+</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../landlord-insurance/buy-to-let-insurance/index.html">Buy-to-let insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/content-insurance/index.html">Landlord contents insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/loss-of-rent-insurance/index.html">Loss of rent insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/liability-insurance/index.html">Landlord liability insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/accidental-damage/index.html">Accidental damage insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/alternative-accommodation/index.html">Alternative accommodation insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/unoccupied-property-insurance/index.html">Unoccupied property insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/tenant-default-insurance/index.html">Tenant default insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/landlord-covers/index.html">More landlord covers</a>
+</li>
+</ul>
+</div><div class="grid-cell desktop-3">
+<h3>Property types</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../landlord-insurance/residential-landlord-insurance/index.html">Residential landlord insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/commercial-landlord-insurance/index.html">Commercial landlord insurance</a>
+</li>
+</ul>
+</div></div>
+</div>
+</div>
+</div>
+</li>
+<li class="menu__item menu__item--menu js-submenu portable-show">
+<a class="menu__item-link" href="../../../../../landlord-insurance/index.html">Landlord insurance</a>
+<div class="menu__panel-container">
+<div class="menu__panel js-menu-panel">
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../landlord-insurance/index.html">Landlord insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/buy-to-let-insurance/index.html">Buy-to-let insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/content-insurance/index.html">Landlord contents insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/loss-of-rent-insurance/index.html">Loss of rent insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/liability-insurance/index.html">Landlord liability insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/accidental-damage/index.html">Accidental damage insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/unoccupied-property-insurance/index.html">Unoccupied property insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/landlord-covers/index.html">More covers</a>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class="menu__item menu__item--menu js-submenu portable-hide">
+<a class="menu__item-link" href="../../../../../knowledge/index.html">Knowledge centre</a>
+<div class="menu__panel-container">
+<div class="menu__panel js-menu-panel">
+<div class="grid-wrapper">
+<div class="grid"><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../knowledge/index.html">Knowledge centre</a>
+</h3>
+</div><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../knowledge/index.html">Articles</a>
+</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../knowledge/popular-articles/index.html">Most popular articles</a>
+</li>
+<li>
+<a href="../../../../../knowledge/index.html">All articles</a>
+</li>
+</ul>
+</div><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../microsites/index.html">Microsites</a>
+</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../microsites/facebook-for-small-businesses/index.html">Facebook for small businesses</a>
+</li>
+<li>
+<a href="../../../../../microsites/google-my-business-guide/index.html">Google My Business guide</a>
+</li>
+<li>
+<a href="../../../../../microsites/google-analytics-guide/index.html">Google Analytics guide</a>
+</li>
+<li>
+<a href="../../../../../microsites/google-adwords/index.html">Google Adwords guide</a>
+</li>
+<li>
+<a href="../../../../../microsites/twitter-for-small-businesses/index.html">Twitter for small businesses</a>
+</li>
+<li>
+<a href="../../../../../microsites/email-marketing-guide/index.html">Email marketing guide</a>
+</li>
+<li>
+<a href="../../../../../microsites/guide-to-social-media-success/index.html">Guide to social media success</a>
+</li>
+<li>
+<a href="../../../../../microsites/googleplus-for-small-businesses/index.html">GooglePlus for small businesses</a>
+</li>
+<li>
+<a href="../../../../../microsites/index.html">More microsites</a>
+</li>
+</ul>
+</div><div class="grid-cell desktop-3">
+<h3>FAQ</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../insurance/faq/index.html">Business insurance FAQ</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/faq/index.html">Landlord insurance FAQ</a>
+</li>
+</ul>
+</div></div>
+</div>
+</div>
+</div>
+</li>
+<li class="menu__item menu__item--menu js-submenu portable-show">
+<a class="menu__item-link" href="../../../../../knowledge/index.html">Knowledge centre</a>
+<div class="menu__panel-container">
+<div class="menu__panel js-menu-panel">
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../knowledge/index.html">Knowledge centre</a>
+</li>
+<li>
+<a href="../../../../../knowledge/popular-articles/index.html">Most popular articles</a>
+</li>
+<li>
+<a href="../../../../../microsites/index.html">Microsites</a>
+</li>
+<li>
+<a href="../../../../../knowledge/resources/small-business-guides/index.html">Small business guides</a>
+</li>
+<li>
+<a href="../../../../../insurance/faq/index.html">Business insurance FAQ</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/faq/index.html">Landlord insurance FAQ</a>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class="menu__item">
+<a class="menu__item-link" href="../../../../../support/index.html">Help & support</a>
+</li>
+<li class="menu__item">
+<a class="menu__item-link qa-make-a-claim-menu" data-track="make_a_claim_button_clicked" href="../../../../../insurance-claims/index.html">Claims</a>
+</li>
+<li class="menu__item">
+<a class="menu__item-link" data-track="sign_in_button_clicked" href="../../../../../signin/index.html">Sign in</a>
+</li>
+</ul>
+</div>
+</nav>
+
+
+
+
+</header>
+<section class="site-section grid-wrapper">
+<div class="archive grid"><div class="archive__main grid-cell desktop-twothirds">
+<article class="article" itemscope itemtype="https://schema.org/Blog">
+<header class="article__header">
+<div class="dateline" itemprop="datePublished">28 July 2017</div>
+<h1 id="qa-page-heading" itemprop="name">Loading Constants - Ruby VS Rails (Part 1)</h1>
+<p class="byline" itemprop="author">By Panos G. Matsinopoulos</p>
+
+<div class="social-tools addthis_sharing_toolbox"></div>
+</header>
+<div class="article__body" itemprop="blogPost">
+&#x000A;<p>Ruby is an Object Oriented Language with many unique characteristics that make it, not only a pleasure to work with, but really powerful too.&#x000A;If you ever came across <em >constants</em> in other languages you will be surprised how Ruby defines constants, and, actually, how Ruby loads them into&#x000A;memory. On top of that, Ruby on Rails takes it even further and uses a convention to allow constants to be loaded with minimum programmer’s hassle.</p>&#x000A;&#x000A;<h2>Introduction</h2>&#x000A;&#x000A;<p>This post is a long presentation on how constants are treated by Ruby (part I) and then by Ruby on Rails <a href="../loading-constants-ruby-vs-rails-part-2/index.html" >part II</a>.&#x000A;In fact the core of the text is around how constants are defined and how they are resolved. It demonstrates how Ruby does the constant resolution and how this&#x000A;differs from the method Ruby on Rails uses. In order to elaborate on this core subject, we are also unfolding various other satellite details,&#x000A;nevertheless, always around constants.</p>&#x000A;&#x000A;<h2>Why You May Want To Know About Constants</h2>&#x000A;&#x000A;<p>Knowing about constants, how they are defined and how they are being resolved, is a knowledge that will be proven useful when debugging your application.&#x000A;You may come across situations in which you expected a constant to be found, but it was not. Or you may have come to a situation in which you see warnings&#x000A;about your constants being defined multiple times without actually understanding why. Besides that, understanding how Ruby and Ruby on Rails deals with constants&#x000A;will allow you to write cleaner and less code, knowing when to use <code >require</code> vs <code >load</code> or even better avoid any of them altogether.</p>&#x000A;&#x000A;<h2>Code Examples Used In This Post</h2>&#x000A;&#x000A;<p>This post is referencing lots of Ruby and Ruby on Rails code examples. You can find all the source code here:</p>&#x000A;&#x000A;<p><a target="_blank" href="https://github.com/simplybusiness/blog_code_examples/tree/master/loading_constants_ruby_vs_rails" >Loading Constants - Ruby vs Rails Code Examples Source Code</a></p>&#x000A;&#x000A;<h3>Table of Contents</h3>&#x000A;&#x000A;<h4>Part I</h4>&#x000A;&#x000A;<ol>&#x000A;  <li><a href="index.html#what-is-a-constant" >What Is a Constant in Ruby</a></li>&#x000A;  <li><a href="index.html#ruby-keeps-track-of-constants-defined" >Ruby Keeps Track Of Constants Defined</a></li>&#x000A;  <li><a href="index.html#object-constants" ><code >Object.constants</code></a></li>&#x000A;  <li><a href="index.html#accessing-undefined-constants" >Accessing Undefined Constants</a></li>&#x000A;  <li><a href="index.html#which-piece-of-code-raises-the-name-error" >Which Piece of Code Raises the <code >NameError</code>?</a></li>&#x000A;  <li><a href="index.html#another-method-to-check-that-a-constant-is-defined-or-not" >Another Method To Check that a Constant is Defined Or Not</a></li>&#x000A;  <li><a href="index.html#removing-a-defined-constant" >Removing A Defined Constant</a></li>&#x000A;  <li><a href="index.html#classes-and-modules-are-constants-too" >Classes And Modules Are Constants Too</a></li>&#x000A;  <li><a href="index.html#nesting-and-constants" >Nesting And Constants</a></li>&#x000A;  <li><a href="index.html#getting-the-nesting-path" >Getting the Nesting Path</a></li>&#x000A;  <li><a href="index.html#how-constants-are-resolved-when-references-are-nested" >How Constants Are Resolved When References Are Nested?</a>&#x000A;    <ol>&#x000A;      <li><a href="index.html#how-constants-are-resolved-when-references-are-nested-resolving-constants" >Resolving Constants</a>&#x000A;        <ol>&#x000A;          <li><a href="index.html#resolving-constants-case-1-found-in-any-of-nesting-points" >Case #1 - Found in Any of Nesting Points</a></li>&#x000A;          <li><a href="index.html#resolving-constants-case-2-found-in-ancestors-of-first-nesting-point" >Case #2 - Found in Ancestors of First Nesting Point</a></li>&#x000A;          <li><a href="index.html#resolving-constants-case-3-found-in-object" >Case #3 - Found in Object</a></li>&#x000A;          <li><a href="index.html#resolving-constants-case-in-which-constant-is-not-resolved" >Case #4 - Constant is Not Resolved</a></li>&#x000A;        </ol>&#x000A;      </li>&#x000A;      <li><a href="index.html#references-that-are-qualified" >References that are Qualified</a>&#x000A;        <ol>&#x000A;          <li><a href="index.html#references-that-are-qualified-constant-found-in-the-parent" >Constant Found in the Parent</a></li>&#x000A;          <li><a href="index.html#references-that-are-qualified-constant-found-in-the-ancestors-of-parent" >Constant Found in the Ancestors of Parent</a></li>&#x000A;          <li><a href="index.html#references-that-are-qualified-constant-is-not-looked-at-object" >Constant is not looked at at <code >Object</code></a></li>&#x000A;        </ol>&#x000A;      </li>&#x000A;    </ol>&#x000A;  </li>&#x000A;  <li><a href="index.html#overriding-const-missing-on-nested-cases" >Overriding <code >const_missing</code> on Nested Cases</a></li>&#x000A;  <li><a href="index.html#const-missing-for-classes-and-modules" ><code >const_missing</code> for Classes and Modules</a></li>&#x000A;</ol>&#x000A;&#x000A;<h4><a href="../loading-constants-ruby-vs-rails-part-2/index.html" >Part II</a></h4>&#x000A;&#x000A;<ol>&#x000A;  <li><a href="../loading-constants-ruby-vs-rails-part-2/index.html#ruby-on-rails-constant-resolution" >Ruby On Rails - Constant Resolution</a></li>&#x000A;  <li><a href="../loading-constants-ruby-vs-rails-part-2/index.html#application-entry-point" >Application Entry Point</a></li>&#x000A;  <li><a href="../loading-constants-ruby-vs-rails-part-2/index.html#ruby-parsing-of-files-load-vs-require" >Ruby Parsing of Files - <code >load</code> vs <code >require</code></a></li>&#x000A;  <li><a href="../loading-constants-ruby-vs-rails-part-2/index.html#rails-parsing-of-files-load-vs-require" >Rails Parsing of Files - <code >load</code> vs <code >require</code></a></li>&#x000A;  <li><a href="../loading-constants-ruby-vs-rails-part-2/index.html#qualified-constants-autoloading-with-nesting" >Qualified Constants - Autoloading With Nesting</a></li>&#x000A;  <li><a href="../loading-constants-ruby-vs-rails-part-2/index.html#add-folders-to-autoload-paths" >Add Folders to Autoload Paths</a></li>&#x000A;  <li><a href="../loading-constants-ruby-vs-rails-part-2/index.html#how-does-rails-reloads-constants-in-development-environment" >How does Rails Reloads Constants in Development Environment?</a></li>&#x000A;  <li><a href="../loading-constants-ruby-vs-rails-part-2/index.html#config-eager-load" ><code >config.eager_load</code></a></li>&#x000A;  <li><a href="../loading-constants-ruby-vs-rails-part-2/index.html#how-does-rails-attaches-the-autoloading-mechanism-to-constant-missing-hook" >How Does Rails Attaches The Autoloading Mechanism to Constant Missing Hook?</a></li>&#x000A;  <li><a href="../loading-constants-ruby-vs-rails-part-2/index.html#watch-out-for-require-and-require-relatives" >Watch Out for <code >requires</code> and <code >require_relatives</code></a></li>&#x000A;</ol>&#x000A;&#x000A;<h2 id="what-is-a-constant">What is a Constant in Ruby?</h2>&#x000A;&#x000A;<p>Let’s just start from the very basics. Do we all know what a constant is in Ruby?</p>&#x000A;&#x000A;<p>A constant is like a variable, from one point of view. Like a variable, it is a&#x000A;memory position that has a name and points to another place in memory that holds the&#x000A;actual content.</p>&#x000A;&#x000A;<p>But, how do we define constants in Ruby? Again, it is the same way that we define variables, by assigning them a value.&#x000A;However, the name needs to start with an uppercase Latin character. Example:</p>&#x000A;&#x000A;<pre><code class="language-ruby">C = 1 # this is a new Constant&#x000A;</code></pre>&#x000A;&#x000A;<p><img src="../../../../../media/tech/loading-constants-ruby-vs-rails-part-1/constants-and-variables.png" alt="Constants and Variables Are Memory Pointers To Actual Content" /></p>&#x000A;&#x000A;<p>The names of the constants and variables are there for us to make our life easier when programming.&#x000A;So, when we have to access the content a constant or variable is pointing to, we only have to use the name&#x000A;of the constant or the variable. We do not have to use the corresponding hex number of the memory address.</p>&#x000A;&#x000A;<blockquote>&#x000A;  <p>We are so lucky programming in high level programming languages. Long time ago, developers had to program&#x000A;in assembly, and they, yes, believe it, had to reference memory addresses and registers using hex numbers, or&#x000A;even worse, bits and bytes.</p>&#x000A;</blockquote>&#x000A;&#x000A;<p>On the other hand, constant pointing content, cannot be changed, whereas variable pointing content can. That’s why&#x000A;the former are called <em >constants</em>, whereas the latter are called <em >variables</em>.</p>&#x000A;&#x000A;<p>In fact, Ruby is a place where you can have lots of freedom and you can actually change the content of a constant, but you will&#x000A;get a warning! It can also try to tell you where the previous definition of the constant is.</p>&#x000A;&#x000A;<pre><code class="language-ruby"># Try this on the irb console:&#x000A;#&#x000A;irb(main):001:0&gt; C = 5&#x000A;=&gt; 5&#x000A;irb(main):002:0&gt; C = 6&#x000A;(irb):2: warning: already initialized constant C&#x000A;(irb):1: warning: previous definition of C was here&#x000A;=&gt; 6&#x000A;</code></pre>&#x000A;&#x000A;<p>Or you can try this:</p>&#x000A;&#x000A;<pre><code class="language-bash">ruby constant_redefinition.rb&#x000A;</code></pre>&#x000A;&#x000A;<p>with <code >constant_redefinition.rb</code> being:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># FILE: constant_redefinition.rb&#x000A;#&#x000A;C = 1&#x000A;C = 2&#x000A;</code></pre>&#x000A;&#x000A;<p>You will get this:</p>&#x000A;&#x000A;<pre><code class="language-bash">constant_redefinition.rb:2: warning: already initialized constant C&#x000A;constant_redefinition.rb:1: warning: previous definition of C was here&#x000A;</code></pre>&#x000A;&#x000A;<p>Nice warning and informative text. Look how it tells you that the previous definition of <code >C</code> was on file <code >constant_redefinition.rb</code> on line <code >1</code>.</p>&#x000A;&#x000A;<h2 id="ruby-keeps-track-of-constants-defined">Ruby Keeps Track Of Constants Defined</h2>&#x000A;&#x000A;<p>I guess that this comes natural to you. Ruby keeps track of constants defined. Yes. Of course it does. That’s why it can tell you whether&#x000A;a constant is already defined and where.</p>&#x000A;&#x000A;<p>We will not delve into too much detail about all the meta-data that Ruby keeps for each constant defined. We will only give you some&#x000A;details that are relevant to our discussion. And actually, let’s learn that stuff by doing some examples:</p>&#x000A;&#x000A;<h2 id="object-constants"><code >Object.constants</code></h2>&#x000A;&#x000A;<p>Let’s start by running the following program:</p>&#x000A;&#x000A;<pre><code class="language-ruby">ruby object_constants.rb&#x000A;</code></pre>&#x000A;&#x000A;<p>where <code >object_constants.rb</code> is</p>&#x000A;&#x000A;<pre><code class="language-ruby"># FILE: object_constants&#x000A;#&#x000A;puts self.class&#x000A;puts Object.constants.inspect&#x000A;puts "Is C inside Object constants? #{Object.constants.include?(:C)}"&#x000A;C = 1&#x000A;puts Object.constants.inspect&#x000A;puts "Is C inside Object constants? #{Object.constants.include?(:C)}"&#x000A;</code></pre>&#x000A;&#x000A;<p>The output is going to be something like this:</p>&#x000A;&#x000A;<pre><code class="language-bash">Object&#x000A;[:Object, :Module, :Class, ... :Monitor, :RUBYGEMS_ACTIVATION_MONITOR]&#x000A;Is C inside Object constants? false&#x000A;[:Object, :Module, :Class, ... :Monitor, :C, :RUBYGEMS_ACTIVATION_MONITOR]&#x000A;Is C inside Object constants? true&#x000A;</code></pre>&#x000A;&#x000A;<p>The above proves that when we define a constant at the top level of our programming scope, then it adds it to the&#x000A;<code >Object.constants</code> array as a symbol.</p>&#x000A;&#x000A;<p>Keep a note that the array <code >constants</code> belongs to the <code >Object</code> which is the class of <code >self</code> (see a little bit later on),&#x000A;i.e. the class of the top level scope when we start writing Ruby commands.</p>&#x000A;&#x000A;<h2 id="accessing-undefined-constants">Accessing Undefined Constants</h2>&#x000A;&#x000A;<p>What happens when we try to access a constant that is not defined? Let’s try that:</p>&#x000A;&#x000A;<pre><code># FILE: access_undefined_constant.rb&#x000A;#&#x000A;C&#x000A;</code></pre>&#x000A;&#x000A;<p>If you call <code >ruby access_undefined_constant.rb</code> you will get this:</p>&#x000A;&#x000A;<pre><code class="language-bash">access_undefined_constant.rb:3:in `&lt;main&gt;': uninitialized constant C (NameError)&#x000A;</code></pre>&#x000A;&#x000A;<p>So, this is a <code >NameError</code>. The error message clearly tells you that the <code >C</code> is not defined.</p>&#x000A;&#x000A;<h1 id="which-piece-of-code-raises-the-name-error">Which Piece of Code Raises the <code >NameError</code>?</h1>&#x000A;&#x000A;<p>So, Ruby tries to find the <code >C</code> constant defined inside <code >Object.constants</code> array and it does not find it (or, this is more or less&#x000A;what it is doing when encountering a constant). What does it do when it cannot find it?&#x000A;It calls the <code >.const_missing()</code> method of the <code >Object</code> class. We can redefine that and verify that this is the&#x000A;method that is actually called:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: redefine_object_const_missing.rb&#x000A;#&#x000A;class Object&#x000A;  def self.const_missing(const_name)&#x000A;    raise NameError, "Oooooops! #{const_name} is missing!"&#x000A;  end&#x000A;end&#x000A;&#x000A;C&#x000A;</code></pre>&#x000A;&#x000A;<p>If you call <code >ruby redefine_object_const_missing.rb</code>, you will get this:</p>&#x000A;&#x000A;<pre><code class="language-ruby">redefine_object_const_missing.rb:5:in `const_missing': Oooooops! C is missing! (NameError)&#x000A;        from redefine_object_const_missing.rb:9:in `&lt;main&gt;'&#x000A;</code></pre>&#x000A;&#x000A;<p>As you can see from the message above, we now get an exception on line 9 of the program, and the&#x000A;<code >NameError</code> returned is the one that is instantiated on line 5.</p>&#x000A;&#x000A;<p>Lines 3 to 7 above, they open class <code >Object</code> and they redefine the class method <code >.const_missing</code>. Note that&#x000A;<code >self</code>, that receives the <code >C</code> statement on line 9, is an instance of <code >Object</code> class. That’s why when we redefine the&#x000A;<code >Object.const_missing</code> we actually redefine the way <code >self</code> will be treating the constants that are not defined in its class.</p>&#x000A;&#x000A;<p>This is what I just said with regards to <code >self</code> and <code >Object</code> relationship:</p>&#x000A;&#x000A;<ol>&#x000A;  <li><code >self</code> is instance of <code >Object</code>.</li>&#x000A;  <li><code >Object</code> is instance of <code >Class</code>, which, basically means, it is a class <sup>*</sup>.</li>&#x000A;</ol>&#x000A;&#x000A;<blockquote>&#x000A;  <p><sup>*</sup> Hey! In Ruby a class is actually an object. No? They are instances of <code >Class</code> class.</p>&#x000A;</blockquote>&#x000A;&#x000A;<h2 id="another-method-to-check-that-a-constant-is-defined-or-not">Another Method To Check that a Constant is Defined Or Not</h2>&#x000A;&#x000A;<p>There is another method that you can use to check whether a constant is defined or not.&#x000A;It is the keyword <code >defined?</code> which takes as argument anything that we want to check whether it is defined or not. It returns nil if something is&#x000A;not defined. It returns a string describing the type of given argument, if it is defined.</p>&#x000A;&#x000A;<p>Try this:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: check_constant_definition_with_defined.rb&#x000A;#&#x000A;C = 1&#x000A;puts "Is C defined?: #{defined?(C) || 'no'}"&#x000A;puts "Is D defined?: #{defined?(D) || 'no'}"&#x000A;</code></pre>&#x000A;&#x000A;<p>When you run that you get:</p>&#x000A;&#x000A;<pre><code class="language-bash">Is C defined?: constant&#x000A;Is D defined?: no&#x000A;</code></pre>&#x000A;&#x000A;<p>which clearly mentions that <code >C</code> is a defined constant, whereas <code >D</code> is not defined.</p>&#x000A;&#x000A;<h2 id="removing-a-defined-constant">Removing a Defined Constant</h2>&#x000A;&#x000A;<p>Generally, you cannot undefine a constant, unless you call the private method <code >#remove_const</code> on the <code >Object</code> instance.</p>&#x000A;&#x000A;<p>Try this:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: removing_constant.rb&#x000A;#&#x000A;C = 1&#x000A;puts "Is const defined? #{Object.const_defined?(:C)}"&#x000A;Object.send :remove_const, :C&#x000A;puts "Is const defined? #{Object.const_defined?(:C)}"&#x000A;</code></pre>&#x000A;&#x000A;<p>You will get:</p>&#x000A;&#x000A;<pre><code class="language-bash">Is const defined? true&#x000A;Is const defined? false&#x000A;</code></pre>&#x000A;&#x000A;<p>It worked, didn’t it? The constant <code >C</code> has been removed/undefined after <code >Object.send :remove_const, :C</code>.</p>&#x000A;&#x000A;<h2 id="classes-and-modules-are-constants-too">Classes And Modules Are Constants Too</h2>&#x000A;&#x000A;<p>Since in Ruby we name classes and modules using uppercase Latin characters, it wouldn’t be a surprise to you if&#x000A;I told you that classes and module are, among other things, constants too.</p>&#x000A;&#x000A;<p>Like the other constants, classes and modules need to be defined and then referenced, i.e. used.</p>&#x000A;&#x000A;<p>Try the following program that defines a class:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: class_definition.rb&#x000A;#&#x000A;puts "Is MyClass included in Object constants? #{Object.constants.include?(:MyClass)}"&#x000A;&#x000A;class MyClass&#x000A;end&#x000A;&#x000A;puts "Is MyClass included in Object constants? #{Object.constants.include?(:MyClass)}"&#x000A;</code></pre>&#x000A;&#x000A;<p>When you run that with <code >ruby class_definition.rb</code>, you will see this:</p>&#x000A;&#x000A;<pre><code class="language-bash">Is MyClass included in Object constants? false&#x000A;Is MyClass included in Object constants? true&#x000A;</code></pre>&#x000A;&#x000A;<p>Aha! the <code >class MyClass ... end</code> has defined a new constant which is now included in <code >Object.constants</code> array as <code >:MyClass</code>.</p>&#x000A;&#x000A;<p>Let’s do the same for a module:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: module_definition.rb&#x000A;#&#x000A;puts "Is MyModule included in Object constants? #{Object.constants.include?(:MyModule)}"&#x000A;&#x000A;class MyModule&#x000A;end&#x000A;&#x000A;puts "Is MyModule included in Object constants? #{Object.constants.include?(:MyModule)}"&#x000A;</code></pre>&#x000A;&#x000A;<p>If you run the above with <code >ruby module_definition.rb</code> you will get this:</p>&#x000A;&#x000A;<pre><code class="language-bash">Is MyModule included in Object constants? false&#x000A;Is MyModule included in Object constants? true&#x000A;</code></pre>&#x000A;&#x000A;<p>And what if we define a class or a module using the other (you know which, don’t you) technique to create classes and modules?</p>&#x000A;&#x000A;<p>Try that:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: class_definition_technique_2.rb&#x000A;#&#x000A;puts "Is MyClass included in Object constants? #{Object.constants.include?(:MyClass)}"&#x000A;&#x000A;MyClass = Class.new&#x000A;&#x000A;puts "Is MyClass included in Object constants? #{Object.constants.include?(:MyClass)}"&#x000A;&#x000A;</code></pre>&#x000A;&#x000A;<p>If you run that with <code >ruby class_definition_technique_2.rb</code>, you will get the same output like you did when your ran&#x000A;<code >ruby class_definition.rb</code>.</p>&#x000A;&#x000A;<blockquote>&#x000A;  <p>You can try with <code >MyModule = Module.new</code> too. You will get similar results.</p>&#x000A;</blockquote>&#x000A;&#x000A;<p>Nice! The above examples show that defining classes and modules creates constants too.</p>&#x000A;&#x000A;<p>And don’t forget that you use a class or module definition exactly as you use other constants. You just use their name.</p>&#x000A;&#x000A;<h2 id="nesting-and-constants">Nesting and Constants</h2>&#x000A;&#x000A;<p>We all know that in Ruby, we can use nesting to group together various definitions that logically belong to the same concept.&#x000A;But how does nesting affect the constants definition? The answer is that the defined constants are qualified by the module they are&#x000A;nested in.</p>&#x000A;&#x000A;<p>Let’s see that with an example:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: nesting.rb&#x000A;#&#x000A;module MyModule&#x000A;  MyConstant = 'Outer Constant'&#x000A;&#x000A;  module MyModule&#x000A;    MyConstant = 'Inner Constant'&#x000A;  end&#x000A;end&#x000A;puts "Is MyModule defined?: #{defined?(MyModule) || 'no'}"&#x000A;puts "Is MyModule defined in Object?: #{Object.const_defined?(:MyModule)}"&#x000A;&#x000A;puts "Is MyModule::MyConstant defined?: #{defined?(MyModule::MyConstant) || 'no'}"&#x000A;&#x000A;puts "Is MyModule::MyModule defined?: #{defined?(MyModule::MyModule) || 'no'}"&#x000A;&#x000A;puts "Is MyModule::MyModule::MyConstant defined?: #{defined?(MyModule::MyModule::MyConstant) || 'no'}"&#x000A;&#x000A;puts "Is MyConstant defined in Object:: #{Object.const_defined?(:MyConstant)}"&#x000A;&#x000A;MyModule&#x000A;MyModule::MyConstant&#x000A;MyModule::MyModule&#x000A;MyModule::MyModule::MyConstant&#x000A;&#x000A;</code></pre>&#x000A;&#x000A;<p>If you run the above, you will get this:</p>&#x000A;&#x000A;<pre><code class="language-bash">Is MyModule defined?: constant&#x000A;Is MyModule defined in Object?: true&#x000A;Is MyModule::MyConstant defined?: constant&#x000A;Is MyModule::MyModule defined?: constant&#x000A;Is MyModule::MyModule::MyConstant defined?: constant&#x000A;Is MyConstant defined in Object:: false&#x000A;</code></pre>&#x000A;&#x000A;<p>The above Ruby program defines 4 constants:</p>&#x000A;&#x000A;<ol>&#x000A;  <li><code >MyModule</code></li>&#x000A;  <li><code >MyModule::MyConstant</code></li>&#x000A;  <li><code >MyModule::MyModule</code></li>&#x000A;  <li><code >MyModule::MyModule::MyConstant</code></li>&#x000A;</ol>&#x000A;&#x000A;<p>As you can see it works like files and folders. A file can have the same name with another file, as long as the two files exist&#x000A;in different folders. Same goes for constants. <code >MyConstant</code> living in <code >MyModule</code> is different to the one living in <code >MyModule::MyModule</code>.</p>&#x000A;&#x000A;<p>When using nesting, you actually start defining constants inside the <code >constants</code> array of the nesting elements. Hence, <code >MyModule::MyConstant</code>&#x000A;definition has appended the element <code >:MyConstant</code> inside the <code >MyModule.constants</code> array.</p>&#x000A;&#x000A;<p>If you add the following lines to the <code >nesting.rb</code> program …</p>&#x000A;&#x000A;<pre><code class="language-ruby">puts "MyModule constants: #{MyModule.constants}"&#x000A;puts "Is MyConstant defined in MyModule.constants?: #{MyModule.const_defined?(:MyConstant)} "&#x000A;puts "Is MyModule defined in MyModule.constants?: #{MyModule.const_defined?(:MyModule)} "&#x000A;puts "MyModule::MyModule constants: #{MyModule::MyModule.constants}"&#x000A;puts "Is MyConstant defined in MyModule::MyModule constants: #{MyModule::MyModule.const_defined?(:MyConstant)}"&#x000A;</code></pre>&#x000A;&#x000A;<p>and then run it, you will get these extra lines printed:</p>&#x000A;&#x000A;<pre><code class="language-bash">MyModule constants: [:MyConstant, :MyModule]&#x000A;Is MyConstant defined in MyModule.constants?: true&#x000A;Is MyModule defined in MyModule.constants?: true&#x000A;MyModule::MyModule constants: [:MyConstant]&#x000A;Is MyConstant defined in MyModule::MyModule constants: true&#x000A;</code></pre>&#x000A;&#x000A;<p>Note that <code >MyModule</code> constant is defined both in <code >Object</code> and in <code >MyModule</code> constants. But they are different. The former is the&#x000A;top level root constant, whereas the latter is the nested constant inside the <code >MyModule</code> nesting constant (<code >MyModule::MyModule</code>).</p>&#x000A;&#x000A;<p><img src="../../../../../media/tech/loading-constants-ruby-vs-rails-part-1/object-nesting-constants.jpg" alt="constants Array and Nesting" /></p>&#x000A;&#x000A;<h2 id="getting-the-nesting-path">Getting the Nesting Path</h2>&#x000A;&#x000A;<p><code >Module.nesting</code> call gives you the nesting path elements. Try this:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: nesting_path.rb&#x000A;#&#x000A;puts "Module.nesting at root level: #{Module.nesting}"&#x000A;&#x000A;module MyModule&#x000A;  puts "Module.nesting at MyModule level: #{Module.nesting}"&#x000A;  MyConstant = 'Outer Constant'&#x000A;&#x000A;  module MyModule&#x000A;    puts "Module.nesting at MyModule::MyModule level: #{Module.nesting}"&#x000A;    MyConstant = 'Inner Constant'&#x000A;  end&#x000A;end&#x000A;</code></pre>&#x000A;&#x000A;<p>If you run the above, you will get:</p>&#x000A;&#x000A;<pre><code class="language-bash">Module.nesting at root level: []&#x000A;Module.nesting at MyModule level: [MyModule]&#x000A;Module.nesting at MyModule::MyModule level: [MyModule::MyModule, MyModule]&#x000A;</code></pre>&#x000A;&#x000A;<p>So, every time you nest (with a class or module definition), then the current new path is added <em >*at the beginning</em> of the <code >Module.nesting</code> array.</p>&#x000A;&#x000A;<h2 id="how-constants-are-resolved-when-references-are-nested">How Constants Are Resolved When References Are Nested?</h2>&#x000A;&#x000A;<p>It’s clear from the above how the constants are defined, when nested inside other constants definition blocks (classes or modules). But how Ruby&#x000A;resolves a reference to a constant when that one is invoked inside a nesting point?</p>&#x000A;&#x000A;<h2 id="how-constants-are-resolved-when-references-are-nested-resolving-constants">Resolving Constants</h2>&#x000A;&#x000A;<h3 id="resolving-constants-case-1-found-in-any-of-nesting-points">Case #1 - Found in Any of Nesting Points</h3>&#x000A;&#x000A;<p>A constant might be referenced using a <em >relative</em> reference. This means it is not prefixed with <code >::</code>. Let’s see the following example:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: resolving_constants_relative_reference_1.rb&#x000A;#&#x000A;module MyModuleA&#x000A;  B = 1&#x000A;  puts "MyModuleA defines B? #{MyModuleA.const_defined?(:B)}"&#x000A;&#x000A;  module MyModuleB&#x000A;    puts "MyModuleA::MyModuleB nesting: #{Module.nesting}" # =&gt; [MyModuleA::MyModuleB, MyModuleA]&#x000A;&#x000A;    puts B&#x000A;&#x000A;    puts "MyModuleA::MyModuleB defines B? #{MyModuleA::MyModuleB.const_defined?(:B)}"&#x000A;    puts "MyModuleA defines B? #{MyModuleA.const_defined?(:B)}"&#x000A;  end&#x000A;end&#x000A;&#x000A;MyModuleA::B&#x000A;</code></pre>&#x000A;&#x000A;<p>If you run the above, you will see this:</p>&#x000A;&#x000A;<pre><code class="language-bash">MyModuleA defines B? true&#x000A;MyModuleA::MyModuleB nesting: [MyModuleA::MyModuleB, MyModuleA]&#x000A;1&#x000A;MyModuleA::MyModuleB defines B? false&#x000A;MyModuleA defines B? true&#x000A;</code></pre>&#x000A;&#x000A;<p>On line 10, the <code >B</code> is a relative reference. Ruby will try to check whether this constant is defined in any of the&#x000A;modules or classes listed in <code >Module.nesting</code> array at the point where the <code >B</code> is referenced. It fails to find this&#x000A;constant defined in <code >MyModuleA::MyModuleB</code>, but it succeeds in finding it in <code >MyModuleA</code></p>&#x000A;&#x000A;<p>Note that the fully qualified name of the constant <code >B</code> is <code >MyModuleA::B</code>.</p>&#x000A;&#x000A;<p>If we move the definition of <code >B</code> inside the <code >MyModuleA::MyModuleB</code> scope, it will be found there:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: resolving_constants_relative_reference_2.rb&#x000A;#&#x000A;module MyModuleA&#x000A;  puts "MyModuleA defines B? #{MyModuleA.const_defined?(:B)}"&#x000A;&#x000A;  module MyModuleB&#x000A;    puts "MyModuleA::MyModuleB nesting: #{Module.nesting}" # =&gt; [MyModuleA::MyModuleB, MyModuleA]&#x000A;&#x000A;    B = 1&#x000A;&#x000A;    puts B&#x000A;&#x000A;    puts "MyModuleA::MyModuleB defines B? #{MyModuleA::MyModuleB.const_defined?(:B)}"&#x000A;    puts "MyModuleA defines B? #{MyModuleA.const_defined?(:B)}"&#x000A;  end&#x000A;end&#x000A;&#x000A;MyModuleA::MyModuleB::B&#x000A;</code></pre>&#x000A;&#x000A;<p>If we run the above, we will get this:</p>&#x000A;&#x000A;<pre><code class="language-bash">MyModuleA defines B? false&#x000A;MyModuleA::MyModuleB nesting: [MyModuleA::MyModuleB, MyModuleA]&#x000A;1&#x000A;MyModuleA::MyModuleB defines B? true&#x000A;MyModuleA defines B? false&#x000A;</code></pre>&#x000A;&#x000A;<p>Note that the fully qualified name of the constant <code >B</code> is <code >MyModuleA::MyModuleB::B</code>.</p>&#x000A;&#x000A;<h3 id="resolving-constants-case-2-found-in-ancestors-of-first-nesting-point">Case #2 - Found in Ancestors of First Nesting Point</h3>&#x000A;&#x000A;<p>When a constant is not found in any of the nesting points, then Ruby tries to find it in the constants&#x000A;of the ancestors of the first nesting point (class or module).</p>&#x000A;&#x000A;<p>Let’s see the following example:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: resolving_constants_ancestors.rb&#x000A;&#x000A;module MyAncestor&#x000A;  B = 1&#x000A;&#x000A;  puts "MyAncestor defines B? #{MyAncestor.const_defined?(:B)}"&#x000A;end&#x000A;&#x000A;MyAncestor::B&#x000A;&#x000A;module MyModuleA&#x000A;  module MyModuleB&#x000A;    puts "MyModuleA::MyModuleB.nesting is #{Module.nesting}"&#x000A;&#x000A;    puts "(before including MyAncestor) MyModuleA::MyModuleB defines B? #{MyModuleA::MyModuleB.const_defined?(:B)}"&#x000A;    puts "(before including MyAncestor) MyModuleA::MyModuleB.constants includes B? #{MyModuleA::MyModuleB.constants.include?(:B)}"&#x000A;&#x000A;    include MyAncestor&#x000A;&#x000A;    puts "MyModuleA::MyModuleB Ancestors: #{MyModuleA::MyModuleB.ancestors}"&#x000A;&#x000A;    puts "(after including MyAncestor) MyModuleA::MyModuleB defines B? #{MyModuleA::MyModuleB.const_defined?(:B)}"&#x000A;    puts "(after including MyAncestor) MyModuleA::MyModuleB.constants includes B? #{MyModuleA::MyModuleB.constants.include?(:B)}"&#x000A;&#x000A;    B&#x000A;  end&#x000A;&#x000A;end&#x000A;&#x000A;MyAncestor::B&#x000A;MyModuleA::MyModuleB::B&#x000A;MyModuleA::MyModuleB::B.object_id == MyAncestor::B.object_id&#x000A;&#x000A;MyAncestor::B = 2&#x000A;puts "Is MyModuleA::MyModuleB::B still equal to MyAncestor::B? #{MyModuleA::MyModuleB::B == MyAncestor::B}"&#x000A;</code></pre>&#x000A;&#x000A;<p>If you run the above, you will get this:</p>&#x000A;&#x000A;<pre><code class="language-ruby">MyAncestor defines B? true&#x000A;MyModuleA::MyModuleB.nesting is [MyModuleA::MyModuleB, MyModuleA]&#x000A;(before including MyAncestor) MyModuleA::MyModuleB defines B? false&#x000A;(before including MyAncestor) MyModuleA::MyModuleB.constants includes B? false&#x000A;MyModuleA::MyModuleB Ancestors: [MyModuleA::MyModuleB, MyAncestor]&#x000A;(after including MyAncestor) MyModuleA::MyModuleB defines B? true&#x000A;(after including MyAncestor) MyModuleA::MyModuleB.constants includes B? true&#x000A;resolving_constants_ancestors.rb:43: warning: already initialized constant MyAncestor::B&#x000A;resolving_constants_ancestors.rb:4: warning: previous definition of B was here&#x000A;Is MyModuleA::MyModuleB::B still equal to MyAncestor::B? true&#x000A;</code></pre>&#x000A;&#x000A;<p><code >B</code> is defined inside <code >MyAncestor</code> and then <code >MyAncestor</code> is included in <code >MyModuleA::MyModuleB</code>. Before we actually include <code >MyAncestor</code>,&#x000A;<code >B</code> was not defined in <code >MyModuleA::MyModuleB</code>. Immediately after we included <code >MyAncestor</code>, <code >B</code> appeared to be defined in <code >MyModuleA::MyModuleB</code>.</p>&#x000A;&#x000A;<p>Then, on line 23, we reference <code >B</code>. This is a relative reference and Ruby tries to find where this constant is defined. It does find it on the&#x000A;first nesting point.</p>&#x000A;&#x000A;<p>In fact, <code >MyAncestor::B</code> and <code >MyModuleA::MyModuleB::B</code> are same constant objects. If one changes the first, it changes the second as well. They&#x000A;have the same object_id.</p>&#x000A;&#x000A;<h3 id="resolving-constants-case-3-found-in-object">Case #3 - Found in Object</h3>&#x000A;&#x000A;<p>Earlier on, we have learnt that Ruby first looks to find the constant inside the constants of the nesting points as these are returned by&#x000A;<code >Module.nesting</code>. If constant referenced is not found, then it tries to find it inside the constants of the ancestors of the first&#x000A;item in the <code >Module.nesting</code>, i.e. inside the ancestors of the current nesting point.</p>&#x000A;&#x000A;<p>What if it is not found there either?</p>&#x000A;&#x000A;<p>Then it searches the <code >Object</code> constants. This may come to a surprise to you, but, it does not search the ancestors of the other nesting points.&#x000A;It did that only for the current, first, nesting point.</p>&#x000A;&#x000A;<p>Let’s see the following example:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: resolving_constants_searching_in_object.rb&#x000A;#&#x000A;B = 2&#x000A;&#x000A;module MyAncestor&#x000A;  B = 1&#x000A;end&#x000A;&#x000A;module MyAncestorB&#x000A;end&#x000A;&#x000A;module MyModuleA&#x000A;  include MyAncestor&#x000A;  puts "Module nesting of MyModuleA: #{Module.nesting}"&#x000A;  puts "Ancestors of MyModuleA: #{MyModuleA.ancestors}"&#x000A;&#x000A;  module MyModuleB&#x000A;    include MyAncestorB&#x000A;    puts "Module nesting inside MyModuleA::MyModuleB is: #{Module.nesting}"&#x000A;    puts "Ancestors of MyModuleA::MyModuleB: #{MyModuleA::MyModuleB.ancestors}"&#x000A;&#x000A;    puts "Referencing B inside MyModuleA::MyModuleB: #{B} (resolves to the Object constant :B)"&#x000A;    puts "B.object_id == ::B.object_id : #{B.object_id == ::B.object_id}"&#x000A;  end&#x000A;end&#x000A;&#x000A;puts "Root level B is: #{B}"&#x000A;puts "MyAncestor::B is: #{MyAncestor::B}"&#x000A;puts "MyModuleA::B is: #{MyModuleA::B}"&#x000A;&#x000A;</code></pre>&#x000A;&#x000A;<p>If you run the above, you will get this:</p>&#x000A;&#x000A;<pre><code class="language-ruby">Module nesting of MyModuleA: [MyModuleA]&#x000A;Ancestors of MyModuleA: [MyModuleA, MyAncestor]&#x000A;Module nesting inside MyModuleA::MyModuleB is: [MyModuleA::MyModuleB, MyModuleA]&#x000A;Ancestors of MyModuleA::MyModuleB: [MyModuleA::MyModuleB, MyAncestorB]&#x000A;Referencing B inside MyModuleA::MyModuleB: 2 (resolves to the Object constant :B)&#x000A;B.object_id == ::B.object_id : true&#x000A;Root level B is: 2&#x000A;MyAncestor::B is: 1&#x000A;MyModuleA::B is: 1&#x000A;</code></pre>&#x000A;&#x000A;<p>The above proves the interesting stuff that if a relative reference is not found in any of the nesting points, and neither inside&#x000A;the ancestors of the first/current nesting point, then it is being looked inside the <code >Object</code> constants and the ancestors&#x000A;of the next nesting points are ignored.</p>&#x000A;&#x000A;<p>You can see that on line 22, we are using the relative reference <code >B</code> from within the nesting point <code >MyModuleA::MyModuleB</code>.&#x000A;This nesting point has the following nesting array: <code >[MyModuleA::MyModuleB, MyModuleA]</code>. But neither <code >MyModuleA::MyModuleB</code> nor&#x000A;<code >MyModuleA</code> define <code >B</code>. Same goes for the ancestors of <code >MyModuleA::MyModuleB</code>, which are: <code >[MyModuleA::MyModuleB, MyAncestorB]</code>.&#x000A;None of them defines <code >B</code>. Watch out also the fact that, the second nesting point, when we reference <code >B</code>, is <code >MyModuleA</code> and&#x000A;its ancestors are <code >[MyModuleA, MyAncestor]</code>, one of which already has <code >B</code> in its constants. But this is ignored. The <code >B</code> that is&#x000A;finally referenced is the one coming from the constants of <code >Object</code>.</p>&#x000A;&#x000A;<p>On the following diagram, you can see the 4 points <code >B</code> was searched for. The first 3 ones failed and, finally, <code >B</code> has been found&#x000A;in <code >Object</code>.</p>&#x000A;&#x000A;<p><img src="../../../../../media/tech/loading-constants-ruby-vs-rails-part-1/relative-reference-resolved-on-object-level.png" alt="Constant B found after 4 tries" /></p>&#x000A;&#x000A;<h3 id="resolving-constants-case-in-which-constant-is-not-resolved">Case #4 - Constant is Not Resolved</h3>&#x000A;&#x000A;<p>Now that we have learnt how relative references to constants are resolved, let’s see another example in which the reference&#x000A;is not resolved.</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: resolving_constant_missing.rb&#x000A;#&#x000A;module MyAncestor&#x000A;  B = 1&#x000A;end&#x000A;&#x000A;module MyAncestorB&#x000A;end&#x000A;&#x000A;module MyModuleA&#x000A;  include MyAncestor&#x000A;&#x000A;  module MyModuleB&#x000A;    include MyAncestorB&#x000A;&#x000A;    B&#x000A;  end&#x000A;end&#x000A;</code></pre>&#x000A;&#x000A;<p>If you run the above, you will get this:</p>&#x000A;&#x000A;<pre><code class="language-bash">resolving_constant_missing.rb:16:in `&lt;module:MyModuleB&gt;': uninitialized constant MyModuleA::MyModuleB::B (NameError)&#x000A;        from resolving_constant_missing.rb:13:in `&lt;module:MyModuleA&gt;'&#x000A;        from resolving_constant_missing.rb:10:in `&lt;main&gt;'&#x000A;</code></pre>&#x000A;&#x000A;<p><code >B</code> is not found because it is not defined in any of the nesting points: <code >[MyModuleA::MyModuleB, MyModuleA]</code>, neither&#x000A;in any of the ancestors of <code >MyModuleA::MyModuleB</code>, a.k.a. <code >MyAncestorB</code>, and neither on <code >Object</code> level. That’s why we&#x000A;see the <code >NameError</code> raised.</p>&#x000A;&#x000A;<h2 id="references-that-are-qualified">References that are Qualified</h2>&#x000A;&#x000A;<h3 id="references-that-are-qualified-constant-found-in-the-parent">Constant Found in the Parent</h3>&#x000A;&#x000A;<p>A <em >qualified constant reference</em> is a reference that is qualified by another class or module relative reference.&#x000A;Look at the following example:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: qualified_constant_references_found_in_parent.rb&#x000A;#&#x000A;module MyModuleA&#x000A;  module MyModuleB&#x000A;    B = 1&#x000A;    module MyModuleC&#x000A;      puts MyModuleB::B&#x000A;    end&#x000A;  end&#x000A; end&#x000A;&#x000A;</code></pre>&#x000A;<p>If you run the above, you will get this:</p>&#x000A;&#x000A;<pre><code class="language-bash">1&#x000A;</code></pre>&#x000A;&#x000A;<p>The reference <code >MyModuleB::B</code> on line 7, is a qualified reference. The reference to <code >B</code> constant is prefixed by&#x000A;the <code >MyModuleB</code> relative reference, which makes it a qualified reference.</p>&#x000A;&#x000A;<p>The <code >MyModuleB</code> is considered to be the parent module. The constant <code >B</code> is being looked at at the parent and it is found there.</p>&#x000A;&#x000A;<h3 id="references-that-are-qualified-constant-found-in-the-ancestors-of-parent">Constant Found in the Ancestors of Parent</h3>&#x000A;&#x000A;<p>When the qualified reference is not found in the parent class or module, then it is looked at the ancestors of that.&#x000A;Look at the following example:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: qualified_constant_references_found_in_ancestors_of_parent.rb&#x000A;#&#x000A;module MyAncestor&#x000A;  B = 1&#x000A;end&#x000A;&#x000A;module MyModuleA&#x000A;  module MyModuleB&#x000A;    include MyAncestor&#x000A;&#x000A;    module MyModuleC&#x000A;      puts MyModuleB::B&#x000A;    end&#x000A;  end&#x000A;end&#x000A;</code></pre>&#x000A;&#x000A;<p>If you run the above, you will get <code >1</code> again.</p>&#x000A;&#x000A;<p>The line 12 is a qualified reference of <code >B</code>. This is not found in the parent <code >MyModuleB</code>, but it is found in one of the&#x000A;ancestors of <code >MyModuleB</code>, inside the <code >MyAncestor</code>.</p>&#x000A;&#x000A;<h3 id="references-that-are-qualified-constant-is-not-looked-at-object">Constant is not looked at at <code >Object</code></h3>&#x000A;&#x000A;<p>If the qualified reference is not found in parent, neither in any of its ancestors, then it is not looked at at <code >Object</code> level.</p>&#x000A;&#x000A;<p>If you try the following example:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: qualified_constant_references_not_found.rb&#x000A;#&#x000A;B = 1&#x000A;&#x000A;module MyAncestor&#x000A;end&#x000A;&#x000A;module MyModuleA&#x000A;  module MyModuleB&#x000A;    include MyAncestor&#x000A;&#x000A;    module MyModuleC&#x000A;      puts MyModuleB::B&#x000A;    end&#x000A;  end&#x000A;end&#x000A;</code></pre>&#x000A;&#x000A;<p>you will get this:</p>&#x000A;&#x000A;<pre><code class="language-bash">qualified_constant_references_not_found.rb:13:in `&lt;module:MyModuleC&gt;': uninitialized constant MyModuleA::MyModuleB::B (NameError)&#x000A;        from qualified_constant_references_not_found.rb:12:in `&lt;module:MyModuleB&gt;'&#x000A;        from qualified_constant_references_not_found.rb:9:in `&lt;module:MyModuleA&gt;'&#x000A;        from qualified_constant_references_not_found.rb:8:in `&lt;main&gt;'&#x000A;</code></pre>&#x000A;&#x000A;<p>which proves that the constant <code >B</code> is not looked at the <code >Object</code> level constants.</p>&#x000A;&#x000A;<h2 id="overriding-const-missing-on-nested-cases">Overriding <code >const_missing</code> on Nested Cases</h2>&#x000A;&#x000A;<p>What if we wanted to treat in a special way the missing of constants when referenced from <code >MyModuleA::MyModuleB</code>?&#x000A;We would have to redefine the <code >const_missing</code> method.</p>&#x000A;&#x000A;<p>In the following example we override the <code >const_missing</code> and then try to run the program again:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: resolving_const_missing_redefined_nesting_case.rb&#x000A;#&#x000A;module MyAncestor&#x000A;  B = 1&#x000A;end&#x000A;&#x000A;module MyAncestorB&#x000A;end&#x000A;&#x000A;module MyModuleA&#x000A;  include MyAncestor&#x000A;&#x000A;  module MyModuleB&#x000A;    include MyAncestorB&#x000A;&#x000A;    def self.const_missing(const_name)&#x000A;      puts "Oooooooops! #{const_name} is missing!"&#x000A;    end&#x000A;&#x000A;    B&#x000A;  end&#x000A;end&#x000A;</code></pre>&#x000A;&#x000A;<p>If you run the above program, you will get this:</p>&#x000A;&#x000A;<pre><code>Oooooooops! B is missing!&#x000A;</code></pre>&#x000A;&#x000A;<p>As, you can see, the implementation on lines 16-18 above is being used. This does not raise an error when a constant is missing. It just&#x000A;prints a message.</p>&#x000A;&#x000A;<h2 id="const-missing-for-classes-and-modules"><code >const_missing</code> for Classes and Modules</h2>&#x000A;&#x000A;<p>Earlier, we have seen how we can override the <code >Object</code> <code >const_missing</code> method. And, above, we saw how we can override the&#x000A;<code >const_missing</code> for a particular nesting point.</p>&#x000A;&#x000A;<p>In any case, you can always override the <code >const_missing</code> for classes and the <code >const_missing</code> for modules separately.</p>&#x000A;&#x000A;<p>Look at the following example:</p>&#x000A;&#x000A;<pre><code class="language-ruby"># File: overriding_const_missing_for_classes_and_module&#x000A;#&#x000A;class Class&#x000A;  def const_missing(const_name)&#x000A;    puts "Constant missing in class nesting point: #{const_name}!"&#x000A;  end&#x000A;end&#x000A;&#x000A;class Module&#x000A;  def const_missing(const_name)&#x000A;    puts "Constant missing in module nesting point: #{const_name}!"&#x000A;  end&#x000A;end&#x000A;&#x000A;class MyClass&#x000A;  B&#x000A;end&#x000A;&#x000A;module MyModule&#x000A;  C&#x000A;end&#x000A;</code></pre>&#x000A;&#x000A;<p>If you run the above, you will get this:</p>&#x000A;&#x000A;<pre><code class="language-bash">Constant missing in class nesting point: B!&#x000A;Constant missing in module nesting point: C!&#x000A;</code></pre>&#x000A;&#x000A;<p>When on line 16 the program is referencing <code >B</code>, this is not found and the method <code >Class#const_missing</code> is called.&#x000A;On the other hand, on line 20 the program is referencing <code >C</code>. This is not found and the method <code >Module#const_missing</code> is called.</p>&#x000A;&#x000A;<p>Cool! This proves that we can override the <code >Module</code> and <code >Class</code> <code >const_missing</code> methods with different implementations.</p>&#x000A;&#x000A;<blockquote>&#x000A;  <p>Some Ruby object model refresh again: Above, we redefine the instance methods <code >#const_missing</code> for the classes <code >Class</code> and <code >Module</code>.&#x000A;Hence, any class or module instance, like <code >MyClass</code> and <code >MyModule</code> will have their <code >const_missing</code> behaviour redefined. In Ruby a defined&#x000A;class is actually an instance of the <code >Class</code> class. And a defined module is an instance of the <code >Module</code> class.</p>&#x000A;</blockquote>&#x000A;&#x000A;<p><img src="../../../../../media/tech/loading-constants-ruby-vs-rails-part-1/ruby-object-model-classes-and-modules.jpg" alt="Classes, Modules and Instances Of Them" /></p>&#x000A;&#x000A;<h2>Part I Closing Note</h2>&#x000A;&#x000A;<p>On the first part of this 2-parts blog post, we have explained how Ruby treats constants, how they are organized and, most importantly,&#x000A;how a referenced constant is being resolved. Also, we have learnt how we can override the default constant missing behaviour.</p>&#x000A;&#x000A;<p>On the <a href="../loading-constants-ruby-vs-rails-part-2/index.html" >second part</a>, we will switch to Ruby on Rails and see how constant references are resolved, basically&#x000A;using a technique which is called <em >autoloading</em>.</p>&#x000A;&#x000A;<p>Thanks for reading part I and I hope that part II will prove useful to you as much as this one.</p>&#x000A;&#x000A;<p>Also, don’t forget that your comments below are more than welcome. I am willing to answer any questions that you may have and give you feedback on any&#x000A;comments that you may post. I would like to have your feedback because I learn from you as much as you learn from me.</p>&#x000A;&#x000A;<h4>About the Author</h4>&#x000A;&#x000A;<p><a target="_blank" href="https://www.linkedin.com/in/panayotismatsinopoulos" >Panayotis Matsinopoulos</a> works as Lead Developer at <a href="../../../../../index.html" >Simply Business</a>&#x000A;and, on his free time, enjoys giving and taking classes about Web development at <a target="_blank" href="https://www.techcareerbooster.com/?utm_source=simply_business&amp;utm_medium=simply_business_tech_blog&amp;utm_campaign=blog_post_sb_ruby_constants_part_1" >Tech Career Booster</a>.</p>&#x000A;</div>
+<footer class="article__footer">
+<div class="social-tools addthis_sharing_toolbox"></div>
+</footer>
+</article>
+<div class="comment-box">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_shortname = 'simplybusiness';
+  var disqus_url = 'index.html';
+  
+  var original_orientation_change = window.onorientationchange;
+  
+  window.onorientationchange = function () {
+    if (DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: function () {
+          this.page.url = disqus_url;
+        }
+      });
+    }
+  
+    if (original_orientation_change) {
+      original_orientation_change();
+    }
+  };
+  
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+</div>
+
+</div><div class="grid-cell desktop-onethird">
+<div class="newsletter-signup-module" id="qa-newsletter-signup-module">
+<div class="newsletter-signup-module__content">
+<h3>Join over 350,000 subscribers to our monthly newsletter</h3>
+<p>
+Keep up to date with the breaking news, guides and tips impacting your
+business or rental.
+</p>
+<a class="btn small btn-primary" href="../../../../newsletter-signup/index.html" id="qa-newsletter-signup-module-cta">Subscribe</a>
+</div>
+</div>
+
+<nav class="archive__nav" id="qa-archive-nav">
+
+<div class="archive__nav-section qa-archive-nav-section" id="qa-archive-years-nav">
+<h2>Archive</h2>
+<ul class="in-columns">
+<li>
+<a href="/">2017</a>
+</li>
+<li>
+<a href="../../../2016/index.html">2016</a>
+</li>
+<li>
+<a href="../../../2015/index.html">2015</a>
+</li>
+<li>
+<a href="../../../2014/index.html">2014</a>
+</li>
+<li>
+<a href="../../../2013/index.html">2013</a>
+</li>
+<li>
+<a href="../../../2012/index.html">2012</a>
+</li>
+</ul>
+</div>
+
+</nav>
+</div></div>
+
+</section>
+<section class="site-section grid-wrapper sitemap">
+<div class="grid"><div class="grid-cell desktop-onesixth tablet-onethird mobile-onehalf">
+<div class="module">
+<div class="module-content">
+<h4>Insurance</h4>
+<ul>
+<li>
+<a href="../../../../../insurance/public-liability/index.html">Public liability insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/index.html">Business insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/index.html">Landlord insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/tradesman/index.html">Tradesman insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/professionals/index.html">Professionals' insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/shop/index.html">Shop insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/restaurant/index.html">Restaurant insurance</a>
+</li>
+<li>
+<a href="../../../../../vehicle/van-insurance/index.html">Van insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/insurers/index.html">Insurers</a>
+</li>
+</ul>
+</div>
+</div>
+</div><div class="grid-cell desktop-onesixth tablet-onethird mobile-onehalf">
+<div class="module">
+<div class="module-content">
+<h4>About Simply Business</h4>
+<ul>
+<li>
+<a href="../../../../index.html">About us</a>
+</li>
+<li>
+<a href="../../../../team/index.html">Our team</a>
+</li>
+<li>
+<a href="../../../../awards/index.html">Awards</a>
+</li>
+<li>
+<a href="../../../../press-releases/index.html">Press releases</a>
+</li>
+<li>
+<a href="../../../../../partner/index.html">Partners &amp; affiliates</a>
+</li>
+<li>
+<a href="../../../../impact/index.html">Impact charity program</a>
+</li>
+<li>
+<a href="../../../../../social/index.html">Social media</a>
+</li>
+</ul>
+</div>
+</div>
+</div><div class="grid-cell desktop-onesixth tablet-onethird mobile-onehalf">
+<div class="module">
+<div class="module-content">
+<h4>Careers</h4>
+<ul>
+<li>
+<a href="../../../../careers/index.html">Careers at Simply Business</a>
+</li>
+<li>
+<a href="../../../../careers/tech/index.html">Tech careers</a>
+</li>
+<li>
+<a href="../../../../careers/jobs/index.html">Current vacancies</a>
+</li>
+</ul>
+</div>
+</div>
+</div><div class="grid-cell desktop-onesixth tablet-onethird mobile-onehalf">
+<div class="module">
+<div class="module-content">
+<h4>Customer support</h4>
+<ul>
+<li>
+<a href="../../../../../support/index.html">Contact &amp; support</a>
+</li>
+<li>
+<a href="../../../../../support/indexa064.html?topic=renewal">Policy renewal</a>
+</li>
+<li>
+<a href="../../../../../insurance-claims/index.html">Make a claim</a>
+</li>
+<li>
+<a href="../../../../../proof/index.html">Proof of policy</a>
+</li>
+<li>
+<a href="../../../../../support/complaints/index.html">Complaints</a>
+</li>
+</ul>
+</div>
+</div>
+</div><div class="grid-cell desktop-onesixth tablet-onethird mobile-onehalf">
+<div class="module">
+<div class="module-content">
+<h4>Benefits</h4>
+<ul>
+<li>
+<a href="../../../../../support/customer-benefits/index.html">Benefits</a>
+</li>
+<li>
+<a href="../../../../refer/index.html">Refer a friend</a>
+</li>
+<li>
+<a href="../../../../../finance/index.html">Finance</a>
+</li>
+</ul>
+</div>
+</div>
+</div><div class="grid-cell desktop-onesixth tablet-onethird mobile-onehalf">
+<div class="module">
+<div class="module-content">
+<h4>Knowledge</h4>
+<ul>
+<li>
+<a href="../../../../../knowledge/index.html">Knowledge centre</a>
+</li>
+<li>
+<a href="../../../../../knowledge/opinion/index.html">Opinions</a>
+</li>
+<li>
+<a href="../../../../../microsites/index.html">Microsites</a>
+</li>
+<li>
+<a href="../../../../../leaderboards/top-100-influencers-small-business/index.html">Business 100 leaderboard</a>
+</li>
+<li>
+<a href="../../../../../leaderboards/top-100-influencers-property/index.html">Property 100 leaderboard</a>
+</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section>
+
+
+
+
+<footer class="site-footer">
+<div class="grid-wrapper">
+<div class="grid"><div class="grid-cell desktop-onethird tablet-onehalf vcard">
+<h3 class="fn">Address</h3>
+<p>
+<span class="adr" itemprop="address">
+99 Gresham Street<br>
+London<br>
+EC2V 7NG
+</span>
+</p>
+<p>
+<span class="adr" itemprop="address">
+Sol House<br>
+29 St Katherine's Street<br>
+Northampton<br>
+NN1 2QZ
+</span>
+</p>
+</div><div class="grid-cell desktop-twothirds tablet-onehalf">
+<div class="grid desktop-reverse"><div class="grid-cell desktop-onethird legal">
+<h3>Legal</h3>
+<ul>
+<li>
+<a href="../../../../../terms-conditions/index.html" target="">Terms &amp; conditions</a>
+</li>
+<li>
+<a href="../../../../../privacy-policy/index.html" target="">Privacy policy</a>
+</li>
+<li>
+<a href="../../../../../legal/cookies/index.html" target="">Cookie policy</a>
+</li>
+<li>
+<a href="../../../../../sitemap/index.html" target="">Site map</a>
+</li>
+</ul>
+</div><div class="grid-cell desktop-twothirds newsletter">
+<h3>Newsletter</h3>
+<p>
+Sign up to get our monthly newsletter, jam-packed with industry news, tips and events.
+</p>
+<a class="btn-tertiary" href="../../../../newsletter-signup/index.html" target="">Subscribe</a>
+</div></div>
+</div>
+</div>
+</div>
+<div class="small-print">
+<div class="grid-wrapper">
+<p>
+&copy; Copyright 2017 Simply Business. All Rights Reserved.
+Simply Business is a trading name of Xbridge Limited which is authorised and
+regulated by the Financial Conduct Authority (Financial Services Registration
+No: 313348). Xbridge Limited (No: 3967717) has its registered office at
+99 Gresham Street, London EC2V 7NG.
+</p>
+</div>
+</div>
+</footer>
+<script src="../../../../../assets/app-eda58eafa7598e80d09818bcdb51d1bc8b5fd8ad045ebf777e843726ae3171b3.js"></script>
+<script id="snippet-twitter" src="../../../../../../static.ads-twitter.com/oct.js"></script>
+<script>
+  if (window.twttr) twttr.conversion.trackPid('l65zb', { tw_sale_amount: 0, tw_order_quantity: 0 });
+</script>
+<noscript>
+<img alt="" height="1" src="https://analytics.twitter.com/i/adsct?txn_id=l65zb&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" style="display:none;" width="1">
+<img alt="" height="1" src="http://t.co/i/adsct?txn_id=l65zb&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" style="display:none;" width="1">
+</noscript>
+<script id="snippet-addthis" src="../../../../../../s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e98360a319de2dd"></script>
+<script id="snippet-linkedin">
+var _bizo_data_partner_id = "7577";
+(function() {
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";
+b.async = true;
+b.src = (window.location.protocol === "https:" ? "https://sjs" : "http://js") + ".bizographics.com/insight.min.js";
+s.parentNode.insertBefore(b, s);
+})();
+</script>
+<noscript>
+<img height="1" src="http://www.bizographics.com/collect/?pid=7577&amp;fmt=gif" style="display:none;" width="1">
+</noscript>
+<!-- begin usabilla live embed code -->
+<script id="snippet-usabilla">
+window.lightningjs||function(c){function g(b,d){d&&(d+=(/\?/.test(d)?"&":"?")+"lv=1");c[b]||function(){var i=window,h=document,j=b,g=h.location.protocol,l="load",k=0;(function(){function b(){a.P(l);a.w=1;c[j]("_load")}c[j]=function(){function m(){m.id=e;return c[j].apply(m,arguments)}var b,e=++k;b=this&&this!=i?this.id||0:0;(a.s=a.s||[]).push([e,b,arguments]);m.then=function(b,c,h){var d=a.fh[e]=a.fh[e]||[],j=a.eh[e]=a.eh[e]||[],f=a.ph[e]=a.ph[e]||[];b&&d.push(b);c&&j.push(c);h&&f.push(h);return m};return m};var a=c[j]._={};a.fh={};a.eh={};a.ph={};a.l=d?d.replace(/^\/\//,(g=="https:"?g:"http:")+"//"):d;a.p={0:+new Date};a.P=function(b){a.p[b]=new Date-a.p[0]};a.w&&b();i.addEventListener?i.addEventListener(l,b,!1):i.attachEvent("on"+l,b);var q=function(){function b(){return["<head></head><",c,' onload="var d=',n,";d.getElementsByTagName('head')[0].",d,"(d.",g,"('script')).",i,"='",a.l,"'\"></",c,">"].join("")}var c="body",e=h[c];if(!e)return setTimeout(q,100);a.P(1);var d="appendChild",g="createElement",i="src",k=h[g]("div"),l=k[d](h[g]("div")),f=h[g]("iframe"),n="document",p;k.style.display="none";e.insertBefore(k,e.firstChild).id=o+"-"+j;f.frameBorder="0";f.id=o+"-frame-"+j;/MSIE[ ]+6/.test(navigator.userAgent)&&(f[i]="javascript:false");f.allowTransparency="true";l[d](f);try{f.contentWindow[n].open()}catch(s){a.domain=h.domain,p="javascript:var d="+n+".open();d.domain='"+h.domain+"';",f[i]=p+"void(0);"}try{var r=f.contentWindow[n];r.write(b());r.close()}catch(t){f[i]=p+'d.write("'+b().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};a.l&&setTimeout(q,0)})()}();c[b].lv="1";return c[b]}var o="lightningjs",k=window[o]=g(o);k.require=g;k.modules=c}({});
+if(!navigator.userAgent.match(/Android|BlackBerry|BB10|iPhone|iPad|iPod|Opera Mini|IEMobile/i)) {window.usabilla_live = lightningjs.require("usabilla_live", "../../../../../../w.usabilla.com/d9aa21c6f852.js"); } else {window.usabilla_live = lightningjs.require("usabilla_live", "../../../../../../w.usabilla.com/c627832b68ee.js"); }
+window.usabilla_live('data', {custom: {domain_userid: 'd05a8d5d8c09756c'}});
+</script>
+<!-- end usabilla live embed code -->
+
+
+
+
+</body>
+
+<!-- Mirrored from www.simplybusiness.co.uk/about-us/tech/2017/07/loading-constants-ruby-vs-rails-part-1/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Dec 2017 10:06:41 GMT -->
+</html>
+

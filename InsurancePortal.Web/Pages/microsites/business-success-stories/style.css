@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'Museo300Regular';
+    src: url('fonts/Museo300-Regular-webfont.eot');
+    src: url('fonts/Museo300-Regular-webfontd41d.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Museo300-Regular-webfont.woff') format('woff'),
+         url('fonts/Museo300-Regular-webfont.ttf') format('truetype'),
+         url('fonts/Museo300-Regular-webfont.svg#Museo300Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Museo500Regular';
+    src: url('fonts/Museo500-Regular-webfont.eot');
+    src: url('fonts/Museo500-Regular-webfontd41d.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Museo500-Regular-webfont.woff') format('woff'),
+         url('fonts/Museo500-Regular-webfont.ttf') format('truetype'),
+         url('fonts/Museo500-Regular-webfont.svg#Museo500Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Museo700Regular';
+    src: url('fonts/Museo700-Regular-webfont.eot');
+    src: url('fonts/Museo700-Regular-webfontd41d.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Museo700-Regular-webfont.woff') format('woff'),
+         url('fonts/Museo700-Regular-webfont.ttf') format('truetype'),
+         url('fonts/Museo700-Regular-webfont.svg#Museo700Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    border:0 none;
+    font-size:100%;
+    margin:0;
+    outline:0 none;
+    padding:0;
+    vertical-align:baseline;
+}
+html {max-height:100%;}
+body {
+    border-top:10px solid #444;
+    color:#333;
+    font-family:'Museo300Regular', Palatino Linotype, Georgia, Times New Roman, serif;
+    height:1%;
+    line-height:1.4;
+    text-align:center;
+    width:auto;
+    background:url(img/paperbg.gif);
+}
+h1,h3 {font-family:'Museo700Regular', Palatino Linotype, Georgia, Times New Roman, serif;font-weight:normal;}
+h1 {font-size:1.8em;}
+h3 {font-size:1.2em;}
+p {margin-bottom:16px;}
+a {color:#ff8c00;}
+#container, header, #header-title {width:960px;}
+#container {display:inline-block;text-align:left;}
+#header {padding-bottom:30px;display:inline-block;border-bottom:2px solid #444;}
+#header-image {float:left;}
+#header-text {width:500px;float:left;margin-left:20px;}
+#header-title {float:left;margin:20px 0px;}
+ul#social li {list-style-type:none;display:inline;float:left;margin-right:10px;}
+div#nav {display:inline-block;background-color:#333;width:960px;-moz-box-shadow:0px 5px 5px -5px #444;-webkit-box-shadow:0px 5px 5px -5px #444;box-shadow:0px 5px 5px -5px #444;}
+div#nav ul li {display:inline;float:left;text-align:center;padding:0px 7px; margin:5px 8px 5px 8px;background-color:#ff8c00;-moz-border-radius:3px;-webkit-border-radius:3px;-o-border-radius:3px;border-radius:3px;}
+div#nav ul li a {text-decoration:none;border-bottom:0px none;color:#fff;}
+div#nav ul li:hover {background-color:#111;}
+li.space1 {margin-left:48px !important;}
+li.space2 {margin-left:15px !important;}
+.pull-quote {float:right;width:200px;margin:20px 0px 20px 20px;padding:15px 10px;border-top:2px solid #444;border-bottom:2px solid #444;}
+.winner {margin:15px 0px;padding:70px 0px; border-bottom:2px solid #444;}
+#winner img {vertical-align:top;float:left;margin-right:10px;}
+.first .winner-name h3 {display:inline;width:315px;}
+.winner-info {font-family:'Museo700Regular';}
+.winner-name, .winner-company {font-family:'Museo500Regular', Palatino Linotype, Georgia, Times New Roman, serif;}
+.winner-image {margin-top:10px;height:244px;border:3px solid #000;overflow:hidden;-moz-box-shadow:0px 5px 5px -5px #444;-webkit-box-shadow:0px 5px 5px -5px #444;box-shadow:0px 5px 5px -5px #444;}
+.winner-question {margin-top:20px;}

@@ -1,0 +1,26 @@
+#checklist_form input
+{
+    float:left;
+}
+
+#checklist_form br
+{
+    clear:both;
+}
+
+#checklist_form input
+{
+    margin-left:30px;
+    
+    font-size:15px;
+    
+    height: 28px;
+    width: 25px;
+    margin-top:-5px;
+    
+}
+
+#checklist_form span
+{
+    padding-top: 15px;
+}

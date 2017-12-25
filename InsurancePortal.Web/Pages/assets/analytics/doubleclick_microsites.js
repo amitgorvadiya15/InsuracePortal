@@ -1,0 +1,1 @@
+var axel=Math.random()+"",a=1e13*axel,documentTitle=encodeURIComponent(document.title);document.write('<iframe src="https://6974260.fls.doubleclick.net/activityi;src=6974260;type=remar0;cat=remar0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment='+documentTitle+";ord="+a+'?" width="1" height="1" frameborder="0" style="display:none"></iframe>');

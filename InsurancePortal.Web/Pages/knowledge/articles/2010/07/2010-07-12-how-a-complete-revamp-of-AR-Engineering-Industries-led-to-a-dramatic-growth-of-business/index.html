@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<!-- Mirrored from www.simplybusiness.co.uk/knowledge/articles/2010/07/2010-07-12-how-a-complete-revamp-of-AR-Engineering-Industries-led-to-a-dramatic-growth-of-business/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Dec 2017 10:13:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"b747ade770","applicationID":"71452593","transactionName":"cVtfFhENWQlSQRxrXlxVRRACTWYAUldKAg1zRlIKChRQFg0JeFZYRVhUBgQHGiJyZxNTWV1DXQcHBVBKVkFHUVReUUJNSzlrSggQbhMeHRxqPExdFjgcGhwQbGwbDkE+SRw=","queueTime":0,"applicationTime":65,"ttGuid":"","agentToken":null,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQUCVFNWGwQBUFRQAggE"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,n,e)])}catch(s){try{i("ierr",[s,c.now(),!0])}catch(u){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t){i("err",[t,c.now()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,n,e){u&&(d+=1)}),s.on("fn-err",function(t,n,e){u&&(this.thrown=!0,o(e))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("../../../../../index.html")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+<meta charset="utf-8">
+<title>Survive the economic recession as a small business in the UK</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="index, follow" name="robots">
+<meta content="Claire Cooper explains how a complete revamp of AR Engineering Industries led to a dramatic growth of business" name="description">
+<meta content="Survive the economic recession as a small business in the UK" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://www.simplybusiness.co.uk/knowledge/articles/2010/07/2010-07-12-how-a-complete-revamp-of-AR-Engineering-Industries-led-to-a-dramatic-growth-of-business/" property="og:url">
+<meta content="https://www.simplybusiness.co.uk/assets/social/simply_opengraph.png?v2" property="og:image">
+<meta content="AR Engineering Industries Ltd, based near Dartford in Kent, is an
+ISO9001:2008 UKAS accredited organisation offering a wide range of
+engineering, manufacturing and machining services to a wide cross
+section of industries and business sectors, in addition to end user
+consumers. Jasper talked with Claire Cooper, Operations director. She
+recently won the Business Personality of the Year at the Dartford &amp;
+Gravesham Business Awards 2010. Claire explains how a complete revamp of
+AR Engineering Industries led to a dramatic growth of business.  " property="og:description">
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@simplybusiness" name="twitter:site">
+<meta content="@simplybusiness" name="twitter:creator">
+<meta content="Survive the economic recession as a small business in the UK" name="twitter:title">
+<meta content="AR Engineering Industries Ltd, based near Dartford in Kent, is an
+ISO9001:2008 UKAS accredited organisation offering a wide range of
+engineering, manufacturing and machining services to a wide cross
+section of industries and business sectors, in addition to end user
+consumers. Jasper talked with Claire Cooper, Operations director. She
+recently won the Business Personality of the Year at the Dartford &amp;
+Gravesham Business Awards 2010. Claire explains how a complete revamp of
+AR Engineering Industries led to a dramatic growth of business.  " name="twitter:description">
+<link href="index.html" rel="canonical">
+<meta content="authenticity_token" name="csrf-param">
+<meta content="uywYjpi5zmVJaEGkgj4drxoluLjiJjs0zTscAzgRPWA=" name="csrf-token">
+<link as="font" crossorigin="anonymous" href="../../../../../assets/bijou/museosans_500-5e970f19a7bd56681ccffee58a97772a148c314440e6549254733ef24a3c9f66.woff2" rel="preload" type="font/woff2">
+<link as="font" crossorigin="anonymous" href="../../../../../assets/bijou/museosans_700-b3455e5afa9446a79ada31b9a416de55705fe7e7579989d1e3d6669c224a0bbc.woff2" rel="preload" type="font/woff2">
+<link as="font" crossorigin="anonymous" href="../../../../../assets/bijou/museosansrounded_500-d1a96cb01de35edb2d86f7cbb3dd760310896e4f0cc7f0006e014b19c841b2d5.woff2" rel="preload" type="font/woff2">
+<link as="font" crossorigin="anonymous" href="../../../../../assets/bijou/museosansrounded_700-205bdf3f5255bae942d055addbb1b09a6ba24b6a8440c688661fa524098745c1.woff2" rel="preload" type="font/woff2">
+
+<link rel="stylesheet" href="../../../../../assets/app-1bf9710e98e8db69f25ae65e22f0a1cec3560d2d0d40a4d9528b872be60e937f.css">
+<script src="../../../../../assets/app_head-fee1c8d1c4f037c1f4c940a637d8cd0a8879ab2faf9639ef06824e78ff0e1276.js"></script>
+<script id="snippet-snowplow">
+window.snowplowHelper = new SnowplowHelper({mainEventsCollector: "d1f6ajd7ltcrsx", bronzeEventsCollector: "d1y70ye8b3qgl6", avalancheCollector: "avalanche.simplybusiness.co.uk", cookieDomain: "simplybusiness.co.uk", appId: "uk-seedy"}).trackPageView();
+</script>
+<script id="snippet-bing">
+(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5561972"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","../../../../../../bat.bing.com/bat.js","uetq");
+</script>
+<noscript>
+<img height="0" src="http://bat.bing.com/action/0?ti=5561972&amp;Ver=2" style="display:none; visibility: hidden;" width="0">
+</noscript>
+<script id="snippet-ga">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','../../../../../../www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-8804762-6', 'auto');
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+</script>
+<script id="snippet-facebook">
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','../../../../../../connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1451594908471230');
+fbq('track', 'PageView');
+fbq('trackCustom', 'Knowledge');
+</script>
+<noscript>
+<img height="1" src="https://www.facebook.com/tr?id=1451594908471230&amp;ev=PageView&amp;noscript=1" style="display:none" width="1">
+</noscript>
+
+
+
+
+<link href="../../../../../assets/bijou/favicon-e0e837edfd0650eeac6fdfd867d83745e6162b86a6edc3cb4f7eeae2b2d73aef.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+<link href="../../../../../assets/bijou/apple-icon-57x57-883fb33d5cf499cd7963527151cacbc2424428a35de4f745eeaa04810c5c95e8.png" rel="apple-touch-icon" sizes="57x57">
+<link href="../../../../../assets/bijou/apple-icon-76x76-d405761bd30bd7a9039e9fb213c6f3c44f67e9d6c777e8b9cf30e1ecb57a9364.png" rel="apple-touch-icon" sizes="76x76">
+<link href="../../../../../assets/bijou/apple-icon-120x120-64e89542bd90198b0978b07a45f61531d2231f632aa5bf1c716859c78f95b631.png" rel="apple-touch-icon" sizes="120x120">
+<link href="../../../../../assets/bijou/apple-icon-152x152-1823375fa998e626ae10f3219d0c71ee4ff7e77f7fc3f47323801925859c6e14.png" rel="apple-touch-icon" sizes="152x152">
+<link href="../../../../../assets/bijou/apple-icon-167x167-dc27d424ae184f34cbe4afa158929f59375cfc98477e201f3eb1fced390f0b23.png" rel="apple-touch-icon" sizes="167x167">
+<link href="../../../../../assets/bijou/apple-icon-180x180-cfb96d969435ef742153d9b92b7327b0720fa95f3ac905c2cd47cd1731b91e2c.png" rel="apple-touch-icon" sizes="180x180">
+<link href="../../../../../assets/bijou/icon-192x192-bd2f830632266cad764c388c8d11d7e9aea41bf8e8485bebf1209ac501f9e756.png" rel="icon" sizes="192x192">
+<meta content="Simply Business" name="apple-mobile-web-app-title">
+</head>
+<body class="template-article" itemscope itemtype="https://schema.org/InsuranceAgency">
+
+<script id="snippet-doubleclick">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+var documentTitle = encodeURIComponent(document.title);
+document.write('<iframe src="//6974260.fls.doubleclick.net/activityi;src=6974260;type=remar0;cat=remar0;u2=Survive+the+economic+recession+as+a+small+business+in+the+UK;duid=d05a8d5d8c09756c;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe frameborder="0" height="1" src="http://6974260.fls.doubleclick.net/activityi;src=6974260;type=remar0;cat=remar0;u2=Survive+the+economic+recession+as+a+small+business+in+the+UK;duid=d05a8d5d8c09756c;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" style="display:none" width="1"></iframe>
+</noscript>
+
+
+
+
+<header class="site-header" data-module="masthead">
+<div class="site-header__top clearfix">
+<div class="grid-wrapper">
+<div class="site-header-logo">
+<div class="site-header-logo__gradient js-has-css-animation"></div>
+<a class="site-header-logo__link logo" href="../../../../../index.html" itemprop="url">
+Simply Business - Insurance for your business
+</a>
+</div>
+<div class="has-nav site-header__customer-service">
+<div class="mobile-hide">
+<strong class="site-header__phone-number qa-customer-service-number tel" id="customer-service-number" itemprop="telephone">0333 014 6683</strong>
+<a class="qa-opening-hours" href="../../../../../support/index.html" itemprop="openingHours">See our opening hours</a>
+</div>
+<div class="mobile-show">
+<a class="has-nav icon-phone js-notice-toggle qa-mobile-customer-service-number site-header__call-button" data-track="mobile_call_button" href="tel:0333 014 6683" id="qa-mobile-customer-service-button"></a>
+</div>
+</div>
+</div>
+<i class="site-header__menu-icon icon-menu desktop-hide js-menu-toggle"></i>
+</div>
+<nav class="primary-nav">
+<div class="grid-wrapper">
+<ul class="menu--top">
+<li class="menu__item menu__item--menu js-submenu portable-hide">
+<a class="menu__item-link" href="../../../../../insurance/index.html">Business insurance</a>
+<div class="menu__panel-container">
+<div class="menu__panel js-menu-panel">
+<div class="grid-wrapper">
+<div class="grid"><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../insurance/index.html">Business insurance</a>
+</h3>
+</div><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../insurance/covers/index.html">Business insurance covers</a>
+</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../insurance/public-liability/index.html">Public liability insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/professional-indemnity/index.html">Professional indemnity insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/employers-liability/index.html">Employers' liability insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/tool-cover/index.html">Tool insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/business-contents/index.html">Business contents insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/business-buildings/index.html">Business building insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/personal-accident-insurance/index.html">Personal accident insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/stock-cover/index.html">Stock insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/covers/index.html">More business covers</a>
+</li>
+</ul>
+</div><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../insurance/business-types/index.html">Insurance by business type</a>
+</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../insurance/self-employed/index.html">Self-employed insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/contractors/index.html">Contractor insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/limited-company-insurance/index.html">Limited company insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/home-business/index.html">Home business insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/online-retailers/index.html">Online retailer insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/consultants/index.html">Consultant insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/freelancers/index.html">Freelancer insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/sole-trader/index.html">Sole trader insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/business-types/index.html">More business types</a>
+</li>
+</ul>
+</div><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../insurance/by-industry/index.html">Insurance by trade</a>
+</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../insurance/cleaners/index.html">Cleaners' insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/hairdressers/index.html">Hairdressing insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/catering/index.html">Catering insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/photographers/index.html">Photographers' insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/shop/index.html">Shop insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/dog-walkers/index.html">Dog walking insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/tradesman/index.html">Tradesman insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/massage/index.html">Massage therapists' insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/by-industry/index.html">More trades</a>
+</li>
+</ul>
+</div></div>
+</div>
+</div>
+</div>
+</li>
+<li class="menu__item menu__item--menu js-submenu portable-show">
+<a class="menu__item-link" href="../../../../../insurance/index.html">Business insurance</a>
+<div class="menu__panel-container">
+<div class="menu__panel js-menu-panel">
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../insurance/index.html">Business insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/public-liability/index.html">Public liability insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/professional-indemnity/index.html">Professional indemnity insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/employers-liability/index.html">Employers' liability insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/tool-cover/index.html">Tool insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/covers/index.html">More business covers</a>
+</li>
+<li>
+<a href="../../../../../insurance/by-industry/index.html">Insurance by industry</a>
+</li>
+<li>
+<a href="../../../../../insurance/business-types/index.html">Insurance by business type</a>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class="menu__item menu__item--menu js-submenu portable-hide">
+<a class="menu__item-link" href="../../../../../landlord-insurance/index.html">Landlord insurance</a>
+<div class="menu__panel-container">
+<div class="menu__panel js-menu-panel">
+<div class="grid-wrapper">
+<div class="grid"><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../landlord-insurance/index.html">Landlord insurance</a>
+</h3>
+</div><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../landlord-insurance/landlord-covers/index.html">Landlord insurance covers</a>
+</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../landlord-insurance/buy-to-let-insurance/index.html">Buy-to-let insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/content-insurance/index.html">Landlord contents insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/loss-of-rent-insurance/index.html">Loss of rent insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/liability-insurance/index.html">Landlord liability insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/accidental-damage/index.html">Accidental damage insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/alternative-accommodation/index.html">Alternative accommodation insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/unoccupied-property-insurance/index.html">Unoccupied property insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/tenant-default-insurance/index.html">Tenant default insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/landlord-covers/index.html">More landlord covers</a>
+</li>
+</ul>
+</div><div class="grid-cell desktop-3">
+<h3>Property types</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../landlord-insurance/residential-landlord-insurance/index.html">Residential landlord insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/commercial-landlord-insurance/index.html">Commercial landlord insurance</a>
+</li>
+</ul>
+</div></div>
+</div>
+</div>
+</div>
+</li>
+<li class="menu__item menu__item--menu js-submenu portable-show">
+<a class="menu__item-link" href="../../../../../landlord-insurance/index.html">Landlord insurance</a>
+<div class="menu__panel-container">
+<div class="menu__panel js-menu-panel">
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../landlord-insurance/index.html">Landlord insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/buy-to-let-insurance/index.html">Buy-to-let insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/content-insurance/index.html">Landlord contents insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/loss-of-rent-insurance/index.html">Loss of rent insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/liability-insurance/index.html">Landlord liability insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/accidental-damage/index.html">Accidental damage insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/unoccupied-property-insurance/index.html">Unoccupied property insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/landlord-covers/index.html">More covers</a>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class="menu__item menu__item--menu js-submenu portable-hide">
+<a class="menu__item-link" href="../../../../index.html">Knowledge centre</a>
+<div class="menu__panel-container">
+<div class="menu__panel js-menu-panel">
+<div class="grid-wrapper">
+<div class="grid"><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../index.html">Knowledge centre</a>
+</h3>
+</div><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../index.html">Articles</a>
+</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../popular-articles/index.html">Most popular articles</a>
+</li>
+<li>
+<a href="../../../../index.html">All articles</a>
+</li>
+</ul>
+</div><div class="grid-cell desktop-3">
+<h3>
+<a href="../../../../../microsites/index.html">Microsites</a>
+</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../microsites/facebook-for-small-businesses/index.html">Facebook for small businesses</a>
+</li>
+<li>
+<a href="../../../../../microsites/google-my-business-guide/index.html">Google My Business guide</a>
+</li>
+<li>
+<a href="../../../../../microsites/google-analytics-guide/index.html">Google Analytics guide</a>
+</li>
+<li>
+<a href="../../../../../microsites/google-adwords/index.html">Google Adwords guide</a>
+</li>
+<li>
+<a href="../../../../../microsites/twitter-for-small-businesses/index.html">Twitter for small businesses</a>
+</li>
+<li>
+<a href="../../../../../microsites/email-marketing-guide/index.html">Email marketing guide</a>
+</li>
+<li>
+<a href="../../../../../microsites/guide-to-social-media-success/index.html">Guide to social media success</a>
+</li>
+<li>
+<a href="../../../../../microsites/googleplus-for-small-businesses/index.html">GooglePlus for small businesses</a>
+</li>
+<li>
+<a href="../../../../../microsites/index.html">More microsites</a>
+</li>
+</ul>
+</div><div class="grid-cell desktop-3">
+<h3>FAQ</h3>
+<ul class="menu__sublist">
+<li>
+<a href="../../../../../insurance/faq/index.html">Business insurance FAQ</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/faq/index.html">Landlord insurance FAQ</a>
+</li>
+</ul>
+</div></div>
+</div>
+</div>
+</div>
+</li>
+<li class="menu__item menu__item--menu js-submenu portable-show">
+<a class="menu__item-link" href="../../../../index.html">Knowledge centre</a>
+<div class="menu__panel-container">
+<div class="menu__panel js-menu-panel">
+<ul class="menu__sublist">
+<li>
+<a href="../../../../index.html">Knowledge centre</a>
+</li>
+<li>
+<a href="../../../../popular-articles/index.html">Most popular articles</a>
+</li>
+<li>
+<a href="../../../../../microsites/index.html">Microsites</a>
+</li>
+<li>
+<a href="../../../../resources/small-business-guides/index.html">Small business guides</a>
+</li>
+<li>
+<a href="../../../../../insurance/faq/index.html">Business insurance FAQ</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/faq/index.html">Landlord insurance FAQ</a>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class="menu__item">
+<a class="menu__item-link" href="../../../../../support/index.html">Help & support</a>
+</li>
+<li class="menu__item">
+<a class="menu__item-link qa-make-a-claim-menu" data-track="make_a_claim_button_clicked" href="../../../../../insurance-claims/index.html">Claims</a>
+</li>
+<li class="menu__item">
+<a class="menu__item-link" data-track="sign_in_button_clicked" href="../../../../../signin/index.html">Sign in</a>
+</li>
+</ul>
+</div>
+</nav>
+
+
+
+
+</header>
+<section class="site-section grid-wrapper">
+<div class="archive grid"><div class="archive__main grid-cell desktop-twothirds">
+<article class="article" itemscope itemtype="https://schema.org/Blog">
+<header class="article__header">
+<div class="dateline" itemprop="datePublished">12 July 2010</div>
+<h1 id="qa-page-heading" itemprop="name">Survive the economic recession as a small business in the UK</h1>
+<p class="byline" itemprop="author">By Jasper Martens</p>
+
+<div class="social-tools addthis_sharing_toolbox"></div>
+</header>
+<div class="article__body" itemprop="blogPost">
+<p>AR Engineering Industries Ltd, based near Dartford in Kent, is an&#x000A;ISO9001:2008 UKAS accredited organisation offering a wide range of&#x000A;engineering, manufacturing and machining services to a wide cross&#x000A;section of industries and business sectors, in addition to end user&#x000A;consumers. Jasper talked with Claire Cooper, Operations director. She&#x000A;recently won the Business Personality of the Year at the Dartford &amp;&#x000A;Gravesham Business Awards 2010. Claire explains how a complete revamp of&#x000A;AR Engineering Industries led to a dramatic growth of business.  </p>&#x000A;&#x000A;<h2>What’s it like to work with your father in a family run business?</h2>&#x000A;&#x000A;<p>AR Engineering precision engineering in Kent&#x000A;was formed by my father 16 years ago. I joined AR after completing a&#x000A;Masters of Mechanical Engineering at the University of Surrey and was&#x000A;commissioned to design and implement a Quality Management System in&#x000A;order for the company to gain ISO 9001 approval.</p>&#x000A;&#x000A;<p>On successful completion of the project I started to take a more active&#x000A;role in the business management of the company, and now as Operations&#x000A;Director am responsible for overseeing the strategic management of all&#x000A;of the operations within the company. My day to day role involves an&#x000A;endless variety of tasks from sales and marketing, technical&#x000A;engineering, accounts and finance, human resources responsibilities,&#x000A;alongside of course, general administrative duties and making the tea!</p>&#x000A;&#x000A;<p>This comment alone highlights the issue I find most significant in&#x000A;working within a small company. Unlike large corporations smaller&#x000A;businesses do not have the resources for clear departmentalisation and&#x000A;pigeonholing of roles and responsibilities. Every member of the team in&#x000A;a SME has to be prepared to work in a flexible manner and multitask to&#x000A;ensure the demands of the business and ultimately our clients are met.&#x000A;Good time management and communication are of paramount importance when&#x000A;striving to achieve a professional service and maintaining a slick&#x000A;operation.</p>&#x000A;&#x000A;<p>Working in any small business requires strong relationships to be&#x000A;developed amongst the team to make certain of success; at AR we are an&#x000A;extremely close unit – bought even closer by the fact that four members&#x000A;of the same family work here. My father, Alan Cooper, and I work&#x000A;together full time. Often this makes ‘leaving work, at work’ difficult,&#x000A;particularly through stressful and difficult times. However, I believe&#x000A;that our unconditional father – daughter bond has added a unique&#x000A;strength to our team. Over time we have learnt that our very different&#x000A;attributes and skills, along with our own individual strengths and&#x000A;weaknesses need not conflict, but can be used to compliment each other.&#x000A;Our close relationship makes way for absolute openness and honesty, this&#x000A;combined with our vested interested in the company guarantees we work in&#x000A;a wholly committed way to deliver longevity and success for AR.</p>&#x000A;&#x000A;<p>I personally enjoy working in a small business; the strong influence you&#x000A;can have as an individual on the activities and operations within the&#x000A;business creates great challenges, being able to clearly see the results&#x000A;of my work directly impacting the success of the business and driving it&#x000A;forward is a huge motivation.</p>&#x000A;&#x000A;<h2>Your business was hit by the recession. How did you find your way out of recession?</h2>&#x000A;&#x000A;<p>Historically AR Engineering has predominantly worked within the&#x000A;automotive industry, however in recent years the UK car manufacturing&#x000A;industry has been steadily decreasing. When the&#x000A;recession hit this decline was only accelerated, leaving many of the&#x000A;lower tier suppliers, such as AR, fighting for survival. Like most other&#x000A;similar businesses, AR made cost savings and cut backs. 12 months on we&#x000A;had survived, a huge accomplishment given the severity of the recession&#x000A;and down turn in sales, nevertheless to look to the future something had&#x000A;to change.</p>&#x000A;&#x000A;<p>I believed that AR, armed with the ISO approval, had the potential to&#x000A;rebuild, grow and conquer the SME precision engineering market, and that&#x000A;I could be the driving force to realise these targets. A complete&#x000A;overhaul of the business was necessary, so on formulating a&#x000A;comprehensive marketing plan and new business strategy, I set to work&#x000A;with a company ‘re-launch’ project.</p>&#x000A;&#x000A;<p>A dramatic revamp of the business began by incorporating the previous&#x000A;partnership of A&amp;R Engineering into the Limited company we have&#x000A;today. Following the official launch event of the new AR Engineering&#x000A;Industries in February 2010, the company has gone from strength to&#x000A;strength, winning more and more contracts from key clients in the&#x000A;aerospace and defence sectors defence engineering business. Most importantly, AR is gaining recognition as a&#x000A;trusted authority on precision engineering, and working as a prime&#x000A;contractor is now within our grasp.</p>&#x000A;&#x000A;<p>Although the initial company re-launch has proved a success, the economy&#x000A;is still in recovery and the manufacturing industry within the UK,&#x000A;continues to be a highly competitive and tough industry to operate&#x000A;within. With this in mind AR needs to continue to work dynamically and&#x000A;be proactive and forward thinking.</p>&#x000A;&#x000A;<p>Marketing was an activity not within our past scope of operations; it&#x000A;has proven to be fundamental to our survival to date and we are&#x000A;continuing to work on developing this function of our business to ensure&#x000A;our aspirations for growth and development come to fruition.</p>&#x000A;&#x000A;<p>Marketing our company in a wide variety ways with a spread of different&#x000A;methods has ensured that AR are no longer invisible - an issue many SMEs&#x000A;face.</p>&#x000A;&#x000A;<p>We have been varying our marketing activities to date and are collating&#x000A;information and data to establish which methods are most successful to&#x000A;us. The key elements have included the re-launch event and our new&#x000A;website and company literature. We have been carrying out a&#x000A;telemarketing campaign supported by sending out regular newsletters and&#x000A;company updates. To compliment this we have also embraced the world of&#x000A;social media to reach out to both new and existing clients. We have also&#x000A;embarked on acquiring regular general PR including, articles in trade&#x000A;magazines and other publications, sponsorship of local school projects&#x000A;and charitable events and most recently we reached the finals of the&#x000A;local Dartford &amp; Gravesham Business awards where I received&#x000A;recognition for my work in the company.</p>&#x000A;&#x000A;<p>As part of the re-launch project we created a new logo design and are&#x000A;trying to use this branding consistently throughout our communications&#x000A;and whereever AR is represented, I envisage the AR brand to become&#x000A;instinctively recognisable within the precision engineering,&#x000A;manufacturing and general engineering industry.</p>&#x000A;&#x000A;<p>I am now committed to ensure that we continue to actively market our&#x000A;business and that marketing is treated as an intrinsic function of the&#x000A;business and is budgeted for alongside other necessary and regular&#x000A;commitments for example, paying our fuel bills. Without electricity we&#x000A;can not operate as a business – our mind set is now that without&#x000A;marketing we also can not operate.</p>&#x000A;&#x000A;<h2>Was it hard to get the accreditation to the ISO 9001:2008 quality management system?</h2>&#x000A;&#x000A;<p>AR has always been a ‘precision’ engineering company – quality and accuracy are intrinsic to any products we&#x000A;manufacture. We work to close tolerances for components in a range of&#x000A;critical applications. The nature of the main industries we serve –&#x000A;automotive, aerospace and defence means that they demand goods where by&#x000A;quality cannot be compromised due to the implications of a component&#x000A;functioning incorrectly and the resulting effect on not only performance&#x000A;issues but also health and safety.</p>&#x000A;&#x000A;<p>With an appreciation of this, AR have manufactured high quality&#x000A;components for more than 16 years; the introduction of a formal Quality&#x000A;Management System assisted us with improving the infrastructure and&#x000A;supporting operations within the business to make way for more efficient&#x000A;in-house processes, allowing for an overall better service to be&#x000A;delivered to clients, both current, past and potential.</p>&#x000A;&#x000A;<p>The major challenge in achieving the standard required for accreditation&#x000A;was in changing the culture of the employees. Initially the introduction&#x000A;of additional paper work and forms was not only daunting but was seen to&#x000A;be an unnecessary increase in work load and as a method of monitoring&#x000A;performance and output. It took careful and thorough training of the&#x000A;staff in order for the system to be accepted and to work. The training&#x000A;however was not simply to give the team an understanding of the system&#x000A;and new instructions to work by, but most importantly to give them an&#x000A;appreciation of why the system is important and must be adhered to, not&#x000A;only as part of the everyday work, providing tangible data and records&#x000A;to use in the business management activities but to enable sustainable&#x000A;and controlled growth of the company.</p>&#x000A;&#x000A;<p>With all the team behind the project and careful planning and time&#x000A;management, the ISO 9001:2008 implementation project was executed&#x000A;successfully.</p>&#x000A;&#x000A;<h2>Do you think the ISO 9001:2008 and further professionalisation was the answer to grow your business?</h2>&#x000A;&#x000A;<p>AR were awarded the ISO 9001:2008 certified approval for our Quality&#x000A;Management System (QMS) in 2009.</p>&#x000A;&#x000A;<p>In developing the system I believed that it was not only important to&#x000A;acquire the certificate so that the prestigious and recognisable LRQA&#x000A;logo could be displayed on our website, company stationery etc but to&#x000A;use the processes and procedures mapped out within our Quality Manual&#x000A;would help us all work more efficiently and effectively. As a result of&#x000A;taking the time to implement a comprehensive system throughout all&#x000A;operations within the business, we can now deliver goods and services&#x000A;much more quickly and consistently. The QMS has given us the ability to&#x000A;easily monitor data and our critical KPIs and recall historical records.</p>&#x000A;&#x000A;<p>At the height of the recession in a fiercely competitive industry&#x000A;obtaining the ISO 9001:2008 approval was significant in the survival of&#x000A;the business. The Quality Standard gives clients the confidence and&#x000A;assurance that we are committed to quality. Historically with&#x000A;introductions to new potential clients, we frequently stumbled at the&#x000A;first hurdle as we could not provide this assurance. Customer demand was&#x000A;the driving force that led us to develop our own QMS system.</p>&#x000A;&#x000A;<p>As a result of gaining the approval we have won new business. It has&#x000A;proved to be an invaluable marketing tool; however as a stand alone&#x000A;component it would not have produced results. It was through our&#x000A;complete marketing project and company re-launch, and all its respective&#x000A;activities, that the re-stabilisation of AR Engineering Industries began&#x000A;and is now on its way to being a respected player in the SME Precision&#x000A;Engineering sector.</p>&#x000A;&#x000A;<h2>You’re using some marketing techniques not performed by your type of business. Why did you choose to embrace tools such as Twitter, Facebook and other online platforms?</h2>&#x000A;&#x000A;<p>AR Engineering Industries is a family business. Precision engineering encompasses the use of high technological methods&#x000A;of production and manufacturing, however the industry itself is&#x000A;perceived to be fairly old fashioned in its culture. Particularly by&#x000A;comparison to other similar SMEs it is notable that beyond the use of&#x000A;the high-tech manufacturing capabilities we have other functions within&#x000A;the businesses that have tended to remain conventional. This is very&#x000A;much true with the marketing functions in engineering companies.</p>&#x000A;&#x000A;<p>Like us just a year ago, few of our peers have anything that could be&#x000A;seen to be a marketing function, most work is won on recommendations and&#x000A;word of mouth or as a result of long term business relationships. The&#x000A;industry is becoming ever more competitive, and the expectations of&#x000A;clients are increasing. As a business you need to gain competitive&#x000A;advantage over your peers and in creating our brand recognition and&#x000A;reputation I believe that with the fundamental business activities&#x000A;refined and our approvals update established, we can look to&#x000A;differentiate ourselves by use of information technology.</p>&#x000A;&#x000A;<p>The evolution of information technology and the influence this has on&#x000A;our working culture and behaviour today is far greater than anyone could&#x000A;have ever imagined. Today it is at the forefront of all of our lives; in&#x000A;our homes, when socialising, at work, and more recently quite literally&#x000A;in the palm of our hands with the development of new internet enabled&#x000A;mobile phones.</p>&#x000A;&#x000A;<p>Social media including - <a target="_blank" href="http://www.facebook.com/ARengineering" >Facebook</a>,&#x000A;<a target="_blank" href="http://twitter.com/arengineering" >Twitter</a>, <a target="_blank" href="http://arengineeringindustries.wordpress.com/" >online blogging</a>, and <a target="_blank" href="https://www.linkedin.com/in/arengineeringclaire" >LinkedIn</a> are relatively&#x000A;new activities. but the use of them is growing at a phenomenal rate and&#x000A;is wide spread across a complete cross section of societies including&#x000A;not only individuals but also businesses as well. Other than time,&#x000A;currently these are all accessible effectively for zero cost and they&#x000A;have been designed to be user friendly with minimal IT skills required&#x000A;for effective use of them.</p>&#x000A;&#x000A;<p>As AR have been looking at a variety of marketing tools and techniques&#x000A;we decided to explore the possibilities for and uses of social media.&#x000A;Each different platform offers different specific goals it can help you&#x000A;achieve. For example LinkedIn focuses on meeting and developing&#x000A;relationships and networks with other professionals as individual&#x000A;people, Facebooks allows a company page on which stories, photos and&#x000A;information can be uploaded, fans subscribe to this and can publicly&#x000A;comment on items appearing in your news feed. Online blogging allows you&#x000A;to share stories, news and information with your contacts through email&#x000A;and other electronic media. Twitter is a micro blogging service that&#x000A;allows people to send and read messages of up to 140 characters.</p>&#x000A;&#x000A;<p>With the growth in use of such tools set to continue, we believe that it&#x000A;can only become of even more value to the ways businesses not only&#x000A;advertise, but also communicate. Communication is the key to the use of&#x000A;social media. It has helped establish a forum whereby the sharing of&#x000A;information and development of relationships is more frequently used&#x000A;rather than focusing on direct sales. Although of course it is our&#x000A;ultimate goal to achieve an increase in sales, it offers an alternative&#x000A;to the faceless advertising campaigns, email shots, cold calls etc we&#x000A;have become all too familiar with. Sharing information, news stories,&#x000A;and details of key events or technological developments is an excellent&#x000A;way to increase the profile and visibility of your business and enforce&#x000A;the brand awareness we are all striving for.</p>&#x000A;&#x000A;<p>Of course looking at the flip side of this, not only are you sharing&#x000A;information and giving something to the online community but there is a&#x000A;wealth of knowledge and expertise at your fingertips. By carefully&#x000A;selecting your ‘followers’ on Twitter or ‘connections’ on LinkedIn you&#x000A;can choose relevant contacts that not only may be likely to result in&#x000A;sales activity but also may be useful to you in terms of the information&#x000A;they share. Businesses might share key industry updates, news on&#x000A;development of new products, news from your local community etc, which&#x000A;you can then target to aid your own learning and business development.</p>&#x000A;&#x000A;<p><strong >At AR we cannot recommend experimentation of social media enough</strong>; to&#x000A;date we have been working carefully on our social media presence and&#x000A;have seen leads and interest from all sources. Sales have been generated&#x000A;through our use of social media and we have also gained useful&#x000A;knowledge, particularly with regards to marketing activities, and built&#x000A;important relationships through this forum with both existing clients&#x000A;and potential new business associates.</p>&#x000A;&#x000A;<h2>What advice can you give Engineering businesses to grow out of recession?</h2>&#x000A;&#x000A;<p>From our experience, the key advice I would give to SME engineering&#x000A;businesses is that with the introduction and continued development of a&#x000A;marketing function which supports the business’s core activities, a&#x000A;steady and sustainable growth can be found. The word marketing is often&#x000A;perceived to be an ‘expensive’ term associated with costly activities,&#x000A;however ,as we have found out with careful market research and selection&#x000A;of the right activities you can carry out marketing with budgetary&#x000A;constraints. As a return on investment is seen on the marketing&#x000A;activities, budgets can be increased where necessary so that the&#x000A;function can expand with the business. Due to the recession taking its&#x000A;toll on AR, resources and funds for marketing were extremely limited,&#x000A;success has now been founded and we now need to be as committed to our&#x000A;marketing promise as we are to our assurance for high quality, ensuring&#x000A;that the business can move forwards and continue to grow and develop in&#x000A;order to realise our ultimate goal of becoming a leading institution in&#x000A;the SME manufacturing market.</p>&#x000A;&#x000A;<div class="article__cta"><div class="article__cta-text">&#x000A;<h3>Ready to set up your cover?</h3>&#x000A;&#x000A;<p>As the UK’s biggest <a href="../../../../../insurance/index.html" >business insurance</a> provider, we specialise in <a href="../../../../../insurance/public-liability/index.html" >public liability insurance</a> and protect more trades than anybody else. Why not take a look now and build a quick, tailored quote?</p>&#x000A;</div><div class="article__cta-btn"><a class="btn-primary arrow" href="https://quote.simplybusiness.co.uk/business">Start your quote</a></div></div></div>
+<footer class="article__footer">
+<div class="social-tools addthis_sharing_toolbox"></div>
+</footer>
+</article>
+<div class="comment-box">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_shortname = 'simplybusiness';
+  var disqus_url = 'index.html';
+  
+  var original_orientation_change = window.onorientationchange;
+  
+  window.onorientationchange = function () {
+    if (DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: function () {
+          this.page.url = disqus_url;
+        }
+      });
+    }
+  
+    if (original_orientation_change) {
+      original_orientation_change();
+    }
+  };
+  
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+</div>
+
+</div><div class="grid-cell desktop-onethird">
+<div class="newsletter-signup-module" id="qa-newsletter-signup-module">
+<div class="newsletter-signup-module__content">
+<h3>Join over 350,000 subscribers to our monthly newsletter</h3>
+<p>
+Keep up to date with the breaking news, guides and tips impacting your
+business or rental.
+</p>
+<a class="btn small btn-primary" href="../../../../../about-us/newsletter-signup/index.html" id="qa-newsletter-signup-module-cta">Subscribe</a>
+</div>
+</div>
+<a class="qa-banner-ad banner-ad" data-track="knowledge_ad_2015_04" href="https://quote.simplybusiness.co.uk/business">
+<p><img src="../../../../../media/j/u/knowledge_banner_ad.png" alt="Click now to compare business insurance quotes online" /></p>
+</a>
+
+<nav class="archive__nav" id="qa-archive-nav">
+
+<div class="archive__nav-section qa-archive-nav-section" id="qa-categories-nav">
+<h2>Categories</h2>
+<ul>
+<li>
+<a href="../../../../popular-articles/index.html">Popular articles</a>
+</li>
+<li>
+<a href="../../../../general-business/index.html">General business</a>
+</li>
+<li>
+<a href="../../../../guest/index.html">Guest</a>
+</li>
+<li>
+<a href="../../../../insurance/index.html">Insurance</a>
+</li>
+<li>
+<a href="../../../../landlord/index.html">Landlord</a>
+</li>
+<li>
+<a href="../../../../legal-and-finance/index.html">Legal and finance</a>
+</li>
+<li>
+<a href="../../../../marketing/index.html">Marketing</a>
+</li>
+<li>
+<a href="../../../../news/index.html">News</a>
+</li>
+<li>
+<a href="../../../../opinion/index.html">Opinion</a>
+</li>
+<li>
+<a href="../../../../tradesman/index.html">Tradesman</a>
+</li>
+<li>
+<a href="../../../../elxtr-legal-resources/index.html">elXtr legal resources</a>
+</li>
+</ul>
+</div>
+<div class="archive__nav-section qa-archive-nav-section" id="qa-resources-nav">
+<h2>Resources</h2>
+<ul>
+<li>
+<a href="../../../../resources/microsites/index.html">Microsites</a>
+</li>
+<li>
+<a href="../../../../resources/small-business-guides/index.html">Small business guides</a>
+</li>
+<li>
+<a href="../../../../resources/work-life-balance/index.html">Work-life balance</a>
+</li>
+</ul>
+</div>
+<div class="archive__nav-section qa-archive-nav-section" id="qa-archive-years-nav">
+<h2>Archive</h2>
+<ul class="in-columns">
+<li>
+<a href="../../../2017/index.html">2017</a>
+</li>
+<li>
+<a href="../../../2016/index.html">2016</a>
+</li>
+<li>
+<a href="../../../2015/index.html">2015</a>
+</li>
+<li>
+<a href="../../../2014/index.html">2014</a>
+</li>
+<li>
+<a href="../../../2013/index.html">2013</a>
+</li>
+<li>
+<a href="../../../2012/index.html">2012</a>
+</li>
+<li>
+<a href="../../../2011/index.html">2011</a>
+</li>
+<li>
+<a href="/">2010</a>
+</li>
+<li>
+<a href="../../../2009/index.html">2009</a>
+</li>
+<li>
+<a href="../../../2008/index.html">2008</a>
+</li>
+</ul>
+</div>
+<div class="archive__nav-section qa-archive-nav-section">
+<h2>Social</h2>
+
+<ul>
+  <li><a target="_blank" href="https://twitter.com/simplybusiness" >Twitter</a></li>
+  <li><a target="_blank" href="https://www.facebook.com/Simply.Business" >Facebook</a></li>
+  <li><a target="_blank" href="http://www.google.com/+simplybusiness" >Google+</a></li>
+  <li><a target="_blank" href="https://www.linkedin.com/company/simply-business_39914" >LinkedIn</a></li>
+  <li><a target="_blank" href="https://www.youtube.com/simplybusiness" >YouTube</a></li>
+</ul>
+
+</div>
+
+</nav>
+</div></div>
+
+</section>
+<section class="site-section grid-wrapper sitemap">
+<div class="grid"><div class="grid-cell desktop-onesixth tablet-onethird mobile-onehalf">
+<div class="module">
+<div class="module-content">
+<h4>Insurance</h4>
+<ul>
+<li>
+<a href="../../../../../insurance/public-liability/index.html">Public liability insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/index.html">Business insurance</a>
+</li>
+<li>
+<a href="../../../../../landlord-insurance/index.html">Landlord insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/tradesman/index.html">Tradesman insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/professionals/index.html">Professionals' insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/shop/index.html">Shop insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/restaurant/index.html">Restaurant insurance</a>
+</li>
+<li>
+<a href="../../../../../vehicle/van-insurance/index.html">Van insurance</a>
+</li>
+<li>
+<a href="../../../../../insurance/insurers/index.html">Insurers</a>
+</li>
+</ul>
+</div>
+</div>
+</div><div class="grid-cell desktop-onesixth tablet-onethird mobile-onehalf">
+<div class="module">
+<div class="module-content">
+<h4>About Simply Business</h4>
+<ul>
+<li>
+<a href="../../../../../about-us/index.html">About us</a>
+</li>
+<li>
+<a href="../../../../../about-us/team/index.html">Our team</a>
+</li>
+<li>
+<a href="../../../../../about-us/awards/index.html">Awards</a>
+</li>
+<li>
+<a href="../../../../../about-us/press-releases/index.html">Press releases</a>
+</li>
+<li>
+<a href="../../../../../partner/index.html">Partners &amp; affiliates</a>
+</li>
+<li>
+<a href="../../../../../about-us/impact/index.html">Impact charity program</a>
+</li>
+<li>
+<a href="../../../../../social/index.html">Social media</a>
+</li>
+</ul>
+</div>
+</div>
+</div><div class="grid-cell desktop-onesixth tablet-onethird mobile-onehalf">
+<div class="module">
+<div class="module-content">
+<h4>Careers</h4>
+<ul>
+<li>
+<a href="../../../../../about-us/careers/index.html">Careers at Simply Business</a>
+</li>
+<li>
+<a href="../../../../../about-us/careers/tech/index.html">Tech careers</a>
+</li>
+<li>
+<a href="../../../../../about-us/careers/jobs/index.html">Current vacancies</a>
+</li>
+</ul>
+</div>
+</div>
+</div><div class="grid-cell desktop-onesixth tablet-onethird mobile-onehalf">
+<div class="module">
+<div class="module-content">
+<h4>Customer support</h4>
+<ul>
+<li>
+<a href="../../../../../support/index.html">Contact &amp; support</a>
+</li>
+<li>
+<a href="../../../../../support/indexa064.html?topic=renewal">Policy renewal</a>
+</li>
+<li>
+<a href="../../../../../insurance-claims/index.html">Make a claim</a>
+</li>
+<li>
+<a href="../../../../../proof/index.html">Proof of policy</a>
+</li>
+<li>
+<a href="../../../../../support/complaints/index.html">Complaints</a>
+</li>
+</ul>
+</div>
+</div>
+</div><div class="grid-cell desktop-onesixth tablet-onethird mobile-onehalf">
+<div class="module">
+<div class="module-content">
+<h4>Benefits</h4>
+<ul>
+<li>
+<a href="../../../../../support/customer-benefits/index.html">Benefits</a>
+</li>
+<li>
+<a href="../../../../../about-us/refer/index.html">Refer a friend</a>
+</li>
+<li>
+<a href="../../../../../finance/index.html">Finance</a>
+</li>
+</ul>
+</div>
+</div>
+</div><div class="grid-cell desktop-onesixth tablet-onethird mobile-onehalf">
+<div class="module">
+<div class="module-content">
+<h4>Knowledge</h4>
+<ul>
+<li>
+<a href="../../../../index.html">Knowledge centre</a>
+</li>
+<li>
+<a href="../../../../opinion/index.html">Opinions</a>
+</li>
+<li>
+<a href="../../../../../microsites/index.html">Microsites</a>
+</li>
+<li>
+<a href="../../../../../leaderboards/top-100-influencers-small-business/index.html">Business 100 leaderboard</a>
+</li>
+<li>
+<a href="../../../../../leaderboards/top-100-influencers-property/index.html">Property 100 leaderboard</a>
+</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section>
+
+
+
+
+<footer class="site-footer">
+<div class="grid-wrapper">
+<div class="grid"><div class="grid-cell desktop-onethird tablet-onehalf vcard">
+<h3 class="fn">Address</h3>
+<p>
+<span class="adr" itemprop="address">
+99 Gresham Street<br>
+London<br>
+EC2V 7NG
+</span>
+</p>
+<p>
+<span class="adr" itemprop="address">
+Sol House<br>
+29 St Katherine's Street<br>
+Northampton<br>
+NN1 2QZ
+</span>
+</p>
+</div><div class="grid-cell desktop-twothirds tablet-onehalf">
+<div class="grid desktop-reverse"><div class="grid-cell desktop-onethird legal">
+<h3>Legal</h3>
+<ul>
+<li>
+<a href="../../../../../terms-conditions/index.html" target="">Terms &amp; conditions</a>
+</li>
+<li>
+<a href="../../../../../privacy-policy/index.html" target="">Privacy policy</a>
+</li>
+<li>
+<a href="../../../../../legal/cookies/index.html" target="">Cookie policy</a>
+</li>
+<li>
+<a href="../../../../../sitemap/index.html" target="">Site map</a>
+</li>
+</ul>
+</div><div class="grid-cell desktop-twothirds newsletter">
+<h3>Newsletter</h3>
+<p>
+Sign up to get our monthly newsletter, jam-packed with industry news, tips and events.
+</p>
+<a class="btn-tertiary" href="../../../../../about-us/newsletter-signup/index.html" target="">Subscribe</a>
+</div></div>
+</div>
+</div>
+</div>
+<div class="small-print">
+<div class="grid-wrapper">
+<p>
+&copy; Copyright 2017 Simply Business. All Rights Reserved.
+Simply Business is a trading name of Xbridge Limited which is authorised and
+regulated by the Financial Conduct Authority (Financial Services Registration
+No: 313348). Xbridge Limited (No: 3967717) has its registered office at
+99 Gresham Street, London EC2V 7NG.
+</p>
+</div>
+</div>
+</footer>
+<script src="../../../../../assets/app-eda58eafa7598e80d09818bcdb51d1bc8b5fd8ad045ebf777e843726ae3171b3.js"></script>
+<script id="snippet-twitter" src="../../../../../../static.ads-twitter.com/oct.js"></script>
+<script>
+  if (window.twttr) twttr.conversion.trackPid('l65zb', { tw_sale_amount: 0, tw_order_quantity: 0 });
+</script>
+<noscript>
+<img alt="" height="1" src="https://analytics.twitter.com/i/adsct?txn_id=l65zb&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" style="display:none;" width="1">
+<img alt="" height="1" src="http://t.co/i/adsct?txn_id=l65zb&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" style="display:none;" width="1">
+</noscript>
+<script id="snippet-addthis" src="../../../../../../s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e98360a319de2dd"></script>
+<script id="snippet-linkedin">
+var _bizo_data_partner_id = "7577";
+(function() {
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";
+b.async = true;
+b.src = (window.location.protocol === "https:" ? "https://sjs" : "http://js") + ".bizographics.com/insight.min.js";
+s.parentNode.insertBefore(b, s);
+})();
+</script>
+<noscript>
+<img height="1" src="http://www.bizographics.com/collect/?pid=7577&amp;fmt=gif" style="display:none;" width="1">
+</noscript>
+<!-- begin usabilla live embed code -->
+<script id="snippet-usabilla">
+window.lightningjs||function(c){function g(b,d){d&&(d+=(/\?/.test(d)?"&":"?")+"lv=1");c[b]||function(){var i=window,h=document,j=b,g=h.location.protocol,l="load",k=0;(function(){function b(){a.P(l);a.w=1;c[j]("_load")}c[j]=function(){function m(){m.id=e;return c[j].apply(m,arguments)}var b,e=++k;b=this&&this!=i?this.id||0:0;(a.s=a.s||[]).push([e,b,arguments]);m.then=function(b,c,h){var d=a.fh[e]=a.fh[e]||[],j=a.eh[e]=a.eh[e]||[],f=a.ph[e]=a.ph[e]||[];b&&d.push(b);c&&j.push(c);h&&f.push(h);return m};return m};var a=c[j]._={};a.fh={};a.eh={};a.ph={};a.l=d?d.replace(/^\/\//,(g=="https:"?g:"http:")+"//"):d;a.p={0:+new Date};a.P=function(b){a.p[b]=new Date-a.p[0]};a.w&&b();i.addEventListener?i.addEventListener(l,b,!1):i.attachEvent("on"+l,b);var q=function(){function b(){return["<head></head><",c,' onload="var d=',n,";d.getElementsByTagName('head')[0].",d,"(d.",g,"('script')).",i,"='",a.l,"'\"></",c,">"].join("")}var c="body",e=h[c];if(!e)return setTimeout(q,100);a.P(1);var d="appendChild",g="createElement",i="src",k=h[g]("div"),l=k[d](h[g]("div")),f=h[g]("iframe"),n="document",p;k.style.display="none";e.insertBefore(k,e.firstChild).id=o+"-"+j;f.frameBorder="0";f.id=o+"-frame-"+j;/MSIE[ ]+6/.test(navigator.userAgent)&&(f[i]="javascript:false");f.allowTransparency="true";l[d](f);try{f.contentWindow[n].open()}catch(s){a.domain=h.domain,p="javascript:var d="+n+".open();d.domain='"+h.domain+"';",f[i]=p+"void(0);"}try{var r=f.contentWindow[n];r.write(b());r.close()}catch(t){f[i]=p+'d.write("'+b().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};a.l&&setTimeout(q,0)})()}();c[b].lv="1";return c[b]}var o="lightningjs",k=window[o]=g(o);k.require=g;k.modules=c}({});
+if(!navigator.userAgent.match(/Android|BlackBerry|BB10|iPhone|iPad|iPod|Opera Mini|IEMobile/i)) {window.usabilla_live = lightningjs.require("usabilla_live", "../../../../../../w.usabilla.com/d9aa21c6f852.js"); } else {window.usabilla_live = lightningjs.require("usabilla_live", "../../../../../../w.usabilla.com/c627832b68ee.js"); }
+window.usabilla_live('data', {custom: {domain_userid: 'd05a8d5d8c09756c'}});
+</script>
+<!-- end usabilla live embed code -->
+
+
+
+
+</body>
+
+<!-- Mirrored from www.simplybusiness.co.uk/knowledge/articles/2010/07/2010-07-12-how-a-complete-revamp-of-AR-Engineering-Industries-led-to-a-dramatic-growth-of-business/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Dec 2017 10:13:22 GMT -->
+</html>
+

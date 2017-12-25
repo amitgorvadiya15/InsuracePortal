@@ -27,5 +27,10 @@ namespace InsurancePortal.Web.Controllers
 
             return View();
         }
+
+        public ActionResult Quote()
+        {
+            return View();
+        }
     }
 }
