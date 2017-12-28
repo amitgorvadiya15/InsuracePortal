@@ -9,9 +9,7 @@
     <div class="row">
         <div class="navbar navbar-default bootstrap-admin-navbar-thin">
             <ol class="breadcrumb bootstrap-admin-breadcrumb">
-                <li>
-                    <a href="@Url.Action("Index","Settings")">Settings</a>
-                </li>
+                
                 <li>
                     <a href="@Url.Action("ManageQuotes","Settings")">Manage Quotes</a>
                 </li>
@@ -59,15 +57,31 @@
                     </thead>
                     <tbody>
                         <tr class="odd gradeX">
-                            <td>Quotes Template</td>
-                            <td>Manage the Quotes Template</td>
-                            <td class="center"><a href="javascript:void(0);" title="Quotes Template">Edit</a></td>
+                            <td>Your Business</td>
+                            <td>Your Business Tab</td>
+                            <td class="center"><a href="@Url.Action("QuoteTabs", "Settings")" title="Quotes Template">Edit</a></td>
                         </tr>
                         <tr class="even gradeC">
-                            <td>Template Sections</td>
-                            <td>Manage the Template Sections</td>
-                            <td class="center"><a href="javascript:void(0);" title="Template Sections">Edit</a></td>
+                            <td>Your Employee</td>
+                            <td>Your Employee Tab</td>
+                            <td class="center"><a href="@Url.Action("QuoteTabs", "Settings")" title="Template Sections">Edit</a></td>
                         </tr>
+                        <tr class="even gradeC">
+                            <td>Cover Options</td>
+                            <td>Cover Options Tab</td>
+                            <td class="center"><a href="@Url.Action("QuoteTabs", "Settings")" title="Template Sections">Edit</a></td>
+                        </tr>
+                        <tr class="even gradeC">
+                            <td>Business Questions</td>
+                            <td>Business Questions Tab</td>
+                            <td class="center"><a href="@Url.Action("QuoteTabs", "Settings")" title="Template Sections">Edit</a></td>
+                        </tr>
+                        <tr class="even gradeC">
+                            <td>Agreements</td>
+                            <td>Agreement Tab</td>
+                            <td class="center"><a href="@Url.Action("QuoteTabs", "Settings")" title="Template Sections">Edit</a></td>
+                        </tr>
+
                     </tbody>
                 </table>
             </div>
