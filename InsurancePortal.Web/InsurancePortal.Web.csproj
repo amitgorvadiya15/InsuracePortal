@@ -8153,6 +8153,8 @@
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Settings\ManageQuotes.cshtml" />
     <Content Include="Views\Home\Quote.cshtml" />
+    <Content Include="Views\Settings\QuoteTemplate.cshtml" />
+    <Content Include="Views\Settings\QuoteTabs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,6 +21,16 @@ namespace InsurancePortal.Web.Controllers.Admin
             ManageQoutesViewModel model = new ManageQoutesViewModel();
             return View(model);
         }
+
+        public ActionResult QuoteTemplate()
+        {
+            return View();
+        }
+
+        public ActionResult QuoteTabs()
+        {
+            return View();
+        }
         #endregion
     }
 }
