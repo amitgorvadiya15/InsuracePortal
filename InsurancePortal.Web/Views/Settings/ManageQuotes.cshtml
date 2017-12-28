@@ -10,10 +10,8 @@
     <div class="row">
         <div class="navbar navbar-default bootstrap-admin-navbar-thin">
             <ol class="breadcrumb bootstrap-admin-breadcrumb">
-                <li>
-                    <a href="@Url.Action("Index","Settings")">Settings</a>
-                </li>
-                <li class="active">Manage Quotes</li>
+                
+                <li class="active">Quotes Templates</li>
             </ol>
         </div>
     </div>
@@ -21,7 +19,7 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <div class="text-muted bootstrap-admin-box-title">List of Quotes</div>
+                <div class="text-muted bootstrap-admin-box-title">List of Templates</div>
             </div>
             <div class="bootstrap-admin-panel-content">
                 <table class="table table-striped table-bordered" id="example">
@@ -34,14 +32,14 @@
                     </thead>
                     <tbody>
                         <tr class="odd gradeX">
-                            <td>Quotes Template</td>
-                            <td>Manage the Quotes Template</td>
-                            <td class="center"><a href="@Url.Action("QuoteTemplate", "Settings");" title="Quotes Template">Edit</a></td>
+                            <td>Business Template</td>
+                            <td>Manage the Business Template</td>
+                            <td class="center"><a href="@Url.Action("QuoteTemplate", "Settings")" title="Quotes Template">Edit</a></td>
                         </tr>
                         <tr class="even gradeC">
-                            <td>Template Sections</td>
-                            <td>Manage the Template Sections</td>
-                            <td class="center"><a href="@Url.Action("QuoteTemplate","Settings");" title="Template Sections">Edit</a></td>
+                            <td>Lanloard Insurance Template</td>
+                            <td>Manage the Lanloard Insurance Template</td>
+                            <td class="center"><a href="@Url.Action("QuoteTemplate", "Settings")" title="Template Sections">Edit</a></td>
                         </tr>
                     </tbody>
                 </table>
