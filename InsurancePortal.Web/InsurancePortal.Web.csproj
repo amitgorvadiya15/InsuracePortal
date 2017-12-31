@@ -8219,10 +8219,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\InsurancePortal.Business\InsurancePortal.Business.csproj">
-      <Project>{f1310018-b75d-4633-a751-ed842f165979}</Project>
-      <Name>InsurancePortal.Business</Name>
-    </ProjectReference>
     <ProjectReference Include="..\InsurancePortal.Transport\InsurancePortal.Transport.csproj">
       <Project>{e86d1634-211c-4cdd-bf3d-57d7feeddbfa}</Project>
       <Name>InsurancePortal.Transport</Name>

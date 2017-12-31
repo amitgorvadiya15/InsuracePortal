@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InsurancePortal.Data\InsurancePortal.Data.csproj" />
     <ProjectReference Include="..\InsurancePortal.Transport\InsurancePortal.Transport.csproj" />
   </ItemGroup>
 
