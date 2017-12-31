@@ -25,6 +25,7 @@ namespace InsurancePortal.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/default.css",
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Admin/css").Include("~/Content/site.css"));

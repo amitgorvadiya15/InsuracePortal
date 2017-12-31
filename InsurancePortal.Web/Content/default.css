@@ -1051,42 +1051,42 @@ a {
     font-family: museosans;
     font-weight: 300;
     font-style: normal;
-    src: url(bijou/museosans_300-269bc9f957cad6c4a075207ef0683d54a158423556a8c44216fe32e93c71a790.woff2) format("woff2"),url(bijou/museosans_300-5e7b89bdd73ce4205e6be475d1945351af81c5333c86db37255a8a4e7d101d08.woff) format("woff")
+    src: url(/assets/bijou/museosans_300-269bc9f957cad6c4a075207ef0683d54a158423556a8c44216fe32e93c71a790.woff2) format("woff2"),url(/assets/bijou/museosans_300-5e7b89bdd73ce4205e6be475d1945351af81c5333c86db37255a8a4e7d101d08.woff) format("woff")
 }
 
 @font-face {
     font-family: museosans;
     font-weight: normal;
     font-style: normal;
-    src: url(bijou/museosans_500-5e970f19a7bd56681ccffee58a97772a148c314440e6549254733ef24a3c9f66.woff2) format("woff2"),url(bijou/museosans_500-54c34c15259d7845ea22b5094a3985839c0d526be1ee842068a066e847a36d28.woff) format("woff")
+    src: url(/assets/bijou/museosans_500-5e970f19a7bd56681ccffee58a97772a148c314440e6549254733ef24a3c9f66.woff2) format("woff2"),url(/assets/bijou/museosans_500-54c34c15259d7845ea22b5094a3985839c0d526be1ee842068a066e847a36d28.woff) format("woff")
 }
 
 @font-face {
     font-family: museosans;
     font-weight: 700;
     font-style: normal;
-    src: url(bijou/museosans_700-b3455e5afa9446a79ada31b9a416de55705fe7e7579989d1e3d6669c224a0bbc.woff2) format("woff2"),url(bijou/museosans_700-cace7a1184f37f56cac23571d47709d31fdf218db19d5f509b950a67295ed150.woff) format("woff")
+    src: url(/assets/bijou/museosans_700-b3455e5afa9446a79ada31b9a416de55705fe7e7579989d1e3d6669c224a0bbc.woff2) format("woff2"),url(/assets/bijou/museosans_700-cace7a1184f37f56cac23571d47709d31fdf218db19d5f509b950a67295ed150.woff) format("woff")
 }
 
 @font-face {
     font-family: museosansrounded;
     font-weight: 300;
     font-style: normal;
-    src: url(bijou/museosansrounded_300-e2d7255a55567caf86d9acfbca0e2c758a1123586b972257c084e63bb2ec9121.woff2) format("woff2"),url(bijou/museosansrounded_300-9cc942b98df99c1b8244f251e42b2e8142e77a0a2487cd01f9de818014fd0635.woff) format("woff")
+    src: url(/assets/bijou/museosansrounded_300-e2d7255a55567caf86d9acfbca0e2c758a1123586b972257c084e63bb2ec9121.woff2) format("woff2"),url(/assets/bijou/museosansrounded_300-9cc942b98df99c1b8244f251e42b2e8142e77a0a2487cd01f9de818014fd0635.woff) format("woff")
 }
 
 @font-face {
     font-family: museosansrounded;
     font-weight: normal;
     font-style: normal;
-    src: url(bijou/museosansrounded_500-d1a96cb01de35edb2d86f7cbb3dd760310896e4f0cc7f0006e014b19c841b2d5.woff2) format("woff2"),url(bijou/museosansrounded_500-74c899592257479e3493527f997b0e74e662c8b47cc7f38244589f32428e4f16.woff) format("woff")
+    src: url(/assets/bijou/museosansrounded_500-d1a96cb01de35edb2d86f7cbb3dd760310896e4f0cc7f0006e014b19c841b2d5.woff2) format("woff2"),url(/assets/bijou/museosansrounded_500-74c899592257479e3493527f997b0e74e662c8b47cc7f38244589f32428e4f16.woff) format("woff")
 }
 
 @font-face {
     font-family: museosansrounded;
     font-weight: 700;
     font-style: normal;
-    src: url(bijou/museosansrounded_700-205bdf3f5255bae942d055addbb1b09a6ba24b6a8440c688661fa524098745c1.woff2) format("woff2"),url(bijou/museosansrounded_700-2ac687a8c37adedf02f6b3bd3865528e42e5ff4fcb5b820c2fd8266e1a627e7a.woff) format("woff")
+    src: url(/assets/bijou/museosansrounded_700-205bdf3f5255bae942d055addbb1b09a6ba24b6a8440c688661fa524098745c1.woff2) format("woff2"),url(/assets/bijou/museosansrounded_700-2ac687a8c37adedf02f6b3bd3865528e42e5ff4fcb5b820c2fd8266e1a627e7a.woff) format("woff")
 }
 
 html {
@@ -1188,8 +1188,8 @@ small, .milli, .site-footer .small-print {
     font-family: bijou;
     font-weight: normal;
     font-style: normal;
-    src: url(bijou/bijou-3f90d7614db929748164570ae598317db77e4da1cbc7b98efa0a972c9827bed4.eot);
-    src: url(bijou/bijou-3f90d7614db929748164570ae598317db77e4da1cbc7b98efa0a972c9827bed4d41d.eot?#iefix) format("embedded-opentype"),url(bijou/bijou-9a705d40cfd434162684b95bc5786dc9c1e0d71149651a8515fa776b0b96c727.woff) format("woff"),url(bijou/bijou-730e0799c669850bcdbcc1ee09f4ec6024d54c917c0e48f5f25aa0a1baa69e60.ttf) format("truetype"),url(bijou/bijou-0e2e6c269e8964ec84de8cf9459ddd707356e44e486a8883a4964668a80048f0.svg#bijou) format("svg")
+    src: url(/assets/bijou/bijou-3f90d7614db929748164570ae598317db77e4da1cbc7b98efa0a972c9827bed4.eot);
+    src: url(/assets/bijou/bijou-3f90d7614db929748164570ae598317db77e4da1cbc7b98efa0a972c9827bed4d41d.eot?#iefix) format("embedded-opentype"),url(/assets/bijou/bijou-9a705d40cfd434162684b95bc5786dc9c1e0d71149651a8515fa776b0b96c727.woff) format("woff"),url(/assets/bijou/bijou-730e0799c669850bcdbcc1ee09f4ec6024d54c917c0e48f5f25aa0a1baa69e60.ttf) format("truetype"),url(/assets/bijou/bijou-0e2e6c269e8964ec84de8cf9459ddd707356e44e486a8883a4964668a80048f0.svg#bijou) format("svg")
 }
 
 .icon-tick:before, .icon-cross:before, .arrow.btn:after, .arrow.btn-primary:after, .arrow.btn-secondary:after, .icon-cta-arrow:before, .icon-search:before, .select-wrapper:before, .icon-dropdown:before, .btn-back:before, .pagination li.prev a:before, .icon-button-arrow-left:before, .ui-datepicker-prev:before, .btn-back:hover:before, .btn-back:focus:before, .icon-button-arrow-left-active:before, .pagination li.next a:after, .icon-button-arrow-right:before, .ui-datepicker-next:before, .icon-button-arrow-right-active:before, .icon-info:before, .icon-phone:before, .icon-close:before, .icon-menu:before, .icon-chevron-up:before, .menu__item--menu .menu__item-link:after, .icon-chevron-down:before, .complaints-section .complaints-accordion__header[aria-expanded="true"]:after, .complaints-section .complaints-noanim-accordion__header[aria-expanded="true"]:after, .icon-chevron-up-2:before, .complaints-section .complaints-accordion__header:after, .complaints-section .complaints-noanim-accordion__header:after, .icon-chevron-down-2:before, .icon-chevron-left:before, .icon-chevron-right:before, .icon-plus:before, .icon-minus:before, .icon-home:before {
@@ -1337,7 +1337,7 @@ small, .milli, .site-footer .small-print {
 }
 
 .site-header-logo__link {
-    background-image: url(bijou/logos/v2/company_logo.png);
+    background-image: url(/assets/bijou/logos/v2/company_logo.png);
     position: absolute;
     top: -1px;
     left: -1px;
@@ -1348,7 +1348,7 @@ small, .milli, .site-footer .small-print {
 }
 
 .site-header-logo--inverse .site-header-logo__link {
-    background-image: url(bijou/logos/v2/company_logo.png)
+    background-image: url(/assets/bijou/logos/v2/company_logo.png)
 }
 
 @media only screen and (max-width: 640px) {
@@ -1361,7 +1361,7 @@ small, .milli, .site-footer .small-print {
     .site-header-logo--compact .site-header-logo__link {
         width: 68px;
         height: 48px;
-        background-image: url(bijou/logos/v2/sb-logo-compact-ccfb27c65361a87357d9631b7f4693d0f511e31eba4fafa0ed9ba54cc6a0a944.svg);
+        background-image: url(/assets/bijou/logos/v2/sb-logo-compact-ccfb27c65361a87357d9631b7f4693d0f511e31eba4fafa0ed9ba54cc6a0a944.svg);
         background-size: 68px 48px
     }
 }
@@ -2607,13 +2607,13 @@ small, .milli, .site-footer .small-print {
     background-position: center 0;
     text-indent: -9999px;
     line-height: 65px;
-    background-image: url(bijou/logos/insurers/sprite-97adaf1e21fd1b39c007fb876d854d145da87f94deb2c3136aa78727a24a8d75.png);
+    background-image: url(/assets/bijou/logos/insurers/sprite-97adaf1e21fd1b39c007fb876d854d145da87f94deb2c3136aa78727a24a8d75.png);
     opacity: .7
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
     .insurers li {
-        background-image: url(bijou/logos/insurers/sprite_2x-1fd2cd960d358393ea37845dbb510d30d303d5bfbb9b67032128fd907e347e75.png);
+        background-image: url(/assets/bijou/logos/insurers/sprite_2x-1fd2cd960d358393ea37845dbb510d30d303d5bfbb9b67032128fd907e347e75.png);
         background-size: auto 45px
     }
 }
@@ -2702,12 +2702,12 @@ small, .milli, .site-footer .small-print {
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url(bijou/rating/star-4df265950c7f6380a7d1322db165bfeb7f8e5b74a2fc72a2e3bf7b299cfe0b40.png)
+            background-image: url(/assets/bijou/rating/star-4df265950c7f6380a7d1322db165bfeb7f8e5b74a2fc72a2e3bf7b299cfe0b40.png)
         }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
     .rating .star-rating .stars {
-        background-image: url(bijou/rating/star_2x-39406a6e7651f5e7b6ec533ce9a345be0bb5ff0218e42a4b56375609dbb9621a.png);
+        background-image: url(/assets/bijou/rating/star_2x-39406a6e7651f5e7b6ec533ce9a345be0bb5ff0218e42a4b56375609dbb9621a.png);
         background-size: 28px 30px
     }
 }
@@ -2756,14 +2756,14 @@ small, .milli, .site-footer .small-print {
         height: 20px;
         margin-left: 10px;
         vertical-align: middle;
-        background-image: url(bijou/rating/feefo-e1b87fbeac06ead4e81857c84c3d5ef45d7ab4c5a847ef5613736d25b62d9974.png);
+        background-image: url(/assets/bijou/rating/feefo-e1b87fbeac06ead4e81857c84c3d5ef45d7ab4c5a847ef5613736d25b62d9974.png);
         background-repeat: no-repeat;
         text-indent: -9999px
     }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
     .module.feefo-badge .feefo-logo span {
-        background-image: url(bijou/rating/feefo_2x-f73205a7dc50820d7884eeae73de3dc12ef073d3a58aabc38ec9d8c7bfb5b36f.png);
+        background-image: url(/assets/bijou/rating/feefo_2x-f73205a7dc50820d7884eeae73de3dc12ef073d3a58aabc38ec9d8c7bfb5b36f.png);
         background-size: 85px 20px
     }
 }
