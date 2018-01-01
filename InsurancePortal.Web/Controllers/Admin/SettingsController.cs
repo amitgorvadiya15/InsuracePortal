@@ -1,4 +1,5 @@
-﻿using InsurancePortal.Web.Models;
+﻿using InsurancePortal.Business.Interfaces;
+using InsurancePortal.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,22 @@ namespace InsurancePortal.Web.Controllers.Admin
     public class SettingsController : Controller
     {
         // GET: Settings
+        private readonly ITemplate iTemplate;
+        public SettingsController(ITemplate _ITemplate)
+        {
+            iTemplate = _ITemplate;
+        }
         public ActionResult Index()
         {
             return View();
         }
 
         #region Manage Quotes
+
         public ActionResult ManageQuotes()
         {
             ManageQoutesViewModel model = new ManageQoutesViewModel();
+            model.TemplateList = iTemplate.GetTemplate();
             return View(model);
         }
 

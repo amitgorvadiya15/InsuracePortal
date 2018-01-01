@@ -1,0 +1,80 @@
+﻿
+/****** Object:  Table [dbo].[Template]    Script Date: 1/1/2018 5:50:43 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Template](
+	[TemplateID] [int] IDENTITY(1,1) NOT NULL,
+	[TemplateName] [nvarchar](50) NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[CreatedBy] [int] NOT NULL,
+	[ModifiedOn] [datetime] NULL,
+	[ModifiedBy] [int] NULL,
+ CONSTRAINT [PK_Template] PRIMARY KEY CLUSTERED 
+(
+	[TemplateID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+/****** Object:  Table [dbo].[TemplateTab]    Script Date: 1/1/2018 5:51:02 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[TemplateTab](
+	[TemplateTabID] [int] IDENTITY(1,1) NOT NULL,
+	[TemplateID] [int] NOT NULL,
+	[TabName] [varchar](50) NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[CreatedBy] [int] NOT NULL,
+	[ModifiedOn] [datetime] NULL,
+	[ModifiedBy] [int] NULL,
+ CONSTRAINT [PK_TemplateTab] PRIMARY KEY CLUSTERED 
+(
+	[TemplateTabID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+/****** Object:  Table [dbo].[TemplateQues]    Script Date: 1/1/2018 5:51:15 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TemplateQues](
+	[TemplateQuesID] [int] IDENTITY(1,1) NOT NULL,
+	[TemplateTabID] [int] NOT NULL,
+	[Question] [nvarchar](450) NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[CreatedBy] [int] NOT NULL,
+	[ModifiedOn] [datetime] NULL,
+	[ModifiedBy] [int] NULL,
+ CONSTRAINT [PK_TemplateQues] PRIMARY KEY CLUSTERED 
+(
+	[TemplateQuesID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+
+
+
