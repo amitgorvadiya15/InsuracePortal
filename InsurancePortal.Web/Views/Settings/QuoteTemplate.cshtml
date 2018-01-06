@@ -1,4 +1,4 @@
-﻿
+﻿@model InsurancePortal.Web.Models.TemplateModel
 @{
     ViewBag.Title = "QuoteTemplate";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -9,7 +9,7 @@
     <div class="row">
         <div class="navbar navbar-default bootstrap-admin-navbar-thin">
             <ol class="breadcrumb bootstrap-admin-breadcrumb">
-                
+
                 <li>
                     <a href="@Url.Action("ManageQuotes","Settings")">Manage Quotes</a>
                 </li>
@@ -22,20 +22,23 @@
             <div class="panel-heading">
                 <div class="text-muted bootstrap-admin-box-title">Template Details</div>
             </div>
+
             <div class="bootstrap-admin-panel-content">
-                
-                <div class="row">
-                    <div class="col-md-12 form-group">
-                        <label class="col-md-2 control-label">Name</label>
-                        <div class="col-md-8">
-                            @Html.TextBox("txtname", "", new { @class = "form-control" })
-                        </div>
-                        <div class="col-md-2 text-right">
-                            <a href="javascript:void(0);" class="btn btn-primary">Update</a>
+                @using (Html.BeginForm("AddTemplate", "Settings", FormMethod.Post))
+                {
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label class="col-md-2 control-label">Name</label>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => model.TemplateName, new { @class = "form-control" })
+                            </div>
+                            @Html.HiddenFor(model => model.TemplateID)
+                            <div class="col-md-2 text-right">
+                                <button type="submit" class="btn btn-primary button button4">Save</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
+                }
             </div>
         </div>
     </div>
@@ -64,32 +67,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="odd gradeX">
-                            <td>Your Business</td>
-                            <td>Your Business Tab</td>
-                            <td class="center"><a href="@Url.Action("QuoteTabs", "Settings")" title="Quotes Template">Edit</a></td>
-                        </tr>
-                        <tr class="even gradeC">
-                            <td>Your Employee</td>
-                            <td>Your Employee Tab</td>
-                            <td class="center"><a href="@Url.Action("QuoteTabs", "Settings")" title="Template Sections">Edit</a></td>
-                        </tr>
-                        <tr class="even gradeC">
-                            <td>Cover Options</td>
-                            <td>Cover Options Tab</td>
-                            <td class="center"><a href="@Url.Action("QuoteTabs", "Settings")" title="Template Sections">Edit</a></td>
-                        </tr>
-                        <tr class="even gradeC">
-                            <td>Business Questions</td>
-                            <td>Business Questions Tab</td>
-                            <td class="center"><a href="@Url.Action("QuoteTabs", "Settings")" title="Template Sections">Edit</a></td>
-                        </tr>
-                        <tr class="even gradeC">
-                            <td>Agreements</td>
-                            <td>Agreement Tab</td>
-                            <td class="center"><a href="@Url.Action("QuoteTabs", "Settings")" title="Template Sections">Edit</a></td>
-                        </tr>
-
+                        @if (ViewBag.QuotesTab != null)
+                        {
+                            foreach (InsurancePortal.Transport.TemplateTabViewModel item in ViewBag.QuotesTab)
+                            {
+                                <tr class="odd gradeX">
+                                    <td>@item.TabName</td>
+                                    <td>@item.TabName</td>
+                                    <td class="center"><a href="@Url.Action("QuoteTabs", "Settings", new { @tabId = item.TemplateTabID })" title="Quotes Template">Edit</a></td>
+                                </tr>
+                            }
+                        }
                     </tbody>
                 </table>
             </div>
@@ -106,22 +94,7 @@
                 </button>
                 <h4 class="modal-title">Add Tab</h4>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12 form-group" style="float:left;">
-                        <label class="col-md-3 control-label">Tab Name</label>
-                        <div class="col-md-9">
-                            <input class="form-control" type="text" placeholder="Tab Name here" id="inputUserName" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary button button4">Save</button>
-                <button type="button" id="btnHideModal" class="btn btn-primary button button4">
-                    Close
-                </button>
-            </div>
+            @Html.Action("AddTemplateTab", "Settings", new { @TemplateId = Model.TemplateID })
         </div>
     </div>
 </div>

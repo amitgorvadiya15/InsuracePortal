@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="InsurancePortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="InsurancePortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Template">
           <Key>
             <PropertyRef Name="TemplateID" />
@@ -16,11 +16,40 @@
           <Property Name="ModifiedOn" Type="datetime" />
           <Property Name="ModifiedBy" Type="int" />
         </EntityType>
+        <EntityType Name="TemplateQues">
+          <Key>
+            <PropertyRef Name="TemplateQuesID" />
+          </Key>
+          <Property Name="TemplateQuesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TemplateTabID" Type="int" Nullable="false" />
+          <Property Name="Question" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="AnswerType" Type="varchar" MaxLength="50" />
+          <Property Name="AnswerDetails" Type="nvarchar" MaxLength="4000" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="TemplateTab">
+          <Key>
+            <PropertyRef Name="TemplateTabID" />
+          </Key>
+          <Property Name="TemplateTabID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TemplateID" Type="int" Nullable="false" />
+          <Property Name="TabName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TabDescription" Type="nvarchar(max)" />
+          <Property Name="TabHeader" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
         <EntityContainer Name="InsurancePortalModelStoreContainer">
           <EntitySet Name="Template" EntityType="Self.Template" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TemplateQues" EntityType="Self.TemplateQues" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TemplateTab" EntityType="Self.TemplateTab" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="InsurancePortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -37,7 +66,37 @@
         </EntityType>
         <EntityContainer Name="InsurancePortalEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Templates" EntityType="Self.Template" />
+          <EntitySet Name="TemplateTabs" EntityType="InsurancePortalModel.TemplateTab" />
+          <EntitySet Name="TemplateQues" EntityType="InsurancePortalModel.TemplateQue" />
         </EntityContainer>
+        <EntityType Name="TemplateTab">
+          <Key>
+            <PropertyRef Name="TemplateTabID" />
+          </Key>
+          <Property Name="TemplateTabID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TemplateID" Type="Int32" Nullable="false" />
+          <Property Name="TabName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TabDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TabHeader" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TemplateQue">
+          <Key>
+            <PropertyRef Name="TemplateQuesID" />
+          </Key>
+          <Property Name="TemplateQuesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TemplateTabID" Type="Int32" Nullable="false" />
+          <Property Name="Question" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="AnswerType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AnswerDetails" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -53,6 +112,36 @@
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TemplateTabs">
+            <EntityTypeMapping TypeName="InsurancePortalModel.TemplateTab">
+              <MappingFragment StoreEntitySet="TemplateTab">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="TabHeader" ColumnName="TabHeader" />
+                <ScalarProperty Name="TabDescription" ColumnName="TabDescription" />
+                <ScalarProperty Name="TabName" ColumnName="TabName" />
+                <ScalarProperty Name="TemplateID" ColumnName="TemplateID" />
+                <ScalarProperty Name="TemplateTabID" ColumnName="TemplateTabID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TemplateQues">
+            <EntityTypeMapping TypeName="InsurancePortalModel.TemplateQue">
+              <MappingFragment StoreEntitySet="TemplateQues">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="AnswerDetails" ColumnName="AnswerDetails" />
+                <ScalarProperty Name="AnswerType" ColumnName="AnswerType" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="TemplateTabID" ColumnName="TemplateTabID" />
+                <ScalarProperty Name="TemplateQuesID" ColumnName="TemplateQuesID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

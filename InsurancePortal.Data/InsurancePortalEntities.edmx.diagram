@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="da0b1df81ef94af28d5e27427aad8fd8" Name="Diagram1">
         <EntityTypeShape EntityType="InsurancePortalModel.Template" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsurancePortalModel.TemplateTab" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="InsurancePortalModel.TemplateQue" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

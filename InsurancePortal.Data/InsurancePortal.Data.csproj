@@ -68,6 +68,12 @@
     <Compile Include="Template.cs">
       <DependentUpon>InsurancePortalEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="TemplateQue.cs">
+      <DependentUpon>InsurancePortalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateTab.cs">
+      <DependentUpon>InsurancePortalEntities.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
