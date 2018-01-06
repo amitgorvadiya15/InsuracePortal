@@ -1,19 +1,44 @@
-﻿
+﻿@model InsurancePortal.Web.Models.TemplateTabModel
 @{
     ViewBag.Title = "QuoteTabs";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 @Html.Partial("_AdminLeftPanel")
+<script>
+    function PopupEditQuestion(QId) {
+        @*var TabId = '@Model.TemplateTabID';
+        $.ajax({
+            type: "POST",
+            //contentType: 'application/json; charset=utf-8',
+            url: '@Url.Action("AddTabQuesion", "Settings")',
+            data: { tabId: parseInt(TabId), QuesionId: parseInt(QId) },
+            //contentType: "application/json; charset=utf-8",
+            //dataType: "json",
+            cache: false,
+            success: function (data) {
+                
+                if (data != null) {
+                    $("#QuestionPopup").html(data);
+                    $("#loginModal").modal('show');
+                }
+            },
+            error: function (xhr) {
+                debugger;
+                alert('error');
+            }
+        });*@
+    }
+</script>
+
 <div class="col-md-10">
     <div class="row">
         <div class="navbar navbar-default bootstrap-admin-navbar-thin">
             <ol class="breadcrumb bootstrap-admin-breadcrumb">
-
                 <li>
                     <a href="@Url.Action("ManageQuotes","Settings")">Manage Quotes</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("QouteTemplate","Settings")">Quotes Template</a>
+                    <a href="@Url.Action("QuoteTemplate","Settings", new { @tempId= Model.TemplateID })">Quotes Template</a>
                 </li>
                 <li class="active">Manage Quotes Tab</li>
             </ol>
@@ -25,18 +50,44 @@
                 <div class="text-muted bootstrap-admin-box-title">Tab Details</div>
             </div>
             <div class="bootstrap-admin-panel-content">
-                <div class="row">
-                    <div class="col-md-12 form-group">
-                        <label class="col-md-2 control-label">Name</label>
-                        <div class="col-md-8">
-                            @Html.TextBox("txtname", "", new { @class = "form-control" })
-                        </div>
-                        <div class="col-md-2">
-                            <a href="javascript:void(0);" class="btn btn-primary">Update</a>
+                @using (Html.BeginForm("AddTemplateTab", "Settings", FormMethod.Post))
+                {
+                    <div class="row">
+                        <div class="col-md-12 form-group"  style="float:left;">
+                            <label class="col-md-2 control-label">Name</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.TemplateTabName, new { @class = "form-control" })
+                            </div>
+                            @Html.HiddenFor(model => model.TemplateID)
+                            @Html.HiddenFor(model => model.TemplateTabID)
                         </div>
                     </div>
-                </div>
-               
+                    <div class="row">
+                        <div class="col-md-12 form-group" style="float:left;">
+                            <label class="col-md-2 control-label">Tab Header</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.TabHeader, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 form-group" style="float:left;">
+                            <label class="col-md-2 control-label">Tab Description</label>
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(model => model.TabDescription, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <div class="col-md-12 text-right">
+                                <button type="submit" class="btn btn-primary button button4">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+
             </div>
         </div>
     </div>
@@ -67,36 +118,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="odd gradeX">
-                            <td>1</td>
-                            <td>What is your specific business / trade?</td>
-                            <td>Search with Selection</td>
-                            <td class="center"><a href="javascript:void(0);" title="Quotes Template">Edit</a></td>
-                        </tr>
-                        <tr class="even gradeC">
-                            <td>2</td>
-                            <td>Do you have a secondary business activity / secondary trade?</td>
-                            <td>Yes/No</td>
-                            <td class="center"><a href="javascript:void(0);" title="Template Sections">Edit</a></td>
-                        </tr>
-                        <tr class="even gradeC">
-                            <td>3</td>
-                            <td>What is your business postcode?</td>
-                            <td>Enter Text</td>
-                            <td class="center"><a href="javascript:void(0);" title="Template Sections">Edit</a></td>
-                        </tr>
-                        <tr class="even gradeC">
-                            <td>4</td>
-                            <td>How many years have you been running your own business in this industry?</td>
-                            <td>Selection</td>
-                            <td class="center"><a href="javascript:void(0);" title="Template Sections">Edit</a></td>
-                        </tr>
-                        <tr class="even gradeC">
-                            <td>5</td>
-                            <td>Which of these categories best describes your business?</td>
-                            <td>Selection</td>
-                            <td class="center"><a href="javascript:void(0);" title="Template Sections">Edit</a></td>
-                        </tr>
+                        @if (ViewBag.QuestionList != null && ViewBag.QuestionList.Count > 0)
+                        {
+                            foreach (InsurancePortal.Transport.TemplateQuesionViewModel item in ViewBag.QuestionList)
+                            {
+                                <tr class="odd gradeX">
+                                    <td>@item.TemplateQuesID</td>
+                                    <td>@item.Question</td>
+                                    <td>Search with Selection</td>
+                                    <td class="center"><a href="javascript:PopupEditQuestion(@item.TemplateQuesID)" title="Quotes Template">Edit</a></td>
+                                </tr>
+                            }
+
+                        }
+                        else
+                        {
+                            <tr class="odd gradeX">
+                                <td colspan="4" style="text-align:center;">No questions found.</td>
+                            </tr>
+                        }
+
                     </tbody>
                 </table>
             </div>
@@ -112,48 +153,14 @@
                 </button>
                 <h4 class="modal-title">Update Question</h4>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12 form-group" style="float:left;">
-                        <label class="col-md-3 control-label">Question</label>
-                        <div class="col-md-9">
-                            <input class="form-control" type="text" placeholder="Question here" id="inputUserName" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 form-group" style="float:left;">
-                        <label class="col-md-3 control-label">Answer Type</label>
-                        <div class="col-md-9">
-                            @Html.DropDownList("AnswerTypeDropDown", new List<SelectListItem>
-{
-    new SelectListItem{ Text="Search with Selection", Value = "1" },
-    new SelectListItem{ Text="Yes/No", Value = "2" },
-    new SelectListItem{ Text="Enter Text", Value = "3" },
-    new SelectListItem{ Text="Selection", Value = "3" },
- }, new { @class = "form-control" })
-                        </div>
-                    </div>
-                    <div class="col-md-12 form-group" style="float:left;">
-                        <label class="col-md-3 control-label">Answer Details</label>
-                        <div class="col-md-9">
-                            @Html.TextArea("txt", "", new { @class = "form-control", @Style = "min-height:120px;" })
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary button button4">Update </button>
-                <button type="button" id="btnHideModal" class="btn btn-primary button button4">
-                    Close
-                </button>
+            <div id="QuestionPopup">
+                @Html.Action("AddTabQuesion", "Settings", new { @tabId = Model.TemplateTabID, @QuesionId = 0 })
             </div>
         </div>
     </div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function () {
+        $(document).ready(function () {
         $("#btnShowModal").click(function () {
             $("#loginModal").modal('show');
         });

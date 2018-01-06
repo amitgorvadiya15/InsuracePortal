@@ -1,6 +1,6 @@
 ﻿using InsurancePortal.Business.Interfaces;
-using InsurancePortal.Web.App_Start;
-using Ninject;
+//using InsurancePortal.Web.App_Start;
+//using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +18,12 @@ namespace InsurancePortal.Web
         {
             AreaRegistration.RegisterAllAreas();
 
-            DependencyResolver.SetResolver(new NinjectResolver());
-
+         
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //Bind Ninject Dependency
+            //DependencyResolver.SetResolver(new NinjectResolver());
 
         }
     }

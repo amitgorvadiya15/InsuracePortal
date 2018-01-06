@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\ITemplate.cs" />
+    <Compile Include="Interfaces\ITemplateRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TemplatTask.cs" />
+    <Compile Include="Respositories\TemplateRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InsurancePortal.Data\InsurancePortal.Data.csproj">
@@ -54,6 +54,9 @@
       <Project>{1EC2A1C9-8EF5-4D23-96EC-620D12883EAB}</Project>
       <Name>InsurancePortal.Transport</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

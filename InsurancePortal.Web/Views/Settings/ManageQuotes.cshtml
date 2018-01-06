@@ -10,12 +10,12 @@
     <div class="row">
         <div class="navbar navbar-default bootstrap-admin-navbar-thin">
             <ol class="breadcrumb bootstrap-admin-breadcrumb">
-                
+
                 <li class="active">Quotes Templates</li>
             </ol>
         </div>
     </div>
-   
+
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -41,16 +41,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="odd gradeX">
-                            <td>Business Template</td>
-                            <td>Manage the Business Template</td>
-                            <td class="center"><a href="@Url.Action("QuoteTemplate", "Settings")" title="Quotes Template">Edit</a></td>
-                        </tr>
-                        <tr class="even gradeC">
-                            <td>Lanloard Insurance Template</td>
-                            <td>Manage the Lanloard Insurance Template</td>
-                            <td class="center"><a href="@Url.Action("QuoteTemplate", "Settings")" title="Template Sections">Edit</a></td>
-                        </tr>
+                        @if (Model.TemplateList != null && Model.TemplateList.Count > 0)
+                        {
+                            foreach (var item in Model.TemplateList)
+                            {
+                                <tr class="odd gradeX">
+                                    <td>@item.TemplateName</td>
+                                    <td>@item.TemplateName</td>
+                                    <td class="center"><a href="@Url.Action("QuoteTemplate", "Settings", new { @tempId = item.TemplateID })" title="Quotes Template">Edit</a></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="3">No record found.</td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
@@ -67,22 +74,7 @@
                 </button>
                 <h4 class="modal-title">Add Template</h4>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12 form-group" style="float:left;">
-                        <label class="col-md-3 control-label">Template Name</label>
-                        <div class="col-md-9">
-                            <input class="form-control" type="text" placeholder="Template Name here" id="inputUserName" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary button button4">Save</button>
-                <button type="button" id="btnHideModal" class="btn btn-primary button button4">
-                    Close
-                </button>
-            </div>
+            @Html.Action("AddTemplate", "Settings")
         </div>
     </div>
 </div>
