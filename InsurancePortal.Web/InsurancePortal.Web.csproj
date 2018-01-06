@@ -169,6 +169,7 @@
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ManageQoutesViewModel.cs" />
+    <Compile Include="Models\ModelQuestions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -8211,6 +8212,8 @@
     <Content Include="Views\Home\Quote.cshtml" />
     <Content Include="Views\Settings\QuoteTemplate.cshtml" />
     <Content Include="Views\Settings\QuoteTabs.cshtml" />
+    <Content Include="Views\Shared\_LayoutQuote.cshtml" />
+    <Content Include="Views\Quote\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

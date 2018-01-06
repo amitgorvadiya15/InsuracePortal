@@ -1,0 +1,474 @@
+﻿@model InsurancePortal.Web.Models.ModelQuestions
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutQuote.cshtml";
+}
+
+<section class='site-section grid-wrapper'>
+    <div class='box progress-bar' data-module='progressbar'>
+        <ol>
+            <li class='current qa-progressbar-item'>
+                <span class='cell'>
+                    <span class='item'>
+                        <span>Your business</span>
+                    </span>
+                </span>
+            </li>
+            <li class='qa-progressbar-item'>
+                <span class='cell'>
+                    <span class='item'>
+                        <span>Your employees</span>
+                    </span>
+                </span>
+            </li>
+            <li class='qa-progressbar-item'>
+                <span class='cell'>
+                    <span class='item'>
+                        <span>Cover options</span>
+                    </span>
+                </span>
+            </li>
+            <li class='qa-progressbar-item'>
+                <span class='cell'>
+                    <span class='item'>
+                        <span>Business questions</span>
+                    </span>
+                </span>
+            </li>
+            <li class='qa-progressbar-item'>
+                <span class='cell'>
+                    <span class='item'>
+                        <span>Agreements</span>
+                    </span>
+                </span>
+            </li>
+            <li class='last qa-progressbar-item'>
+                <span class='cell'>
+                    <span class='item'>
+                        <span>Your quotes</span>
+                    </span>
+                </span>
+            </li>
+        </ol>
+    </div>
+    <form class='js-tracked' data-module='waypoint_tracker' id='simplybusiness_business_about_your_business_form' method='post'>
+        <input type="hidden" name="authenticity_token" value="qangDfWfJMuZsyHgaSazk/HA+QLCIZJAgGGQmwGnSm/TdVtyn6k/CY/YAHNgZxH/62IPoUmyth93LflOW98C8Q==" />
+        <div class='box'>
+            <div class='inner-box'>
+                <p class='preamble'>
+                    It's essential that all the information you give us is correct. If it isn't, your insurance policy may
+                    not be valid or your insurer may refuse to pay any claim you make.
+                </p>
+            </div>
+        </div>
+        <fieldset class='box js-toggleable-section' data-page-index='1' data-page-name='Your business' data-section-name='Please tell us about your business' data-track='pageset_section_changed'>
+            <div class='inner-box'>
+                <h2 class='js-waypoint'>Please tell us about your business</h2>
+                <div class='control-block on' data-question='primary_trade' data-trigger='refresh'>
+                    <div class='control-text'>
+                        <div class='control-label'>What is your specific business / trade?</div>
+                    </div>
+                    <div class='state-search trade-search' data-control='trade_search' data-redirect-url='/route_trade' data-search-url='/trade_search' data-tracked-event='primary_detail_selected'>
+                        <input class='js-trade-input' name='primary_trade' type='hidden' value=''>
+                        <div class='control search'>
+                            <div class='search-wrapper'>
+                                <input class='js-search-input required' data-msg='Please select a trade to continue' id='primary_trade' name='q' placeholder='e.g. Builder, Painter and decorator, or Plumber' type='text' value=''>
+                                <div class='results'></div>
+                            </div>
+                        </div>
+                        <div class='control selected'>
+                            You have selected
+                            &lsquo;<span class='answer'></span>&rsquo;
+                            as your trade.
+                            <a class='js-change' href='#'>Change</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class='control-group nested'>
+                    <div class='control-block info-box on' data-question='have_secondary_trade' data-trigger='refresh'>
+                        <div class='control-text'>
+                            <div class='control-label'>Do you have a secondary business activity / secondary trade?</div>
+                            <div class='help-text info-box-content'>
+                                <div class='help-content'>
+                                    <span class='info-box-toggle'>Close help</span>
+                                    <p>If you carry out more than one business activity then you can insure for another activity by selecting it here. Examples include a carpenter who also undertakes electrical work or a computer consultant who also undertakes computer repairs.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='control'>
+                            <label class="radio radio-yes-no" for="have_secondary_trade_yes">
+                                <input type="radio" name="have_secondary_trade" id="have_secondary_trade_yes" value="yes" class="required" data-msg="Please answer the above question to continue" />
+                                <span class='radio-label'>
+                                    <span>Yes</span>
+                                </span>
+                            </label><label class="radio radio-yes-no" for="have_secondary_trade_no">
+                                <input type="radio" name="have_secondary_trade" id="have_secondary_trade_no" value="no" class="required" data-msg="Please answer the above question to continue" />
+                                <span class='radio-label'>
+                                    <span>No</span>
+                                </span>
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class='control-block off' data-question='secondary_trade' data-trigger='refresh'>
+                        <div class='control-text'>
+                            <div class='control-label'>What is your secondary business / trade?</div>
+                        </div>
+                        <div class='state-search trade-search' data-control='trade_search' data-redirect-url='/route_trade' data-search-url='/trade_search' data-vertical='business'>
+                            <input class='js-trade-input' name='secondary_trade' type='hidden' value=''>
+                            <div class='control search'>
+                                <div class='search-wrapper'>
+                                    <input class='js-search-input required' data-msg='Please select a trade to continue' id='secondary_trade' name='q' placeholder='e.g. Builder, Painter and decorator, or Plumber' type='text' value=''>
+                                    <div class='results'></div>
+                                </div>
+                            </div>
+                            <div class='control selected'>
+                                You have selected
+                                &lsquo;<span class='answer'></span>&rsquo;
+                                as your trade.
+                                <a class='js-change' href='#'>Change</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class='control-block off' data-question='policy_length_in_months' data-trigger='refresh'>
+                    <div class='control-text'>
+                        <label class="control-label" for="policy_length_in_months">How long do you need cover for?</label>
+                    </div>
+                    <div class='control'>
+                        <span class='select-wrapper'>
+                            <select name="policy_length_in_months" id="policy_length_in_months" autocomplete="off" class="required" placeholder="Please select" data-msg="Please answer the above question to continue" disabled="disabled">
+                                <option value="">Please select</option>
+                                <option value="1">1 month</option>
+                                <option value="12">12 months</option>
+                            </select>
+                        </span>
+                    </div>
+
+                </div>
+                <div class='control-block off' data-question='real_santa'>
+                    <div class='control-text'>
+                        <div class='control-label'>Are you the real Father Christmas?</div>
+                    </div>
+                    <div class='control'>
+                        <label class="radio radio-yes-no" for="real_santa_yes">
+                            <input type="radio" name="real_santa" id="real_santa_yes" value="yes" class="required" data-msg="Please answer the above question to continue" disabled="disabled" />
+                            <span class='radio-label'>
+                                <span>Yes</span>
+                            </span>
+                        </label><label class="radio radio-yes-no" for="real_santa_no">
+                            <input type="radio" name="real_santa" id="real_santa_no" value="no" class="required" data-msg="Please answer the above question to continue" disabled="disabled" />
+                            <span class='radio-label'>
+                                <span>No</span>
+                            </span>
+                        </label>
+                    </div>
+
+                </div>
+                <div class='control-block off' data-question='red_suit'>
+                    <div class='control-text'>
+                        <div class='control-label'>Do you wear a traditional red suit?</div>
+                    </div>
+                    <div class='control'>
+                        <label class="radio radio-yes-no" for="red_suit_yes">
+                            <input type="radio" name="red_suit" id="red_suit_yes" value="yes" class="required" data-msg="Please answer the above question to continue" disabled="disabled" />
+                            <span class='radio-label'>
+                                <span>Yes</span>
+                            </span>
+                        </label><label class="radio radio-yes-no" for="red_suit_no">
+                            <input type="radio" name="red_suit" id="red_suit_no" value="no" class="required" data-msg="Please answer the above question to continue" disabled="disabled" />
+                            <span class='radio-label'>
+                                <span>No</span>
+                            </span>
+                        </label>
+                    </div>
+
+                </div>
+                <div class='control-block off' data-question='favourite_christmas_carol'>
+                    <div class='control-text'>
+                        <div class='control-label'>What is your favourite christmas carol?</div>
+                    </div>
+                    <div class='control stacked checkbox-list'>
+                        <label class="checkbox" for="favourite_christmas_carol_Rudolph_the_Red_Nosed_Reindeer">
+                            <input type="checkbox" name="favourite_christmas_carol[]" id="favourite_christmas_carol_Rudolph_the_Red_Nosed_Reindeer" value="Rudolph the Red Nosed Reindeer" class="required" data-msg="Please answer the above question to continue" disabled="disabled" />
+                            Rudolph the Red Nosed Reindeer
+                        </label><label class="checkbox" for="favourite_christmas_carol_Jingle_Bells">
+                            <input type="checkbox" name="favourite_christmas_carol[]" id="favourite_christmas_carol_Jingle_Bells" value="Jingle Bells" class="required" data-msg="Please answer the above question to continue" disabled="disabled" />
+                            Jingle Bells
+                        </label><label class="checkbox" for="favourite_christmas_carol_We_Wish_You_A_Merry_Christmas">
+                            <input type="checkbox" name="favourite_christmas_carol[]" id="favourite_christmas_carol_We_Wish_You_A_Merry_Christmas" value="We Wish You A Merry Christmas" class="required" data-msg="Please answer the above question to continue" disabled="disabled" />
+                            We Wish You A Merry Christmas
+                        </label><label class="checkbox" for="favourite_christmas_carol_12_Days_of_Christmas">
+                            <input type="checkbox" name="favourite_christmas_carol[]" id="favourite_christmas_carol_12_Days_of_Christmas" value="12 Days of Christmas" class="required" data-msg="Please answer the above question to continue" disabled="disabled" />
+                            12 Days of Christmas
+                        </label><label class="checkbox" for="favourite_christmas_carol_Deck_the_Halls">
+                            <input type="checkbox" name="favourite_christmas_carol[]" id="favourite_christmas_carol_Deck_the_Halls" value="Deck the Halls" class="required" data-msg="Please answer the above question to continue" disabled="disabled" />
+                            Deck the Halls
+                        </label>
+                    </div>
+
+                </div>
+                <div class='control-block on' data-question='uk_postcode'>
+                    <div class='control-text'>
+                        <label class="control-label" for="uk_postcode">What is your business postcode?</label>
+                    </div>
+                    <div class='control'>
+                        <input type="text" name="uk_postcode" id="uk_postcode" value="" class="postcode required" data-msg="Enter a UK postcode, or &lt;a href=_https_/www.simplybusiness.co.uk/support/_.html target=&quot;_blank&quot;&gt;contact us&lt;/a&gt; for help" />
+                    </div>
+
+                </div>
+                <div class='control-group nested'>
+                    <div class='control-block info-box on' data-question='years_trading' data-trigger='refresh'>
+                        <div class='control-text'>
+                            <label class="control-label" for="years_trading">How many years have you been running your own business in this industry?</label>
+                            <div class='help-text info-box-content'>
+                                <div class='help-content'>
+                                    <span class='info-box-toggle'>Close help</span>
+                                    <p>Tell us how long you have been running a business of this type. This includes the current business and previous businesses of the same type that you ran immediately before. Try to be as accurate as possible so that we can get you the best price.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='control'>
+                            <span class='select-wrapper'>
+                                <select name="years_trading" id="years_trading" autocomplete="off" class="required" placeholder="Please select" data-msg="Please answer the above question to continue">
+                                    <option value="">Please select</option>
+                                    <option value="I&#39;ve not started yet">I&#39;ve not started yet</option>
+                                    <option value="Less than 1 year">Less than 1 year</option>
+                                    <option value="1-2 years">1-2 years</option>
+                                    <option value="2-3 years">2-3 years</option>
+                                    <option value="3-4 years">3-4 years</option>
+                                    <option value="4-5 years">4-5 years</option>
+                                    <option value="Over 5 years">Over 5 years</option>
+                                </select>
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class='control-block info-box off' data-question='projected_annual_turnover' data-trigger='refresh'>
+                        <div class='control-text'>
+                            <label class="control-label" for="projected_annual_turnover">What is your projected turnover for your current financial year?</label>
+                            <div class='help-text info-box-content'>
+                                <div class='help-content'>
+                                    <span class='info-box-toggle'>Close help</span>
+                                    <p>This is the estimated total amount derived from all sales and/or services that the business carries out in the next 12 months.</p> <p> NOTE: this figure should also include the cost of materials where you are contractually required to provide these.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='control'>
+                            <span class='select-wrapper'>
+                                <select name="annual_turnover" id="projected_annual_turnover" autocomplete="off" class="required" placeholder="Please select" data-msg="Please answer the above question to continue" disabled="disabled">
+                                    <option value="">Please select</option>
+                                    <option value="25000">Less than £25,000</option>
+                                    <option value="50000">£25,000 - £50,000</option>
+                                    <option value="75000">£50,000 - £75,000</option>
+                                    <option value="100000">£75,000 - £100,000</option>
+                                    <option value="150000">£100,000 - £150,000</option>
+                                    <option value="200000">£150,000 - £200,000</option>
+                                    <option value="250000">£200,000 - £250,000</option>
+                                    <option value="300000">£250,000 - £300,000</option>
+                                    <option value="400000">£300,000 - £400,000</option>
+                                    <option value="500000">£400,000 - £500,000</option>
+                                    <option value="600000">£500,000 - £600,000</option>
+                                    <option value="750000">£600,000 - £750,000</option>
+                                    <option value="750001">Greater than £750,000</option>
+                                </select>
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class='control-block info-box off' data-question='current_annual_turnover' data-trigger='refresh'>
+                        <div class='control-text'>
+                            <label class="control-label" for="current_annual_turnover">What was your turnover for your last completed financial year?</label>
+                            <div class='help-text info-box-content'>
+                                <div class='help-content'>
+                                    <span class='info-box-toggle'>Close help</span>
+                                    <p>This is the total amount derived from all sales and/or services that the business carries out in a financial year.</p> <p> NOTE: this figure should also include the cost of materials where you are required to provide these for your contracts.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='control'>
+                            <span class='select-wrapper'>
+                                <select name="annual_turnover" id="current_annual_turnover" autocomplete="off" class="required" placeholder="Please select" data-msg="Please answer the above question to continue" disabled="disabled">
+                                    <option value="">Please select</option>
+                                    <option value="25000">Less than £25,000</option>
+                                    <option value="50000">£25,000 - £50,000</option>
+                                    <option value="75000">£50,000 - £75,000</option>
+                                    <option value="100000">£75,000 - £100,000</option>
+                                    <option value="150000">£100,000 - £150,000</option>
+                                    <option value="200000">£150,000 - £200,000</option>
+                                    <option value="250000">£200,000 - £250,000</option>
+                                    <option value="300000">£250,000 - £300,000</option>
+                                    <option value="400000">£300,000 - £400,000</option>
+                                    <option value="500000">£400,000 - £500,000</option>
+                                    <option value="600000">£500,000 - £600,000</option>
+                                    <option value="750000">£600,000 - £750,000</option>
+                                    <option value="750001">Greater than £750,000</option>
+                                </select>
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class='control-block info-box off' data-question='high_annual_turnover'>
+                        <div class='control-text'>
+                            <label class="control-label" for="high_annual_turnover">Please tell us your turnover (or give us an estimate)</label>
+                            <div class='help-text info-box-content'>
+                                <div class='help-content'>
+                                    <span class='info-box-toggle'>Close help</span>
+                                    <p>We can quote for turnovers higher than £750,000, but it helps to know where your business fits. An estimate is fine.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='control'>
+                            <input type="text" name="high_annual_turnover" id="high_annual_turnover" value="" class="currency_without_decimals required" data-msg="Please enter a turnover value thats greater than £750,000 but less than £10 million. &lt;br&gt;Is your turnover over £10 million? If so we will need to have a quick chat by phone to complete your quote. Please call us on 0333 014 6683.&lt;/br&gt;" disabled="disabled" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class='control-block on' data-question='business_type' data-trigger='refresh'>
+                    <div class='control-text'>
+                        <label class="control-label" for="business_type">Which of these categories best describes your business?</label>
+                    </div>
+                    <div class='control'>
+                        <span class='select-wrapper'>
+                            <select name="business_type" id="business_type" autocomplete="off" class="required" placeholder="Please select" data-msg="Please answer the above question to continue">
+                                <option value="">Please select</option>
+                                <option value="Sole trader">Sole trader</option>
+                                <option value="Partnership">Partnership</option>
+                                <option value="Limited company">Limited company</option>
+                            </select>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class='box js-toggleable-section' data-page-index='1' data-page-name='Your business' data-section-name='Please enter your contact details' data-track='pageset_section_changed'>
+            <div class='inner-box'>
+                <h2 class='js-waypoint'>Please enter your contact details</h2>
+                <div class='control-group correspondence'>
+                    <div class='control-block on' data-question='customer_title'>
+                        <div class='control-text'>
+                            <label class="control-label" for="customer_title">Title</label>
+                        </div>
+                        <div class='control'>
+                            <span class='select-wrapper'>
+                                <select name="customer[title]" id="customer_title" autocomplete="off" class="required" placeholder="Please select" data-msg="Please provide your title">
+                                    <option value="">Please select</option>
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Mrs</option>
+                                    <option value="Miss">Miss</option>
+                                    <option value="Ms">Ms</option>
+                                    <option value="Dr">Dr</option>
+                                </select>
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class='control-block on' data-question='customer_first_name'>
+                        <div class='control-text'>
+                            <label class="control-label" for="customer_first_name">First name</label>
+                        </div>
+                        <div class='control'>
+                            <input type="text" name="customer[first_name]" id="customer_first_name" value="" class="required" data-msg="Please provide your first name" />
+                        </div>
+
+                    </div>
+                    <div class='control-block on' data-question='customer_last_name'>
+                        <div class='control-text'>
+                            <label class="control-label" for="customer_last_name">Last name</label>
+                        </div>
+                        <div class='control'>
+                            <input type="text" name="customer[last_name]" id="customer_last_name" value="" class="required" data-msg="Please provide your last name" />
+                        </div>
+
+                    </div>
+                    <div class='control-block info-box on' data-question='customer_email_address'>
+                        <div class='control-text'>
+                            <label class="control-label" for="customer_email_address">Email address</label>
+                            <div class='help-text info-box-content'>
+                                <div class='help-content'>
+                                    <span class='info-box-toggle'>Close help</span>
+                                    <p>We will send your quote by email. If you buy from us, your policy documents will also be sent to your email address.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='control'>
+                            <input type="email" name="customer[email_address]" id="customer_email_address" value="" data-control="mailcheck" data-msg="Please provide your email address so we can send you your quote" class="required" />
+                        </div>
+
+                    </div>
+                    <div class='control-block info-box on' data-question='customer_telephone_number'>
+                        <div class='control-text'>
+                            <label class="control-label" for="customer_telephone_number">Telephone number</label>
+                            <div class='help-text info-box-content'>
+                                <div class='help-content'>
+                                    <span class='info-box-toggle'>Close help</span>
+                                    <p>One of our UK-based insurance experts may call you to help with your quote and to answer any questions.</p><p>If you buy from us, we'll call you if there's a problem with your policy or something important to tell you.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='control'>
+                            <input type="tel" name="customer[telephone_number]" id="customer_telephone_number" value="" class="uk_telephone_number required" pattern="[0-9]*" data-msg="Enter a UK phone number, or &lt;a href=_https_/www.simplybusiness.co.uk/support/_.html target=&quot;_blank&quot;&gt;contact us&lt;/a&gt; for help" />
+                        </div>
+
+                    </div>
+                    <div class='control-block info-box on' data-question='customer_alternative_telephone_number'>
+                        <div class='control-text'>
+                            <label class="control-label" for="customer_alternative_telephone_number">Alternative phone number (optional)</label>
+                            <div class='help-text info-box-content'>
+                                <div class='help-content'>
+                                    <span class='info-box-toggle'>Close help</span>
+                                    <p>If possible, please provide an alternative phone number in case Simply Business are unable to reach you on the number above.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='control'>
+                            <input type="tel" name="customer[alt_telephone_number]" id="customer_alternative_telephone_number" value="" class="uk_telephone_number" pattern="[0-9]*" data-msg="Enter a UK phone number, or &lt;a href=_https_/www.simplybusiness.co.uk/support/_.html target=&quot;_blank&quot;&gt;contact us&lt;/a&gt; for help" />
+                        </div>
+
+                    </div>
+                    <p class='small-print'>
+                        By providing your details you confirm you agree with our
+                        <a target="_blank" href="https://www.simplybusiness.co.uk/terms-conditions/">Terms and Conditions</a>
+                        and
+                        <a target="_blank" href="https://www.simplybusiness.co.uk/privacy-policy/">Privacy Policy</a>
+                    </p>
+                </div>
+            </div>
+        </fieldset>
+        <div class='box form-actions'>
+            <div class='inner-box'>
+                <input autocomplete='off' id='customer_conversion_journey' name='customer_conversion_journey' type='hidden'>
+                <button class='btn-primary arrow qa-ccj-button' onclick='this.form.elements[&quot;customer_conversion_journey&quot;].value = &quot;true&quot;' type='submit'>
+                    <span>Next step</span>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div class='social-proof qa-social-proof'>
+        <div class='social-proof__content qa-social-proof-content'>
+            <div class='social-proof__panel grid-cell desktop-onehalf tablet-onehalf'>
+                <div class='quote-bubble'>
+                    I am very happy with the service I received when purchasing
+                    <a href='https://www.simplybusiness.co.uk/insurance/public-liability/' target='_blank'>public liability insurance</a>
+                    for my small business.
+                </div>
+                <div class='quote-source'>
+                    - S Coxon, Florist
+                </div>
+            </div><div class='social-proof__panel grid-cell desktop-onehalf tablet-onehalf'>
+                <div class='quote-bubble'>
+                    Very simple procedure and great competitive rates. Highly professional and great service from start to finish.
+                </div>
+                <div class='quote-source'>
+                    - J Jones, IT Programme Management
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
