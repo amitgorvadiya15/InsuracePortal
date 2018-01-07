@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace InsurancePortal.Web.Models
 {
@@ -43,6 +44,8 @@ namespace InsurancePortal.Web.Models
         public string ValidationMessage { get; set; }
 
         public List<Answers> AnswersList { get; set; }
+
+        public List<SelectListItem> AnswersListDropDown { get; set; }
     }
 
     public class Answers
@@ -50,5 +53,9 @@ namespace InsurancePortal.Web.Models
         public Guid AnswerId { get; set; }
 
         public string AnswerTitle { get; set; }
+
+        public Guid SelectedAnswer { get; set; }
     }
+
+
 }
