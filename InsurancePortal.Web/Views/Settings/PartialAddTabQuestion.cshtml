@@ -6,6 +6,7 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
     @Html.HiddenFor(model => model.TemplateTabID)
+    @Html.HiddenFor(model => model.TemplateQuesID)
     <div class="modal-body">
         <div class="row">
             <div class="col-md-12 form-group" style="float:left;">
@@ -20,13 +21,13 @@
             <div class="col-md-12 form-group" style="float:left;">
                 <label class="col-md-2 control-label">Answer Type</label>
                 <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.AnswerType, new List<SelectListItem>
-{
-                                                                                                                                                                                                new SelectListItem{ Text="Search with Selection", Value = "searchselection" },
-                                                                                                                                                                                                new SelectListItem{ Text="Yes/No", Value = "radiobutton" },
-                                                                                                                                                                                                new SelectListItem{ Text="Enter Text", Value = "textbox" },
-                                                                                                                                                                                                new SelectListItem{ Text="Selection", Value = "selection" },
-                                                                                                                                                                                             }, new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.AnswerType, new List<SelectListItem>{
+                                new SelectListItem{ Text="Search with Selection", Value = "searchselection" },
+                                new SelectListItem{ Text="Yes/No", Value = "radiobutton" },
+                                new SelectListItem{ Text="Enter Text", Value = "textbox" },
+                                new SelectListItem{ Text="Selection", Value = "selection"},
+                                new SelectListItem{ Text="CheckBox", Value = "checkbox"},
+               }, new { @class = "form-control" })
                 </div>
             </div>
         </div>
@@ -41,7 +42,7 @@
     </div>
     <div class="modal-footer">
         <button type="submit" class="btn btn-primary button button4">Update </button>
-        <button type="button" id="btnHideModal" class="btn btn-primary button button4">
+        <button type="button" id="btnHideModal" data-dismiss="modal" aria-label="Close" class="btn btn-primary button button4">
             Close
         </button>
     </div>

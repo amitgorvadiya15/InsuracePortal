@@ -117,6 +117,7 @@ namespace InsurancePortal.Web.Controllers.Admin
                 {
                     model.AnswerDetails = obj.AnswerDetails;
                     model.AnswerType = obj.AnswerType;
+                    model.Question = obj.Question;
                 }
             }
             return PartialView("PartialAddTabQuestion", model);
