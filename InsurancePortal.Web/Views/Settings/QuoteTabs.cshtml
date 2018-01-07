@@ -16,7 +16,7 @@
             //dataType: "json",
             cache: false,
             success: function (data) {
-                
+
                 if (data != null) {
                     $("#QuestionPopup").html(data);
                     $("#loginModal").modal('show');
@@ -53,7 +53,7 @@
                 @using (Html.BeginForm("AddTemplateTab", "Settings", FormMethod.Post))
                 {
                     <div class="row">
-                        <div class="col-md-12 form-group"  style="float:left;">
+                        <div class="col-md-12 form-group" style="float:left;">
                             <label class="col-md-2 control-label">Name</label>
                             <div class="col-md-10">
                                 @Html.TextBoxFor(model => model.TemplateTabName, new { @class = "form-control" })
@@ -108,7 +108,7 @@
                     </div>
                 </div>
 
-                <table class="table table-striped table-bordered" id="example">
+                <table class="dispaly" cellspacing="0" width="100%" id="tbltemplatetab">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -122,7 +122,7 @@
                         {
                             foreach (InsurancePortal.Transport.TemplateQuesionViewModel item in ViewBag.QuestionList)
                             {
-                                <tr class="odd gradeX">
+                                <tr>
                                     <td>@item.TemplateQuesID</td>
                                     <td>@item.Question</td>
                                     <td>Search with Selection</td>
@@ -133,7 +133,7 @@
                         }
                         else
                         {
-                            <tr class="odd gradeX">
+                            <tr>
                                 <td colspan="4" style="text-align:center;">No questions found.</td>
                             </tr>
                         }
@@ -160,7 +160,9 @@
     </div>
 </div>
 <script type="text/javascript">
-        $(document).ready(function () {
+    $(document).ready(function () {
+        $('#tbltemplatetab').DataTable();
+
         $("#btnShowModal").click(function () {
             $("#loginModal").modal('show');
         });

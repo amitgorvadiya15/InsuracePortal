@@ -21,11 +21,13 @@ namespace InsurancePortal.Web
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
+                      "~/Content/DataTables/datatables.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/default.css",
+                      "~/Content/DataTables/datatables.css",
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Admin/css").Include("~/Content/site.css"));
