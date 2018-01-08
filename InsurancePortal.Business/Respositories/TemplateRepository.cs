@@ -122,7 +122,6 @@ namespace InsurancePortal.Business.Respositories
             }
             return model;
         }
-
         #endregion
 
         #region Template Tab
@@ -246,6 +245,8 @@ namespace InsurancePortal.Business.Respositories
         #region Template Question
 
         public List<TemplateQuesionViewModel> GetTemplateQuestions(int tabId)
+
+
         {
             List<TemplateQuesionViewModel> templist = new List<TemplateQuesionViewModel>();
             try
@@ -362,5 +363,57 @@ namespace InsurancePortal.Business.Respositories
         }
 
         #endregion
+
+        public ModelQuestionsViewModel GetTemplateQuestions(string templateName)
+        {
+            var model = new ModelQuestionsViewModel();
+
+            using (InsurancePortalEntities db = new InsurancePortalEntities())
+            {
+                var template = new Template();
+                try
+                {
+                    template = db.Templates.Where(x => x.TemplateName.Contains(templateName)).FirstOrDefault();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                
+
+                var templateTabs = db.TemplateTabs.Where(x => x.TemplateID == template.TemplateID);
+
+                model.Tabs = new List<Tab>();
+
+                foreach (var t in templateTabs)
+                {
+                    Tab tab = new Tab();
+                    tab.TabText = t.TabName;
+                    tab.SectionsList = new List<Sections>();
+
+                    foreach (var sec in t.Sections.Split(','))
+                    {
+                        Sections section = new Sections();
+                        section.SectionTitle = sec;
+                        var sectionQuestions = db.TemplateQues.Where(x => x.TemplateTabID.Equals(template.TemplateID) && x.Section.Equals(sec)).ToList();
+                        section.QuestionsList = (from que in sectionQuestions
+                                                 select new Questions
+                                                 {
+                                                     QuestionId = que.TemplateQuesID,
+                                                     QuestionTitle = que.Question,
+                                                     QuestionType = Convert.ToInt32(que.AnswerType),
+                                                     AnswersList = (from ans in que.AnswerDetails.Split(',')
+                                                                    select new Answers
+                                                                    {
+                                                                        AnswerId = 1,
+                                                                        AnswerTitle = ans
+                                                                    }).ToList()
+                                                 }).ToList();
+                    }
+                }
+            }
+            return model;
+        }
     }
+
 }

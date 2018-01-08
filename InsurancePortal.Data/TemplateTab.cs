@@ -19,6 +19,7 @@ namespace InsurancePortal.Data
         public string TabName { get; set; }
         public string TabDescription { get; set; }
         public string TabHeader { get; set; }
+        public string Sections { get; set; }
         public System.DateTime CreatedOn { get; set; }
         public int CreatedBy { get; set; }
         public Nullable<System.DateTime> ModifiedOn { get; set; }
