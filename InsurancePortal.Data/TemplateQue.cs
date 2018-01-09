@@ -16,6 +16,7 @@ namespace InsurancePortal.Data
     {
         public int TemplateQuesID { get; set; }
         public int TemplateTabID { get; set; }
+        public string Section { get; set; }
         public string Question { get; set; }
         public string AnswerType { get; set; }
         public string AnswerDetails { get; set; }

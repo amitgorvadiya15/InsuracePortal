@@ -24,5 +24,7 @@ namespace InsurancePortal.Business.Interfaces
         List<TemplateQuesionViewModel> GetTemplateQuestions(int tabId);
         bool DetTemplateQuestion(int TemplateQuestionID);
         TemplateQuesionViewModel GetTemplateQuestionByID(int QueId);
+
+        ModelQuestionsViewModel GetTemplateQuestions(string templateName);
     }
 }

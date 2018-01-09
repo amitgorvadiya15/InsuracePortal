@@ -1,4 +1,4 @@
-﻿@model InsurancePortal.Web.Models.ModelQuestions
+﻿@model InsurancePortal.Transport.ModelQuestionsViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -8,12 +8,12 @@
 <section class='site-section grid-wrapper'>
     <div class='box progress-bar' data-module='progressbar'>
         <ol>
-            @foreach (var progressBar in Model.ProgressBarsList)
+            @foreach (var tab in Model.Tabs)
             {
                 <li class='qa-progressbar-item'>
                     <span class='cell'>
                         <span class='item'>
-                            @Html.LabelForModel(progressBar.ProgressBarTitle)
+                            @Html.LabelForModel(tab.TabText)
                         </span>
                     </span>
                 </li>
@@ -74,7 +74,7 @@
                 </p>
             </div>
         </div>
-        @foreach (var section in Model.SectionsList)
+        @foreach (var section in Model.Tabs.FirstOrDefault().SectionsList)
         {
             <fieldset class='box js-toggleable-section' data-page-index='1' data-page-name='Your business' data-section-name='Please tell us about your business' data-track='pageset_section_changed'>
                 <div class='inner-box'>
@@ -127,11 +127,15 @@
                                         <label class="control-label" for="business_type">@question.QuestionTitle</label>
                                     </div>
                                     <div class='control'>
-                                        @Html.DropDownList("answerList", question.AnswersListDropDown, "Please select...",new { @class = "select-wrapper" })
+                                       @Html.DropDownList("answerList", question.AnswersList.Select(item=> new SelectListItem
+                                       {
+                                           Value = item.AnswerId.ToString(),
+                                           Text = item.AnswerTitle
+                                       }), "Please select...", new { @class = "select-wrapper" })
                                     </div>
                                 </div>
                                 break;
-                            case 4://RadioButton
+                                                case 4://RadioButton
                                 <div class='control-block on' data-trigger='refresh'>
                                     @*<div class='control-block info-box on'>*@
                                         <div class='control-text'>

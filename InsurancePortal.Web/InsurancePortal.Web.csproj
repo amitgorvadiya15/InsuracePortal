@@ -143,6 +143,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\Enums\QuestionType.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\Admin\AdminHomeController.cs" />
     <Compile Include="Controllers\Admin\SettingsController.cs" />
@@ -157,7 +158,6 @@
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ManageQoutesViewModel.cs" />
-    <Compile Include="Models\ModelQuestions.cs" />
     <Compile Include="Models\TemplateModel.cs" />
     <Compile Include="Models\TemplateTabModel.cs" />
     <Compile Include="Models\TemplateTabQuesionModel.cs" />
@@ -8247,7 +8247,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Common\" />
     <Folder Include="Pages\assets\logo\" />
   </ItemGroup>
   <ItemGroup>

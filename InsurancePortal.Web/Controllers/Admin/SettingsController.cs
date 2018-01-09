@@ -2,6 +2,7 @@
 using InsurancePortal.Business.Interfaces;
 using InsurancePortal.Business.Respositories;
 using InsurancePortal.Transport;
+using InsurancePortal.Web.Common.Enums;
 using InsurancePortal.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -73,8 +74,9 @@ namespace InsurancePortal.Web.Controllers.Admin
                 model.TemplateID = obj.TemplateID;
                 model.TemplateTabID = obj.TemplateTabID;
                 model.TemplateTabName = obj.TabName;
-                model.TabDescription = obj.TabDescription;
-                model.TabHeader = obj.TabHeader;
+                //model.TabDescription = obj.TabDescription;
+                //model.TabHeader = obj.TabHeader;
+                model.Sections = obj.Sections;
             }
             List<TemplateQuesionViewModel> lst = iTemplateRepository.GetTemplateQuestions(tabId);
             ViewBag.QuestionList = lst;
@@ -95,8 +97,9 @@ namespace InsurancePortal.Web.Controllers.Admin
             obj.TemplateID = model.TemplateID;
             obj.TemplateTabID = model.TemplateTabID;
             obj.TabName = model.TemplateTabName;
-            obj.TabHeader = model.TabHeader;
-            obj.TabDescription = model.TabDescription;
+            //obj.TabHeader = model.TabHeader;
+            //obj.TabDescription = model.TabDescription;
+            obj.Sections = model.Sections;
             iTemplateRepository.SetTemplateTab(obj);
             return RedirectToAction("QuoteTemplate", new { @tempId = model.TemplateID });
         }
@@ -131,7 +134,7 @@ namespace InsurancePortal.Web.Controllers.Admin
             obj.TemplateTabID = model.TemplateTabID;
             obj.Question = model.Question;
             obj.AnswerDetails = model.AnswerDetails;
-            obj.AnswerType = model.AnswerType;
+            obj.AnswerType = Convert.ToString((int)model.QuestionType);
             iTemplateRepository.SetTemplateQuestion(obj);
             return RedirectToAction("QuoteTabs", new { tabId = @model.TemplateTabID });
         }
