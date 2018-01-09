@@ -22,12 +22,12 @@
                 <label class="col-md-2 control-label">Answer Type</label>
                 <div class="col-md-10">
                     @Html.DropDownListFor(model => model.AnswerType, new List<SelectListItem>{
-                                new SelectListItem{ Text="Search with Selection", Value = "searchselection" },
-                                new SelectListItem{ Text="Yes/No", Value = "radiobutton" },
-                                new SelectListItem{ Text="Enter Text", Value = "textbox" },
-                                new SelectListItem{ Text="Selection", Value = "selection"},
-                                new SelectListItem{ Text="CheckBox", Value = "checkbox"},
-               }, new { @class = "form-control" })
+                            new SelectListItem{ Text="Search with selection", Value = "1" },
+                            new SelectListItem{ Text="Enter text", Value = "2" },
+                            new SelectListItem{ Text="Selection", Value = "3"},
+                            new SelectListItem{ Text="Radio button", Value = "4" },
+                            new SelectListItem{ Text="Checkbox", Value = "5"},
+           }, new { @class = "form-control" })
                 </div>
             </div>
         </div>

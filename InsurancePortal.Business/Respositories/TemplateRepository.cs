@@ -371,44 +371,53 @@ namespace InsurancePortal.Business.Respositories
             using (InsurancePortalEntities db = new InsurancePortalEntities())
             {
                 var template = new Template();
-                try
+
+                template = db.Templates.Where(x => x.TemplateName.Contains(templateName)).FirstOrDefault();
+
+                if (template != null)
                 {
-                    template = db.Templates.Where(x => x.TemplateName.Contains(templateName)).FirstOrDefault();
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                
+                    var templateTabs = db.TemplateTabs.Where(x => x.TemplateID == template.TemplateID).ToList();
 
-                var templateTabs = db.TemplateTabs.Where(x => x.TemplateID == template.TemplateID);
-
-                model.Tabs = new List<Tab>();
-
-                foreach (var t in templateTabs)
-                {
-                    Tab tab = new Tab();
-                    tab.TabText = t.TabName;
-                    tab.SectionsList = new List<Sections>();
-
-                    foreach (var sec in t.Sections.Split(','))
+                    if (templateTabs != null && templateTabs.Count > 0)
                     {
-                        Sections section = new Sections();
-                        section.SectionTitle = sec;
-                        var sectionQuestions = db.TemplateQues.Where(x => x.TemplateTabID.Equals(template.TemplateID) && x.Section.Equals(sec)).ToList();
-                        section.QuestionsList = (from que in sectionQuestions
-                                                 select new Questions
-                                                 {
-                                                     QuestionId = que.TemplateQuesID,
-                                                     QuestionTitle = que.Question,
-                                                     QuestionType = Convert.ToInt32(que.AnswerType),
-                                                     AnswersList = (from ans in que.AnswerDetails.Split(',')
-                                                                    select new Answers
-                                                                    {
-                                                                        AnswerId = 1,
-                                                                        AnswerTitle = ans
-                                                                    }).ToList()
-                                                 }).ToList();
+                        model.Tabs = new List<Tab>();
+
+                        foreach (var t in templateTabs)
+                        {
+                            Tab tab = new Tab();
+                            tab.TabText = t.TabName;
+                            tab.SectionsList = new List<Sections>();
+
+                            int[] questionType = { 3, 4, 5 };
+
+                            model.Tabs.Add(tab);
+
+                            if (t.Sections != null)
+                            {
+                                foreach (var sec in t.Sections.Split(','))
+                                {
+                                    Sections section = new Sections();
+                                    section.SectionTitle = sec;
+                                    var sectionQuestions = db.TemplateQues.Where(x => x.TemplateTabID.Equals(template.TemplateID) && x.Section.Equals(sec)).ToList();
+                                    section.QuestionsList = (from que in sectionQuestions
+                                                             select new Questions
+                                                             {
+                                                                 QuestionId = que.TemplateQuesID,
+                                                                 QuestionTitle = que.Question,
+                                                                 QuestionType = Convert.ToInt32(que.AnswerType),
+                                                                 AnswersList = !questionType.Contains(Convert.ToInt32(que.AnswerType)) ? new List<Answers>() : (from ans in que.AnswerDetails.Split(',')
+                                                                                                                                                 select new Answers
+                                                                                                                                                 {
+                                                                                                                                                     AnswerId = 1,
+                                                                                                                                                     AnswerTitle = ans
+                                                                                                                                                 }).ToList()
+
+                                                             }).ToList();
+
+                                    tab.SectionsList.Add(section);
+                                }
+                            }
+                        }
                     }
                 }
             }
