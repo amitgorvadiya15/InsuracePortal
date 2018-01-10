@@ -154,9 +154,9 @@ namespace InsurancePortal.Web.Controllers
         //    return View(model);
         //}
 
-        public ActionResult Index()
+        public ActionResult Index(string template)
         {
-            var model = iTemplateRepository.GetTemplateQuestions("Business");
+            var model = iTemplateRepository.GetTemplateQuestions(template);
             return View(model);
         }
     }

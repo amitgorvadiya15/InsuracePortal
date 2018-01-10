@@ -134,7 +134,7 @@ namespace InsurancePortal.Web.Controllers.Admin
             obj.TemplateTabID = model.TemplateTabID;
             obj.Question = model.Question;
             obj.AnswerDetails = model.AnswerDetails;
-            obj.AnswerType = Convert.ToString((int)model.QuestionType);
+            obj.AnswerType = model.AnswerType;
             iTemplateRepository.SetTemplateQuestion(obj);
             return RedirectToAction("QuoteTabs", new { tabId = @model.TemplateTabID });
         }

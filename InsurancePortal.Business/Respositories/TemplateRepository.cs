@@ -174,6 +174,7 @@ namespace InsurancePortal.Business.Respositories
                         obj.TabName = model.TabName;
                         obj.TabDescription = model.TabDescription;
                         obj.TabHeader = model.TabHeader;
+                        obj.Sections = model.Sections;
                         obj.ModifiedOn = DateTime.Now;
                         db.SaveChanges();
                     }
@@ -184,6 +185,7 @@ namespace InsurancePortal.Business.Respositories
                         obj.TabName = model.TabName;
                         obj.TabDescription = model.TabDescription;
                         obj.TabHeader = model.TabHeader;
+                        obj.Sections = model.Sections;
                         obj.CreatedOn = DateTime.Now;
                         obj.CreatedBy = 1;
                         db.TemplateTabs.Add(obj);
