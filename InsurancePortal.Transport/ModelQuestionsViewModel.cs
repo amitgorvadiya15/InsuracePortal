@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Collections.Generic;
 
-namespace InsurancePortal.Web.Models
+namespace InsurancePortal.Transport
 {
-    public class ModelQuestions
+    public class ModelQuestionsViewModel
     {
         public List<Tab> Tabs { get; set; }
     }
@@ -38,8 +34,6 @@ namespace InsurancePortal.Web.Models
         public string ValidationMessage { get; set; }
 
         public List<Answers> AnswersList { get; set; }
-
-        public List<SelectListItem> AnswersListDropDown { get; set; }
     }
 
     public class Answers

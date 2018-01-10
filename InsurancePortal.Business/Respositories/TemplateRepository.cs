@@ -122,7 +122,6 @@ namespace InsurancePortal.Business.Respositories
             }
             return model;
         }
-
         #endregion
 
         #region Template Tab
@@ -175,6 +174,7 @@ namespace InsurancePortal.Business.Respositories
                         obj.TabName = model.TabName;
                         obj.TabDescription = model.TabDescription;
                         obj.TabHeader = model.TabHeader;
+                        obj.Sections = model.Sections;
                         obj.ModifiedOn = DateTime.Now;
                         db.SaveChanges();
                     }
@@ -185,6 +185,7 @@ namespace InsurancePortal.Business.Respositories
                         obj.TabName = model.TabName;
                         obj.TabDescription = model.TabDescription;
                         obj.TabHeader = model.TabHeader;
+                        obj.Sections = model.Sections;
                         obj.CreatedOn = DateTime.Now;
                         obj.CreatedBy = 1;
                         db.TemplateTabs.Add(obj);
@@ -246,6 +247,8 @@ namespace InsurancePortal.Business.Respositories
         #region Template Question
 
         public List<TemplateQuesionViewModel> GetTemplateQuestions(int tabId)
+
+
         {
             List<TemplateQuesionViewModel> templist = new List<TemplateQuesionViewModel>();
             try
@@ -362,5 +365,66 @@ namespace InsurancePortal.Business.Respositories
         }
 
         #endregion
+
+        public ModelQuestionsViewModel GetTemplateQuestions(string templateName)
+        {
+            var model = new ModelQuestionsViewModel();
+
+            using (InsurancePortalEntities db = new InsurancePortalEntities())
+            {
+                var template = new Template();
+
+                template = db.Templates.Where(x => x.TemplateName.Contains(templateName)).FirstOrDefault();
+
+                if (template != null)
+                {
+                    var templateTabs = db.TemplateTabs.Where(x => x.TemplateID == template.TemplateID).ToList();
+
+                    if (templateTabs != null && templateTabs.Count > 0)
+                    {
+                        model.Tabs = new List<Tab>();
+
+                        foreach (var t in templateTabs)
+                        {
+                            Tab tab = new Tab();
+                            tab.TabText = t.TabName;
+                            tab.SectionsList = new List<Sections>();
+
+                            int[] questionType = { 3, 4, 5 };
+
+                            model.Tabs.Add(tab);
+
+                            if (t.Sections != null)
+                            {
+                                foreach (var sec in t.Sections.Split(','))
+                                {
+                                    Sections section = new Sections();
+                                    section.SectionTitle = sec;
+                                    var sectionQuestions = db.TemplateQues.Where(x => x.TemplateTabID.Equals(template.TemplateID) && x.Section.Equals(sec)).ToList();
+                                    section.QuestionsList = (from que in sectionQuestions
+                                                             select new Questions
+                                                             {
+                                                                 QuestionId = que.TemplateQuesID,
+                                                                 QuestionTitle = que.Question,
+                                                                 QuestionType = Convert.ToInt32(que.AnswerType),
+                                                                 AnswersList = !questionType.Contains(Convert.ToInt32(que.AnswerType)) ? new List<Answers>() : (from ans in que.AnswerDetails.Split(',')
+                                                                                                                                                 select new Answers
+                                                                                                                                                 {
+                                                                                                                                                     AnswerId = 1,
+                                                                                                                                                     AnswerTitle = ans
+                                                                                                                                                 }).ToList()
+
+                                                             }).ToList();
+
+                                    tab.SectionsList.Add(section);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return model;
+        }
     }
+
 }

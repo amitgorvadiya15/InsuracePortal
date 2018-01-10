@@ -16,19 +16,25 @@
                     @Html.ValidationMessageFor(model => model.TemplateTabName)
                 </div>
             </div>
-            <div class="col-md-12 form-group" style="float:left;">
-                <label class="col-md-3 control-label">Tab Header</label>
-                <div class="col-md-9">
-                    @Html.TextBoxFor(model => model.TabHeader, new { @class = "form-control" })
+            @*<div class="col-md-12 form-group" style="float:left;">
+                    <label class="col-md-3 control-label">Tab Header</label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.TabHeader, new { @class = "form-control" })
 
+                    </div>
                 </div>
-            </div>
 
+                <div class="col-md-12 form-group" style="float:left;">
+                    <label class="col-md-3 control-label">Tab Description</label>
+                    <div class="col-md-9">
+                        @Html.TextAreaFor(model => model.TabDescription, new { @class = "form-control" })
+
+                    </div>
+                </div>*@
             <div class="col-md-12 form-group" style="float:left;">
-                <label class="col-md-3 control-label">Tab Description</label>
+                <label class="col-md-3 control-label">Sections</label>
                 <div class="col-md-9">
-                    @Html.TextAreaFor(model => model.TabDescription, new { @class = "form-control" })
-
+                    @Html.TextAreaFor(model => model.Sections, new { @class = "form-control" })
                 </div>
             </div>
 
