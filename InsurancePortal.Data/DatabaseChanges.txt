@@ -1,80 +1,6 @@
-﻿
-/****** Object:  Database [InsurancePortal]    Script Date: 1/6/2018 5:45:46 PM ******/
-CREATE DATABASE [InsurancePortal]
- CONTAINMENT = NONE
- ON  PRIMARY 
-( NAME = N'InsurancePortal', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\InsurancePortal.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
- LOG ON 
-( NAME = N'InsurancePortal_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\InsurancePortal_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+﻿USE [InsurancePortal]
 GO
-ALTER DATABASE [InsurancePortal] SET COMPATIBILITY_LEVEL = 120
-GO
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [InsurancePortal].[dbo].[sp_fulltext_database] @action = 'enable'
-end
-GO
-ALTER DATABASE [InsurancePortal] SET ANSI_NULL_DEFAULT OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET ANSI_NULLS OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET ANSI_PADDING OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET ANSI_WARNINGS OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET ARITHABORT OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET AUTO_CLOSE OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET AUTO_SHRINK OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET AUTO_UPDATE_STATISTICS ON 
-GO
-ALTER DATABASE [InsurancePortal] SET CURSOR_CLOSE_ON_COMMIT OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET CURSOR_DEFAULT  GLOBAL 
-GO
-ALTER DATABASE [InsurancePortal] SET CONCAT_NULL_YIELDS_NULL OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET NUMERIC_ROUNDABORT OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET QUOTED_IDENTIFIER OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET RECURSIVE_TRIGGERS OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET  DISABLE_BROKER 
-GO
-ALTER DATABASE [InsurancePortal] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET DATE_CORRELATION_OPTIMIZATION OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET TRUSTWORTHY OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET ALLOW_SNAPSHOT_ISOLATION OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET PARAMETERIZATION SIMPLE 
-GO
-ALTER DATABASE [InsurancePortal] SET READ_COMMITTED_SNAPSHOT OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET HONOR_BROKER_PRIORITY OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET RECOVERY SIMPLE 
-GO
-ALTER DATABASE [InsurancePortal] SET  MULTI_USER 
-GO
-ALTER DATABASE [InsurancePortal] SET PAGE_VERIFY CHECKSUM  
-GO
-ALTER DATABASE [InsurancePortal] SET DB_CHAINING OFF 
-GO
-ALTER DATABASE [InsurancePortal] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
-GO
-ALTER DATABASE [InsurancePortal] SET TARGET_RECOVERY_TIME = 0 SECONDS 
-GO
-ALTER DATABASE [InsurancePortal] SET DELAYED_DURABILITY = DISABLED 
-GO
-USE [InsurancePortal]
-GO
-/****** Object:  Table [dbo].[Template]    Script Date: 1/6/2018 5:45:46 PM ******/
+/****** Object:  Table [dbo].[Template]    Script Date: 1/10/2018 10:43:35 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -91,18 +17,16 @@ CREATE TABLE [dbo].[Template](
 	[TemplateID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-
 GO
-/****** Object:  Table [dbo].[TemplateQues]    Script Date: 1/6/2018 5:45:47 PM ******/
+/****** Object:  Table [dbo].[TemplateQues]    Script Date: 1/10/2018 10:43:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [dbo].[TemplateQues](
 	[TemplateQuesID] [int] IDENTITY(1,1) NOT NULL,
 	[TemplateTabID] [int] NOT NULL,
+	[Section] [varchar](50) NULL,
 	[Question] [nvarchar](450) NOT NULL,
 	[AnswerType] [varchar](50) NULL,
 	[AnswerDetails] [nvarchar](4000) NULL,
@@ -115,16 +39,11 @@ CREATE TABLE [dbo].[TemplateQues](
 	[TemplateQuesID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-
 GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [dbo].[TemplateTab]    Script Date: 1/6/2018 5:45:47 PM ******/
+/****** Object:  Table [dbo].[TemplateTab]    Script Date: 1/10/2018 10:43:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[TemplateTab](
 	[TemplateTabID] [int] IDENTITY(1,1) NOT NULL,
@@ -132,6 +51,7 @@ CREATE TABLE [dbo].[TemplateTab](
 	[TabName] [varchar](50) NOT NULL,
 	[TabDescription] [nvarchar](max) NULL,
 	[TabHeader] [nvarchar](200) NULL,
+	[Sections] [nvarchar](max) NULL,
 	[CreatedOn] [datetime] NOT NULL,
 	[CreatedBy] [int] NOT NULL,
 	[ModifiedOn] [datetime] NULL,
@@ -141,40 +61,77 @@ CREATE TABLE [dbo].[TemplateTab](
 	[TemplateTabID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
-GO
-SET ANSI_PADDING OFF
 GO
 SET IDENTITY_INSERT [dbo].[Template] ON 
-
 GO
-INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1, N'Business', CAST(N'2018-01-04 23:57:07.163' AS DateTime), 1, CAST(N'2018-01-06 14:44:09.457' AS DateTime), NULL)
+INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1, N'Business', CAST(N'2018-01-04T23:57:07.163' AS DateTime), 1, CAST(N'2018-01-06T14:44:09.457' AS DateTime), NULL)
+GO
+INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (2, N'Landlord', CAST(N'2018-01-10T21:41:34.713' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (3, N'Vehicle', CAST(N'2018-01-10T21:42:38.447' AS DateTime), 1, CAST(N'2018-01-10T21:44:45.887' AS DateTime), NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Template] OFF
 GO
 SET IDENTITY_INSERT [dbo].[TemplateQues] ON 
-
 GO
-INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1, 1, N'What is your specific business / trade?', N'searchselection', NULL, CAST(N'2018-01-06 15:22:56.243' AS DateTime), 1, NULL, NULL)
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1, 1, N'Please tell us about your business', N'What is your specific business / trade?', N'1', NULL, CAST(N'2018-01-06T15:22:56.243' AS DateTime), 1, NULL, NULL)
 GO
-INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (2, 1, N'Do you have a secondary business activity / secondary trade?', N'searchselection', NULL, CAST(N'2018-01-06 15:28:30.057' AS DateTime), 1, NULL, NULL)
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (2, 1, N'Please tell us about your business', N'Do you have a secondary business activity / secondary trade?', N'4', N'Yes,No', CAST(N'2018-01-06T15:28:30.057' AS DateTime), 1, NULL, NULL)
 GO
-INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (3, 1, N'What is your business postcode?', N'textbox', N'0', CAST(N'2018-01-06 16:32:26.897' AS DateTime), 1, NULL, NULL)
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (3, 1, N'Please tell us about your business', N'What is your business postcode?', N'2', N'0', CAST(N'2018-01-06T16:32:26.897' AS DateTime), 1, NULL, NULL)
 GO
-INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (4, 1, N'How many years have you been running your own business in this industry?', N'textbox', NULL, CAST(N'2018-01-06 16:34:04.413' AS DateTime), 1, NULL, NULL)
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (4, 1, N'Please tell us about your business', N'How many years have you been running your own business in this industry?', N'3', N'I''ve not started yet,Less than 1 year,1-2 years,2-3 years,3-4 years,4-5 years,Over 5 years', CAST(N'2018-01-06T16:34:04.413' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (7, 1, N'Please tell us about your business', N'Which of these categories best describes your business?
+', N'3', N'Sole trader,Partnership,Limited company', CAST(N'2018-09-01T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (9, 1, N'Please enter your contact details', N'Title', N'3', N'Mr,Mrs,Miss,Ms,Dr', CAST(N'2018-01-09T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (11, 1, N'Please enter your contact details', N'First Name', N'2', NULL, CAST(N'2018-09-01T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (12, 1, N'Please enter your contact details', N'Last Name', N'2', NULL, CAST(N'2018-01-09T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (13, 1, N'Please enter your contact details', N'Email Address', N'2', NULL, CAST(N'2018-09-01T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (14, 1, N'Please enter your contact details', N'Telephone Number', N'2', NULL, CAST(N'2018-09-01T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (15, 1, N'Please enter your contact details', N'Alternative Phone Number(Optional)', N'2', NULL, CAST(N'2018-09-01T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (16, 8, N'Vehicle details', N'Do you know your registration number?', N'5', N'Yes,No', CAST(N'2018-10-01T00:00:00.000' AS DateTime), 1, CAST(N'2018-01-10T22:15:54.293' AS DateTime), NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (17, 8, NULL, N'Enter your vehicle no', N'2', NULL, CAST(N'2018-01-10T22:16:14.967' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (18, 7, N'Your rental property', N'What type of property do you want to insure?', N'4', N'Residential,Commercial,Mixed', CAST(N'2018-10-01T00:00:00.000' AS DateTime), 1, NULL, NULL)
 GO
 SET IDENTITY_INSERT [dbo].[TemplateQues] OFF
 GO
 SET IDENTITY_INSERT [dbo].[TemplateTab] ON 
-
 GO
-INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1, 1, N'Your Business', N'It''s essential that all the information you give us is correct. If it isn''t, your insurance policy may not be valid or your insurer may refuse to pay any claim you make.', N'Please tell us about your business', CAST(N'2018-01-05 00:57:52.510' AS DateTime), 1, CAST(N'2018-01-06 15:57:09.543' AS DateTime), NULL)
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1, 1, N'Your Business', N'It''s essential that all the information you give us is correct. If it isn''t, your insurance policy may not be valid or your insurer may refuse to pay any claim you make.', N'Please tell us about your business', N'Please tell us about your business,Please enter your contact details', CAST(N'2018-01-05T00:57:52.510' AS DateTime), 1, CAST(N'2018-01-06T15:57:09.543' AS DateTime), NULL)
 GO
-INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (2, 1, N'Your employees', N'Your employees', N'Your employees', CAST(N'2018-01-06 16:22:18.203' AS DateTime), 1, NULL, NULL)
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (2, 1, N'Your employees', N'Your employees', N'Your employees', NULL, CAST(N'2018-01-06T16:22:18.203' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (3, 1, N'Cover Options', N'Cover Options', N'Cover Options', NULL, CAST(N'2018-09-01T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (4, 1, N'Business Questions', N'Business Questions', N'Business Questions', NULL, CAST(N'2018-09-01T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (5, 1, N'Agreements', N'Agreements', N'Agreements', NULL, CAST(N'2018-09-01T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (6, 1, N'Your Quotes', N'Your Quotes', N'Your Quotes', NULL, CAST(N'2018-09-01T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (7, 2, N'About your property', NULL, NULL, NULL, CAST(N'2018-01-10T21:56:53.437' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (8, 3, N'Your Vehicle', NULL, NULL, N'Vehicle details,Vehicle usage', CAST(N'2018-01-10T22:09:40.140' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (9, 3, N'Your Details', NULL, NULL, NULL, CAST(N'2018-01-10T22:20:24.623' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (10, 3, N'Your policy', NULL, NULL, NULL, CAST(N'2018-01-10T22:20:41.733' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (11, 3, N'Your quotes', NULL, NULL, NULL, CAST(N'2018-01-10T22:20:51.290' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (12, 2, N'Cover options', N'Cover options', N'Cover options', N'Your rental property,Your tenants,Your contact details', CAST(N'2018-10-01T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (13, 2, N'Agreements', N'Agreements', N'Agreements', NULL, CAST(N'2018-10-01T00:00:00.000' AS DateTime), 1, NULL, NULL)
 GO
 SET IDENTITY_INSERT [dbo].[TemplateTab] OFF
-GO
-USE [master]
-GO
-ALTER DATABASE [InsurancePortal] SET  READ_WRITE 
 GO
