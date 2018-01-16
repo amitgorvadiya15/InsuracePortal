@@ -2,6 +2,7 @@
 using InsurancePortal.Business.Interfaces;
 using InsurancePortal.Business.Respositories;
 using InsurancePortal.Transport;
+using InsurancePortal.Web.Common;
 using InsurancePortal.Web.Common.Enums;
 using InsurancePortal.Web.Models;
 using System;
@@ -12,6 +13,7 @@ using System.Web.Mvc;
 
 namespace InsurancePortal.Web.Controllers.Admin
 {
+    [LoginAuth]
     public class SettingsController : Controller
     {
         // GET: Settings

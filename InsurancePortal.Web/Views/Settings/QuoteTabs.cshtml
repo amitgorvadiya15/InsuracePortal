@@ -33,7 +33,8 @@
         Template Tab
         <small>advanced templates tab</small>
     </h1>
-    <ol class="breadcrumb">%
+    <ol class="breadcrumb">
+        %
         <li>
             <a href="@Url.Action("ManageQuotes","Settings")">Manage Quotes</a>
         </li>
@@ -94,7 +95,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
     <div class="row">
         <div class="col-xs-12">
@@ -114,30 +115,30 @@
                             <tr>
                                 <th>#</th>
                                 <th>Question</th>
-                                <th>Answer type</th>
+                                @*<th>Answer type</th>*@
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @if (ViewBag.QuestionList != null && ViewBag.QuestionList.Count > 0)
-            {
-                foreach (InsurancePortal.Transport.TemplateQuesionViewModel item in ViewBag.QuestionList)
-                {
-                    <tr>
-                        <td>@item.TemplateQuesID</td>
-                        <td>@item.Question</td>
-                        <td>Search with Selection</td>
-                        <td class="center"><a href="javascript:PopupEditQuestion(@item.TemplateQuesID)" title="Quotes Template">Edit</a></td>
-                    </tr>
-}
+                            {
+                                foreach (InsurancePortal.Transport.TemplateQuesionViewModel item in ViewBag.QuestionList)
+                                {
+                                    <tr>
+                                        <td>@item.TemplateQuesID</td>
+                                        <td>@item.Question</td>
+                                        @*<td>Search with Selection</td>*@
+                                        <td class="center"><a href="javascript:PopupEditQuestion(@item.TemplateQuesID)" title="Quotes Template">Edit</a></td>
+                                    </tr>
+                                }
 
-}
-else
-{
-                <tr>
-                    <td colspan="4" style="text-align:center;">No questions found.</td>
-                </tr>
-}
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="4" style="text-align:center;">No questions found.</td>
+                                </tr>
+                            }
 
                         </tbody>
                     </table>

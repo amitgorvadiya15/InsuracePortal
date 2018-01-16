@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'F:\Development\Projects\INSURANCE\GitSource\InsuracePortal\InsurancePortal.Data\InsurancePortalEntities.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\.NET Developer\GitSource\InsuracePortal\InsurancePortal.Data\InsurancePortalEntities.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

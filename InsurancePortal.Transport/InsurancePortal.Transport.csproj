@@ -45,6 +45,7 @@
     <Compile Include="TemplateQuesionViewModel.cs" />
     <Compile Include="TemplateTabViewModel.cs" />
     <Compile Include="TemplateViewModel.cs" />
+    <Compile Include="UserViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

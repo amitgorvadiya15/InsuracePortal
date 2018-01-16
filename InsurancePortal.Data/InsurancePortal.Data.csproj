@@ -74,6 +74,12 @@
     <Compile Include="TemplateTab.cs">
       <DependentUpon>InsurancePortalEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>InsurancePortalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserType.cs">
+      <DependentUpon>InsurancePortalEntities.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

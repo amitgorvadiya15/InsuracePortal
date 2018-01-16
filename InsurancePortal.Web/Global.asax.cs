@@ -1,4 +1,5 @@
-﻿using InsurancePortal.Business.Interfaces;
+﻿using InsurancePortal.Business;
+using InsurancePortal.Business.Interfaces;
 //using InsurancePortal.Web.App_Start;
 //using Ninject;
 using System;
@@ -22,6 +23,8 @@ namespace InsurancePortal.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            AutoMapperWebConfiguration.Configure();
             //Bind Ninject Dependency
             //DependencyResolver.SetResolver(new NinjectResolver());
 

@@ -135,3 +135,74 @@ INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescri
 GO
 SET IDENTITY_INSERT [dbo].[TemplateTab] OFF
 GO
+
+/****** Object:  Table [dbo].[Users]    Script Date: 1/16/2018 11:41:35 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Users](
+	[UserId] [int] IDENTITY(1,1) NOT NULL,
+	[UserTypeId] [int] NOT NULL,
+	[UserName] [nvarchar](50) NOT NULL,
+	[FirstName] [varchar](50) NOT NULL,
+	[LastName] [varchar](50) NOT NULL,
+	[EmailID] [nvarchar](100) NOT NULL,
+	[Password] [nvarchar](200) NOT NULL,
+	[IsActive] [bit] NOT NULL CONSTRAINT [DF_Users_IsActive]  DEFAULT ((0)),
+	[ModifiedBy] [int] NULL,
+	[ModifiedOn] [datetime] NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[UserType]    Script Date: 1/16/2018 11:41:35 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[UserType](
+	[UserTypeID] [int] IDENTITY(1,1) NOT NULL,
+	[UserType] [varchar](50) NOT NULL,
+	[CreatedBy] [int] NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[ModifiedBy] [int] NULL,
+	[ModifiedOn] [datetime] NULL,
+ CONSTRAINT [PK_UserType] PRIMARY KEY CLUSTERED 
+(
+	[UserTypeID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[Users] ON 
+
+GO
+INSERT [dbo].[Users] ([UserId], [UserTypeId], [UserName], [FirstName], [LastName], [EmailID], [Password], [IsActive], [ModifiedBy], [ModifiedOn]) VALUES (1, 1, N'admin', N'Admin', N'Admin', N'admin@company.com', N'pIbvhgmpVHahDBTYUgQvew==', 1, NULL, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Users] OFF
+GO
+SET IDENTITY_INSERT [dbo].[UserType] ON 
+
+GO
+INSERT [dbo].[UserType] ([UserTypeID], [UserType], [CreatedBy], [CreatedOn], [ModifiedBy], [ModifiedOn]) VALUES (1, N'Admin', 1, CAST(N'2018-01-15 00:00:00.000' AS DateTime), NULL, NULL)
+GO
+INSERT [dbo].[UserType] ([UserTypeID], [UserType], [CreatedBy], [CreatedOn], [ModifiedBy], [ModifiedOn]) VALUES (4, N'Insurer', 1, CAST(N'2018-01-15 00:00:00.000' AS DateTime), NULL, NULL)
+GO
+INSERT [dbo].[UserType] ([UserTypeID], [UserType], [CreatedBy], [CreatedOn], [ModifiedBy], [ModifiedOn]) VALUES (9, N'Broker', 1, CAST(N'2018-01-15 00:00:00.000' AS DateTime), NULL, NULL)
+GO
+INSERT [dbo].[UserType] ([UserTypeID], [UserType], [CreatedBy], [CreatedOn], [ModifiedBy], [ModifiedOn]) VALUES (11, N'Customer', 1, CAST(N'2018-01-15 00:00:00.000' AS DateTime), NULL, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[UserType] OFF
+GO

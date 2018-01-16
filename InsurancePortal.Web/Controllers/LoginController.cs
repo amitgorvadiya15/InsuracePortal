@@ -1,4 +1,7 @@
-﻿using InsurancePortal.Web.Models;
+﻿using InsurancePortal.Business.Respositories;
+using InsurancePortal.Transport;
+using InsurancePortal.Web.Common;
+using InsurancePortal.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +10,7 @@ using System.Web.Mvc;
 
 namespace InsurancePortal.Web.Controllers
 {
-    [Route("")]
+    [IsLogined]
     public class LoginController : Controller
     {
         // GET: Login
@@ -47,13 +50,25 @@ namespace InsurancePortal.Web.Controllers
         {
             if (!string.IsNullOrEmpty(model.UserType) && !string.IsNullOrEmpty(model.Password) && !string.IsNullOrEmpty(model.UserName))
             {
-                if (model.UserType == "Admin" && model.Password == "admin" && Convert.ToString(model.UserName).ToLower() == "admin")
+                UserRepository userRepository = new UserRepository();
+                string entrypass = CommonFunction.Encrypt(model.Password);
+                UserViewModel usermodel = userRepository.GetLoginUser(model.UserName, entrypass);
+                if (usermodel != null)
+                {
+                    Session["LoginUser"] = usermodel;
                     return RedirectToAction("Index", "AdminHome");
+                }
                 else
                     return RedirectToAction("Index", "Home");
             }
             else
                 return View(model);
+        }
+
+        public ActionResult Logout()
+        {
+            Session["LoginUser"] = null;
+            return RedirectToAction("Index", "Login", new { @type = "Admin" });
         }
     }
 }

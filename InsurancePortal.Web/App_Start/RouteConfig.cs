@@ -20,6 +20,12 @@ namespace InsurancePortal.Web
             );
 
             routes.MapRoute(
+                name: "Logout",
+                url: "Logout",
+                defaults: new { controller = "Login", action = "Logout", type = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Login",
                 url: "Login/{type}",
                 defaults: new { controller = "Login", action = "Index", type = UrlParameter.Optional }

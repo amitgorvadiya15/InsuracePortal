@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InsurancePortal.Business.Repository
+namespace InsurancePortal.Business.Respositories
 {
     public class BaseRepository<T> //: IBaseRepository<T> where T : class
     {
