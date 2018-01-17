@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurancePortal.Web", "InsurancePortal.Web\InsurancePortal.Web.csproj", "{F58C1116-0829-4E05-8DF5-BE9CB4721F58}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurancePortal.Business", "InsurancePortal.Business\InsurancePortal.Business.csproj", "{6C81B922-3D0F-4AB3-8BEA-6F1541B4080E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsurancePortal.Transport", "InsurancePortal.Transport\InsurancePortal.Transport.csproj", "{1EC2A1C9-8EF5-4D23-96EC-620D12883EAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuracePortal.Service", "InsuracePortal.Service\InsuracePortal.Service.csproj", "{D05E9446-C47E-4541-BC57-D1BE30121B58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1EC2A1C9-8EF5-4D23-96EC-620D12883EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EC2A1C9-8EF5-4D23-96EC-620D12883EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EC2A1C9-8EF5-4D23-96EC-620D12883EAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D05E9446-C47E-4541-BC57-D1BE30121B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D05E9446-C47E-4541-BC57-D1BE30121B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D05E9446-C47E-4541-BC57-D1BE30121B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D05E9446-C47E-4541-BC57-D1BE30121B58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
