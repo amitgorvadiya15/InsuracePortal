@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace InsurancePortal.Data
 {
-    public class TemplateRepository : BaseRepository<Template>,ITemplateRepository
+    public class TemplateRepository : BaseRepository<Template>, ITemplateRepository
     {
         public TemplateRepository(InsurancePortalEntities dbContext) : base(dbContext)
         {
-
         }
     }
 }

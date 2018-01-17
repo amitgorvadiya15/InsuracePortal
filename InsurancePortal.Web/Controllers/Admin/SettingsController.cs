@@ -5,11 +5,11 @@ namespace InsurancePortal.Web.Controllers.Admin
 {
     public class SettingsController : Controller
     {
-        private readonly ITemplateService iTemplateService;
+        private readonly ITemplateService _templateService;
 
-        public SettingsController()
+        public SettingsController(ITemplateService templateService)
         {
-            iTemplateService = new TemplateService();
+            _templateService = templateService;
         }
 
         // GET: Settings

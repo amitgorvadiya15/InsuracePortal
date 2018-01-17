@@ -5,17 +5,17 @@ namespace InsurancePortal.Web.Controllers
 {
     public class QuoteController : Controller
     {
-        private readonly ITemplateService templateService;
+        private readonly ITemplateService _templateService;
 
-        public QuoteController()
+        public QuoteController(ITemplateService templateService)
         {
-            templateService = new TemplateService();
+            _templateService = templateService;
         }
 
 
         public ActionResult Index()
         {
-            templateService.GetTemplate(1);
+            _templateService.GetTemplate(1);
             return View();
         }
 

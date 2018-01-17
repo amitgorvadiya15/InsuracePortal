@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InsurancePortal.Data.Repository
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork //: IUnitOfWork
     {
         /// <summary>
         /// The DbContext

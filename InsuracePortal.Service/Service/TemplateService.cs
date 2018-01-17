@@ -10,11 +10,11 @@ namespace InsuracePortal.Service
 {
     public class TemplateService : ITemplateService
     {
-        private readonly ITemplateRepository templateRepository;
+        private readonly ITemplateRepository _templateRepository;
 
-        public TemplateService()
+        public TemplateService(ITemplateRepository templateRepository)
         {
-            templateRepository = new TemplateRepository();
+            _templateRepository = templateRepository;
         }
 
         public Task<List<TemplateViewModel>> GetTemplate()
@@ -24,7 +24,7 @@ namespace InsuracePortal.Service
 
         public async Task<TemplateViewModel> GetTemplate(int tempId)
         {
-            var template = await templateRepository.GetById(tempId);
+            var template = await _templateRepository.GetByIdAsync(tempId);
             var templateViewModel = new TemplateViewModel
             {
                 TemplateID = template.TemplateID,

@@ -7,14 +7,23 @@ namespace InsurancePortal.Data
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
-        private readonly IUnitOfWork _unitOfWork;
-
         protected readonly InsurancePortalEntities _dbContext;
 
-        public BaseRepository(IUnitOfWork unitOfWork)
+        private DbSet<T> _entitySet;
+
+        public IUnitOfWork UnitOfWork
         {
-            _unitOfWork = unitOfWork;
-            _dbContext = _unitOfWork.dbContext;
+            get
+            {
+                return _dbContext;
+            }
+        }
+
+
+        public BaseRepository(InsurancePortalEntities dbContext)
+        {
+            _dbContext = dbContext;
+            _entitySet = _dbContext.Set<T>();
         }
 
         public virtual T GetById(int id)
