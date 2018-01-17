@@ -167,11 +167,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\ManageQoutesViewModel.cs" />
-    <Compile Include="Models\TemplateModel.cs" />
-    <Compile Include="Models\TemplateTabModel.cs" />
-    <Compile Include="Models\TemplateTabQuesionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -15487,6 +15482,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
     <Folder Include="Pages\assets\logo\" />
   </ItemGroup>
   <ItemGroup>

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace InsurancePortal.Web.Models
+namespace InsurancePortal.Transport
 {
     public class ManageQoutesViewModel
     {
-        public List<TemplateViewModel> TemplateList { get; set; }
+        public List<TemplateModel> TemplateList { get; set; }
     }
 }

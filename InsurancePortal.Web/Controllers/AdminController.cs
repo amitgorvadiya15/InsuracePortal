@@ -1,4 +1,4 @@
-﻿using InsurancePortal.Web.Models;
+﻿using InsurancePortal.Transport;
 using System;
 using System.Collections.Generic;
 using System.Linq;

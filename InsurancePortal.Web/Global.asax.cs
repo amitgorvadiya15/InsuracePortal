@@ -44,6 +44,8 @@ namespace InsurancePortal.Web
                .Where(t => t.Name.EndsWith("Service"))
                .AsImplementedInterfaces().InstancePerRequest();
 
+            builder.RegisterType<InsurancePortalEntities>().InstancePerLifetimeScope();
+
             IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }

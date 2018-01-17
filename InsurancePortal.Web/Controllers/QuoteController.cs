@@ -1,4 +1,5 @@
 ﻿using InsuracePortal.Service;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace InsurancePortal.Web.Controllers
@@ -13,11 +14,11 @@ namespace InsurancePortal.Web.Controllers
         }
 
 
-        public ActionResult Index()
-        {
-            _templateService.GetTemplate(1);
-            return View();
-        }
+        //public ActionResult Index()
+        //{
+        //    var template = _templateService.GetTemplate(1);
+        //    return View();
+        //}
 
         //private readonly ITemplateRepository iTemplateRepository;
 
@@ -162,11 +163,11 @@ namespace InsurancePortal.Web.Controllers
         ////    return View(model);
         ////}
 
-        //public ActionResult Index(string template)
-        //{
-        //    var model = iTemplateRepository.GetTemplateQuestions(template);
-        //    return View(model);
-        //}
+        public ActionResult Index(string template)
+        {
+            var model = _templateService.GetTemplateQuestions(template);
+            return View(model);
+        }
 
 
     }
