@@ -17,6 +17,7 @@ namespace InsurancePortal.Web.Controllers
         [HttpPost]
         public ActionResult Index(LoginModel model)
         {
+
             return RedirectToAction("Index","AdminHome");
         }
 
