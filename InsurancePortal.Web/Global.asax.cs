@@ -1,5 +1,9 @@
-﻿using InsurancePortal.Business;
-using InsurancePortal.Business.Interfaces;
+﻿using Autofac;
+using Autofac.Integration;
+using Autofac.Integration.Mvc;
+using InsuracePortal.Service;
+using InsurancePortal.Data;
+using InsurancePortal.Service;
 //using InsurancePortal.Web.App_Start;
 //using Ninject;
 using System;
@@ -27,6 +31,25 @@ namespace InsurancePortal.Web
             AutoMapperWebConfiguration.Configure();
             //Bind Ninject Dependency
             //DependencyResolver.SetResolver(new NinjectResolver());
+
+            var builder = new ContainerBuilder();
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());
+            //builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
+            //builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
+
+            // Repositories
+            builder.RegisterAssemblyTypes(typeof(TemplateRepository).Assembly)
+                .Where(t => t.Name.EndsWith("Repository"))
+                .AsImplementedInterfaces().InstancePerRequest();
+            // Services
+            builder.RegisterAssemblyTypes(typeof(TemplateService).Assembly)
+               .Where(t => t.Name.EndsWith("Service"))
+               .AsImplementedInterfaces().InstancePerRequest();
+
+            builder.RegisterType<InsurancePortalEntities>().InstancePerLifetimeScope();
+
+            IContainer container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
         }
     }

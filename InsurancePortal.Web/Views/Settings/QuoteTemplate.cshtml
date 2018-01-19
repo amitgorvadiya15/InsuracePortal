@@ -1,4 +1,4 @@
-﻿@model InsurancePortal.Web.Models.TemplateModel
+﻿@model InsurancePortal.Transport.TemplateModel
 @{
     ViewBag.Title = "QuoteTemplate";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -44,6 +44,7 @@
                 </div>
             </div>
         </div>
+
     </div>
     <div class="row">
         <div class="col-xs-12">
@@ -69,11 +70,11 @@
                         <tbody>
                             @if (ViewBag.QuotesTab != null)
                             {
-                                foreach (InsurancePortal.Transport.TemplateTabViewModel item in ViewBag.QuotesTab)
+                                foreach (InsurancePortal.Transport.TemplateTabModel item in ViewBag.QuotesTab)
                                 {
                                     <tr>
-                                        <td>@item.TabName</td>
-                                        <td>@item.TabName</td>
+                                        <td>@item.TemplateTabName</td>
+                                        <td>@item.TemplateTabName</td>
                                         <td class="center"><a href="@Url.Action("QuoteTabs", "Settings", new { @tabId = item.TemplateTabID })" title="Quotes Template">Edit</a></td>
                                     </tr>
                                 }

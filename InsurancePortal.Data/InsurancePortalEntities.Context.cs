@@ -12,8 +12,9 @@ namespace InsurancePortal.Data
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class InsurancePortalEntities : DbContext
+    using System.Threading.Tasks;
+
+    public partial class InsurancePortalEntities : DbContext,IUnitOfWork
     {
         public InsurancePortalEntities()
             : base("name=InsurancePortalEntities")
@@ -30,5 +31,11 @@ namespace InsurancePortal.Data
         public virtual DbSet<TemplateQue> TemplateQues { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }
+
+        public async Task<bool> SaveEntitiesAsync()
+        {
+            await base.SaveChangesAsync();
+            return true;
+        }
     }
 }

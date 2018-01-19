@@ -1,4 +1,4 @@
-﻿using InsurancePortal.Business.Respositories;
+﻿using InsuracePortal.Service;
 using InsurancePortal.Transport;
 using InsurancePortal.Web.Common;
 using InsurancePortal.Web.Models;
@@ -13,6 +13,13 @@ namespace InsurancePortal.Web.Controllers
     [IsLogined]
     public class LoginController : Controller
     {
+        private readonly IUserService _userService;
+
+        public LoginController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         // GET: Login
         public ActionResult Index(string type)
         {
@@ -50,9 +57,8 @@ namespace InsurancePortal.Web.Controllers
         {
             if (!string.IsNullOrEmpty(model.UserType) && !string.IsNullOrEmpty(model.Password) && !string.IsNullOrEmpty(model.UserName))
             {
-                UserRepository userRepository = new UserRepository();
                 string entrypass = CommonFunction.Encrypt(model.Password);
-                UserViewModel usermodel = userRepository.GetLoginUser(model.UserName, entrypass);
+                UserViewModel usermodel = _userService.GetLoginUser(model.UserName, entrypass);
                 if (usermodel != null)
                 {
                     Session["LoginUser"] = usermodel;

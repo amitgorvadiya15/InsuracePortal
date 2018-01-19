@@ -1,27 +1,19 @@
-﻿using InsurancePortal.Business;
-using InsurancePortal.Business.Interfaces;
-using InsurancePortal.Business.Respositories;
+﻿using InsuracePortal.Service;
 using InsurancePortal.Transport;
-using InsurancePortal.Web.Common;
-using InsurancePortal.Web.Common.Enums;
-using InsurancePortal.Web.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using System.Linq;
 
 namespace InsurancePortal.Web.Controllers.Admin
 {
-    [LoginAuth]
     public class SettingsController : Controller
     {
-        // GET: Settings
-        private readonly ITemplateRepository iTemplateRepository;
-        public SettingsController()
+        private readonly ITemplateService _templateService;
+
+        public SettingsController(ITemplateService templateService)
         {
-            iTemplateRepository = new TemplateRepository();
+            _templateService = templateService;
         }
+
         public ActionResult Index()
         {
             return View();
@@ -37,10 +29,7 @@ namespace InsurancePortal.Web.Controllers.Admin
         [HttpPost]
         public ActionResult AddTemplate(TemplateModel model)
         {
-            TemplateViewModel obj = new TemplateViewModel();
-            obj.TemplateID = model.TemplateID;
-            obj.TemplateName = model.TemplateName;
-            iTemplateRepository.SetTemplate(obj);
+            _templateService.SetTemplate(model);
             return RedirectToAction("ManageQuotes");
         }
 
@@ -48,39 +37,23 @@ namespace InsurancePortal.Web.Controllers.Admin
 
         public ActionResult ManageQuotes()
         {
-            ManageQoutesViewModel model = new ManageQoutesViewModel();
-            model.TemplateList = iTemplateRepository.GetTemplate();
-            return View(model);
+            var templates = _templateService.GetTemplate();
+            return View(templates);
         }
 
         public ActionResult QuoteTemplate(int tempId)
         {
             TemplateModel model = new TemplateModel();
-            TemplateViewModel obj = iTemplateRepository.GetTemplate(tempId);
-            if (obj != null)
-            {
-                model.TemplateID = obj.TemplateID;
-                model.TemplateName = obj.TemplateName;
-            }
-            List<TemplateTabViewModel> lst = iTemplateRepository.GetTemplateTab(tempId);
+            var template = _templateService.GetTemplate(tempId);
+            var lst = _templateService.GetTemplateTab(tempId);
             ViewBag.QuotesTab = lst;
             return View(model);
         }
 
         public ActionResult QuoteTabs(int tabId)
         {
-            TemplateTabModel model = new TemplateTabModel();
-            TemplateTabViewModel obj = iTemplateRepository.GetTemplateTabById(tabId);
-            if (obj != null)
-            {
-                model.TemplateID = obj.TemplateID;
-                model.TemplateTabID = obj.TemplateTabID;
-                model.TemplateTabName = obj.TabName;
-                //model.TabDescription = obj.TabDescription;
-                //model.TabHeader = obj.TabHeader;
-                model.Sections = obj.Sections;
-            }
-            List<TemplateQuesionViewModel> lst = iTemplateRepository.GetTemplateQuestions(tabId);
+            var model = _templateService.GetTemplateTabById(tabId);
+            var lst = _templateService.GetTemplateQuestions(tabId);
             ViewBag.QuestionList = lst;
             return View(model);
         }
@@ -95,14 +68,7 @@ namespace InsurancePortal.Web.Controllers.Admin
         [HttpPost]
         public ActionResult AddTemplateTab(TemplateTabModel model)
         {
-            TemplateTabViewModel obj = new TemplateTabViewModel();
-            obj.TemplateID = model.TemplateID;
-            obj.TemplateTabID = model.TemplateTabID;
-            obj.TabName = model.TemplateTabName;
-            //obj.TabHeader = model.TabHeader;
-            //obj.TabDescription = model.TabDescription;
-            obj.Sections = model.Sections;
-            iTemplateRepository.SetTemplateTab(obj);
+            _templateService.SetTemplateTab(model);
             return RedirectToAction("QuoteTemplate", new { @tempId = model.TemplateID });
         }
 
@@ -110,34 +76,16 @@ namespace InsurancePortal.Web.Controllers.Admin
 
         public ActionResult AddTabQuesion(int tabId, int QuesionId)
         {
+            var model = _templateService.GetTemplateQuestionByID(QuesionId);
 
-            TemplateTabQuesionModel model = new TemplateTabQuesionModel();
-            model.TemplateTabID = tabId;
-            model.TemplateQuesID = QuesionId;
-            if (QuesionId > 0)
-            {
-                TemplateQuesionViewModel obj = new TemplateQuesionViewModel();
-                obj = iTemplateRepository.GetTemplateQuestionByID(QuesionId);
-                if (obj != null)
-                {
-                    model.AnswerDetails = obj.AnswerDetails;
-                    model.AnswerType = obj.AnswerType;
-                    model.Question = obj.Question;
-                }
-            }
             return PartialView("PartialAddTabQuestion", model);
         }
 
         [HttpPost]
         public ActionResult AddTabQuesion(TemplateTabQuesionModel model)
         {
-            TemplateQuesionViewModel obj = new TemplateQuesionViewModel();
-            obj.TemplateQuesID = model.TemplateQuesID;
-            obj.TemplateTabID = model.TemplateTabID;
-            obj.Question = model.Question;
-            obj.AnswerDetails = model.AnswerDetails;
-            obj.AnswerType = model.AnswerType;
-            iTemplateRepository.SetTemplateQuestion(obj);
+            _templateService.SetTemplateQuestion(model);
+
             return RedirectToAction("QuoteTabs", new { tabId = @model.TemplateTabID });
         }
     }

@@ -64,7 +64,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InsurancePortalEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Interface\IBaseRepository.cs" />
+    <Compile Include="Interface\ITemplateQuestionRepository.cs" />
+    <Compile Include="Interface\ITemplateRepository.cs" />
+    <Compile Include="Interface\ITemplateTabRepository.cs" />
+    <Compile Include="Interface\IUnitOfWork.cs" />
+    <Compile Include="Interface\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\BaseRepository.cs" />
+    <Compile Include="Repository\TemplateQuestionRepository.cs" />
+    <Compile Include="Repository\TemplateRepository.cs" />
+    <Compile Include="Repository\TemplateTabRepository.cs" />
+    <Compile Include="Repository\UnitOfWork.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Template.cs">
       <DependentUpon>InsurancePortalEntities.tt</DependentUpon>
     </Compile>

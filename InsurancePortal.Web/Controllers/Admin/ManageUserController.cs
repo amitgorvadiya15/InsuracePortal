@@ -1,4 +1,4 @@
-﻿using InsurancePortal.Business.Respositories;
+﻿using InsuracePortal.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +9,17 @@ namespace InsurancePortal.Web.Controllers.Admin
 {
     public class ManageUserController : Controller
     {
+        private readonly IUserService _userService;
+
+        public ManageUserController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         // GET: ManageUser
         public ActionResult Index()
         {
-            UserRepository userRepository = new UserRepository();
-            ViewBag.UserList = userRepository.GetList();
+            ViewBag.UserList = _userService.GetList();
             return View();
         }
     }
