@@ -15515,10 +15515,6 @@
       <Project>{d05e9446-c47e-4541-bc57-d1be30121b58}</Project>
       <Name>InsuracePortal.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InsurancePortal.Business\InsurancePortal.Business.csproj">
-      <Project>{6c81b922-3d0f-4ab3-8bea-6f1541b4080e}</Project>
-      <Name>InsurancePortal.Business</Name>
-    </ProjectReference>
     <ProjectReference Include="..\InsurancePortal.Data\InsurancePortal.Data.csproj">
       <Project>{421c4ec0-a6e9-47af-b3ef-863fde23a03c}</Project>
       <Name>InsurancePortal.Data</Name>
