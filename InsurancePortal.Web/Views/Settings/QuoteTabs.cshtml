@@ -65,23 +65,23 @@
                                 @Html.HiddenFor(model => model.TemplateTabID)
                             </div>
                         </div>
-                        <div class="row">
+                        @*<div class="row">
                             <div class="col-md-12 form-group" style="float:left;">
                                 <label class="col-md-2 control-label">Tab Header</label>
                                 <div class="col-md-10">
                                     @Html.TextBoxFor(model => model.TabHeader, new { @class = "form-control" })
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
 
-                        <div class="row">
+                        @*<div class="row">
                             <div class="col-md-12 form-group" style="float:left;">
                                 <label class="col-md-2 control-label">Tab Description</label>
                                 <div class="col-md-10">
                                     @Html.TextAreaFor(model => model.TabDescription, new { @class = "form-control" })
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <div class="col-md-12 text-right">
@@ -100,7 +100,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">List of Tabs</h3>
+                    <h3 class="box-title">List of Questions</h3>
                     <div style="float:right;">
                         <button id="btnShowModal" type="button" class="btn btn-primary">
                             Add New
@@ -114,19 +114,19 @@
                             <tr>
                                 <th>#</th>
                                 <th>Question</th>
-                                <th>Answer type</th>
+                                @*<th>Answer type</th>*@
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @if (ViewBag.QuestionList != null && ViewBag.QuestionList.Count > 0)
             {
-                foreach (InsurancePortal.Transport.TemplateQuesionViewModel item in ViewBag.QuestionList)
+                foreach (InsurancePortal.Transport.TemplateTabQuesionModel item in ViewBag.QuestionList)
                 {
                     <tr>
                         <td>@item.TemplateQuesID</td>
                         <td>@item.Question</td>
-                        <td>Search with Selection</td>
+                        @*<td>Search with Selection</td>*@
                         <td class="center"><a href="javascript:PopupEditQuestion(@item.TemplateQuesID)" title="Quotes Template">Edit</a></td>
                     </tr>
 }

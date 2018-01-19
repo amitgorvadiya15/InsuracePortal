@@ -35,22 +35,13 @@ namespace InsurancePortal.Data
         //{
         //    return List(spec).FirstOrDefault();
         //}
-
-
-        public virtual async Task<T> GetByIdAsync(int id)
-        {
-            return await _dbContext.Set<T>().FindAsync(id);
-        }
+        
 
         public IEnumerable<T> ListAll()
         {
             return _dbContext.Set<T>().AsEnumerable();
         }
-
-        public async Task<List<T>> ListAllAsync()
-        {
-            return await _dbContext.Set<T>().ToListAsync();
-        }
+        
 
         //public IEnumerable<T> List(ISpecification<T> spec)
         //{
@@ -91,31 +82,19 @@ namespace InsurancePortal.Data
         {
             _dbContext.Set<T>().Add(entity);
             _dbContext.SaveChanges();
-
             return entity;
         }
 
         public void AddRange(List<T> entities)
         {
             _dbContext.Set<T>().AddRange(entities);
-        }
-
-        public async Task<T> AddAsync(T entity)
-        {
-            _dbContext.Set<T>().Add(entity);
-            //await _dbContext.SaveChangesAsync();
-            return entity;
-        }
-
-        public async Task AddRangeAsync(List<T> entities)
-        {
-            _dbContext.Set<T>().AddRange(entities);
+            _dbContext.SaveChanges();
         }
 
         public void Update(T entity)
         {
             _dbContext.Entry(entity).State = EntityState.Modified;
-            //_dbContext.SaveChanges();
+            _dbContext.SaveChanges();
         }
 
         public void UpdateRange(List<T> entities)
@@ -126,41 +105,71 @@ namespace InsurancePortal.Data
             }
         }
 
-        public async Task UpdateAsync(T entity)
-        {
-            _dbContext.Entry(entity).State = EntityState.Modified;
-            //await _dbContext.SaveChangesAsync();
-        }
-
-        public async Task UpdateRangeAsync(List<T> entities)
-        {
-            foreach (var entity in entities)
-            {
-                await UpdateAsync(entity);
-            }
-        }
-
         public void Delete(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
-            //_dbContext.SaveChanges();
+            _dbContext.SaveChanges();
         }
 
         public void DeleteRange(List<T> entities)
         {
             _dbContext.Set<T>().RemoveRange(entities);
-            //await _dbContext.SaveChangesAsync();
+            _dbContext.SaveChanges();
         }
 
-        public async Task DeleteAsync(T entity)
-        {
-            _dbContext.Set<T>().Remove(entity);
-            //await _dbContext.SaveChangesAsync();
-        }
-        public async Task DeleteRangeAsync(List<T> entities)
-        {
-            _dbContext.Set<T>().RemoveRange(entities);
-            //await _dbContext.SaveChangesAsync();
-        }
+
+        #region Async methods
+        //public virtual async Task<T> GetByIdAsync(int id)
+        //{
+        //    return await _dbContext.Set<T>().FindAsync(id);
+        //}
+
+        //public async Task<List<T>> ListAllAsync()
+        //{
+        //    return await _dbContext.Set<T>().ToListAsync();
+        //}
+
+        //public async Task<T> AddAsync(T entity)
+        //{
+        //    _dbContext.Set<T>().Add(entity);
+        //    //await _dbContext.SaveChangesAsync();
+        //    return entity;
+        //}
+
+        //public async Task AddRangeAsync(List<T> entities)
+        //{
+        //    _dbContext.Set<T>().AddRange(entities);
+        //}
+
+        //public async Task UpdateAsync(T entity)
+        //{
+        //    _dbContext.Entry(entity).State = EntityState.Modified;
+        //    //await _dbContext.SaveChangesAsync();
+        //}
+
+        //public async Task UpdateRangeAsync(List<T> entities)
+        //{
+        //    foreach (var entity in entities)
+        //    {
+        //        await UpdateAsync(entity);
+        //    }
+        //}
+
+        //public async Task DeleteAsync(T entity)
+        //{
+        //    _dbContext.Set<T>().Remove(entity);
+        //    //await _dbContext.SaveChangesAsync();
+        //}
+        //public async Task DeleteRangeAsync(List<T> entities)
+        //{
+        //    _dbContext.Set<T>().RemoveRange(entities);
+        //    //await _dbContext.SaveChangesAsync();
+        //}
+
+        //public async Task SaveChangesAsync()
+        //{
+        //    await this._dbContext.SaveChangesAsync();
+        //}
+        #endregion
     }
 }

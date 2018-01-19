@@ -2,7 +2,6 @@
 using Autofac.Integration;
 using Autofac.Integration.Mvc;
 using InsuracePortal.Service;
-using InsurancePortal.Business.Interfaces;
 using InsurancePortal.Data;
 //using InsurancePortal.Web.App_Start;
 //using Ninject;

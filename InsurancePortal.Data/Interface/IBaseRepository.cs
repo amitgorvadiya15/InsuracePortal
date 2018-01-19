@@ -21,16 +21,18 @@ namespace InsurancePortal.Data
         void Delete(T entity);
         void DeleteRange(List<T> entities);
 
-        #region Async methods
-        Task<T> GetByIdAsync(int id);
-        Task<List<T>> ListAllAsync();
-        //Task<List<T>> ListAsync(ISpecification<T> spec);
-        Task<T> AddAsync(T entity);
-        Task AddRangeAsync(List<T> entities);
-        Task UpdateAsync(T entity);
-        Task UpdateRangeAsync(List<T> entities);
-        Task DeleteAsync(T entity);
-        Task DeleteRangeAsync(List<T> entities);
-        #endregion
+        //#region Async methods
+        //Task<T> GetByIdAsync(int id);
+        //Task<List<T>> ListAllAsync();
+        ////Task<List<T>> ListAsync(ISpecification<T> spec);
+        //Task<T> AddAsync(T entity);
+        //Task AddRangeAsync(List<T> entities);
+        //Task UpdateAsync(T entity);
+        //Task UpdateRangeAsync(List<T> entities);
+        //Task DeleteAsync(T entity);
+        //Task DeleteRangeAsync(List<T> entities);
+        //#endregion
+        
+        //void SaveChangesAsync();
     }
 }

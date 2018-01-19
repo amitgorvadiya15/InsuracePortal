@@ -24,35 +24,6 @@ namespace InsuracePortal.Service
             _templateQuestionRepository = templateQuestionRepository;
         }
 
-        //public Task<List<TemplateViewModel>> GetTemplate()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public async Task<TemplateViewModel> GetTemplate(int tempId)
-        //{
-        //    var template = await _templateRepository.GetByIdAsync(tempId);
-        //    var templateViewModel = new TemplateViewModel
-        //    {
-        //        TemplateID = template.TemplateID,
-        //        TemplateName = template.TemplateName
-        //    };
-
-        //    var templateData = new Template
-        //    {
-        //        TemplateID = 5,
-        //        TemplateName = "testing template",
-        //        CreatedBy = 1,
-        //        CreatedOn = DateTime.Now
-        //    };
-
-        //    await _templateRepository.AddAsync(templateData);
-
-        //    await _templateRepository.UnitOfWork.SaveChangesAsync();
-
-        //    return templateViewModel;
-        //}
-
         #region Template
         public bool SetTemplate(TemplateModel model)
         {
@@ -66,7 +37,7 @@ namespace InsuracePortal.Service
                         template.TemplateName = model.TemplateName;
                         template.ModifiedBy = 1;
                         template.ModifiedOn = DateTime.UtcNow;
-                        _templateRepository.UpdateAsync(template);
+                        _templateRepository.Update(template);
                     }
                 }
                 else
@@ -77,11 +48,9 @@ namespace InsuracePortal.Service
                         CreatedBy = 1,
                         CreatedOn = DateTime.Now
                     };
-                    _templateRepository.AddAsync(template);
+                    _templateRepository.Add(template);
                 }
-
-                _templateRepository.UnitOfWork.SaveChangesAsync();
-
+                //_templateRepository.SaveChangesAsync();
                 return true;
             }
             catch (EntryPointNotFoundException ex)
@@ -103,8 +72,8 @@ namespace InsuracePortal.Service
 
                 if (template != null)
                 {
-                    _templateRepository.DeleteAsync(template);
-                    _templateRepository.UnitOfWork.SaveChangesAsync();
+                    _templateRepository.Delete(template);
+                    //_templateRepository.SaveChangesAsync();
                     return true;
                 }
                 return false;
@@ -126,14 +95,6 @@ namespace InsuracePortal.Service
             try
             {
                 var templates = _templateRepository.ListAll();
-
-                //templist = (from x in templates
-                //            select new TemplateModel
-                //            {
-
-                //                TemplateID = x.TemplateID,
-                //                TemplateName = x.TemplateName,
-                //            }).ToList();
 
                 model.TemplateList = (from t in templates
                                       select new TemplateModel
@@ -183,6 +144,8 @@ namespace InsuracePortal.Service
                     templist = (from x in templateTabs
                                 select new TemplateTabModel
                                 {
+                                    TemplateID = x.TemplateID,
+                                    TemplateTabID = x.TemplateTabID,
                                     TemplateTabName = x.TabName
                                 }).ToList();
                 }
@@ -210,7 +173,7 @@ namespace InsuracePortal.Service
                         templateTab.TabName = model.TemplateTabName;
                         templateTab.Sections = model.Sections;
                         templateTab.ModifiedOn = DateTime.UtcNow;
-                        _templateTabRepository.UpdateAsync(templateTab);
+                        _templateTabRepository.Update(templateTab);
                     }
                 }
                 else
@@ -221,10 +184,10 @@ namespace InsuracePortal.Service
                     templateTab.Sections = model.Sections;
                     templateTab.CreatedOn = DateTime.UtcNow;
                     templateTab.CreatedBy = 1;
-                    _templateTabRepository.AddAsync(templateTab);
+                    _templateTabRepository.Add(templateTab);
                 }
 
-                _templateTabRepository.UnitOfWork.SaveChangesAsync();
+                //_templateTabRepository.SaveChangesAsync();
 
                 return true;
             }
@@ -313,7 +276,7 @@ namespace InsuracePortal.Service
                     question.AnswerDetails = templateQue.AnswerDetails;
                     question.AnswerType = templateQue.AnswerType;
                     question.TemplateQuesID = templateQue.TemplateQuesID;
-                    question.TemplateTabID = templateQue.TemplateQuesID;
+                    question.TemplateTabID = templateQue.TemplateTabID;
                 }
             }
             catch (EntryPointNotFoundException ex)
@@ -339,7 +302,7 @@ namespace InsuracePortal.Service
                     tempQuestion.AnswerType = model.AnswerType;
                     tempQuestion.ModifiedOn = DateTime.UtcNow;
 
-                    _templateQuestionRepository.UpdateAsync(tempQuestion);
+                    _templateQuestionRepository.Update(tempQuestion);
                 }
                 else
                 {
@@ -352,10 +315,10 @@ namespace InsuracePortal.Service
                     tempQuestion.CreatedOn = DateTime.Now;
                     tempQuestion.CreatedBy = 1;
 
-                    _templateQuestionRepository.AddAsync(tempQuestion);
+                    _templateQuestionRepository.Add(tempQuestion);
                 }
 
-                _templateQuestionRepository.UnitOfWork.SaveChangesAsync();
+                //_templateQuestionRepository.SaveChangesAsync();
 
                 return true;
             }
