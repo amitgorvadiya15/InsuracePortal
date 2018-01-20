@@ -12,13 +12,11 @@
             <div class="col-md-12 form-group" style="float:left;">
                 <label class="col-md-2 control-label">Section</label>
                 <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.AnswerType, new List<SelectListItem>{
-                                    new SelectListItem{ Text="Search with selection", Value = "1" },
-                                    new SelectListItem{ Text="Enter text", Value = "2" },
-                                    new SelectListItem{ Text="Selection", Value = "3"},
-                                    new SelectListItem{ Text="Radio button", Value = "4" },
-                                    new SelectListItem{ Text="Checkbox", Value = "5"},
-                   }, new { @class = "form-control" })
+                    @*@Html.DropDownListFor(model => model.Section, ViewBag.TabSections as SelectListItem ,"select section", new { @class = "form-control" })*@
+                    @Html.DropDownListFor(model => model.Section, ViewBag.TabSections as IEnumerable<SelectListItem>, "--Select section--", new { @class = "form-control" })
+                    @*@Html.DropDownListFor(m => m.StudentGender,
+                        new SelectList(Enum.GetValues(typeof(InsurancePortal.Transport.Gender))),
+                        "Select Gender")*@
                 </div>
             </div>
         </div>
@@ -36,12 +34,12 @@
                 <label class="col-md-2 control-label">Answer Type</label>
                 <div class="col-md-10">
                     @Html.DropDownListFor(model => model.AnswerType, new List<SelectListItem>{
-                                                new SelectListItem{ Text="Search with selection", Value = "1" },
-                                                new SelectListItem{ Text="Enter text", Value = "2" },
-                                                new SelectListItem{ Text="Selection", Value = "3"},
-                                                new SelectListItem{ Text="Radio button", Value = "4" },
-                                                new SelectListItem{ Text="Checkbox", Value = "5"},
-                               }, new { @class = "form-control" })
+                                                    new SelectListItem{ Text="Search with selection", Value = "1" },
+                                                    new SelectListItem{ Text="Enter text", Value = "2" },
+                                                    new SelectListItem{ Text="Selection", Value = "3"},
+                                                    new SelectListItem{ Text="Radio button", Value = "4" },
+                                                    new SelectListItem{ Text="Checkbox", Value = "5"},
+                                   }, new { @class = "form-control" })
                 </div>
             </div>
         </div>
@@ -55,7 +53,14 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button type="submit" class="btn btn-primary button button4">Update </button>
+        @if (@Model.TemplateQuesID > 0)
+        {
+            <button type="submit" class="btn btn-primary button button4">Update</button>
+        }
+        else
+        {
+            <button type="submit" class="btn btn-primary button button4">Add</button>
+        }
         <button type="button" id="btnHideModal" data-dismiss="modal" aria-label="Close" class="btn btn-primary button button4">
             Close
         </button>

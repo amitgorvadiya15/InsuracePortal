@@ -173,6 +173,7 @@ namespace InsuracePortal.Service
                         templateTab.TabName = model.TemplateTabName;
                         templateTab.Sections = model.Sections;
                         templateTab.ModifiedOn = DateTime.UtcNow;
+                        templateTab.ModifiedBy = 1;
                         _templateTabRepository.Update(templateTab);
                     }
                 }
@@ -269,14 +270,21 @@ namespace InsuracePortal.Service
             TemplateTabQuesionModel question = new TemplateTabQuesionModel();
             try
             {
-                var templateQue = _templateQuestionRepository.GetById(QueId);
-                if (templateQue != null)
+                if (QueId > 0)
                 {
-                    question.Question = templateQue.Question;
-                    question.AnswerDetails = templateQue.AnswerDetails;
-                    question.AnswerType = templateQue.AnswerType;
-                    question.TemplateQuesID = templateQue.TemplateQuesID;
-                    question.TemplateTabID = templateQue.TemplateTabID;
+                    var templateQue = _templateQuestionRepository.GetById(QueId);
+                    if (templateQue != null)
+                    {
+                        question.Question = templateQue.Question;
+                        question.AnswerDetails = templateQue.AnswerDetails;
+                        question.AnswerType = templateQue.AnswerType;
+                        question.TemplateQuesID = templateQue.TemplateQuesID;
+                        question.TemplateTabID = templateQue.TemplateTabID;
+                        question.Section = templateQue.Section ?? "";
+                    }
+                }
+                else
+                {
                 }
             }
             catch (EntryPointNotFoundException ex)
@@ -297,11 +305,14 @@ namespace InsuracePortal.Service
                 if (model.TemplateQuesID > 0)
                 {
                     var tempQuestion = _templateQuestionRepository.GetById(model.TemplateQuesID);
+
+                    tempQuestion.TemplateTabID = model.TemplateTabID;
                     tempQuestion.Question = model.Question;
+                    tempQuestion.Section = model.Section;
                     tempQuestion.AnswerDetails = model.AnswerDetails;
                     tempQuestion.AnswerType = model.AnswerType;
                     tempQuestion.ModifiedOn = DateTime.UtcNow;
-
+                    tempQuestion.ModifiedBy = 1;
                     _templateQuestionRepository.Update(tempQuestion);
                 }
                 else
@@ -309,6 +320,7 @@ namespace InsuracePortal.Service
                     var tempQuestion = new TemplateQue();
                     tempQuestion.TemplateQuesID = model.TemplateTabID;
                     tempQuestion.TemplateTabID = model.TemplateTabID;
+                    tempQuestion.Section = model.Section;
                     tempQuestion.Question = model.Question;
                     tempQuestion.AnswerDetails = model.AnswerDetails;
                     tempQuestion.AnswerType = model.AnswerType;

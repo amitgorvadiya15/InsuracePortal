@@ -2,6 +2,7 @@
 using InsurancePortal.Transport;
 using System.Web.Mvc;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace InsurancePortal.Web.Controllers.Admin
 {
@@ -75,7 +76,31 @@ namespace InsurancePortal.Web.Controllers.Admin
 
         public ActionResult AddTabQuesion(int tabId, int QuesionId)
         {
-            var model = _templateService.GetTemplateQuestionByID(QuesionId);
+            var model = new TemplateTabQuesionModel();
+            if (QuesionId > 0)
+            {
+                model = _templateService.GetTemplateQuestionByID(QuesionId);
+            }
+            else
+            {
+                model.TemplateTabID = tabId;
+            }
+
+            var tabData = _templateService.GetTemplateTabById(tabId);
+
+            if (tabData != null)
+            {
+                string tabSections = tabData.Sections;
+                if (!string.IsNullOrEmpty(tabSections))
+                {
+                    ViewBag.TabSections = (from sec in tabSections.Split(',')
+                                           select new SelectListItem
+                                           {
+                                               Text = sec,
+                                               Value = sec
+                                           }).ToList();
+                }
+            }
 
             return PartialView("PartialAddTabQuestion", model);
         }
