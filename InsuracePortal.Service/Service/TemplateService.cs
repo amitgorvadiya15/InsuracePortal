@@ -101,7 +101,7 @@ namespace InsuracePortal.Service
                                       {
                                           TemplateID = t.TemplateID,
                                           TemplateName = t.TemplateName
-                                      }).ToList();
+                                      }).OrderBy(x=>x.TemplateID).ToList();
 
             }
             catch (EntryPointNotFoundException ex)
@@ -138,7 +138,7 @@ namespace InsuracePortal.Service
             List<TemplateTabModel> templist = new List<TemplateTabModel>();
             try
             {
-                var templateTabs = _templateTabRepository.ListAll().Where(x => x.TemplateID == TempId).ToList();
+                var templateTabs = _templateTabRepository.ListAll().Where(x => x.TemplateID == TempId).OrderBy(x=>x.TemplateID).ToList();
                 if (templateTabs != null && templateTabs.Count > 0)
                 {
                     templist = (from x in templateTabs
@@ -240,7 +240,7 @@ namespace InsuracePortal.Service
             List<TemplateTabQuesionModel> tempQuestionlist = new List<TemplateTabQuesionModel>();
             try
             {
-                var questions = _templateQuestionRepository.ListAll().Where(x => x.TemplateTabID == tabId).ToList();
+                var questions = _templateQuestionRepository.ListAll().OrderBy(x=>x.TemplateQuesID).Where(x => x.TemplateTabID == tabId).ToList();
 
                 tempQuestionlist = (from x in questions
                                     select new TemplateTabQuesionModel

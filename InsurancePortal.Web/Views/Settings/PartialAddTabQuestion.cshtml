@@ -10,6 +10,20 @@
     <div class="modal-body">
         <div class="row">
             <div class="col-md-12 form-group" style="float:left;">
+                <label class="col-md-2 control-label">Section</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.AnswerType, new List<SelectListItem>{
+                                    new SelectListItem{ Text="Search with selection", Value = "1" },
+                                    new SelectListItem{ Text="Enter text", Value = "2" },
+                                    new SelectListItem{ Text="Selection", Value = "3"},
+                                    new SelectListItem{ Text="Radio button", Value = "4" },
+                                    new SelectListItem{ Text="Checkbox", Value = "5"},
+                   }, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group" style="float:left;">
                 @Html.LabelFor(model => model.Question, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Question, new { htmlAttributes = new { @class = "form-control" } })
@@ -22,12 +36,12 @@
                 <label class="col-md-2 control-label">Answer Type</label>
                 <div class="col-md-10">
                     @Html.DropDownListFor(model => model.AnswerType, new List<SelectListItem>{
-                            new SelectListItem{ Text="Search with selection", Value = "1" },
-                            new SelectListItem{ Text="Enter text", Value = "2" },
-                            new SelectListItem{ Text="Selection", Value = "3"},
-                            new SelectListItem{ Text="Radio button", Value = "4" },
-                            new SelectListItem{ Text="Checkbox", Value = "5"},
-           }, new { @class = "form-control" })
+                                                new SelectListItem{ Text="Search with selection", Value = "1" },
+                                                new SelectListItem{ Text="Enter text", Value = "2" },
+                                                new SelectListItem{ Text="Selection", Value = "3"},
+                                                new SelectListItem{ Text="Radio button", Value = "4" },
+                                                new SelectListItem{ Text="Checkbox", Value = "5"},
+                               }, new { @class = "form-control" })
                 </div>
             </div>
         </div>

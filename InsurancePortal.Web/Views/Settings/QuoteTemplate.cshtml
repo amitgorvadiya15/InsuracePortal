@@ -4,11 +4,10 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
 <section class="content-header">
     <h1>
         Template Tab
-        <small>advanced templates tab</small>
+        @*<small>advanced templates tab</small>*@
     </h1>
     <ol class="breadcrumb">
         <li>
@@ -36,7 +35,7 @@
                                 </div>
                                 @Html.HiddenFor(model => model.TemplateID)
                                 <div class="col-md-2 text-right">
-                                    <button type="submit" class="btn btn-primary button button4">Save</button>
+                                    <button type="submit" class="btn btn-primary button button4">Update</button>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +65,7 @@
                                 <th>Description</th>
                                 <th>Action</th>
                             </tr>
-                        </thead>
+                        </thead>    
                         <tbody>
                             @if (ViewBag.QuotesTab != null)
                             {

@@ -43,8 +43,7 @@ namespace InsurancePortal.Web.Controllers.Admin
 
         public ActionResult QuoteTemplate(int tempId)
         {
-            TemplateModel model = new TemplateModel();
-            var template = _templateService.GetTemplate(tempId);
+            var model = _templateService.GetTemplate(tempId);
             var lst = _templateService.GetTemplateTab(tempId);
             ViewBag.QuotesTab = lst;
             return View(model);
