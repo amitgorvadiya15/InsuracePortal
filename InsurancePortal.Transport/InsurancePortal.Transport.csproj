@@ -44,6 +44,7 @@
     <Compile Include="ManageQoutesViewModel.cs" />
     <Compile Include="ModelQuestionsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SectionViewModel.cs" />
     <Compile Include="TemplateModel.cs" />
     <Compile Include="TemplateTabModel.cs" />
     <Compile Include="TemplateTabQuesionModel.cs" />

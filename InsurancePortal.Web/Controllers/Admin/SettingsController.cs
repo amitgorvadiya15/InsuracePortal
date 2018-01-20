@@ -2,6 +2,7 @@
 using InsurancePortal.Transport;
 using System.Web.Mvc;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace InsurancePortal.Web.Controllers.Admin
 {
@@ -43,8 +44,7 @@ namespace InsurancePortal.Web.Controllers.Admin
 
         public ActionResult QuoteTemplate(int tempId)
         {
-            TemplateModel model = new TemplateModel();
-            var template = _templateService.GetTemplate(tempId);
+            var model = _templateService.GetTemplate(tempId);
             var lst = _templateService.GetTemplateTab(tempId);
             ViewBag.QuotesTab = lst;
             return View(model);
@@ -76,7 +76,42 @@ namespace InsurancePortal.Web.Controllers.Admin
 
         public ActionResult AddTabQuesion(int tabId, int QuesionId)
         {
-            var model = _templateService.GetTemplateQuestionByID(QuesionId);
+            var model = new TemplateTabQuesionModel();
+            if (QuesionId > 0)
+            {
+                model = _templateService.GetTemplateQuestionByID(QuesionId);
+            }
+            else
+            {
+                model.TemplateTabID = tabId;
+            }
+
+            var tabData = _templateService.GetTemplateTabById(tabId);
+
+            if (tabData != null)
+            {
+                string tabSections = tabData.Sections;
+                if (!string.IsNullOrEmpty(tabSections))
+                {
+                    ViewBag.TabSections = (from sec in tabSections.Split(',')
+                                           select new SelectListItem
+                                           {
+                                               Text = sec,
+                                               Value = sec
+                                           }).ToList();
+                }
+                else
+                {
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "",
+                        Value = ""
+                    });
+
+                    ViewBag.TabSections = listItems;
+                }
+            }
 
             return PartialView("PartialAddTabQuestion", model);
         }
