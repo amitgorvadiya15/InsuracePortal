@@ -127,27 +127,43 @@
                                         <label class="control-label" for="business_type">@question.QuestionTitle</label>
                                     </div>
                                     <div class='control'>
-                                       @Html.DropDownList("answerList", question.AnswersList.Select(item=> new SelectListItem
-                                       {
-                                           Value = item.AnswerId.ToString(),
-                                           Text = item.AnswerTitle
-                                       }), "Please select...", new { @class = "select-wrapper" })
+                                        @Html.DropDownList("answerList", question.AnswersList.Select(item => new SelectListItem
+                                        {
+                                            Value = item.AnswerId.ToString(),
+                                            Text = item.AnswerTitle
+                                        }), "Please select...", new { @class = "select-wrapper" })
                                     </div>
                                 </div>
                                 break;
-                                                case 4://RadioButton
+                            case 4://RadioButton
                                 <div class='control-block on' data-trigger='refresh'>
                                     @*<div class='control-block info-box on'>*@
-                                        <div class='control-text'>
-                                            <div class='control-label'>@question.QuestionTitle</div>
-                                        </div>
-                                        <div class='control'>
-                                            @foreach (var answer in question.AnswersList)
-                                            {
-                                                @Html.RadioButton("radio", answer.AnswerTitle,new {@class = "radio" })
-                                                @Html.Label(answer.AnswerTitle)
-                                            }
-                                        </div>
+                                    <div class='control-text'>
+                                        <div class='control-label'>@question.QuestionTitle</div>
+                                    </div>
+                                    <div class='control'>
+                                        @foreach (var answer in question.AnswersList)
+                                        {
+                                            @Html.RadioButton("radio", answer.AnswerTitle, new { @class = "radio" })
+                                            @Html.Label(answer.AnswerTitle)<br />
+                                        }
+                                    </div>
+                                    @*</div>*@
+                                </div>
+                                break;
+                            case 5://checkbox
+                                <div class='control-block on' data-trigger='refresh'>
+                                    @*<div class='control-block info-box on'>*@
+                                    <div class='control-text'>
+                                        <div class='control-label'>@question.QuestionTitle</div>
+                                    </div>
+                                    <div class='control'>
+                                        @foreach (var answer in question.AnswersList)
+                                        {
+                                            @Html.CheckBox(answer.AnswerTitle)
+                                            @Html.Label(answer.AnswerTitle)<br />
+                                        }
+                                    </div>
                                     @*</div>*@
                                 </div>
                                 break;

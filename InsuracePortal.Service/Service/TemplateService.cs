@@ -386,7 +386,7 @@ namespace InsuracePortal.Service
                                 Sections section = new Sections();
                                 section.SectionTitle = sec;
                                 //var sectionQuestions = db.TemplateQues.Where(x => x.TemplateTabID.Equals(template.TemplateID) && x.Section.Equals(sec)).ToList();
-                                var sectionQuestions = _templateQuestionRepository.ListAll().Where(x=>x.TemplateTabID.Equals(template.TemplateID) && x.Section.Equals(sec)).ToList();
+                                var sectionQuestions = _templateQuestionRepository.ListAll().Where(x=>x.TemplateTabID.Equals(t.TemplateTabID) && x.Section.ToLower().Equals(sec.ToLower())).ToList();
                                 section.QuestionsList = (from que in sectionQuestions
                                                          select new Questions
                                                          {

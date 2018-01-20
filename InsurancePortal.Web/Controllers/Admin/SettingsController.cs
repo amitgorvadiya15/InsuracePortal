@@ -100,6 +100,17 @@ namespace InsurancePortal.Web.Controllers.Admin
                                                Value = sec
                                            }).ToList();
                 }
+                else
+                {
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "",
+                        Value = ""
+                    });
+
+                    ViewBag.TabSections = listItems;
+                }
             }
 
             return PartialView("PartialAddTabQuestion", model);
