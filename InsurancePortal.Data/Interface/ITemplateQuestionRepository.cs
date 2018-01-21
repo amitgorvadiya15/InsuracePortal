@@ -8,5 +8,6 @@ namespace InsurancePortal.Data
 {
     public interface ITemplateQuestionRepository : IBaseRepository<TemplateQue>
     {
+        List<TemplateQue> GetByTemplateId(int tempId);
     }
 }

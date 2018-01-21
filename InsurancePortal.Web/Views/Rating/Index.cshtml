@@ -1,0 +1,92 @@
+﻿@*@model InsurancePortal.Transport.RatingViewModel*@
+@{
+    ViewBag.Title = "Rating management";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="content-header">
+    <h1>
+        Rating Management
+        <small>Manage the question wise rating</small>
+    </h1>
+    <ol class="breadcrumb">
+
+        <li class="active">Rating Management</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-6 form-group" style="float:left;">
+            <label class="col-md-2 control-label">Template</label>
+            <div class="col-md-4">
+                @*@Html.DropDownList(ViewBag.TabSections as IEnumerable<SelectListItem>, "--Select section--", new { @class = "form-control" })*@
+                @Html.DropDownList("Templates", ViewBag.Templates as IEnumerable<SelectListItem>, "Select Template",new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">List of Question wise rating</h3>
+                    @*<div style="float:right;">
+                            <button id="btnShowModal" type="button" class="btn btn-primary">
+                                Add New
+                            </button>
+                        </div>*@
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="dispaly" cellspacing="0" width="100%" id="tbltemplatetab">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Question</th>
+                                <th>Answer</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*@if (InsurancePortal.Transport.RatingViewModel.)
+                                {
+                                    foreach (InsurancePortal.TransporUserViewModel item in ViewBag.UserList)
+                                    {
+                                        <tr>
+                                            <td>@item.FirstName</td>
+                                            <td>@item.LastName</td>
+                                            <td>@item.EmailID</td>
+                                            <td class="center"><a href="javascript:void(0);" title="Details">Details</a></td>
+                                        </tr>
+                                    }
+
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="4" style="text-align:center;">No users found.</td>
+                                    </tr>
+                                }*@
+                            <tr>
+                                <td colspan="4" style="text-align:center;">No rating found.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#tbltemplatetab').DataTable();
+    });
+</script>

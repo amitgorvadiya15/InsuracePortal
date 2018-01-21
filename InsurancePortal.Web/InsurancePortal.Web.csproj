@@ -161,6 +161,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\Admin\AdminHomeController.cs" />
     <Compile Include="Controllers\Admin\ManageUserController.cs" />
+    <Compile Include="Controllers\Admin\RatingController.cs" />
     <Compile Include="Controllers\Admin\SettingsController.cs" />
     <Compile Include="Controllers\BrokerController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
@@ -15489,6 +15490,7 @@
     <Content Include="Views\Shared\assets\bijou\museosansrounded_700-205bdf3f5255bae942d055addbb1b09a6ba24b6a8440c688661fa524098745c1.woff2" />
     <Content Include="Views\Shared\assets\bijou\museosansrounded_700-2ac687a8c37adedf02f6b3bd3865528e42e5ff4fcb5b820c2fd8266e1a627e7a.woff" />
     <Content Include="Views\ManageUser\Index.cshtml" />
+    <Content Include="Views\Rating\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -15545,7 +15547,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49780</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
