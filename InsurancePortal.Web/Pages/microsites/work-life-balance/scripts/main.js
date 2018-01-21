@@ -231,7 +231,7 @@ $(document).ready(function($) {
 					app_id: "724812420978870",
 					display: "popup",
 					link: "http://www.simplybusiness.co.uk/microsites/work-life-balance/",
-					caption: "The Simply Business work-life balance quiz",
+					caption: "The company name work-life balance quiz",
 					redirect_uri: "http://www.simplybusiness.co.uk/microsites/work-life-balance/done.html"
 				},
 				a: {
@@ -278,8 +278,8 @@ $(document).ready(function($) {
 				defaults: {
 					mini: "true",
 					url: "http://www.simplybusiness.co.uk/microsites/work-life-balance/",
-					source: "Simply Business",
-					title: "The Simply Business work-life balance quiz"
+					source: "company name",
+					title: "The company name work-life balance quiz"
 				},
 				a: {
 					summary: "The quest for perfection gets me out of bed and my desk is immaculate! Take the quiz and win a trip for two to the ancient Thermae Spa in Bath."

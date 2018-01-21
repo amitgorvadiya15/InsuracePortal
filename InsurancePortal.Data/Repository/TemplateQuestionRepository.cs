@@ -11,5 +11,15 @@ namespace InsurancePortal.Data
         public TemplateQuestionRepository(InsurancePortalEntities dbContext) : base(dbContext)
         {
         }
+
+        public List<TemplateQue> GetByTemplateId(int tempId)
+        {
+            var tempQuestions = (from tq in _dbContext.TemplateQues
+                                 join tb in _dbContext.TemplateTabs on tq.TemplateTabID equals tb.TemplateTabID
+                                 where tb.TemplateID == tempId
+                                 select tq).ToList();
+
+            return tempQuestions;
+        }
     }
 }

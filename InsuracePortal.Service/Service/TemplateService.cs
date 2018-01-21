@@ -101,7 +101,7 @@ namespace InsuracePortal.Service
                                       {
                                           TemplateID = t.TemplateID,
                                           TemplateName = t.TemplateName
-                                      }).OrderBy(x=>x.TemplateID).ToList();
+                                      }).OrderBy(x => x.TemplateID).ToList();
 
             }
             catch (EntryPointNotFoundException ex)
@@ -138,7 +138,7 @@ namespace InsuracePortal.Service
             List<TemplateTabModel> templist = new List<TemplateTabModel>();
             try
             {
-                var templateTabs = _templateTabRepository.ListAll().Where(x => x.TemplateID == TempId).OrderBy(x=>x.TemplateID).ToList();
+                var templateTabs = _templateTabRepository.ListAll().Where(x => x.TemplateID == TempId).OrderBy(x => x.TemplateID).ToList();
                 if (templateTabs != null && templateTabs.Count > 0)
                 {
                     templist = (from x in templateTabs
@@ -241,7 +241,7 @@ namespace InsuracePortal.Service
             List<TemplateTabQuesionModel> tempQuestionlist = new List<TemplateTabQuesionModel>();
             try
             {
-                var questions = _templateQuestionRepository.ListAll().OrderBy(x=>x.TemplateQuesID).Where(x => x.TemplateTabID == tabId).ToList();
+                var questions = _templateQuestionRepository.ListAll().OrderBy(x => x.TemplateQuesID).Where(x => x.TemplateTabID == tabId).ToList();
 
                 tempQuestionlist = (from x in questions
                                     select new TemplateTabQuesionModel
@@ -386,7 +386,7 @@ namespace InsuracePortal.Service
                                 Sections section = new Sections();
                                 section.SectionTitle = sec;
                                 //var sectionQuestions = db.TemplateQues.Where(x => x.TemplateTabID.Equals(template.TemplateID) && x.Section.Equals(sec)).ToList();
-                                var sectionQuestions = _templateQuestionRepository.ListAll().Where(x=>x.TemplateTabID.Equals(t.TemplateTabID) && x.Section.ToLower().Equals(sec.ToLower())).ToList();
+                                var sectionQuestions = _templateQuestionRepository.ListAll().Where(x => x.TemplateTabID.Equals(t.TemplateTabID) && x.Section.ToLower().Equals(sec.ToLower())).ToList();
                                 section.QuestionsList = (from que in sectionQuestions
                                                          select new Questions
                                                          {
@@ -409,6 +409,41 @@ namespace InsuracePortal.Service
                 }
             }
             //}
+            return model;
+        }
+
+
+        public RatingViewModel GetTemplateRating(int templateId)
+        {
+            var template = new Template();
+
+            template = _templateRepository.GetById(templateId);
+
+            var model = new RatingViewModel();
+
+            model.QuestionsList = new List<Questions>();
+
+            if (template != null)
+            {
+                var tempQuestions = _templateQuestionRepository.GetByTemplateId(templateId);
+
+                int[] questionType = { 3, 4, 5 };
+
+                model.QuestionsList = (from que in tempQuestions
+                                       select new Questions
+                                       {
+                                           QuestionId = que.TemplateQuesID,
+                                           QuestionTitle = que.Question,
+                                           QuestionType = Convert.ToInt32(que.AnswerType),
+                                           AnswersList = !questionType.Contains(Convert.ToInt32(que.AnswerType)) ? new List<Answers>() : (from ans in que.AnswerDetails.Split(',')
+                                                                                                                                          select new Answers
+                                                                                                                                          {
+                                                                                                                                              AnswerId = 1,
+                                                                                                                                              AnswerTitle = ans
+                                                                                                                                          }).ToList()
+
+                                       }).ToList();
+            }
             return model;
         }
     }

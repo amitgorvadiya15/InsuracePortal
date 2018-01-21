@@ -758,7 +758,7 @@ function next_pytanie_larrego() {
 		odpowiedzi[1] = 'As well as buildings and contents insurance, specific landlord policies can cover risks such as tenants defaulting on their rent, loss of rent due to property being damaged and becoming uninhabitable, and cover if someone makes a compensation claim for injury or damage. ';
 		odpowiedzi[2] = 'It depends on your situation, but buildings and public liability cover are often included as standard. If your property is furnished, you could consider contents insurance. Other covers include accidental damage, alternative accommodation, loss of rent and legal expenses. ';
 		odpowiedzi[3] = 'This depends on things like the amount it would cost to rebuild your property and where it’s located. Also, whether it’s residential or commercial, the type of property (e.g. detached house or flat), when it was built, and what materials it is made of. ';
-		odpowiedzi[4] = 'It is a good idea to compare quotes from different insurers. You can do this comparison online by visiting the website of an online insurance broker such as Simply Business, to compare quotes from a number of providers by completing a single form. ';
+		odpowiedzi[4] = 'It is a good idea to compare quotes from different insurers. You can do this comparison online by visiting the website of an online insurance broker such as company name, to compare quotes from a number of providers by completing a single form. ';
 
 		$('#odpowiedz_lennego').css({
 			'display' : 'block',
@@ -774,7 +774,7 @@ function next_pytanie_larrego() {
 		});
 
 		$('#odpowiedz_lennego p').html(
-				'<b>Keith (landlord insurance expert from Simply Business): </b>'
+				'<b>Keith (landlord insurance expert from company name): </b>'
 						+ odpowiedzi[aktualnieZadanePytanieLarrego]);
 		$('#odpowiedz_lennego span').html(
 				'Answer ' + aktualnieZadanePytanieLarrego + ' of 4');
