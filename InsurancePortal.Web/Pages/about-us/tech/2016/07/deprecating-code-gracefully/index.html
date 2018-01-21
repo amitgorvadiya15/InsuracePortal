@@ -10,7 +10,7 @@
 <title>Deprecating Code Gracefully</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="index, follow" name="robots">
-<meta content="Deprecating Code Gracefully | Simply Business" name="description">
+<meta content="Deprecating Code Gracefully | company name" name="description">
 <meta content="Deprecating Code Gracefully" property="og:title">
 <meta content="article" property="og:type">
 <meta content="https://www.simplybusiness.co.uk/about-us/tech/2016/07/deprecating-code-gracefully/" property="og:url">
@@ -72,7 +72,7 @@ fbq('trackCustom', 'UV');
 <link href="../../../../../assets/bijou/apple-icon-167x167-dc27d424ae184f34cbe4afa158929f59375cfc98477e201f3eb1fced390f0b23.png" rel="apple-touch-icon" sizes="167x167">
 <link href="../../../../../assets/bijou/apple-icon-180x180-cfb96d969435ef742153d9b92b7327b0720fa95f3ac905c2cd47cd1731b91e2c.png" rel="apple-touch-icon" sizes="180x180">
 <link href="../../../../../assets/bijou/icon-192x192-bd2f830632266cad764c388c8d11d7e9aea41bf8e8485bebf1209ac501f9e756.png" rel="icon" sizes="192x192">
-<meta content="Simply Business" name="apple-mobile-web-app-title">
+<meta content="company name" name="apple-mobile-web-app-title">
 </head>
 <body class="template-article" itemscope itemtype="https://schema.org/InsuranceAgency">
 
@@ -85,7 +85,7 @@ fbq('trackCustom', 'UV');
 <div class="site-header-logo">
 <div class="site-header-logo__gradient js-has-css-animation"></div>
 <a class="site-header-logo__link logo" href="../../../../../index.html" itemprop="url">
-Simply Business - Insurance for your business
+company name - Insurance for your business
 </a>
 </div>
 <div class="has-nav site-header__customer-service">
@@ -463,7 +463,7 @@ Simply Business - Insurance for your business
 <div class="social-tools addthis_sharing_toolbox"></div>
 </header>
 <div class="article__body" itemprop="blogPost">
-&#x000A;<p>In this post I describe a neat but simple trick that you can use to help inform developers of proposed architectural direction changes in the code they are modifying.</p>&#x000A;&#x000A;<p>This is especially useful on a large, constantly evolving monolithic code base where refactors may take time and require a concerted effort across the whole team.</p>&#x000A;&#x000A;<p>An example illustrates the concept quite nicely:</p>&#x000A;&#x000A;<pre><code>bundle exec rspec spec/features/deprecated_classes_spec.rb&#x000A;</code></pre>&#x000A;&#x000A;<p><img src="../../../../../media/tech/deprecating-code-gracefully/example_failure.png" alt="smiley" /></p>&#x000A;&#x000A;<p>This is a great call to action.</p>&#x000A;&#x000A;<p>It encourages teams to have a conversation about the desired approach, read the docs, and collaborate where required. This may be the time to upgrade this part of the system or it maybe just fine to update the sha and carry on, assuming the relevant parties have agreed so. This change also has the benefit of showing up in a pull request and so any changes may need to be justified.</p>&#x000A;&#x000A;<p>In summary, it provides an opportunity to constantly improve and share the knowledge. One of our principles at <a href="../../../../../index.html" >Simply Business</a> is <strong >“maintenance is a must”</strong> and this certainly embraces that.</p>&#x000A;&#x000A;<h2>In Practice</h2>&#x000A;&#x000A;<p><strong >Feature: Deprecated classes</strong></p>&#x000A;&#x000A;<pre><code>As a developer&#x000A;I want to raise awareness of deprecated classes&#x000A;So that we don't build on code we want to refactor when we next modify it&#x000A;And therefore we "do it right"&#x000A;&#x000A;Scenario: Modifying a class which is marked as deprecated due to the new&#x000A;support framework&#x000A;  Given a list of deprecated files&#x000A;    | file                | sha    |&#x000A;    | app/support/book.rb | f92f8a |&#x000A;    | app/support/page.rb | fbb220 |&#x000A;&#x000A;  And a deprecation message:&#x000A;    """&#x000A;    Refactor with a goal!&#x000A;    ======================&#x000A;    This test fails because you have made a change to one or&#x000A;    more files which we would like to deprecate in favour of&#x000A;    our preferred design approach.&#x000A;&#x000A;    Please consult with the guidelines here&#x000A;    http://example.com/refactor or talk to the 'Acme' group&#x000A;    within the company for guidance.&#x000A;    """&#x000A;  When any of the files is detected as being modified&#x000A;  Then this test will fail with a deprecation message`&#x000A;</code></pre>&#x000A;&#x000A;<h2>Step file</h2>&#x000A;&#x000A;<pre><code>step "a list of deprecated files" do | files |&#x000A;  @files = files.to_h&#x000A;  @files.delete('file')&#x000A;end&#x000A;&#x000A;step "a deprecation message:" do | msg |&#x000A;  @msg = msg&#x000A;end&#x000A;&#x000A;step "any of the files is detected as being modified" do&#x000A;  @expected =&#x000A;    @files.keys.each_with_object({}) do | filename, current_shas |&#x000A;     contents = File.read(File.expand_path(File.join&#x000A;       (__dir__,'..','..',filename)))&#x000A;     current_shas[filename] = Digest::SHA1.hexdigest(contents)&#x000A;   end&#x000A;end&#x000A;&#x000A;step "this test will fail with a deprecation message" do&#x000A;  expect( @expected ).to match( @files ), @msg&#x000A;end&#x000A;</code></pre>&#x000A;&#x000A;<p>You can <a target="_blank" href="https://github.com/simplybusiness/refactoring_with_features" >view the full source for the example</a> on the Github repository.</p>&#x000A;</div>
+&#x000A;<p>In this post I describe a neat but simple trick that you can use to help inform developers of proposed architectural direction changes in the code they are modifying.</p>&#x000A;&#x000A;<p>This is especially useful on a large, constantly evolving monolithic code base where refactors may take time and require a concerted effort across the whole team.</p>&#x000A;&#x000A;<p>An example illustrates the concept quite nicely:</p>&#x000A;&#x000A;<pre><code>bundle exec rspec spec/features/deprecated_classes_spec.rb&#x000A;</code></pre>&#x000A;&#x000A;<p><img src="../../../../../media/tech/deprecating-code-gracefully/example_failure.png" alt="smiley" /></p>&#x000A;&#x000A;<p>This is a great call to action.</p>&#x000A;&#x000A;<p>It encourages teams to have a conversation about the desired approach, read the docs, and collaborate where required. This may be the time to upgrade this part of the system or it maybe just fine to update the sha and carry on, assuming the relevant parties have agreed so. This change also has the benefit of showing up in a pull request and so any changes may need to be justified.</p>&#x000A;&#x000A;<p>In summary, it provides an opportunity to constantly improve and share the knowledge. One of our principles at <a href="../../../../../index.html" >company name</a> is <strong >“maintenance is a must”</strong> and this certainly embraces that.</p>&#x000A;&#x000A;<h2>In Practice</h2>&#x000A;&#x000A;<p><strong >Feature: Deprecated classes</strong></p>&#x000A;&#x000A;<pre><code>As a developer&#x000A;I want to raise awareness of deprecated classes&#x000A;So that we don't build on code we want to refactor when we next modify it&#x000A;And therefore we "do it right"&#x000A;&#x000A;Scenario: Modifying a class which is marked as deprecated due to the new&#x000A;support framework&#x000A;  Given a list of deprecated files&#x000A;    | file                | sha    |&#x000A;    | app/support/book.rb | f92f8a |&#x000A;    | app/support/page.rb | fbb220 |&#x000A;&#x000A;  And a deprecation message:&#x000A;    """&#x000A;    Refactor with a goal!&#x000A;    ======================&#x000A;    This test fails because you have made a change to one or&#x000A;    more files which we would like to deprecate in favour of&#x000A;    our preferred design approach.&#x000A;&#x000A;    Please consult with the guidelines here&#x000A;    http://example.com/refactor or talk to the 'Acme' group&#x000A;    within the company for guidance.&#x000A;    """&#x000A;  When any of the files is detected as being modified&#x000A;  Then this test will fail with a deprecation message`&#x000A;</code></pre>&#x000A;&#x000A;<h2>Step file</h2>&#x000A;&#x000A;<pre><code>step "a list of deprecated files" do | files |&#x000A;  @files = files.to_h&#x000A;  @files.delete('file')&#x000A;end&#x000A;&#x000A;step "a deprecation message:" do | msg |&#x000A;  @msg = msg&#x000A;end&#x000A;&#x000A;step "any of the files is detected as being modified" do&#x000A;  @expected =&#x000A;    @files.keys.each_with_object({}) do | filename, current_shas |&#x000A;     contents = File.read(File.expand_path(File.join&#x000A;       (__dir__,'..','..',filename)))&#x000A;     current_shas[filename] = Digest::SHA1.hexdigest(contents)&#x000A;   end&#x000A;end&#x000A;&#x000A;step "this test will fail with a deprecation message" do&#x000A;  expect( @expected ).to match( @files ), @msg&#x000A;end&#x000A;</code></pre>&#x000A;&#x000A;<p>You can <a target="_blank" href="https://github.com/simplybusiness/refactoring_with_features" >view the full source for the example</a> on the Github repository.</p>&#x000A;</div>
 <footer class="article__footer">
 <div class="social-tools addthis_sharing_toolbox"></div>
 </footer>
@@ -580,7 +580,7 @@ business or rental.
 </div><div class="grid-cell desktop-onesixth tablet-onethird mobile-onehalf">
 <div class="module">
 <div class="module-content">
-<h4>About Simply Business</h4>
+<h4>About company name</h4>
 <ul>
 <li>
 <a href="../../../../index.html">About us</a>
@@ -612,7 +612,7 @@ business or rental.
 <h4>Careers</h4>
 <ul>
 <li>
-<a href="../../../../careers/index.html">Careers at Simply Business</a>
+<a href="../../../../careers/index.html">Careers at company name</a>
 </li>
 <li>
 <a href="../../../../careers/tech/index.html">Tech careers</a>
@@ -741,8 +741,8 @@ Sign up to get our monthly newsletter, jam-packed with industry news, tips and e
 <div class="small-print">
 <div class="grid-wrapper">
 <p>
-&copy; Copyright 2017 Simply Business. All Rights Reserved.
-Simply Business is a trading name of Xbridge Limited which is authorised and
+&copy; Copyright 2017 company name. All Rights Reserved.
+company name is a trading name of Xbridge Limited which is authorised and
 regulated by the Financial Conduct Authority (Financial Services Registration
 No: 313348). Xbridge Limited (No: 3967717) has its registered office at
 99 Gresham Street, London EC2V 7NG.
