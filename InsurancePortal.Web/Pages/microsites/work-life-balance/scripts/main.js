@@ -230,35 +230,35 @@ $(document).ready(function($) {
 				defaults: {
 					app_id: "724812420978870",
 					display: "popup",
-					link: "http://www.simplybusiness.co.uk/microsites/work-life-balance/",
+					link: "http://www.companyname.co.uk/microsites/work-life-balance/",
 					caption: "The company name work-life balance quiz",
-					redirect_uri: "http://www.simplybusiness.co.uk/microsites/work-life-balance/done.html"
+					redirect_uri: "http://www.companyname.co.uk/microsites/work-life-balance/done.html"
 				},
 				a: {
 					name: "The Detail Obsessive",
 					description: "The quest for perfection gets me out of bed and my desk is immaculate! Take the quiz and win a trip for two to the ancient Thermae Spa in Bath.",
-					picture: "http://www.simplybusiness.co.uk/microsites/work-life-balance/images/work_life_balance_og_detail.jpg"
+					picture: "http://www.companyname.co.uk/microsites/work-life-balance/images/work_life_balance_og_detail.jpg"
 				},
 				b: {
 					name: "The Taskmaster",
 					description: "Some might call me domineering but in fact i'm a visionary decision maker! Take the quiz and win a trip for two to the ancient Thermae Spa in Bath.",
-					picture: "http://www.simplybusiness.co.uk/microsites/work-life-balance/images/work_life_balance_og_task.jpg"
+					picture: "http://www.companyname.co.uk/microsites/work-life-balance/images/work_life_balance_og_task.jpg"
 				},
 				c: {
 					name: "The Yogi",
 					description: "I like to take my time and give out a free hug or two! Take the quiz and win a trip for two to the ancient Thermae Spa in Bath.",
-					picture: "http://www.simplybusiness.co.uk/microsites/work-life-balance/images/work_life_balance_og_yogi.jpg"
+					picture: "http://www.companyname.co.uk/microsites/work-life-balance/images/work_life_balance_og_yogi.jpg"
 				},
 				d: {
 					name: "The Creative Whirlwind",
 					description: "Ideas and inspiration seep from my every pore! Take the quiz and win a trip for two to the ancient Thermae Spa in Bath.",
-					picture: "http://www.simplybusiness.co.uk/microsites/work-life-balance/images/work_life_balance_og_creative.jpg"
+					picture: "http://www.companyname.co.uk/microsites/work-life-balance/images/work_life_balance_og_creative.jpg"
 				}
 			},
 			twitter: {
 				url: "https://twitter.com/share",
 				defaults: {
-					url: "http://www.simplybusiness.co.uk/microsites/work-life-balance/"
+					url: "http://www.companyname.co.uk/microsites/work-life-balance/"
 				},
 				a: {
 					text: 'I got the "The Detail Obsessive" personality! Take the @simplybusiness work-life balance quiz and win prizes #WLB'
@@ -277,7 +277,7 @@ $(document).ready(function($) {
 				url: "https://www.linkedin.com/shareArticle",
 				defaults: {
 					mini: "true",
-					url: "http://www.simplybusiness.co.uk/microsites/work-life-balance/",
+					url: "http://www.companyname.co.uk/microsites/work-life-balance/",
 					source: "company name",
 					title: "The company name work-life balance quiz"
 				},
