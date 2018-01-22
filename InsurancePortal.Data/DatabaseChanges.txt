@@ -1,6 +1,6 @@
 ﻿USE [InsurancePortal]
 GO
-/****** Object:  Table [dbo].[Template]    Script Date: 1/20/2018 9:28:13 PM ******/
+/****** Object:  Table [dbo].[Template]    Script Date: 1/22/2018 10:00:38 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -18,7 +18,7 @@ CREATE TABLE [dbo].[Template](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TemplateQues]    Script Date: 1/20/2018 9:28:14 PM ******/
+/****** Object:  Table [dbo].[TemplateQues]    Script Date: 1/22/2018 10:00:39 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -40,7 +40,7 @@ CREATE TABLE [dbo].[TemplateQues](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TemplateTab]    Script Date: 1/20/2018 9:28:14 PM ******/
+/****** Object:  Table [dbo].[TemplateTab]    Script Date: 1/22/2018 10:00:39 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -62,7 +62,7 @@ CREATE TABLE [dbo].[TemplateTab](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 1/20/2018 9:28:14 PM ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 1/22/2018 10:00:39 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -84,7 +84,7 @@ CREATE TABLE [dbo].[Users](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UserType]    Script Date: 1/20/2018 9:28:14 PM ******/
+/****** Object:  Table [dbo].[UserType]    Script Date: 1/22/2018 10:00:39 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -109,12 +109,6 @@ GO
 INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (2, N'Landlord', CAST(N'2018-01-10T21:41:34.713' AS DateTime), 1, NULL, NULL)
 GO
 INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (3, N'Vehicle', CAST(N'2018-01-10T21:42:38.447' AS DateTime), 1, CAST(N'2018-01-10T21:44:45.887' AS DateTime), NULL)
-GO
-INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (5, N'testing template', CAST(N'2018-01-17T23:45:55.153' AS DateTime), 1, NULL, NULL)
-GO
-INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (7, N'new new new', CAST(N'2018-01-20T00:51:32.960' AS DateTime), 1, NULL, NULL)
-GO
-INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (8, N'test', CAST(N'2018-01-20T03:45:37.007' AS DateTime), 1, NULL, NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Template] OFF
 GO
@@ -181,6 +175,8 @@ INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Ques
 ,3-4 years
 ,4-5 years
 ,Over 5 years', CAST(N'2018-01-20T21:08:09.840' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [AnswerType], [AnswerDetails], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1021, 8, N'Vehicle usage', N'Year of purchase', N'1', N'2011,2012,2013,2014,2015,2016,2017', CAST(N'2018-01-22T01:19:40.537' AS DateTime), 1, NULL, NULL)
 GO
 SET IDENTITY_INSERT [dbo].[TemplateQues] OFF
 GO
