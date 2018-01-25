@@ -9,8 +9,17 @@ namespace InsurancePortal.Web.Controllers
     [Route("")]
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string template = "Car")
         {
+            string templateTitle = "<span>"+ template +" insurance<br>made for you</span>";
+            ViewBag.TemplateTitle = templateTitle;
+
+            if(template == "Car")
+                ViewBag.Template = "Business";
+
+            if (template == "Travel")
+                ViewBag.Template = "Vehicle";
+
             return View();
         }
 

@@ -165,6 +165,7 @@
     <Compile Include="Controllers\Admin\SettingsController.cs" />
     <Compile Include="Controllers\BrokerController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\InsuranceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InsurerController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -15491,6 +15492,7 @@
     <Content Include="Views\Shared\assets\bijou\museosansrounded_700-2ac687a8c37adedf02f6b3bd3865528e42e5ff4fcb5b820c2fd8266e1a627e7a.woff" />
     <Content Include="Views\ManageUser\Index.cshtml" />
     <Content Include="Views\Rating\Index.cshtml" />
+    <Content Include="Views\Insurance\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
