@@ -121,7 +121,7 @@
                     {
                         case 1://AutoComplete
                             <div class='@(question.ParentId > 0 ? "control-block on hiddenQuestion" : "control-block on")' data-question='primary_trade' data-trigger='refresh'
-                                 id=@divId>
+                                 id=@divId data-answerid="@question.RenderOnAnswerId">
                                 <div class='control-text'>
                                     @*<div class='control-label'> What is your specific business / trade?</div>*@
                                     @Html.LabelForModel(question.QuestionTitle, new { @class = "control-label" })
@@ -144,7 +144,7 @@
                             </div>
                             break;
                         case 2://TextBox
-                            <div class='@(question.ParentId > 0 ? "control-block on hiddenQuestion" : "control-block on")' id=@divId>
+                            <div class='@(question.ParentId > 0 ? "control-block on hiddenQuestion" : "control-block on")' id=@divId data-answerid="@question.RenderOnAnswerId">
                                 <div class='control-text'>
                                     <label class="control-label" for="uk_postcode">@question.QuestionTitle</label>
                                 </div>
@@ -155,7 +155,7 @@
                             break;
                         case 3://Dropdown
                             <div class='@(question.ParentId > 0 ? "control-block on hiddenQuestion" : "control-block on")' data-question='business_type' data-trigger='refresh'
-                                 id=@divId>
+                                 id=@divId data-answerid="@question.RenderOnAnswerId">
                                 <div class='control-text'>
                                     <label class="control-label" for="business_type">@question.QuestionTitle</label>
                                 </div>
@@ -170,7 +170,7 @@
                             break;
                         case 4://RadioButton
                             <div class='@(question.ParentId > 0 ? "control-block on hiddenQuestion" : "control-block on")' data-trigger='refresh'
-                                 id=@divId>
+                                 id=@divId data-answerid="@question.RenderOnAnswerId">
                                 @*<div class='control-block info-box on'>*@
                                 <div class='control-text'>
                                     <div class='control-label'>@question.QuestionTitle</div>
@@ -186,14 +186,15 @@
                             </div>
                             break;
                         case 5://checkbox
-                            <div class='@(question.ParentId > 0 ? "control-block on hiddenQuestion" : "control-block on")' data-trigger='refresh' id=@divId>
+                            <div class='@(question.ParentId > 0 ? "control-block on hiddenQuestion" : "control-block on")' data-trigger='refresh' id=@divId
+                                 data-answerid="@question.RenderOnAnswerId">
                                 <div class='control-text'>
                                     <div class='control-label'>@question.QuestionTitle</div>
                                 </div>
                                 <div class='control'>
                                     @foreach (var answer in question.AnswersList)
                                     {
-                                        @Html.CheckBox(answer.AnswerTitle, new { onchange = "CheckBoxOnChange(this)", subQuestionId = answer.SubQuestionId })
+                                        @Html.CheckBox(answer.AnswerTitle, new { onchange = "CheckBoxOnChange(this)", answerId = answer.AnswerId })
                                         @Html.Label(answer.AnswerTitle)<br />
                                     }
                                 </div>
@@ -250,13 +251,21 @@
 <script>
     function CheckBoxOnChange(checkBoxElement)
     {
-        var subQuestionId = checkBoxElement.getAttribute("subquestionid");
-        if(subQuestionId > 0)
+        var answerId = checkBoxElement.getAttribute("answerId");
+        if(answerId > 0)
         {
-            //subQuestionId
-            var subQuestion = document.getElementById(subQuestionId);
-            if(subQuestion != undefined)
-                checkBoxElement.checked ? subQuestion.classList.remove("hiddenQuestion") : subQuestion.classList.add("hiddenQuestion");
+            //debugger;
+            ////subQuestionId
+            //var subQuestionsList = document.querySelectorAll('[data-answerid='+answerId+']');
+            //var subQuestion = document.getElementById(answerId);
+            //if(subQuestion != undefined)
+            //    checkBoxElement.checked ? subQuestion.classList.remove("hiddenQuestion") : subQuestion.classList.add("hiddenQuestion");
+
+            var isChecked =  checkBoxElement.checked;
+
+            $('div[data-answerid='+answerId+']').each(function() {
+               isChecked ? this.classList.remove("hiddenQuestion") : this.classList.add("hiddenQuestion");
+            });
         }
     }
 </script>

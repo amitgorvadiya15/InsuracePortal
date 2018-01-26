@@ -24,9 +24,12 @@
           <Property Name="TemplateTabID" Type="int" Nullable="false" />
           <Property Name="Section" Type="nvarchar" MaxLength="250" />
           <Property Name="Question" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Help" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Tooltip" Type="nvarchar(max)" />
           <Property Name="AnswerType" Type="varchar" MaxLength="50" />
           <Property Name="AnswerDetails" Type="nvarchar" MaxLength="4000" />
           <Property Name="ParentId" Type="int" />
+          <Property Name="RenderOnAnwerId" Type="int" />
           <Property Name="CreatedOn" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
           <Property Name="ModifiedOn" Type="datetime" />
@@ -151,9 +154,12 @@
           <Property Name="TemplateTabID" Type="Int32" Nullable="false" />
           <Property Name="Section" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Question" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Help" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Tooltip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AnswerType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AnswerDetails" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="ParentId" Type="Int32" />
+          <Property Name="RenderOnAnwerId" Type="Int32" />
           <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="Int32" Nullable="false" />
           <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
@@ -228,9 +234,12 @@
                 <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="RenderOnAnwerId" ColumnName="RenderOnAnwerId" />
                 <ScalarProperty Name="ParentId" ColumnName="ParentId" />
                 <ScalarProperty Name="AnswerDetails" ColumnName="AnswerDetails" />
                 <ScalarProperty Name="AnswerType" ColumnName="AnswerType" />
+                <ScalarProperty Name="Tooltip" ColumnName="Tooltip" />
+                <ScalarProperty Name="Help" ColumnName="Help" />
                 <ScalarProperty Name="Question" ColumnName="Question" />
                 <ScalarProperty Name="Section" ColumnName="Section" />
                 <ScalarProperty Name="TemplateTabID" ColumnName="TemplateTabID" />

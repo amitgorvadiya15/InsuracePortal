@@ -14,7 +14,7 @@ namespace InsurancePortal.Data
     using System.Data.Entity.Infrastructure;
     using System.Threading.Tasks;
 
-    public partial class InsurancePortalEntities : DbContext, IUnitOfWork
+    public partial class InsurancePortalEntities : DbContext,IUnitOfWork
     {
         public InsurancePortalEntities()
             : base("name=InsurancePortalEntities")

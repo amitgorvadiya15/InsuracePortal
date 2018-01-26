@@ -18,9 +18,12 @@ namespace InsurancePortal.Data
         public int TemplateTabID { get; set; }
         public string Section { get; set; }
         public string Question { get; set; }
+        public string Help { get; set; }
+        public string Tooltip { get; set; }
         public string AnswerType { get; set; }
         public string AnswerDetails { get; set; }
         public Nullable<int> ParentId { get; set; }
+        public Nullable<int> RenderOnAnwerId { get; set; }
         public System.DateTime CreatedOn { get; set; }
         public int CreatedBy { get; set; }
         public Nullable<System.DateTime> ModifiedOn { get; set; }

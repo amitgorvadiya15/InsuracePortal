@@ -31,6 +31,8 @@ namespace InsurancePortal.Transport
 
         public int ParentId { get; set; }
 
+        public int RenderOnAnswerId { get; set; }
+
         public string SubmittedAnswer { get; set; }
 
         public string ValidationMessage { get; set; }

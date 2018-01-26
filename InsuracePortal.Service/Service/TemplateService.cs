@@ -14,6 +14,8 @@ namespace InsuracePortal.Service
         private readonly ITemplateTabRepository _templateTabRepository;
         private readonly ITemplateQuestionRepository _templateQuestionRepository;
 
+        private int ansCount = 0;
+
 
         public TemplateService(ITemplateRepository templateRepository,
             ITemplateTabRepository templateTabRepository,
@@ -416,7 +418,7 @@ namespace InsuracePortal.Service
         private List<Questions> GetQuestions(List<TemplateQue> queList)
         {
             int[] questionType = { 3, 4, 5 };
-            int count = 0;
+            
 
             var questions = (from que in queList
                              select new Questions
@@ -425,10 +427,11 @@ namespace InsuracePortal.Service
                                  QuestionTitle = que.Question,
                                  QuestionType = Convert.ToInt32(que.AnswerType),
                                  ParentId = que.ParentId ?? 0,
+                                 RenderOnAnswerId = Convert.ToInt32(que.ParentId) > 0 ? que.RenderOnAnwerId ?? 0 : 0,
                                  AnswersList = !questionType.Contains(Convert.ToInt32(que.AnswerType)) ? new List<Answers>() : (from ans in que.AnswerDetails.Split(',')
                                                                                                                                 select new Answers
                                                                                                                                 {
-                                                                                                                                    AnswerId = count++,
+                                                                                                                                    AnswerId = ansCount++,
                                                                                                                                     AnswerTitle = ans,
                                                                                                                                     SubQuestionId = 1
                                                                                                                                 }).ToList(),
