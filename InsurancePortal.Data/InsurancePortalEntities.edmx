@@ -22,10 +22,11 @@
           </Key>
           <Property Name="TemplateQuesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TemplateTabID" Type="int" Nullable="false" />
-          <Property Name="Section" Type="varchar" MaxLength="50" />
+          <Property Name="Section" Type="nvarchar" MaxLength="250" />
           <Property Name="Question" Type="nvarchar" MaxLength="450" Nullable="false" />
           <Property Name="AnswerType" Type="varchar" MaxLength="50" />
           <Property Name="AnswerDetails" Type="nvarchar" MaxLength="4000" />
+          <Property Name="ParentId" Type="int" />
           <Property Name="CreatedOn" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
           <Property Name="ModifiedOn" Type="datetime" />
@@ -97,9 +98,9 @@
         <EntityContainer Name="InsurancePortalEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Templates" EntityType="Self.Template" />
           <EntitySet Name="TemplateTabs" EntityType="InsurancePortalModel.TemplateTab" />
-          <EntitySet Name="TemplateQues" EntityType="InsurancePortalModel.TemplateQue" />
           <EntitySet Name="Users" EntityType="InsurancePortalModel.User" />
           <EntitySet Name="UserTypes" EntityType="InsurancePortalModel.UserType" />
+          <EntitySet Name="TemplateQues" EntityType="InsurancePortalModel.TemplateQue" />
         </EntityContainer>
         <EntityType Name="TemplateTab">
           <Key>
@@ -111,21 +112,6 @@
           <Property Name="TabDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TabHeader" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Sections" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-        </EntityType>
-        <EntityType Name="TemplateQue">
-          <Key>
-            <PropertyRef Name="TemplateQuesID" />
-          </Key>
-          <Property Name="TemplateQuesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TemplateTabID" Type="Int32" Nullable="false" />
-          <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Question" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="AnswerType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="AnswerDetails" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="Int32" Nullable="false" />
           <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
@@ -156,6 +142,22 @@
           <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TemplateQue">
+          <Key>
+            <PropertyRef Name="TemplateQuesID" />
+          </Key>
+          <Property Name="TemplateQuesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TemplateTabID" Type="Int32" Nullable="false" />
+          <Property Name="Section" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Question" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="AnswerType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AnswerDetails" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -191,22 +193,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TemplateQues">
-            <EntityTypeMapping TypeName="InsurancePortalModel.TemplateQue">
-              <MappingFragment StoreEntitySet="TemplateQues">
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="AnswerDetails" ColumnName="AnswerDetails" />
-                <ScalarProperty Name="AnswerType" ColumnName="AnswerType" />
-                <ScalarProperty Name="Question" ColumnName="Question" />
-                <ScalarProperty Name="Section" ColumnName="Section" />
-                <ScalarProperty Name="TemplateTabID" ColumnName="TemplateTabID" />
-                <ScalarProperty Name="TemplateQuesID" ColumnName="TemplateQuesID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="InsurancePortalModel.User">
               <MappingFragment StoreEntitySet="Users">
@@ -232,6 +218,23 @@
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="UserType1" ColumnName="UserType" />
                 <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TemplateQues">
+            <EntityTypeMapping TypeName="InsurancePortalModel.TemplateQue">
+              <MappingFragment StoreEntitySet="TemplateQues">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="AnswerDetails" ColumnName="AnswerDetails" />
+                <ScalarProperty Name="AnswerType" ColumnName="AnswerType" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="TemplateTabID" ColumnName="TemplateTabID" />
+                <ScalarProperty Name="TemplateQuesID" ColumnName="TemplateQuesID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

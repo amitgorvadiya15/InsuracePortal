@@ -29,11 +29,15 @@ namespace InsurancePortal.Transport
 
         public int QuestionType { get; set; }
 
+        public int ParentId { get; set; }
+
         public string SubmittedAnswer { get; set; }
 
         public string ValidationMessage { get; set; }
 
         public List<Answers> AnswersList { get; set; }
+
+        public List<Questions> SubQuestions { get; set; }
     }
 
     public class Answers
@@ -42,6 +46,6 @@ namespace InsurancePortal.Transport
 
         public string AnswerTitle { get; set; }
 
-        public int SelectedAnswer { get; set; }
+        public int SubQuestionId { get; set; }
     }
 }

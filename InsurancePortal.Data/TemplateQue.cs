@@ -20,6 +20,7 @@ namespace InsurancePortal.Data
         public string Question { get; set; }
         public string AnswerType { get; set; }
         public string AnswerDetails { get; set; }
+        public Nullable<int> ParentId { get; set; }
         public System.DateTime CreatedOn { get; set; }
         public int CreatedBy { get; set; }
         public Nullable<System.DateTime> ModifiedOn { get; set; }
