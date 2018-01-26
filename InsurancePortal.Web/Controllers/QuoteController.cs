@@ -163,9 +163,9 @@ namespace InsurancePortal.Web.Controllers
         ////    return View(model);
         ////}
 
-        public ActionResult Index(string template)
+        public ActionResult Index(int templateId)
         {
-            var model = _templateService.GetTemplateQuestions(template);
+            var model = _templateService.GetTemplateQuestionsForQuote(templateId);
             return View(model);
         }
 

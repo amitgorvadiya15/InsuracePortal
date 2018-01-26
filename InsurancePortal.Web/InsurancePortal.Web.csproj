@@ -165,7 +165,6 @@
     <Compile Include="Controllers\Admin\SettingsController.cs" />
     <Compile Include="Controllers\BrokerController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
-    <Compile Include="Controllers\InsuranceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InsurerController.cs" />
     <Compile Include="Controllers\LoginController.cs" />

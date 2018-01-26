@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InsurancePortal.Web.Common.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,16 +10,31 @@ namespace InsurancePortal.Web.Controllers
     [Route("")]
     public class HomeController : Controller
     {
-        public ActionResult Index(string template = "Car")
+        public ActionResult Index(int templateId = (int)InsuranceTemplate.Car)
         {
-            string templateTitle = "<span>"+ template +" insurance<br>made for you</span>";
+            InsuranceTemplate enumTemplate = (InsuranceTemplate) templateId;
+
+            string templateTitle = "<span>"+ enumTemplate.ToString() + " insurance<br>made for you</span>";
             ViewBag.TemplateTitle = templateTitle;
+            ViewBag.TemplateId = templateId;
 
-            if(template == "Car")
-                ViewBag.Template = "Business";
+            //if (template == "Car")
+            //    ViewBag.Template = "Business";
 
-            if (template == "Travel")
-                ViewBag.Template = "Vehicle";
+            //else if (template == "Home")
+            //    ViewBag.Template = "Landlord";
+
+            //else if (template == "Travel")
+            //    ViewBag.Template = "Vehicle";
+
+            //else if (template == "Public liability")
+            //    ViewBag.Template = "Vehicle";
+
+            //else if (template == "Professional indemnity")
+            //    ViewBag.Template = "Vehicle";
+
+            //else if (template == "Employers liability")
+            //    ViewBag.Template = "Vehicle";
 
             return View();
         }

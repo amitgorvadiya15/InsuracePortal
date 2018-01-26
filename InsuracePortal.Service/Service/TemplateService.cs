@@ -351,7 +351,7 @@ namespace InsuracePortal.Service
 
         #endregion
 
-        public ModelQuestionsViewModel GetTemplateQuestions(string templateName)
+        public ModelQuestionsViewModel GetTemplateQuestionsForQuote(int templateId)
         {
             var model = new ModelQuestionsViewModel();
 
@@ -359,7 +359,7 @@ namespace InsuracePortal.Service
             //{
             var template = new Template();
 
-            template = _templateRepository.ListAll().Where(x => x.TemplateName.Trim().ToUpper().Equals(templateName.Trim().ToUpper())).FirstOrDefault();
+            template = _templateRepository.ListAll().Where(x => x.TemplateID.Equals(templateId)).FirstOrDefault();
 
             if (template != null)
             {

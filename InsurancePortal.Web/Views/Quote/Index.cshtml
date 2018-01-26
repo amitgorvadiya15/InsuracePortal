@@ -8,15 +8,18 @@
 <section class='site-section grid-wrapper'>
     <div class='box progress-bar' data-module='progressbar'>
         <ol>
-            @foreach (var tab in Model.Tabs)
+            @if (Model.Tabs != null && Model.Tabs.Count > 0)
             {
-                <li class='qa-progressbar-item'>
-                    <span class='cell'>
-                        <span class='item'>
-                            @Html.LabelForModel(tab.TabText)
+                foreach (var tab in Model.Tabs)
+                {
+                    <li class='qa-progressbar-item'>
+                        <span class='cell'>
+                            <span class='item'>
+                                @Html.LabelForModel(tab.TabText)
+                            </span>
                         </span>
-                    </span>
-                </li>
+                    </li>
+                }
             }
 
 
@@ -74,104 +77,107 @@
                 </p>
             </div>
         </div>
-        @foreach (var section in Model.Tabs.FirstOrDefault().SectionsList)
+        @if (Model.Tabs != null && Model.Tabs.Count > 0)
         {
-            <fieldset class='box js-toggleable-section' data-page-index='1' data-page-name='Your business' data-section-name='Please tell us about your business' data-track='pageset_section_changed'>
-                <div class='inner-box'>
-                    @*<h2 class='js-waypoint'>dfsaf</h2>*@
-                    <h2 class='js-waypoint'>
-                        @Html.LabelForModel(section.SectionTitle)
-                    </h2>
+            foreach (var section in Model.Tabs.FirstOrDefault().SectionsList)
+            {
+                <fieldset class='box js-toggleable-section' data-page-index='1' data-page-name='Your business' data-section-name='Please tell us about your business' data-track='pageset_section_changed'>
+                    <div class='inner-box'>
+                        @*<h2 class='js-waypoint'>dfsaf</h2>*@
+                        <h2 class='js-waypoint'>
+                            @Html.LabelForModel(section.SectionTitle)
+                        </h2>
 
-                    @foreach (var question in section.QuestionsList)
-                    {
-
-                        switch (question.QuestionType)
+                        @foreach (var question in section.QuestionsList)
                         {
-                            case 1://AutoComplete
-                                <div class='control-block on' data-question='primary_trade' data-trigger='refresh'>
-                                    <div class='control-text'>
-                                        @*<div class='control-label'> What is your specific business / trade?</div>*@
-                                        @Html.LabelForModel(question.QuestionTitle, new { @class = "control-label" })
-                                    </div>
-                                    <div class='state-search trade-search' data-control='trade_search' data-redirect-url='/route_trade' data-search-url='/trade_search' data-tracked-event='primary_detail_selected'>
-                                        <input class='js-trade-input' name='primary_trade' type='hidden' value=''>
-                                        <div class='control search'>
-                                            <div class='search-wrapper'>
-                                                <input class='js-search-input required' data-msg='Please select a trade to continue' id='primary_trade' name='q' placeholder='e.g. Builder, Painter and decorator, or Plumber' type='text' value=''>
-                                                <div class='results'></div>
+
+                            switch (question.QuestionType)
+                            {
+                                case 1://AutoComplete
+                                    <div class='control-block on' data-question='primary_trade' data-trigger='refresh'>
+                                        <div class='control-text'>
+                                            @*<div class='control-label'> What is your specific business / trade?</div>*@
+                                            @Html.LabelForModel(question.QuestionTitle, new { @class = "control-label" })
+                                        </div>
+                                        <div class='state-search trade-search' data-control='trade_search' data-redirect-url='/route_trade' data-search-url='/trade_search' data-tracked-event='primary_detail_selected'>
+                                            <input class='js-trade-input' name='primary_trade' type='hidden' value=''>
+                                            <div class='control search'>
+                                                <div class='search-wrapper'>
+                                                    <input class='js-search-input required' data-msg='Please select a trade to continue' id='primary_trade' name='q' placeholder='e.g. Builder, Painter and decorator, or Plumber' type='text' value=''>
+                                                    <div class='results'></div>
+                                                </div>
+                                            </div>
+                                            <div class='control selected'>
+                                                You have selected
+                                                &lsquo;<span class='answer'></span>&rsquo;
+                                                as your trade.
+                                                <a class='js-change' href='#'>Change</a>
                                             </div>
                                         </div>
-                                        <div class='control selected'>
-                                            You have selected
-                                            &lsquo;<span class='answer'></span>&rsquo;
-                                            as your trade.
-                                            <a class='js-change' href='#'>Change</a>
+                                    </div>
+                                    break;
+                                case 2://TextBox
+                                    <div class='control-block on'>
+                                        <div class='control-text'>
+                                            <label class="control-label" for="uk_postcode">@question.QuestionTitle</label>
+                                        </div>
+                                        <div class='control'>
+                                            @Html.TextBox(question.QuestionTitle)
                                         </div>
                                     </div>
-                                </div>
-                                break;
-                            case 2://TextBox
-                                <div class='control-block on'>
-                                    <div class='control-text'>
-                                        <label class="control-label" for="uk_postcode">@question.QuestionTitle</label>
+                                    break;
+                                case 3://Dropdown
+                                    <div class='control-block on' data-question='business_type' data-trigger='refresh'>
+                                        <div class='control-text'>
+                                            <label class="control-label" for="business_type">@question.QuestionTitle</label>
+                                        </div>
+                                        <div class='control'>
+                                            @Html.DropDownList("answerList", question.AnswersList.Select(item => new SelectListItem
+                                            {
+                                                Value = item.AnswerId.ToString(),
+                                                Text = item.AnswerTitle
+                                            }), "Please select...", new { @class = "select-wrapper" })
+                                        </div>
                                     </div>
-                                    <div class='control'>
-                                        @Html.TextBox(question.QuestionTitle)
+                                    break;
+                                case 4://RadioButton
+                                    <div class='control-block on' data-trigger='refresh'>
+                                        @*<div class='control-block info-box on'>*@
+                                        <div class='control-text'>
+                                            <div class='control-label'>@question.QuestionTitle</div>
+                                        </div>
+                                        <div class='control'>
+                                            @foreach (var answer in question.AnswersList)
+                                            {
+                                                @Html.RadioButton("radio", answer.AnswerTitle, new { @class = "radio" })
+                                                @Html.Label(answer.AnswerTitle)<br />
+                                            }
+                                        </div>
+                                        @*</div>*@
                                     </div>
-                                </div>
-                                break;
-                            case 3://Dropdown
-                                <div class='control-block on' data-question='business_type' data-trigger='refresh'>
-                                    <div class='control-text'>
-                                        <label class="control-label" for="business_type">@question.QuestionTitle</label>
+                                    break;
+                                case 5://checkbox
+                                    <div class='control-block on' data-trigger='refresh'>
+                                        @*<div class='control-block info-box on'>*@
+                                        <div class='control-text'>
+                                            <div class='control-label'>@question.QuestionTitle</div>
+                                        </div>
+                                        <div class='control'>
+                                            @foreach (var answer in question.AnswersList)
+                                            {
+                                                @Html.CheckBox(answer.AnswerTitle)
+                                                @Html.Label(answer.AnswerTitle)<br />
+                                            }
+                                        </div>
+                                        @*</div>*@
                                     </div>
-                                    <div class='control'>
-                                        @Html.DropDownList("answerList", question.AnswersList.Select(item => new SelectListItem
-                                        {
-                                            Value = item.AnswerId.ToString(),
-                                            Text = item.AnswerTitle
-                                        }), "Please select...", new { @class = "select-wrapper" })
-                                    </div>
-                                </div>
-                                break;
-                            case 4://RadioButton
-                                <div class='control-block on' data-trigger='refresh'>
-                                    @*<div class='control-block info-box on'>*@
-                                    <div class='control-text'>
-                                        <div class='control-label'>@question.QuestionTitle</div>
-                                    </div>
-                                    <div class='control'>
-                                        @foreach (var answer in question.AnswersList)
-                                        {
-                                            @Html.RadioButton("radio", answer.AnswerTitle, new { @class = "radio" })
-                                            @Html.Label(answer.AnswerTitle)<br />
-                                        }
-                                    </div>
-                                    @*</div>*@
-                                </div>
-                                break;
-                            case 5://checkbox
-                                <div class='control-block on' data-trigger='refresh'>
-                                    @*<div class='control-block info-box on'>*@
-                                    <div class='control-text'>
-                                        <div class='control-label'>@question.QuestionTitle</div>
-                                    </div>
-                                    <div class='control'>
-                                        @foreach (var answer in question.AnswersList)
-                                        {
-                                            @Html.CheckBox(answer.AnswerTitle)
-                                            @Html.Label(answer.AnswerTitle)<br />
-                                        }
-                                    </div>
-                                    @*</div>*@
-                                </div>
-                                break;
+                                    break;
+                            }
                         }
-                    }
 
-                </div>
-            </fieldset>
+                    </div>
+                </fieldset>
+            }
         }
         <div class='box form-actions'>
             <div class='inner-box'>
