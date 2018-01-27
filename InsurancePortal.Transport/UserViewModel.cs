@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InsurancePortal.Transport.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,5 +19,8 @@ namespace InsurancePortal.Transport
         public bool IsActive { get; set; }
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedOn { get; set; }
+
+        public enumUserType UserType { get; set; }
+        public string StrUserType { get; set; }
     }
 }

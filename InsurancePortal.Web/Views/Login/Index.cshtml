@@ -3,7 +3,13 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    .field-validation-error {
+        width: 100%;
+        color: red;
+        float: left;
+    }
+</style>
 <section class="site-section grid-wrapper">
     <div class="form signin">
         <div class="grid">
@@ -70,17 +76,21 @@
                                 @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @class = "signin-form visible" }))
                                 {
                                     @Html.HiddenFor(model => model.UserType)
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true)
                                     <fieldset>
                                         <div class="control-block" style="margin-top:2px;">
                                             <label class="control-label" for="signin-email">User Name</label>
                                             <div class="form-group">
                                                 @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @autocomplete = "off" })
+                                                @Html.ValidationMessageFor(model => model.UserName)
                                             </div>
                                         </div>
                                         <div class="control-block" style="margin-top:10px;">
                                             <label class="control-label" for="signin-password">Password</label>
                                             <div class="form-group">
                                                 @Html.PasswordFor(model => model.Password, new { @class = "form-control", @autocomplete = "off" })
+                                                @Html.ValidationMessageFor(model => model.Password)
                                             </div>
                                         </div>
                                     </fieldset>

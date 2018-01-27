@@ -22,7 +22,6 @@ namespace InsuracePortal.Service
         {
             List<UserViewModel> lst = new List<UserViewModel>();
             var userlst = _userRepository.ListAll();
-
             foreach (var item in userlst)
             {
                 var userDto = Mapper.Map<User, UserViewModel>(item);
@@ -34,11 +33,13 @@ namespace InsuracePortal.Service
         public UserViewModel GetLoginUser(string UserName, string Password)
         {
             UserViewModel usermodel = new UserViewModel();
-
             var user = _userRepository.GetByUserNameAndPassword(UserName, Password);
             if (user != null)
+            {
                 usermodel = Mapper.Map<User, UserViewModel>(user);
-            return usermodel;
+                return usermodel;
+            }
+            return null;
         }
 
         public UserViewModel GetUser(int UserId)

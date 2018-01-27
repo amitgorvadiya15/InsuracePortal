@@ -15,7 +15,10 @@ namespace InsurancePortal.Data
         public User GetByUserNameAndPassword(string userName, string password)
         {
             var user = _dbContext.Users.Where(x => x.UserName == userName && x.Password == password).FirstOrDefault();
-            return user;
+            if (user != null)
+                return user;
+            else
+                return null;
         }
     }
 }

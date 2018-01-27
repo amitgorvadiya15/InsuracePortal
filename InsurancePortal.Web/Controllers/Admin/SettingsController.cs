@@ -3,9 +3,11 @@ using InsurancePortal.Transport;
 using System.Web.Mvc;
 using System.Linq;
 using System.Collections.Generic;
+using InsurancePortal.Web.Common;
 
 namespace InsurancePortal.Web.Controllers.Admin
 {
+    [LoginAuth]
     public class SettingsController : Controller
     {
         private readonly ITemplateService _templateService;
