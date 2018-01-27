@@ -13,5 +13,7 @@ namespace InsurancePortal.Transport
         public string AnswerType { get; set; }
         public string AnswerDetails { get; set; }
         public string Section { get ; set; }
+        public int Parent { get; set; }
+        public int RenderOnAnswerId { get; set; }
     }
 }

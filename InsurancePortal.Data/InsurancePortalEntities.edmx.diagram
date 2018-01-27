@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="InsurancePortalModel.User" Width="1.5" PointX="3.375" PointY="4.75" />
         <EntityTypeShape EntityType="InsurancePortalModel.UserType" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="InsurancePortalModel.TemplateQue" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="InsurancePortalModel.Answer" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

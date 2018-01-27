@@ -21,5 +21,14 @@ namespace InsurancePortal.Data
 
             return tempQuestions;
         }
+
+        public List<TemplateQue> GetByTabId(int tabId)
+        {
+            var tabQuestions = (from tq in _dbContext.TemplateQues
+                                 where tq.TemplateTabID == tabId
+                                 select tq).ToList();
+
+            return tabQuestions;
+        }
     }
 }

@@ -28,5 +28,9 @@ namespace InsuracePortal.Service
         ModelQuestionsViewModel GetTemplateQuestionsForQuote(int templateId);
 
         RatingViewModel GetTemplateRating(int templateId);
+
+        List<AnswersOfQuestion> GetAnswersOfQuestion(int questionId);
+
+        List<Questions> GetByTabAndSection(int tabId, string section);
     }
 }

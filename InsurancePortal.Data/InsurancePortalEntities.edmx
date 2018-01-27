@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="InsurancePortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="AnswerId" />
+          </Key>
+          <Property Name="AnswerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AnswerText" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="QuestionId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Template">
           <Key>
             <PropertyRef Name="TemplateID" />
@@ -24,7 +32,6 @@
           <Property Name="TemplateTabID" Type="int" Nullable="false" />
           <Property Name="Section" Type="nvarchar" MaxLength="250" />
           <Property Name="Question" Type="nvarchar" MaxLength="450" Nullable="false" />
-          <Property Name="Help" Type="nvarchar" MaxLength="1000" />
           <Property Name="Tooltip" Type="nvarchar(max)" />
           <Property Name="AnswerType" Type="varchar" MaxLength="50" />
           <Property Name="AnswerDetails" Type="nvarchar" MaxLength="4000" />
@@ -77,6 +84,7 @@
           <Property Name="ModifiedOn" Type="datetime" />
         </EntityType>
         <EntityContainer Name="InsurancePortalModelStoreContainer">
+          <EntitySet Name="Answer" EntityType="Self.Answer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Template" EntityType="Self.Template" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TemplateQues" EntityType="Self.TemplateQues" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TemplateTab" EntityType="Self.TemplateTab" Schema="dbo" store:Type="Tables" />
@@ -104,6 +112,7 @@
           <EntitySet Name="Users" EntityType="InsurancePortalModel.User" />
           <EntitySet Name="UserTypes" EntityType="InsurancePortalModel.UserType" />
           <EntitySet Name="TemplateQues" EntityType="InsurancePortalModel.TemplateQue" />
+          <EntitySet Name="Answers" EntityType="InsurancePortalModel.Answer" />
         </EntityContainer>
         <EntityType Name="TemplateTab">
           <Key>
@@ -154,7 +163,6 @@
           <Property Name="TemplateTabID" Type="Int32" Nullable="false" />
           <Property Name="Section" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Question" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="Help" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="Tooltip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AnswerType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AnswerDetails" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
@@ -164,6 +172,14 @@
           <Property Name="CreatedBy" Type="Int32" Nullable="false" />
           <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="AnswerId" />
+          </Key>
+          <Property Name="AnswerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AnswerText" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionId" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -239,11 +255,19 @@
                 <ScalarProperty Name="AnswerDetails" ColumnName="AnswerDetails" />
                 <ScalarProperty Name="AnswerType" ColumnName="AnswerType" />
                 <ScalarProperty Name="Tooltip" ColumnName="Tooltip" />
-                <ScalarProperty Name="Help" ColumnName="Help" />
                 <ScalarProperty Name="Question" ColumnName="Question" />
                 <ScalarProperty Name="Section" ColumnName="Section" />
                 <ScalarProperty Name="TemplateTabID" ColumnName="TemplateTabID" />
                 <ScalarProperty Name="TemplateQuesID" ColumnName="TemplateQuesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Answers">
+            <EntityTypeMapping TypeName="InsurancePortalModel.Answer">
+              <MappingFragment StoreEntitySet="Answer">
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
+                <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

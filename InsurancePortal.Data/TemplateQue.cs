@@ -18,7 +18,6 @@ namespace InsurancePortal.Data
         public int TemplateTabID { get; set; }
         public string Section { get; set; }
         public string Question { get; set; }
-        public string Help { get; set; }
         public string Tooltip { get; set; }
         public string AnswerType { get; set; }
         public string AnswerDetails { get; set; }

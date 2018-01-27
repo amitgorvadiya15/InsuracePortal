@@ -201,6 +201,10 @@
     <Content Include="assets\bijou\rating\feefo_2x-f73205a7dc50820d7884eeae73de3dc12ef073d3a58aabc38ec9d8c7bfb5b36f.png" />
     <Content Include="assets\bijou\rating\star-4df265950c7f6380a7d1322db165bfeb7f8e5b74a2fc72a2e3bf7b299cfe0b40.png" />
     <Content Include="assets\bijou\rating\star_2x-39406a6e7651f5e7b6ec533ce9a345be0bb5ff0218e42a4b56375609dbb9621a.png" />
+    <Content Include="assets\ci5\application-3bd2b7e5a2e29226b6660e4d462ac8102397fdb34b0994dbc269a4edd3f509e6.css" />
+    <Content Include="assets\ci5\application-foot-290e9b31219f8eb6a8a6f20e862cdd2b2eb2e7f19a3aa465182f300bc4854bff.js" />
+    <Content Include="assets\ci5\application-head-810a34140f6de5d777757b86abde23712c2ab194c13cee183d04b8f792bbac6c.js" />
+    <Content Include="assets\ci5\sb\sidebar-ad-bg-a184fdd88342468908b37ff6ee5adaaa8ea3189ae6930e74c56e32c60759074a.png" />
     <Content Include="assets\claims\rating\feefo-1a1f7eb0600591bda36f28bea70da14652799ecc716f011a0c8f7c7008f4569c.png" />
     <Content Include="assets\claims\rating\feefo_2x-f9cb9b908ea985651b6694d40b7f3ee60cde5299b49bacffb0896b3e395f517f.png" />
     <Content Include="assets\claims\rating\feefo_mobile-bc212eb81241e82963cf101285b8a8eefb5dcdba22afed269a23af73f561ce97.png" />
