@@ -29,19 +29,23 @@ namespace InsurancePortal.Transport
 
         public int QuestionType { get; set; }
 
-        public string SubmittedAnswer { get; set; }
+        public int ParentId { get; set; }
+
+        public int RenderOnAnswerId { get; set; }
+
+        public string Tooltip { get; set; }
 
         public string ValidationMessage { get; set; }
 
-        public List<Answers> AnswersList { get; set; }
+        public List<AnswersOfQuestion> AnswersList { get; set; }
+
+        public List<Questions> SubQuestions { get; set; }
     }
 
-    public class Answers
+    public class AnswersOfQuestion
     {
         public int AnswerId { get; set; }
 
         public string AnswerTitle { get; set; }
-
-        public int SelectedAnswer { get; set; }
     }
 }

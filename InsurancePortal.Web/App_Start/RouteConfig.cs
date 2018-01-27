@@ -35,6 +35,9 @@ namespace InsurancePortal.Web
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+
+                //url: "{controller}/{action}/{template}",
+                //defaults: new { controller = "Insurance", action = "Index", template = UrlParameter.Optional }
             );
         }
     }

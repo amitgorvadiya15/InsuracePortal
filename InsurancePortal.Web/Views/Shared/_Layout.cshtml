@@ -55,13 +55,14 @@
                                         <div class="grid-cell desktop-3">
                                             <ul class="menu__sublist">
                                                 <li>
-                                                    <a href="pages/insurance/public-liability/index.html">Car insurance</a>
+                                                    @*<a href="pages/insurance/public-liability/index.html">Car insurance</a>*@
+                                                    <a href="@Url.Action("Index", "Home", new { @templateId = (int)InsurancePortal.Web.Common.Enums.InsuranceTemplate.Car})">Car insurance</a>
                                                 </li>
                                                 <li>
-                                                    <a href="pages/insurance/professional-indemnity/index.html">Home insurance</a>
+                                                    <a href="@Url.Action("Index", "Home", new { @templateId = (int)InsurancePortal.Web.Common.Enums.InsuranceTemplate.Home})">Home insurance</a>
                                                 </li>
                                                 <li>
-                                                    <a href="pages/insurance/employers-liability/index.html">Travel & life insurance</a>
+                                                    <a href="@Url.Action("Index", "Home", new { @templateId = (int)InsurancePortal.Web.Common.Enums.InsuranceTemplate.Travel})">Travel & life insurance</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -76,13 +77,14 @@
                             <div class="menu__panel js-menu-panel">
                                 <ul class="menu__sublist">
                                     <li>
-                                        <a href="pages/insurance/public-liability/index.html">Car insurance</a>
+                                        @*<a href="pages/insurance/public-liability/index.html">Car insurance</a>*@
+                                        <a href="@Url.Action("Index", "Home", new { @templateId = (int)InsurancePortal.Web.Common.Enums.InsuranceTemplate.Car})">Car insurance</a>
                                     </li>
                                     <li>
-                                        <a href="pages/insurance/professional-indemnity/index.html">Home insurance</a>
+                                        <a href="@Url.Action("Index", "Home", new { @templateId = (int)InsurancePortal.Web.Common.Enums.InsuranceTemplate.Home})">Home insurance</a>
                                     </li>
                                     <li>
-                                        <a href="pages/insurance/employers-liability/index.html">Travel & life insurance</a>
+                                        <a href="@Url.Action("Index", "Home", new { @templateId = (int)InsurancePortal.Web.Common.Enums.InsuranceTemplate.Travel})">Travel & life insurance</a>
                                     </li>
                                 </ul>
                             </div>
@@ -97,13 +99,13 @@
                                         <div class="grid-cell desktop-3">
                                             <ul class="menu__sublist">
                                                 <li>
-                                                    <a href="pages/landlord-insurance/buy-to-let-insurance/index.html">Public liability</a>
+                                                    <a href="@Url.Action("Index", "Home", new { @templateId = (int)InsurancePortal.Web.Common.Enums.InsuranceTemplate.PublicLiability})">Public liability</a>
                                                 </li>
                                                 <li>
-                                                    <a href="pages/landlord-insurance/content-insurance/index.html">Professional indemnity</a>
+                                                    <a href="@Url.Action("Index", "Home", new { @templateId = (int)InsurancePortal.Web.Common.Enums.InsuranceTemplate.ProfessionalIndemnity})">Professional indemnity</a>
                                                 </li>
                                                 <li>
-                                                    <a href="pages/landlord-insurance/loss-of-rent-insurance/index.html">Employers liability</a>
+                                                    <a href="@Url.Action("Index", "Home", new { @templateId = (int)InsurancePortal.Web.Common.Enums.InsuranceTemplate.EmployersLiability})">Employers liability</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -118,13 +120,13 @@
                             <div class="menu__panel js-menu-panel">
                                 <ul class="menu__sublist">
                                     <li>
-                                        <a href="pages/landlord-insurance/buy-to-let-insurance/index.html">Public liability</a>
+                                        <a href="@Url.Action("Index", "Home", new { @templateId = (int)InsurancePortal.Web.Common.Enums.InsuranceTemplate.PublicLiability})">Public liability</a>
                                     </li>
                                     <li>
-                                        <a href="pages/landlord-insurance/content-insurance/index.html">Professional indemnity</a>
+                                        <a href="@Url.Action("Index", "Home", new { @templateId = (int)InsurancePortal.Web.Common.Enums.InsuranceTemplate.ProfessionalIndemnity})">Professional indemnity</a>
                                     </li>
                                     <li>
-                                        <a href="pages/landlord-insurance/loss-of-rent-insurance/index.html">Employers liability</a>
+                                        <a href="@Url.Action("Index", "Home", new { @templateId = (int)InsurancePortal.Web.Common.Enums.InsuranceTemplate.EmployersLiability})">Employers liability</a>
                                     </li>
                                 </ul>
                             </div>

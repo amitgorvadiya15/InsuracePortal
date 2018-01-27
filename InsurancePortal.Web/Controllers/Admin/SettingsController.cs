@@ -125,6 +125,20 @@ namespace InsurancePortal.Web.Controllers.Admin
 
             return RedirectToAction("QuoteTabs", new { tabId = @model.TemplateTabID });
         }
+
+        public JsonResult GetSectionQuestions(int tabId,string section)
+        {
+            var questions = _templateService.GetByTabAndSection(tabId, section);
+
+            return Json(new SelectList(questions, "QuestionId", "QuestionTitle"));
+        }
+
+        public JsonResult GetAnswersByQueId(int queId)
+        {
+            var answers = _templateService.GetAnswersOfQuestion(queId);
+
+            return Json(new SelectList(answers, "AnswerId", "AnswerTitle"));
+        }
     }
 
 }

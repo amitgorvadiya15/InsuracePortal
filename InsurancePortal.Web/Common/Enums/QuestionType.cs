@@ -14,4 +14,25 @@ namespace InsurancePortal.Web.Common.Enums
         RadioButton = 4,
         CheckBox = 5
     }
+
+    public enum InsuranceTemplate
+    {
+        [Description("Car")]
+        Car = 1,
+
+        [Description("Home")]
+        Home = 2,
+
+        [Description("Travel")]
+        Travel = 3,
+
+        [Description("Public liability")]
+        PublicLiability = 4,
+
+        [Description("Professional indemnity")]
+        ProfessionalIndemnity = 5,
+
+        [Description("Employers liability")]
+        EmployersLiability = 6
+    }
 }

@@ -7,66 +7,72 @@
 
     @Html.HiddenFor(model => model.TemplateTabID)
     @Html.HiddenFor(model => model.TemplateQuesID)
-    <div class="modal-body">
-        <div class="row">
-            <div class="col-md-12 form-group" style="float:left;">
-                <label class="col-md-2 control-label">Section</label>
-                <div class="col-md-10">
-                    @*@Html.DropDownListFor(model => model.Section, ViewBag.TabSections as SelectListItem ,"select section", new { @class = "form-control" })*@
-
-                    @*@if (ViewBag.TabSections != null)
-                        {*@
-                    @Html.DropDownListFor(model => model.Section, ViewBag.TabSections as IEnumerable<SelectListItem>, "--Select section--", new { @class = "form-control" })
-                    @*}
-                        else
-                        {
-                            List<SelectListItem> listItems = new List<SelectListItem>();
-                            listItems.Add(new SelectListItem
-                            {
-                                Text = "",
-                                Value = ""
-                            });
-                            @Html.DropDownListFor(model => model.Section, listItems, "--Select section--", new { @class = "form-control" })
-                        }*@
-
-                    @*@Html.DropDownListFor(m => m.StudentGender,
-                        new SelectList(Enum.GetValues(typeof(InsurancePortal.Transport.Gender))),
-                        "Select Gender")*@
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group" style="float:left;">
-                @Html.LabelFor(model => model.Question, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Question, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Question, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group" style="float:left;">
-                <label class="col-md-2 control-label">Answer Type</label>
-                <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.AnswerType, new List<SelectListItem>{
-                                                            new SelectListItem{ Text="Search with selection", Value = "1" },
-                                                            new SelectListItem{ Text="Enter text", Value = "2" },
-                                                            new SelectListItem{ Text="Selection", Value = "3"},
-                                                            new SelectListItem{ Text="Radio button", Value = "4" },
-                                                            new SelectListItem{ Text="Checkbox", Value = "5"},
-                                           }, new { @class = "form-control" })
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group" style="float:left;">
-                <label class="col-md-2 control-label">Answer Details</label>
-                <div class="col-md-10">
-                    @Html.TextAreaFor(model => model.AnswerDetails, new { @class = "form-control", @Style = "min-height:120px;" })
-                </div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12 form-group" style="float:left;">
+            <label class="col-md-2 control-label">Section</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Section, ViewBag.TabSections as IEnumerable<SelectListItem>, "Select section", new { @class = "form-control" })
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12 form-group" style="float:left;">
+            <label class="col-md-2 control-label">Parent</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Parent, new SelectList(string.Empty, "QuestionId", "Question"), "Select Question", new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group" style="float:left;">
+            <label class="col-md-2 control-label">Render on answer</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.RenderOnAnswerId, new SelectList(string.Empty, "AnswerId", "AnswerText"), "Select Answer", new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group" style="float:left;">
+            @Html.LabelFor(model => model.Question, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Question, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Question, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group" style="float:left;">
+            <label class="col-md-2 control-label">Answer Type</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.AnswerType, new List<SelectListItem>{
+                                                                        new SelectListItem{ Text="Search with selection", Value = "1" },
+                                                                        new SelectListItem{ Text="Enter text", Value = "2" },
+                                                                        new SelectListItem{ Text="Selection", Value = "3"},
+                                                                        new SelectListItem{ Text="Radio button", Value = "4" },
+                                                                        new SelectListItem{ Text="Checkbox", Value = "5"},
+                                                       }, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group" style="float:left;">
+            <label class="col-md-2 control-label">Answer Details</label>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.AnswerDetails, new { @class = "form-control", @Style = "min-height:120px;" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group" style="float:left;">
+            @Html.LabelFor(model => model.Tooltip, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tooltip, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.ValidationMessageFor(model => model.Tooltip, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+    </div>
+</div>
     <div class="modal-footer">
         @if (@Model.TemplateQuesID > 0)
         {
@@ -81,3 +87,60 @@
         </button>
     </div>
 }
+<script type="text/javascript">
+
+      $(document).ready(function () {
+          //Dropdownlist Selectedchange event
+          $("#Section").change(function () {
+              debugger;
+              $("#Parent").empty();
+
+              var tempTabId = $("#TemplateTabID").val();
+              var sectionText = $("#Section").val();
+
+              if(tempTabId > 0 && (sectionText != '' || sectionText != 'Select section'))
+              {
+                  $.ajax({
+                      type: 'POST',
+                      url: '@Url.Action("GetSectionQuestions")', // we are calling json method
+                      dataType: 'json',
+                      data: { tabId: tempTabId, section: sectionText },
+                      success: function (parentQuestions) {
+                          debugger;
+                          $("#Parent").append('<option value="' + "0" + '">' + "Select Question" + '</option>');
+                          $.each(parentQuestions, function (i, que) {
+                              $("#Parent").append('<option value="' + que.Value + '">' + que.Text + '</option>');
+                          });
+                      }
+                  });
+              }
+              return false;
+          })
+      });
+
+    $(document).ready(function () {
+        //Dropdownlist Selectedchange event
+        $("#Parent").change(function () {
+            debugger;
+            $("#RenderOnAnswerId").empty();
+            var parentQuestionId = $("#Parent").val();
+            if (parentQuestionId > 0) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GetAnswersByQueId")', // we are calling json method
+                    dataType: 'json',
+                    data: { queId: parentQuestionId },
+                    success: function (answers) {
+                        debugger;
+                        $("#RenderOnAnswerId").append('<option value="' + "0" + '">' + "Select Answer" + '</option>');
+                        $.each(answers, function (i, que) {
+                            $("#RenderOnAnswerId").append('<option value="' + que.Value + '">' + que.Text + '</option>');
+                        });
+                    }
+                });
+            }
+            return false;
+        })
+    });
+
+</script>  

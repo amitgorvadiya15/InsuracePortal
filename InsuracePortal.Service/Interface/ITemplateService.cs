@@ -25,8 +25,12 @@ namespace InsuracePortal.Service
         bool DetTemplateQuestion(int TemplateQuestionID);
         TemplateTabQuesionModel GetTemplateQuestionByID(int QueId);
 
-        ModelQuestionsViewModel GetTemplateQuestions(string templateName);
+        ModelQuestionsViewModel GetTemplateQuestionsForQuote(int templateId);
 
         RatingViewModel GetTemplateRating(int templateId);
+
+        List<AnswersOfQuestion> GetAnswersOfQuestion(int questionId);
+
+        List<Questions> GetByTabAndSection(int tabId, string section);
     }
 }

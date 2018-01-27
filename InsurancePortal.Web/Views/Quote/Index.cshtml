@@ -8,60 +8,22 @@
 <section class='site-section grid-wrapper'>
     <div class='box progress-bar' data-module='progressbar'>
         <ol>
-            @foreach (var tab in Model.Tabs)
+            @if (Model.Tabs != null && Model.Tabs.Count > 0)
             {
-                <li class='qa-progressbar-item'>
-                    <span class='cell'>
-                        <span class='item'>
-                            @Html.LabelForModel(tab.TabText)
+                //foreach (var tab in Model.Tabs)
+                for (int i = 0; i < Model.Tabs.Count; i++)
+                {
+                    @*<li class = @(i==0) ?'current qa-progressbar-item' : 'qa-progressbar-item'>*@
+                    <li class="@(i==0 ? "current qa-progressbar-item" : (i == Model.Tabs.Count -1) ? "last qa-progressbar-item" : "qa-progressbar-item")">
+                        @*<li class='qa-progressbar-item'>*@
+                        <span class='cell'>
+                            <span class='item'>
+                                @Html.LabelForModel(Model.Tabs[i].TabText)
+                            </span>
                         </span>
-                    </span>
-                </li>
+                    </li>
+                }
             }
-
-
-            @*<li class='current qa-progressbar-item'>
-                    <span class='cell'>
-                        <span class='item'>
-                            <span>Your business</span>
-                        </span>
-                    </span>
-                </li>
-                <li class='qa-progressbar-item'>
-                    <span class='cell'>
-                        <span class='item'>
-                            <span>Your employees</span>
-                        </span>
-                    </span>
-                </li>
-                <li class='qa-progressbar-item'>
-                    <span class='cell'>
-                        <span class='item'>
-                            <span>Cover options</span>
-                        </span>
-                    </span>
-                </li>
-                <li class='qa-progressbar-item'>
-                    <span class='cell'>
-                        <span class='item'>
-                            <span>Business questions</span>
-                        </span>
-                    </span>
-                </li>
-                <li class='qa-progressbar-item'>
-                    <span class='cell'>
-                        <span class='item'>
-                            <span>Agreements</span>
-                        </span>
-                    </span>
-                </li>
-                <li class='last qa-progressbar-item'>
-                    <span class='cell'>
-                        <span class='item'>
-                            <span>Your quotes</span>
-                        </span>
-                    </span>
-                </li>*@
         </ol>
     </div>
     <form class='js-tracked' data-module='waypoint_tracker' id='simplybusiness_business_about_your_business_form' method='post'>
@@ -74,105 +36,143 @@
                 </p>
             </div>
         </div>
-        @foreach (var section in Model.Tabs.FirstOrDefault().SectionsList)
+        @if (Model.Tabs != null && Model.Tabs.Count > 0)
         {
-            <fieldset class='box js-toggleable-section' data-page-index='1' data-page-name='Your business' data-section-name='Please tell us about your business' data-track='pageset_section_changed'>
-                <div class='inner-box'>
-                    @*<h2 class='js-waypoint'>dfsaf</h2>*@
-                    <h2 class='js-waypoint'>
-                        @Html.LabelForModel(section.SectionTitle)
-                    </h2>
+            foreach (var section in Model.Tabs.FirstOrDefault().SectionsList)
+            {
+                <fieldset class='box js-toggleable-section' data-page-index='1' data-page-name='Your business' data-section-name='Please tell us about your business' data-track='pageset_section_changed'>
+                    <div class='inner-box'>
+                        @*<h2 class='js-waypoint'>dfsaf</h2>*@
+                        <h2 class='js-waypoint'>
+                            @Html.LabelForModel(section.SectionTitle)
+                        </h2>
 
-                    @foreach (var question in section.QuestionsList)
+                        @ShowQuestions(section.QuestionsList)
+
+                    </div>
+                </fieldset>
+            }
+        }
+
+        @helper ShowQuestions(List<InsurancePortal.Transport.Questions> questionList)
+            {
+                foreach (var question in questionList)
+                {
+                    var divId = question.QuestionId;
+                    switch (question.QuestionType)
                     {
-
-                        switch (question.QuestionType)
-                        {
-                            case 1://AutoComplete
-                                <div class='control-block on' data-question='primary_trade' data-trigger='refresh'>
-                                    <div class='control-text'>
-                                        @*<div class='control-label'> What is your specific business / trade?</div>*@
-                                        @Html.LabelForModel(question.QuestionTitle, new { @class = "control-label" })
-                                    </div>
-                                    <div class='state-search trade-search' data-control='trade_search' data-redirect-url='/route_trade' data-search-url='/trade_search' data-tracked-event='primary_detail_selected'>
-                                        <input class='js-trade-input' name='primary_trade' type='hidden' value=''>
-                                        <div class='control search'>
-                                            <div class='search-wrapper'>
-                                                <input class='js-search-input required' data-msg='Please select a trade to continue' id='primary_trade' name='q' placeholder='e.g. Builder, Painter and decorator, or Plumber' type='text' value=''>
-                                                <div class='results'></div>
-                                            </div>
-                                        </div>
-                                        <div class='control selected'>
-                                            You have selected
-                                            &lsquo;<span class='answer'></span>&rsquo;
-                                            as your trade.
-                                            <a class='js-change' href='#'>Change</a>
+                        case 1://AutoComplete
+                            <div class='@(question.ParentId > 0 ? "control-block on hiddenQuestion" : "control-block on")' data-question='primary_trade' data-trigger='refresh'
+                                 id=@divId data-answerid="@question.RenderOnAnswerId">
+                                <div class='control-text'>
+                                    @*<div class='control-label'> What is your specific business / trade?</div>*@
+                                    @Html.LabelForModel(question.QuestionTitle, new { @class = "control-label" })
+                                    @AddHelp(question.Tooltip);
+                                </div>
+                                <div class='state-search trade-search' data-control='trade_search' data-redirect-url='/route_trade' data-search-url='/trade_search' data-tracked-event='primary_detail_selected'>
+                                    <input class='js-trade-input' name='primary_trade' type='hidden' value=''>
+                                    <div class='control search'>
+                                        <div class='search-wrapper'>
+                                            <input class='js-search-input required' data-msg='Please select a trade to continue' id='primary_trade' name='q' placeholder='e.g. Builder, Painter and decorator, or Plumber' type='text' value=''>
+                                            <div class='results'></div>
                                         </div>
                                     </div>
-                                </div>
-                                break;
-                            case 2://TextBox
-                                <div class='control-block on'>
-                                    <div class='control-text'>
-                                        <label class="control-label" for="uk_postcode">@question.QuestionTitle</label>
-                                    </div>
-                                    <div class='control'>
-                                        @Html.TextBox(question.QuestionTitle)
+                                    <div class='control selected'>
+                                        You have selected
+                                        &lsquo;<span class='answer'></span>&rsquo;
+                                        as your trade.
+                                        <a class='js-change' href='#'>Change</a>
                                     </div>
                                 </div>
-                                break;
-                            case 3://Dropdown
-                                <div class='control-block on' data-question='business_type' data-trigger='refresh'>
-                                    <div class='control-text'>
-                                        <label class="control-label" for="business_type">@question.QuestionTitle</label>
-                                    </div>
-                                    <div class='control'>
-                                        @Html.DropDownList("answerList", question.AnswersList.Select(item => new SelectListItem
-                                        {
-                                            Value = item.AnswerId.ToString(),
-                                            Text = item.AnswerTitle
-                                        }), "Please select...", new { @class = "select-wrapper" })
-                                    </div>
+                            </div>
+                            break;
+                        case 2://TextBox
+                            <div class='@(question.ParentId > 0 ? "control-block on hiddenQuestion" : "control-block on")' id=@divId data-answerid="@question.RenderOnAnswerId">
+                                <div class='control-text'>
+                                    <label class="control-label" for="uk_postcode">@question.QuestionTitle</label>
+                                    @AddHelp(question.Tooltip);
                                 </div>
-                                break;
-                            case 4://RadioButton
-                                <div class='control-block on' data-trigger='refresh'>
-                                    @*<div class='control-block info-box on'>*@
-                                    <div class='control-text'>
-                                        <div class='control-label'>@question.QuestionTitle</div>
-                                    </div>
-                                    <div class='control'>
-                                        @foreach (var answer in question.AnswersList)
-                                        {
-                                            @Html.RadioButton("radio", answer.AnswerTitle, new { @class = "radio" })
-                                            @Html.Label(answer.AnswerTitle)<br />
-                                        }
-                                    </div>
-                                    @*</div>*@
+                                <div class='control'>
+                                    @Html.TextBox(question.QuestionTitle)
                                 </div>
-                                break;
-                            case 5://checkbox
-                                <div class='control-block on' data-trigger='refresh'>
-                                    @*<div class='control-block info-box on'>*@
-                                    <div class='control-text'>
-                                        <div class='control-label'>@question.QuestionTitle</div>
-                                    </div>
-                                    <div class='control'>
-                                        @foreach (var answer in question.AnswersList)
-                                        {
-                                            @Html.CheckBox(answer.AnswerTitle)
-                                            @Html.Label(answer.AnswerTitle)<br />
-                                        }
-                                    </div>
-                                    @*</div>*@
+                            </div>
+                            break;
+                        case 3://Dropdown
+                            <div class='@(question.ParentId > 0 ? "control-block on hiddenQuestion" : "control-block on")' data-question='business_type' data-trigger='refresh'
+                                 id=@divId data-answerid="@question.RenderOnAnswerId">
+                                <div class='control-text'>
+                                    <label class="control-label" for="business_type">@question.QuestionTitle</label>
+                                    @AddHelp(question.Tooltip);
                                 </div>
-                                break;
-                        }
+                                <div class='control'>
+                                    @Html.DropDownList("answerList", question.AnswersList.Select(item => new SelectListItem
+                                    {
+                                        Value = item.AnswerId.ToString(),
+                                        Text = item.AnswerTitle
+                                    }), "Please select...", new { @class = "select-wrapper" })
+                                </div>
+                            </div>
+                            break;
+                        case 4://RadioButton
+                            <div class='@(question.ParentId > 0 ? "control-block on hiddenQuestion" : "control-block on")' data-trigger='refresh'
+                                 id=@divId data-answerid="@question.RenderOnAnswerId">
+                                @*<div class='control-block info-box on'>*@
+                                <div class='control-text'>
+                                    <div class='control-label'>@question.QuestionTitle</div>
+                                    @AddHelp(question.Tooltip);
+                                </div>
+                                <div class='control'>
+                                    @foreach (var answer in question.AnswersList)
+                                    {
+                                        @Html.RadioButton("radio", answer.AnswerTitle, new { onchange = "RadioButtonOnChange(this)", answerId = answer.AnswerId, @class = "radio" })
+                                        @Html.Label(answer.AnswerTitle)<br />
+                                    }
+                                </div>
+                                @*</div>*@
+                            </div>
+                            break;
+                        case 5://checkbox
+                            <div class='@(question.ParentId > 0 ? "control-block on hiddenQuestion" : "control-block on")' data-trigger='refresh' id=@divId
+                                 data-answerid="@question.RenderOnAnswerId">
+                                <div class='control-text'>
+                                    <div class='control-label'>@question.QuestionTitle</div>
+                                    @AddHelp(question.Tooltip);
+                                </div>
+                                <div class='control'>
+                                    @foreach (var answer in question.AnswersList)
+                                    {
+                                        @Html.CheckBox(answer.AnswerTitle, new { onchange = "CheckBoxOnChange(this)", answerId = answer.AnswerId })
+                                        @Html.Label(answer.AnswerTitle)<br />
+                                    }
+                                </div>
+                            </div>
+                            break;
                     }
 
-                </div>
-            </fieldset>
-        }
+                    if (question.SubQuestions != null && question.SubQuestions.Count > 0)
+                    {
+                        @ShowQuestions(question.SubQuestions)
+                    }
+
+                }
+}
+
+        @helper AddHelp(string tooltip)
+            {
+                if (!string.IsNullOrEmpty(tooltip))
+                {
+                    @*<span class="help-trigger info-box-toggle">Help</span>*@
+                    <span class="help-trigger info-box-toggle">Help</span>
+                    <div class='help-text info-box-content'>
+                        <div class='help-content'>
+                            <span class='info-box-toggle'>Close help</span>
+                            <p>tooltip</p>
+                        </div>
+                    </div>
+                }
+}
+
+
         <div class='box form-actions'>
             <div class='inner-box'>
                 <input autocomplete='off' id='customer_conversion_journey' name='customer_conversion_journey' type='hidden'>
@@ -206,3 +206,38 @@
     </div>
 </section>
 
+<style>
+    .hiddenQuestion {
+        display: none;
+    }
+</style>
+<script>
+    function CheckBoxOnChange(checkBoxElement)
+    {
+        var answerId = checkBoxElement.getAttribute("answerId");
+        if(answerId > 0)
+        {
+            var isChecked =  checkBoxElement.checked;
+
+            $('div[data-answerid='+answerId+']').each(function() {
+               isChecked ? this.classList.remove("hiddenQuestion") : this.classList.add("hiddenQuestion");
+            });
+        }
+    }
+
+    
+    //function RadioButtonOnChange(radioElement)
+    //{
+    //    var answerId = radioElement.getAttribute("answerId");
+    //    if(answerId > 0)
+    //    {
+    //        $("input[name=onlyselectone]").prop("checked", false);
+
+    //        var isChecked =  radioElement.checked;
+
+    //        $('div[data-answerid='+answerId+']').each(function() {
+    //            isChecked ? this.classList.remove("hiddenQuestion") : this.classList.add("hiddenQuestion");
+    //        });
+    //    }
+    //}
+</script>

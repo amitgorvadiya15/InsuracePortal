@@ -28,14 +28,16 @@ namespace InsurancePortal.Data
     
         public virtual DbSet<Template> Templates { get; set; }
         public virtual DbSet<TemplateTab> TemplateTabs { get; set; }
-        public virtual DbSet<TemplateQue> TemplateQues { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }
+        public virtual DbSet<TemplateQue> TemplateQues { get; set; }
+        public virtual DbSet<Answer> Answers { get; set; }
 
         public async Task<bool> SaveEntitiesAsync()
         {
             await base.SaveChangesAsync();
             return true;
         }
+
     }
 }

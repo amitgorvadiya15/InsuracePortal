@@ -13,15 +13,20 @@ namespace InsuracePortal.Service
         private readonly ITemplateRepository _templateRepository;
         private readonly ITemplateTabRepository _templateTabRepository;
         private readonly ITemplateQuestionRepository _templateQuestionRepository;
+        private readonly IAnswerRepository _answerRepository;
+
+        private int ansCount = 0;
 
 
         public TemplateService(ITemplateRepository templateRepository,
             ITemplateTabRepository templateTabRepository,
-            ITemplateQuestionRepository templateQuestionRepository)
+            ITemplateQuestionRepository templateQuestionRepository,
+            IAnswerRepository answerRepository)
         {
             _templateRepository = templateRepository;
             _templateTabRepository = templateTabRepository;
             _templateQuestionRepository = templateQuestionRepository;
+            _answerRepository = answerRepository;
         }
 
         #region Template
@@ -302,32 +307,51 @@ namespace InsuracePortal.Service
         {
             try
             {
+                var tempQuestion = new TemplateQue();
+
                 if (model.TemplateQuesID > 0)
                 {
-                    var tempQuestion = _templateQuestionRepository.GetById(model.TemplateQuesID);
+                    tempQuestion = _templateQuestionRepository.GetById(model.TemplateQuesID);
 
                     tempQuestion.TemplateTabID = model.TemplateTabID;
                     tempQuestion.Question = model.Question;
                     tempQuestion.Section = model.Section;
                     tempQuestion.AnswerDetails = model.AnswerDetails;
                     tempQuestion.AnswerType = model.AnswerType;
+                    tempQuestion.ParentId = model.Parent;
+                    tempQuestion.RenderOnAnwerId = model.RenderOnAnswerId;
+                    tempQuestion.Tooltip = model.Tooltip;
                     tempQuestion.ModifiedOn = DateTime.UtcNow;
                     tempQuestion.ModifiedBy = 1;
                     _templateQuestionRepository.Update(tempQuestion);
                 }
                 else
                 {
-                    var tempQuestion = new TemplateQue();
                     tempQuestion.TemplateQuesID = model.TemplateTabID;
                     tempQuestion.TemplateTabID = model.TemplateTabID;
                     tempQuestion.Section = model.Section;
                     tempQuestion.Question = model.Question;
                     tempQuestion.AnswerDetails = model.AnswerDetails;
                     tempQuestion.AnswerType = model.AnswerType;
+                    tempQuestion.ParentId = model.Parent;
+                    tempQuestion.RenderOnAnwerId = model.RenderOnAnswerId;
+                    tempQuestion.Tooltip = model.Tooltip;
                     tempQuestion.CreatedOn = DateTime.Now;
                     tempQuestion.CreatedBy = 1;
 
                     _templateQuestionRepository.Add(tempQuestion);
+
+                    if (!string.IsNullOrWhiteSpace(model.AnswerDetails))
+                    {
+                        var answers = (from ans in model.AnswerDetails.Split(',')
+                                       select new Answer
+                                       {
+                                           AnswerText = ans,
+                                           QuestionId = tempQuestion.TemplateQuesID
+                                       }).ToList();
+
+                        _answerRepository.AddRange(answers);
+                    }
                 }
 
                 //_templateQuestionRepository.SaveChangesAsync();
@@ -351,7 +375,7 @@ namespace InsuracePortal.Service
 
         #endregion
 
-        public ModelQuestionsViewModel GetTemplateQuestions(string templateName)
+        public ModelQuestionsViewModel GetTemplateQuestionsForQuote(int templateId)
         {
             var model = new ModelQuestionsViewModel();
 
@@ -359,7 +383,7 @@ namespace InsuracePortal.Service
             //{
             var template = new Template();
 
-            template = _templateRepository.ListAll().Where(x => x.TemplateName.Trim().ToUpper().Equals(templateName.Trim().ToUpper())).FirstOrDefault();
+            template = _templateRepository.ListAll().Where(x => x.TemplateID.Equals(templateId)).FirstOrDefault();
 
             if (template != null)
             {
@@ -375,8 +399,6 @@ namespace InsuracePortal.Service
                         tab.TabText = t.TabName;
                         tab.SectionsList = new List<Sections>();
 
-                        int[] questionType = { 3, 4, 5 };
-
                         model.Tabs.Add(tab);
 
                         if (t.Sections != null)
@@ -386,21 +408,23 @@ namespace InsuracePortal.Service
                                 Sections section = new Sections();
                                 section.SectionTitle = sec;
                                 //var sectionQuestions = db.TemplateQues.Where(x => x.TemplateTabID.Equals(template.TemplateID) && x.Section.Equals(sec)).ToList();
-                                var sectionQuestions = _templateQuestionRepository.ListAll().Where(x => x.TemplateTabID.Equals(t.TemplateTabID) && x.Section.ToLower().Equals(sec.ToLower())).ToList();
-                                section.QuestionsList = (from que in sectionQuestions
-                                                         select new Questions
-                                                         {
-                                                             QuestionId = que.TemplateQuesID,
-                                                             QuestionTitle = que.Question,
-                                                             QuestionType = Convert.ToInt32(que.AnswerType),
-                                                             AnswersList = !questionType.Contains(Convert.ToInt32(que.AnswerType)) ? new List<Answers>() : (from ans in que.AnswerDetails.Split(',')
-                                                                                                                                                            select new Answers
-                                                                                                                                                            {
-                                                                                                                                                                AnswerId = 1,
-                                                                                                                                                                AnswerTitle = ans
-                                                                                                                                                            }).ToList()
+                                var sectionQuestions = _templateQuestionRepository.ListAll().Where(x => x.TemplateTabID.Equals(t.TemplateTabID)
+                                                                                                    && x.Section.ToLower().Equals(sec.ToLower())
+                                                                                                    && x.ParentId == 0
+                                                                                                    ).ToList();
 
-                                                         }).ToList();
+                                section.QuestionsList = GetQuestions(sectionQuestions);
+
+                                //if (section.QuestionsList.Count > 0)
+                                //{
+                                //    foreach (var question in section.QuestionsList)
+                                //    {
+                                //        if (Convert.ToInt32(question.ParentId) > 0)
+                                //        {
+
+                                //        }
+                                //    }
+                                //}
 
                                 tab.SectionsList.Add(section);
                             }
@@ -408,10 +432,49 @@ namespace InsuracePortal.Service
                     }
                 }
             }
+            //var sub = _templateQuestionRepository.ListAll().Where(x => x.ParentId.Equals(16)).ToList();
             //}
             return model;
         }
 
+        private List<Questions> GetQuestions(List<TemplateQue> queList)
+        {
+            int[] questionType = { 3, 4, 5 };
+
+            var questions = (from que in queList
+                             select new Questions
+                             {
+                                 QuestionId = que.TemplateQuesID,
+                                 QuestionTitle = que.Question,
+                                 QuestionType = Convert.ToInt32(que.AnswerType),
+                                 Tooltip = string.IsNullOrEmpty(que.Tooltip) ? "" : que.Tooltip,
+                                 ParentId = que.ParentId ?? 0,
+                                 RenderOnAnswerId = Convert.ToInt32(que.ParentId) > 0 ? que.RenderOnAnwerId ?? 0 : 0,
+                                 AnswersList = !questionType.Contains(Convert.ToInt32(que.AnswerType)) ? new List<AnswersOfQuestion>() : GetAnswersOfQuestion(que.TemplateQuesID),
+                                 SubQuestions = GetQuestions(_templateQuestionRepository.ListAll().Where(x => x.ParentId.Equals(que.TemplateQuesID)).ToList())
+                             }).ToList();
+
+            return questions;
+        }
+
+        public List<AnswersOfQuestion> GetAnswersOfQuestion(int questionId)
+        {
+            var answers = _answerRepository.GetByQuestion(questionId);
+
+            var answersOfQuestion = new List<AnswersOfQuestion>();
+
+            if (answers != null && answers.Count > 0)
+            {
+                answersOfQuestion = (from ans in answers
+                                     select new AnswersOfQuestion
+                                     {
+                                         AnswerId = ans.AnswerId,
+                                         AnswerTitle = ans.AnswerText,
+                                     }).ToList();
+            }
+
+            return answersOfQuestion;
+        }
 
         public RatingViewModel GetTemplateRating(int templateId)
         {
@@ -435,16 +498,42 @@ namespace InsuracePortal.Service
                                            QuestionId = que.TemplateQuesID,
                                            QuestionTitle = que.Question,
                                            QuestionType = Convert.ToInt32(que.AnswerType),
-                                           AnswersList = !questionType.Contains(Convert.ToInt32(que.AnswerType)) ? new List<Answers>() : (from ans in que.AnswerDetails.Split(',')
-                                                                                                                                          select new Answers
-                                                                                                                                          {
-                                                                                                                                              AnswerId = 1,
-                                                                                                                                              AnswerTitle = ans
-                                                                                                                                          }).ToList()
+                                           AnswersList = !questionType.Contains(Convert.ToInt32(que.AnswerType)) ? new List<AnswersOfQuestion>() : (from ans in que.AnswerDetails.Split(',')
+                                                                                                                                                    select new AnswersOfQuestion
+                                                                                                                                                    {
+                                                                                                                                                        AnswerId = 1,
+                                                                                                                                                        AnswerTitle = ans
+                                                                                                                                                    }).ToList()
 
                                        }).ToList();
             }
             return model;
+        }
+
+        public List<Questions> GetByTabAndSection(int tabId, string section)
+        {
+            var questions = new List<Questions>();
+            if (tabId > 0)
+            {
+                var tabQuestions = _templateQuestionRepository.GetByTabId(tabId);
+
+                if (tabQuestions != null && tabQuestions.Count > 0)
+                {
+                    var sectionQuestions = tabQuestions.Where(x => x.Section.ToLower().Equals(section.ToLower()));
+
+                    if (sectionQuestions != null && sectionQuestions.Count() > 0)
+                    {
+                        questions = (from que in sectionQuestions
+                                     select new Questions
+                                     {
+                                         QuestionId = que.TemplateQuesID,
+                                         QuestionTitle = que.Question
+                                     }).ToList();
+                    }
+                }
+            }
+
+            return questions;
         }
     }
 }
