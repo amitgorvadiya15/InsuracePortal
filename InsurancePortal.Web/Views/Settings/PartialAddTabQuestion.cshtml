@@ -63,6 +63,15 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12 form-group" style="float:left;">
+            @Html.LabelFor(model => model.Tooltip, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tooltip, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.ValidationMessageFor(model => model.Tooltip, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+    </div>
 </div>
     <div class="modal-footer">
         @if (@Model.TemplateQuesID > 0)

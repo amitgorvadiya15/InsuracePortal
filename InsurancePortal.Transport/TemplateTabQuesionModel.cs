@@ -15,5 +15,6 @@ namespace InsurancePortal.Transport
         public string Section { get ; set; }
         public int Parent { get; set; }
         public int RenderOnAnswerId { get; set; }
+        public string Tooltip { get; set; }
     }
 }

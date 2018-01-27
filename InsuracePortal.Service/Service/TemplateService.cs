@@ -307,28 +307,35 @@ namespace InsuracePortal.Service
         {
             try
             {
+                var tempQuestion = new TemplateQue();
+
                 if (model.TemplateQuesID > 0)
                 {
-                    var tempQuestion = _templateQuestionRepository.GetById(model.TemplateQuesID);
+                    tempQuestion = _templateQuestionRepository.GetById(model.TemplateQuesID);
 
                     tempQuestion.TemplateTabID = model.TemplateTabID;
                     tempQuestion.Question = model.Question;
                     tempQuestion.Section = model.Section;
                     tempQuestion.AnswerDetails = model.AnswerDetails;
                     tempQuestion.AnswerType = model.AnswerType;
+                    tempQuestion.ParentId = model.Parent;
+                    tempQuestion.RenderOnAnwerId = model.RenderOnAnswerId;
+                    tempQuestion.Tooltip = model.Tooltip;
                     tempQuestion.ModifiedOn = DateTime.UtcNow;
                     tempQuestion.ModifiedBy = 1;
                     _templateQuestionRepository.Update(tempQuestion);
                 }
                 else
                 {
-                    var tempQuestion = new TemplateQue();
                     tempQuestion.TemplateQuesID = model.TemplateTabID;
                     tempQuestion.TemplateTabID = model.TemplateTabID;
                     tempQuestion.Section = model.Section;
                     tempQuestion.Question = model.Question;
                     tempQuestion.AnswerDetails = model.AnswerDetails;
                     tempQuestion.AnswerType = model.AnswerType;
+                    tempQuestion.ParentId = model.Parent;
+                    tempQuestion.RenderOnAnwerId = model.RenderOnAnswerId;
+                    tempQuestion.Tooltip = model.Tooltip;
                     tempQuestion.CreatedOn = DateTime.Now;
                     tempQuestion.CreatedBy = 1;
 
@@ -408,16 +415,16 @@ namespace InsuracePortal.Service
 
                                 section.QuestionsList = GetQuestions(sectionQuestions);
 
-                                if (section.QuestionsList.Count > 0)
-                                {
-                                    foreach (var question in section.QuestionsList)
-                                    {
-                                        if (Convert.ToInt32(question.ParentId) > 0)
-                                        {
+                                //if (section.QuestionsList.Count > 0)
+                                //{
+                                //    foreach (var question in section.QuestionsList)
+                                //    {
+                                //        if (Convert.ToInt32(question.ParentId) > 0)
+                                //        {
 
-                                        }
-                                    }
-                                }
+                                //        }
+                                //    }
+                                //}
 
                                 tab.SectionsList.Add(section);
                             }
