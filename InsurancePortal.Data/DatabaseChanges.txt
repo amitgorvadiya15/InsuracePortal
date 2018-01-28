@@ -1,6 +1,6 @@
 ﻿USE [InsurancePortal]
 GO
-/****** Object:  Table [dbo].[Answer]    Script Date: 1/27/2018 10:02:21 PM ******/
+/****** Object:  Table [dbo].[Answer]    Script Date: 1/28/2018 2:11:33 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -15,7 +15,7 @@ CREATE TABLE [dbo].[Answer](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Template]    Script Date: 1/27/2018 10:02:22 PM ******/
+/****** Object:  Table [dbo].[Template]    Script Date: 1/28/2018 2:11:33 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33,7 +33,7 @@ CREATE TABLE [dbo].[Template](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TemplateQues]    Script Date: 1/27/2018 10:02:22 PM ******/
+/****** Object:  Table [dbo].[TemplateQues]    Script Date: 1/28/2018 2:11:33 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -58,7 +58,7 @@ CREATE TABLE [dbo].[TemplateQues](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TemplateTab]    Script Date: 1/27/2018 10:02:22 PM ******/
+/****** Object:  Table [dbo].[TemplateTab]    Script Date: 1/28/2018 2:11:34 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -80,7 +80,7 @@ CREATE TABLE [dbo].[TemplateTab](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 1/27/2018 10:02:22 PM ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 1/28/2018 2:11:34 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -102,7 +102,7 @@ CREATE TABLE [dbo].[Users](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UserType]    Script Date: 1/27/2018 10:02:22 PM ******/
+/****** Object:  Table [dbo].[UserType]    Script Date: 1/28/2018 2:11:34 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -138,11 +138,43 @@ INSERT [dbo].[Answer] ([AnswerId], [AnswerText], [QuestionId]) VALUES (17, N'M2'
 GO
 INSERT [dbo].[Answer] ([AnswerId], [AnswerText], [QuestionId]) VALUES (18, N'M3', 1028)
 GO
+INSERT [dbo].[Answer] ([AnswerId], [AnswerText], [QuestionId]) VALUES (19, N'Buildings & content cover', 1030)
+GO
+INSERT [dbo].[Answer] ([AnswerId], [AnswerText], [QuestionId]) VALUES (20, N'Buildings cover', 1030)
+GO
+INSERT [dbo].[Answer] ([AnswerId], [AnswerText], [QuestionId]) VALUES (21, N'Contents cover', 1030)
+GO
+INSERT [dbo].[Answer] ([AnswerId], [AnswerText], [QuestionId]) VALUES (22, N'Please enter house number.We accept only uk residence', 1032)
+GO
+INSERT [dbo].[Answer] ([AnswerId], [AnswerText], [QuestionId]) VALUES (23, N'United kingdom', 1034)
+GO
+INSERT [dbo].[Answer] ([AnswerId], [AnswerText], [QuestionId]) VALUES (24, N'Europe', 1034)
+GO
+INSERT [dbo].[Answer] ([AnswerId], [AnswerText], [QuestionId]) VALUES (25, N'USA/Canada', 1034)
+GO
+INSERT [dbo].[Answer] ([AnswerId], [AnswerText], [QuestionId]) VALUES (26, N'Caribbean', 1034)
+GO
+INSERT [dbo].[Answer] ([AnswerId], [AnswerText], [QuestionId]) VALUES (27, N'Single trip', 1035)
+GO
+INSERT [dbo].[Answer] ([AnswerId], [AnswerText], [QuestionId]) VALUES (28, N'Multiple trip', 1035)
+GO
+INSERT [dbo].[Answer] ([AnswerId], [AnswerText], [QuestionId]) VALUES (29, N'Backpacker trip', 1035)
+GO
 SET IDENTITY_INSERT [dbo].[Answer] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Template] ON 
 GO
-INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1, N'Vehicle', CAST(N'2018-01-04T23:57:07.163' AS DateTime), 1, CAST(N'2018-01-20T08:56:36.310' AS DateTime), 1)
+INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1, N'Vehicle', CAST(N'2018-01-28T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (2, N'Home', CAST(N'2018-01-28T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (3, N'Travel', CAST(N'2018-01-28T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (4, N'Public Liablility', CAST(N'2018-01-28T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (5, N'Professional indemnity', CAST(N'2018-01-28T00:00:00.000' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[Template] ([TemplateID], [TemplateName], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (6, N'Employers liability', CAST(N'2018-01-28T00:00:00.000' AS DateTime), 1, NULL, NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Template] OFF
 GO
@@ -156,6 +188,26 @@ INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Ques
 GO
 INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [Tooltip], [AnswerType], [AnswerDetails], [ParentId], [RenderOnAnwerId], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1029, 8, N'Vehicle details', N'Then please enter it here to get started:', NULL, N'2', NULL, 1026, 11, CAST(N'2018-01-27T21:37:35.803' AS DateTime), 1, NULL, NULL)
 GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [Tooltip], [AnswerType], [AnswerDetails], [ParentId], [RenderOnAnwerId], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1030, 14, N'Your Policy', N'What type of home insurance policy would you like?', N'tooltip', N'3', N'Buildings & content cover,Buildings cover,Contents cover', 0, 0, CAST(N'2018-01-28T11:44:15.103' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [Tooltip], [AnswerType], [AnswerDetails], [ParentId], [RenderOnAnwerId], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1031, 14, N'Your Policy', N'On which date would you like your cover to start?', N'Date of policy to start', N'2', NULL, 0, 0, CAST(N'2018-01-28T11:44:52.303' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [Tooltip], [AnswerType], [AnswerDetails], [ParentId], [RenderOnAnwerId], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1032, 14, N'Your Policy', N'House number or name (optional)', NULL, N'2', N'Please enter house number.We accept only uk residence', 0, 0, CAST(N'2018-01-28T11:46:16.697' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [Tooltip], [AnswerType], [AnswerDetails], [ParentId], [RenderOnAnwerId], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1033, 14, N'Your Policy', N'Postcode', N'We accept only uk post code number', N'2', NULL, 0, 0, CAST(N'2018-01-28T11:46:46.700' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [Tooltip], [AnswerType], [AnswerDetails], [ParentId], [RenderOnAnwerId], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1034, 18, N'Travel Insurance', N'Where are you going?', N'It is important to tell us about your trip', N'3', N'United kingdom,Europe,USA/Canada,Caribbean', 0, 0, CAST(N'2018-01-28T13:31:35.120' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [Tooltip], [AnswerType], [AnswerDetails], [ParentId], [RenderOnAnwerId], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1035, 18, N'Travel Insurance', N'What type of cover do you require?', NULL, N'3', N'Single trip,Multiple trip,Backpacker trip', 0, 0, CAST(N'2018-01-28T13:32:36.103' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [Tooltip], [AnswerType], [AnswerDetails], [ParentId], [RenderOnAnwerId], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1036, 18, N'Travel Insurance', N'When are you going?', NULL, N'2', NULL, 0, 0, CAST(N'2018-01-28T13:33:01.320' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [Tooltip], [AnswerType], [AnswerDetails], [ParentId], [RenderOnAnwerId], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1037, 20, N'About your business', N'What is your trade or profession?', NULL, N'2', NULL, 0, 0, CAST(N'2018-01-28T13:40:26.170' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [Tooltip], [AnswerType], [AnswerDetails], [ParentId], [RenderOnAnwerId], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1038, 20, N'About your business', N'What is the name of your business?', NULL, N'2', NULL, 0, 0, CAST(N'2018-01-28T13:41:01.907' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateQues] ([TemplateQuesID], [TemplateTabID], [Section], [Question], [Tooltip], [AnswerType], [AnswerDetails], [ParentId], [RenderOnAnwerId], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (1039, 20, N'About your business', N'What is your business postcode?', NULL, N'2', NULL, 0, 0, CAST(N'2018-01-28T13:41:24.623' AS DateTime), 1, NULL, NULL)
+GO
 SET IDENTITY_INSERT [dbo].[TemplateQues] OFF
 GO
 SET IDENTITY_INSERT [dbo].[TemplateTab] ON 
@@ -167,6 +219,27 @@ GO
 INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (10, 1, N'Your policy', NULL, NULL, NULL, CAST(N'2018-01-10T22:20:41.733' AS DateTime), 1, NULL, NULL)
 GO
 INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (11, 1, N'Your quotes', NULL, NULL, NULL, CAST(N'2018-01-10T22:20:51.290' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (14, 2, N'Your home', NULL, NULL, N'Your Policy', CAST(N'2018-01-28T06:10:00.873' AS DateTime), 1, CAST(N'2018-01-28T06:10:37.440' AS DateTime), 1)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (15, 2, N'Your belongings', NULL, NULL, NULL, CAST(N'2018-01-28T06:10:28.497' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (16, 2, N'Your Details', NULL, NULL, NULL, CAST(N'2018-01-28T06:10:55.643' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (17, 2, N'Your quotes', NULL, NULL, NULL, CAST(N'2018-01-28T06:11:10.920' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (18, 3, N'About your trip', NULL, NULL, N'Travel Insurance,Medical details,Account details,Assumption
+', CAST(N'2018-01-28T07:59:22.760' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (19, 3, N'Your quotes', NULL, NULL, NULL, CAST(N'2018-01-28T08:05:01.827' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (20, 4, N'Your Business', NULL, NULL, N'About your business,More about your business,Employees,Total annual wageroll for:,Type of work', CAST(N'2018-01-28T08:08:36.817' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (21, 4, N'Your details', NULL, NULL, NULL, CAST(N'2018-01-28T08:08:58.437' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (22, 4, N'Your policy', NULL, NULL, NULL, CAST(N'2018-01-28T08:09:05.750' AS DateTime), 1, NULL, NULL)
+GO
+INSERT [dbo].[TemplateTab] ([TemplateTabID], [TemplateID], [TabName], [TabDescription], [TabHeader], [Sections], [CreatedOn], [CreatedBy], [ModifiedOn], [ModifiedBy]) VALUES (23, 4, N'Your quotes', NULL, NULL, NULL, CAST(N'2018-01-28T08:09:15.683' AS DateTime), 1, NULL, NULL)
 GO
 SET IDENTITY_INSERT [dbo].[TemplateTab] OFF
 GO
