@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -16,5 +17,7 @@ namespace InsurancePortal.Transport
         public int Parent { get; set; }
         public int RenderOnAnswerId { get; set; }
         public string Tooltip { get; set; }
+        [DefaultValue(false)]
+        public bool IsSubQuestion { get; set; }
     }
 }

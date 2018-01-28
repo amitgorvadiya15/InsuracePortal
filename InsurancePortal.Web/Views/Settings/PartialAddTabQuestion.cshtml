@@ -7,72 +7,80 @@
 
     @Html.HiddenFor(model => model.TemplateTabID)
     @Html.HiddenFor(model => model.TemplateQuesID)
-<div class="modal-body">
-    <div class="row">
-        <div class="col-md-12 form-group" style="float:left;">
-            <label class="col-md-2 control-label">Section</label>
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Section, ViewBag.TabSections as IEnumerable<SelectListItem>, "Select section", new { @class = "form-control" })
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12 form-group" style="float:left;">
+                <label class="col-md-2 control-label">Section</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Section, ViewBag.TabSections as IEnumerable<SelectListItem>, "Select section", new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group" style="float:left;">
+                <label class="col-md-2 control-label">Is SubQuestion</label>
+                <div class="col-md-10">
+                    @Html.CheckBoxFor(model => model.IsSubQuestion, new { onchange = "IsSubQuestionChange(this)"})
+                </div>
+            </div>
+        </div>
+        <div class="row subQuestionFields hide">
+            <div class="col-md-12 form-group" style="float:left;">
+                <label class="col-md-2 control-label">Parent</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Parent, new SelectList(string.Empty, "QuestionId", "Question"), "Select Question", new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row subQuestionFields hide">
+            <div class="col-md-12 form-group" style="float:left;">
+                <label class="col-md-2 control-label">Render on answer</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.RenderOnAnswerId, new SelectList(string.Empty, "AnswerId", "AnswerText"), "Select Answer", new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group" style="float:left;">
+                @Html.LabelFor(model => model.Question, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Question, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Question, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group" style="float:left;">
+                <label class="col-md-2 control-label">Answer Type</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.AnswerType, new List<SelectListItem>{
+                                                                                    new SelectListItem{ Text="Search with selection", Value = "1" },
+                                                                                    new SelectListItem{ Text="Enter text", Value = "2" },
+                                                                                    new SelectListItem{ Text="Selection", Value = "3"},
+                                                                                    new SelectListItem{ Text="Radio button", Value = "4" },
+                                                                                    new SelectListItem{ Text="Checkbox", Value = "5"},
+                                                                   }, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group" style="float:left;">
+                <label class="col-md-2 control-label">Answer Details</label>
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.AnswerDetails, new { @class = "form-control", @Style = "min-height:120px;" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group" style="float:left;">
+                @Html.LabelFor(model => model.Tooltip, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Tooltip, new { htmlAttributes = new { @class = "form-control" } })
+                    @*@Html.ValidationMessageFor(model => model.Tooltip, "", new { @class = "text-danger" })*@
+                </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12 form-group" style="float:left;">
-            <label class="col-md-2 control-label">Parent</label>
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Parent, new SelectList(string.Empty, "QuestionId", "Question"), "Select Question", new { @class = "form-control" })
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 form-group" style="float:left;">
-            <label class="col-md-2 control-label">Render on answer</label>
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.RenderOnAnswerId, new SelectList(string.Empty, "AnswerId", "AnswerText"), "Select Answer", new { @class = "form-control" })
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 form-group" style="float:left;">
-            @Html.LabelFor(model => model.Question, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Question, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Question, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 form-group" style="float:left;">
-            <label class="col-md-2 control-label">Answer Type</label>
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.AnswerType, new List<SelectListItem>{
-                                                                        new SelectListItem{ Text="Search with selection", Value = "1" },
-                                                                        new SelectListItem{ Text="Enter text", Value = "2" },
-                                                                        new SelectListItem{ Text="Selection", Value = "3"},
-                                                                        new SelectListItem{ Text="Radio button", Value = "4" },
-                                                                        new SelectListItem{ Text="Checkbox", Value = "5"},
-                                                       }, new { @class = "form-control" })
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 form-group" style="float:left;">
-            <label class="col-md-2 control-label">Answer Details</label>
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.AnswerDetails, new { @class = "form-control", @Style = "min-height:120px;" })
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 form-group" style="float:left;">
-            @Html.LabelFor(model => model.Tooltip, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Tooltip, new { htmlAttributes = new { @class = "form-control" } })
-                @*@Html.ValidationMessageFor(model => model.Tooltip, "", new { @class = "text-danger" })*@
-            </div>
-        </div>
-    </div>
-</div>
     <div class="modal-footer">
         @if (@Model.TemplateQuesID > 0)
         {
@@ -141,6 +149,36 @@
             }
             return false;
         })
+
+        //$('#IsSubQuestion').change(function () {
+        //    alert('hello');
+        //    IsSubQuestionChange(this);
+        //});
     });
 
-</script>  
+    //$(document).ready(function () {
+    //    debugger;
+    //    $('#IsSubQuestion').change(function () {
+    //        if ($(this).is(":checked")) {
+    //            $(".subQuestionFields").each(function () {
+    //                  isChecked ? this.classList.remove("subQuestionFields") : this.classList.add("subQuestionFields");
+    //            });
+    //        }
+    //    });
+    //});
+
+    function IsSubQuestionChange(checkBoxElement) {
+        debugger
+        var isChecked = checkBoxElement.checked;
+        $(".subQuestionFields").each(function () {
+            isChecked ? this.classList.remove("hide") : this.classList.add("hide");
+        });
+    }
+
+</script>
+
+<style>
+    .hide {
+        display: none;
+    }
+</style>
