@@ -286,6 +286,10 @@ namespace InsuracePortal.Service
                         question.TemplateQuesID = templateQue.TemplateQuesID;
                         question.TemplateTabID = templateQue.TemplateTabID;
                         question.Section = templateQue.Section ?? "";
+                        question.Parent = templateQue.ParentId ?? 0;
+                        question.RenderOnAnswerId = templateQue.RenderOnAnwerId ?? 0;
+                        question.Tooltip = templateQue.Tooltip;
+                        question.IsSubQuestion = Convert.ToInt32(templateQue.ParentId) > 0 ? true : false;
                     }
                 }
                 else
@@ -513,7 +517,7 @@ namespace InsuracePortal.Service
         public List<Questions> GetByTabAndSection(int tabId, string section)
         {
             var questions = new List<Questions>();
-            if (tabId > 0)
+            if (tabId > 0 && !string.IsNullOrEmpty(section))
             {
                 var tabQuestions = _templateQuestionRepository.GetByTabId(tabId);
 
@@ -524,6 +528,7 @@ namespace InsuracePortal.Service
                     if (sectionQuestions != null && sectionQuestions.Count() > 0)
                     {
                         questions = (from que in sectionQuestions
+                                     where Convert.ToInt32(que.ParentId) == 0
                                      select new Questions
                                      {
                                          QuestionId = que.TemplateQuesID,
